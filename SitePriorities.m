@@ -48,6 +48,7 @@
 	return YES;
 }
 
+//Test
 -(id) init
 {
     self = [super init];
