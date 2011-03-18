@@ -7,6 +7,7 @@
 build/*
 
 *.xcodeproj/project.xcworkspace/*
+*/*.xcodeproj/project.xcworkspace/*
 
 .svn
 .DS_Store
