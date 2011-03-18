@@ -17,7 +17,8 @@
 @synthesize bulkDownloaderOpened;
 
 -(Bulk *) init {
-	if (self = [super init]) {
+    self = [super init];
+	if (self) {
 		bulkDownloaderOpened = NO;
 		return self;
 	}
