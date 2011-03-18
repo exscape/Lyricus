@@ -1,0 +1,1666 @@
+TLyricreader
+v7
+r0
+t321804360.883335
+cCheck dependencies
+cProcessInfoPlistFile /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Info.plist Info.plist
+cCopyStringsFile /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCpResource build/Release/Lyricus.app/Contents/Resources/search.png search.png
+cStripNIB /Users/serenity/Programming/Work/Lyricus/Bulk.nib
+cCpResource build/Release/Lyricus.app/Contents/Resources/bulk.png bulk.png
+cCpResource build/Release/Lyricus.app/Contents/Resources/icon.icns icon.icns
+cCompileXIB /Users/serenity/Programming/Work/Lyricus/English.lproj/MainMenu.xib
+cProcessPCH /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch.gch Lyricreader_Prefix.pch normal i386 objective-c com.apple.compilers.llvmgcc42
+cProcessPCH /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch.gch Lyricreader_Prefix.pch normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o /Users/serenity/Programming/Work/Lyricus/main.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o /Users/serenity/Programming/Work/Lyricus/TBUtil.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o /Users/serenity/Programming/Work/Lyricus/SitePriorities.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o /Users/serenity/Programming/Work/Lyricus/LyricController.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o /Users/serenity/Programming/Work/Lyricus/Bulk.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m normal i386 objective-c com.apple.compilers.llvmgcc42
+cLd /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus normal i386
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/main.o /Users/serenity/Programming/Work/Lyricus/main.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricreaderController.o /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBDarklyrics.o /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBUtil.o /Users/serenity/Programming/Work/Lyricus/TBUtil.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBSongmeanings.o /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSString+ExscapeEdits.o /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/SitePriorities.o /Users/serenity/Programming/Work/Lyricus/SitePriorities.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBLyricwiki.o /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricController.o /Users/serenity/Programming/Work/Lyricus/LyricController.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+AppendString.o /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Bulk.o /Users/serenity/Programming/Work/Lyricus/Bulk.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+ExscapeFontFix.o /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSProgressIndicator+ThreadSafeUpdating.o /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/iTunesHelper.o /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m normal ppc objective-c com.apple.compilers.llvmgcc42
+cLd /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus normal ppc
+cCreateUniversalBinary /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/MacOS/Lyricus normal "i386 ppc"
+cPBXCp build/Release/Lyricus.app/Contents/Frameworks/RegexKit.framework Frameworks/RegexKit.framework
+cPBXCp build/Release/Lyricus.app/Contents/Frameworks/Sparkle.framework Frameworks/Sparkle.framework
+cTouch /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004D53E65D000000000000A5E0
+t1297344093
+s42464
+
+N/System/Library/Frameworks/ScriptingBridge.framework/ScriptingBridge
+c000000004D53E6C70000000000079800
+t1297344199
+s497664
+
+N/Users/serenity/Programming/Work/Lyricus/Bulk.h
+c000000004D7CFCCB00000000000002D8
+t1300036811
+s728
+i<Cocoa/Cocoa.h>
+i"LyricController.h"
+i"iTunesHelper.h"
+
+N/Users/serenity/Programming/Work/Lyricus/Bulk.m
+c000000004D78CDF40000000000002126
+t1299762676
+s8486
+i"Bulk.h"
+i"NSTextView+AppendString.h"
+i"NSProgressIndicator+ThreadSafeUpdating.h"
+
+N/Users/serenity/Programming/Work/Lyricus/Bulk.nib
+c000000004D78CDF400000000000000AA
+t1299762676
+s170
+
+N/Users/serenity/Programming/Work/Lyricus/English.lproj/InfoPlist.strings
+c000000004D78CDF400000000000000F2
+t1299762676
+s242
+
+N/Users/serenity/Programming/Work/Lyricus/English.lproj/MainMenu.xib
+c000000004D78CDF4000000000003B01C
+t1299762676
+s241692
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework
+c000000004D78CDF400000000000000EE
+t1299762676
+s238
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/NSArray.h
+c000000004D78CDF40000000000000B02
+t1299762676
+s2818
+i<Foundation/Foundation.h>
+i<RegexKit/RegexKit.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/NSData.h
+c000000004D78CDF4000000000000093C
+t1299762676
+s2364
+i<Foundation/Foundation.h>
+i<RegexKit/RegexKit.h>
+i<stdarg.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/NSDictionary.h
+c000000004D78CDF40000000000000A79
+t1299762676
+s2681
+i<Foundation/Foundation.h>
+i<RegexKit/RegexKit.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/NSObject.h
+c000000004D78CDF40000000000000B92
+t1299762676
+s2962
+i<Foundation/Foundation.h>
+i<RegexKit/RegexKit.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/NSSet.h
+c000000004D78CDF40000000000000923
+t1299762676
+s2339
+i<Foundation/Foundation.h>
+i<RegexKit/RegexKit.h>
+i<stdarg.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/NSString.h
+c000000004D78CDF40000000000001A84
+t1299762676
+s6788
+i<Foundation/Foundation.h>
+i<RegexKit/RegexKit.h>
+i<stdarg.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKCache.h
+c000000004D78CDF40000000000000F03
+t1299762676
+s3843
+i<Foundation/Foundation.h>
+i<RegexKit/RegexKitDefines.h>
+i<RegexKit/RegexKitTypes.h>
+i<dlfcn.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKEnumerator.h
+c000000004D78CDF40000000000000E2D
+t1299762676
+s3629
+i<Foundation/Foundation.h>
+i<RegexKit/RKRegex.h>
+i<stdarg.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h
+c000000004D78CDF4000000000000160F
+t1299762676
+s5647
+i<RegexKit/RegexKitDefines.h>
+i<RegexKit/RegexKitTypes.h>
+i<RegexKit/RegexKit.h>
+i<RegexKit/pcre.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKUtility.h
+c000000004D78CDF40000000000000A2D
+t1299762676
+s2605
+i<Foundation/Foundation.h>
+i<RegexKit/RegexKitDefines.h>
+i<RegexKit/RegexKitTypes.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h
+c000000004D78CDF40000000000000A7E
+t1299762676
+s2686
+i<RegexKit/RegexKitDefines.h>
+i<RegexKit/RegexKitTypes.h>
+i<Cocoa/Cocoa.h>
+i<Foundation/Foundation.h>
+i<AppKit/AppKit.h>
+i<RegexKit/pcre.h>
+i<RegexKit/RKCache.h>
+i<RegexKit/RKRegex.h>
+i<RegexKit/RKEnumerator.h>
+i<RegexKit/RKUtility.h>
+i<RegexKit/NSArray.h>
+i<RegexKit/NSData.h>
+i<RegexKit/NSDictionary.h>
+i<RegexKit/NSObject.h>
+i<RegexKit/NSSet.h>
+i<RegexKit/NSString.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKitDefines.h
+c000000004D78CDF400000000000016DB
+t1299762676
+s5851
+i<mach-o/loader.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKitTypes.h
+c000000004D78CDF40000000000002607
+t1299762676
+s9735
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/pcre.h
+c000000004D78CDF40000000000003096
+t1299762676
+s12438
+i<stdlib.h>
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/RegexKit
+c000000004D78CDF40000000000173048
+t1299762676
+s1519688
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/Sparkle.framework
+c000000004D78CDF400000000000000EE
+t1299762676
+s238
+
+N/Users/serenity/Programming/Work/Lyricus/Frameworks/Sparkle.framework/Sparkle
+c000000004D78CDF60000000000085F60
+t1299762678
+s548704
+
+N/Users/serenity/Programming/Work/Lyricus/LyricController.h
+c000000004D78CDF60000000000000212
+t1299762678
+s530
+i<Cocoa/Cocoa.h>
+i"SitePriorities.h"
+i"TBSongmeanings.h"
+i"TBDarklyrics.h"
+
+N/Users/serenity/Programming/Work/Lyricus/LyricController.m
+c000000004D78CDF60000000000000B3B
+t1299762678
+s2875
+i"LyricController.h"
+
+N/Users/serenity/Programming/Work/Lyricus/LyricreaderController.h
+c000000004D7CFC680000000000000975
+t1300036712
+s2421
+i<Cocoa/Cocoa.h>
+i<RegexKit/RegexKit.h>
+i"NSString+ExscapeEdits.h"
+i"NSTextView+ExscapeFontFix.h"
+i"SitePriorities.h"
+i"LyricController.h"
+i"Bulk.h"
+
+N/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m
+c000000004D7D039A0000000000005BF9
+t1300038554
+s23545
+i"LyricreaderController.h"
+
+N/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch
+c000000004D78CDF60000000000000362
+t1299762678
+s866
+i<Cocoa/Cocoa.h>
+i<RegexKit/RegexKit.h>
+i"TBUtil.h"
+i"iTunes.h"
+i"NSString+ExscapeEdits.h"
+
+N/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.h
+c000000004D78CDF60000000000000179
+t1299762678
+s377
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m
+c000000004D78CDF60000000000000311
+t1299762678
+s785
+i"NSProgressIndicator+ThreadSafeUpdating.h"
+
+N/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.h
+c000000004D78CDF600000000000004F5
+t1299762678
+s1269
+i<Cocoa/Cocoa.h>
+i<Foundation/NSString.h>
+
+N/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m
+c000000004D78CDF6000000000000099F
+t1299762678
+s2463
+i"NSString+ExscapeEdits.h"
+i<RegexKit/RegexKit.h>
+
+N/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.h
+c000000004D78CDF600000000000000EF
+t1299762678
+s239
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m
+c000000004D78CDF60000000000000264
+t1299762678
+s612
+i"NSTextView+AppendString.h"
+
+N/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.h
+c000000004D78CDF600000000000000E3
+t1299762678
+s227
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m
+c000000004D78CDF60000000000000217
+t1299762678
+s535
+
+N/Users/serenity/Programming/Work/Lyricus/SitePriorities.h
+c000000004D78CDF600000000000000FC
+t1299762678
+s252
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/SitePriorities.m
+c000000004D7CFB99000000000000129B
+t1300036505
+s4763
+i"SitePriorities.h"
+i<RegexKit/RegexKit.h>
+
+N/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.h
+c000000004D78CDF6000000000000028C
+t1299762678
+s652
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m
+c000000004D78CDF600000000000013F1
+t1299762678
+s5105
+i"TBDarklyrics.h"
+i"NSString+ExscapeEdits.h"
+
+N/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.h
+c000000004D78CDF6000000000000017F
+t1299762678
+s383
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m
+c000000004D78CDF60000000000000C06
+t1299762678
+s3078
+i"TBLyricwiki.h"
+i"NSString+ExscapeEdits.h"
+
+N/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.h
+c000000004D78CDF60000000000000225
+t1299762678
+s549
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m
+c000000004D78CDF600000000000014D0
+t1299762678
+s5328
+i"TBSongmeanings.h"
+i"NSString+ExscapeEdits.h"
+
+N/Users/serenity/Programming/Work/Lyricus/TBUtil.h
+c000000004D78CDF600000000000001D2
+t1299762678
+s466
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/TBUtil.m
+c000000004D78CDF600000000000006EB
+t1299762678
+s1771
+i"TBUtil.h"
+i"NSString+ExscapeEdits.h"
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o
+t1300111559
+s43592
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o
+t1300111559
+s11092
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o
+t1300111559
+s86720
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus
+t1300111559
+s88232
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus.LinkFileList
+c000000004D7DD6960000000000000718
+t1300092566
+s1816
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o
+t1300111559
+s11520
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o
+t1300111558
+s9168
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o
+t1300111559
+s10040
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o
+t1300111559
+s11012
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o
+t1300111558
+s25404
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o
+t1300111558
+s15356
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o
+t1300111558
+s228
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o
+t1300111558
+s16976
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o
+t1300111558
+s7304
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o
+t1300111559
+s22136
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o
+t1300111558
+s3088
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Bulk.o
+t1300111559
+s47916
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricController.o
+t1300111559
+s12508
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricreaderController.o
+t1300111559
+s98276
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus
+t1300111559
+s96336
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus.LinkFileList
+c000000004D7DD696000000000000070A
+t1300092566
+s1802
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSProgressIndicator+ThreadSafeUpdating.o
+t1300111559
+s12160
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSString+ExscapeEdits.o
+t1300111559
+s11272
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+AppendString.o
+t1300111559
+s10456
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+ExscapeFontFix.o
+t1300111559
+s11532
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/SitePriorities.o
+t1300111559
+s28032
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBDarklyrics.o
+t1300111559
+s17936
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBLyricwiki.o
+t1300111559
+s364
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBSongmeanings.o
+t1300111559
+s20700
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBUtil.o
+t1300111559
+s8436
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/iTunesHelper.o
+t1300111559
+s25608
+
+N/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/main.o
+t1300111559
+s3548
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app
+t1300111559
+s102
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Frameworks/RegexKit.framework
+t1300092570
+s204
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Frameworks/Sparkle.framework
+t1300092570
+s204
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Info.plist
+t1300111558
+s897
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/MacOS/Lyricus
+t1300111559
+s190544
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/PkgInfo
+t1300111558
+s8
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/Bulk.nib
+t1300092566
+s10009
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/English.lproj/InfoPlist.strings
+t1300092566
+s242
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/English.lproj/MainMenu.nib
+t1300092567
+s47632
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/bulk.png
+t1300092566
+s6466
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/icon.icns
+t1300092566
+s26525
+
+N/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/search.png
+t1300092566
+s8005
+
+N/Users/serenity/Programming/Work/Lyricus/bulk.png
+c000000004D78CDF40000000000001942
+t1299762676
+s6466
+
+N/Users/serenity/Programming/Work/Lyricus/iTunes.h
+c000000004D78CDF60000000000005351
+t1299762678
+s21329
+i<AppKit/AppKit.h>
+i<ScriptingBridge/ScriptingBridge.h>
+
+N/Users/serenity/Programming/Work/Lyricus/iTunesHelper.h
+c000000004D78CDF600000000000002FA
+t1299762678
+s762
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m
+c000000004D7D018000000000000015ED
+t1300038016
+s5613
+i"iTunesHelper.h"
+
+N/Users/serenity/Programming/Work/Lyricus/icon.icns
+c000000004D78CDF6000000000000679D
+t1299762678
+s26525
+
+N/Users/serenity/Programming/Work/Lyricus/main.m
+c000000004D78CDF60000000000000150
+t1299762678
+s336
+i<Cocoa/Cocoa.h>
+
+N/Users/serenity/Programming/Work/Lyricus/search.png
+c000000004D78CDF60000000000001F45
+t1299762678
+s8005
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk
+c000000004CAA740B00000000000000EE
+t1286239243
+s238
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKit.h
+c000000004C23BD2900000000000017ED
+t1277410601
+s6125
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004C23AA0400000000000013E6
+t1277405700
+s5094
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h
+c000000004C23AA060000000000005F75
+t1277405702
+s24437
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ScriptingBridge.framework/Headers/ScriptingBridge.h
+c000000004C23C5F800000000000000C9
+t1277412856
+s201
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/usr/include/dlfcn.h
+c000000004C74B5950000000000000B1C
+t1282717077
+s2844
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/usr/include/mach-o/loader.h
+c000000004C74B58F000000000000EFD9
+t1282717071
+s61401
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/usr/include/stdarg.h
+c000000004BBD2CE900000000000000EA
+t1270689001
+s234
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004BBD2CE90000000000002DF5
+t1270689001
+s11765
+
+N/Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk/usr/lib/gcc/powerpc-apple-darwin10/4.2.1/include/stdarg.h
+c000000004A11EB3D00000000000010DD
+t1242688317
+s4317
+
+N/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch.gch
+t1300092569
+s40036656
+
+N/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch.gch
+t1300111322
+s54090032
+
+N/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ehrvbobpedrgfdbbfdgcolvefpjf/Lyricreader_Prefix.pch.pth
+t2
+s0
+
+N/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch.gch
+t1300111321
+s56838672
+
+N/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch.gch
+t1300092569
+s42277456
+
+NInfo.plist
+c000000004D78CDF60000000000000394
+t1299762678
+s916
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies321804360#321804360#0(0"0(0#1#0"8602164544#0"0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o /Users/serenity/Programming/Work/Lyricus/Bulk.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.316566
+e321804122.723122
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o
+x/Users/serenity/Programming/Work/Lyricus/Bulk.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/serenity/Programming/Work/Lyricus/Bulk.m321804122#321804122#0(0"0(0#0#47"/Users/serenity/Programming/Work/Lyricus/Bulk.m8607672320#1232"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/Bulk.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o /Users/serenity/Programming/Work/Lyricus/Bulk.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o /Users/serenity/Programming/Work/Lyricus/Bulk.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.955834
+e321804359.155078
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o
+x/Users/serenity/Programming/Work/Lyricus/Bulk.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@55"Compile /Users/serenity/Programming/Work/Lyricus/Bulk.m321804358#321804359#0(0"0(0#0#47"/Users/serenity/Programming/Work/Lyricus/Bulk.m8604858048#1291"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/Bulk.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Bulk.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o /Users/serenity/Programming/Work/Lyricus/LyricController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.232924
+e321804122.419289
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o
+x/Users/serenity/Programming/Work/Lyricus/LyricController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Users/serenity/Programming/Work/Lyricus/LyricController.m321804122#321804122#0(0"0(0#0#58"/Users/serenity/Programming/Work/Lyricus/LyricController.m8607845184#1254"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/LyricController.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o /Users/serenity/Programming/Work/Lyricus/LyricController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o /Users/serenity/Programming/Work/Lyricus/LyricController.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.948605
+e321804359.092332
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o
+x/Users/serenity/Programming/Work/Lyricus/LyricController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@66"Compile /Users/serenity/Programming/Work/Lyricus/LyricController.m321804358#321804359#0(0"0(0#0#58"/Users/serenity/Programming/Work/Lyricus/LyricController.m7163382547604270080#1313"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/LyricController.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricController.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.094217
+e321804122.912318
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o
+x/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m:72:47: warning: universal character names are only valid in C++ and C99
+lSLF07#2@72"Compile /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m321804122#321804122#0(137"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m:72:47: warning: universal character names are only valid in C++ and C991(22@55"Universal character names are only valid in C++ and C99321804122#0#137#0(6@64"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m321731354#72#0#72#0#0"0(0#0#64"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m8609535968#1266"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.567956
+e321804359.151038
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o
+x/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+o/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m:72:47: warning: universal character names are only valid in C++ and C99
+lSLF07#2@72"Compile /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m321804358#321804359#0(137"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m:72:47: warning: universal character names are only valid in C++ and C991(22@55"Universal character names are only valid in C++ and C99321804358#0#137#0(6@64"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m321731354#72#0#72#0#0"0(0#0#64"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m8604197888#1325"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/LyricreaderController.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.364543
+e321804122.504179
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o
+x/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@89"Compile /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m321804122#321804122#0(0"0(0#0#81"/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m8600616288#1300"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.975339
+e321804359.091163
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o
+x/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@89"Compile /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m321804358#321804359#0(0"0(0#0#81"/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m8604317728#1359"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSProgressIndicator+ThreadSafeUpdating.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.096628
+e321804122.339133
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o
+x/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m321804122#321804122#0(0"0(0#0#64"/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m8606073504#1266"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.570327
+e321804358.966571
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o
+x/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@72"Compile /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m321804358#321804358#0(0"0(0#0#64"/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m8600386400#1325"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSString+ExscapeEdits.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.297180
+e321804122.430705
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o
+x/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@74"Compile /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m321804122#321804122#0(0"0(0#0#66"/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m8607756896#1270"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.949866
+e321804359.067676
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o
+x/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@74"Compile /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m321804358#321804359#0(0"0(0#0#66"/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m8600956608#1329"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+AppendString.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.339253
+e321804122.468359
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o
+x/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@76"Compile /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m321804122#321804122#0(0"0(0#0#68"/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m8607521664#1274"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.966685
+e321804359.079990
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o
+x/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@76"Compile /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m321804358#321804359#0(0"0(0#0#68"/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m8604555168#1333"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/NSTextView+ExscapeFontFix.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o /Users/serenity/Programming/Work/Lyricus/SitePriorities.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.097286
+e321804122.380201
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o
+x/Users/serenity/Programming/Work/Lyricus/SitePriorities.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@65"Compile /Users/serenity/Programming/Work/Lyricus/SitePriorities.m321804122#321804122#0(0"0(0#0#57"/Users/serenity/Programming/Work/Lyricus/SitePriorities.m8601067776#1252"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/SitePriorities.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o /Users/serenity/Programming/Work/Lyricus/SitePriorities.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o /Users/serenity/Programming/Work/Lyricus/SitePriorities.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.571215
+e321804358.981890
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o
+x/Users/serenity/Programming/Work/Lyricus/SitePriorities.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@65"Compile /Users/serenity/Programming/Work/Lyricus/SitePriorities.m321804358#321804358#0(0"0(0#0#57"/Users/serenity/Programming/Work/Lyricus/SitePriorities.m8604139712#1311"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/SitePriorities.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/SitePriorities.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.094735
+e321804122.364431
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o
+x/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m321804122#321804122#0(0"0(0#0#55"/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m8609021472#1248"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.568467
+e321804358.975233
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o
+x/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@63"Compile /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m321804358#321804358#0(0"0(0#0#55"/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m8604081920#1307"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBDarklyrics.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.098062
+e321804122.232811
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o
+x/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@62"Compile /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m321804122#321804122#0(0"0(0#0#54"/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m8608958944#1246"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.572063
+e321804358.948442
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o
+x/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@62"Compile /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m321804358#321804358#0(0"0(0#0#54"/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m8600701920#1305"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBLyricwiki.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.095895
+e321804122.408028
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o
+x/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@65"Compile /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m321804122#321804122#0(0"0(0#0#57"/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m8606968448#1252"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.569500
+e321804358.981672
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o
+x/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@65"Compile /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m321804358#321804358#0(0"0(0#0#57"/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m8602230688#1311"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBSongmeanings.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o /Users/serenity/Programming/Work/Lyricus/TBUtil.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.095259
+e321804122.316452
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o
+x/Users/serenity/Programming/Work/Lyricus/TBUtil.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@57"Compile /Users/serenity/Programming/Work/Lyricus/TBUtil.m321804122#321804122#0(0"0(0#0#49"/Users/serenity/Programming/Work/Lyricus/TBUtil.m8608223872#1236"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBUtil.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o /Users/serenity/Programming/Work/Lyricus/TBUtil.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o /Users/serenity/Programming/Work/Lyricus/TBUtil.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.568971
+e321804358.955713
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o
+x/Users/serenity/Programming/Work/Lyricus/TBUtil.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@57"Compile /Users/serenity/Programming/Work/Lyricus/TBUtil.m321804358#321804358#0(0"0(0#0#49"/Users/serenity/Programming/Work/Lyricus/TBUtil.m8603834432#1295"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBUtil.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/TBUtil.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.380317
+e321804122.774744
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o
+x/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m321804122#321804122#0(0"0(0#0#55"/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m8608423008#1248"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.981997
+e321804359.172044
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o
+x/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@63"Compile /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m321804358#321804359#0(0"0(0#0#55"/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m8603672640#1307"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/iTunesHelper.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o /Users/serenity/Programming/Work/Lyricus/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804122.093561
+e321804122.297067
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o
+x/Users/serenity/Programming/Work/Lyricus/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/serenity/Programming/Work/Lyricus/main.m321804122#321804122#0(0"0(0#0#47"/Users/serenity/Programming/Work/Lyricus/main.m8606293728#1232"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/main.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o /Users/serenity/Programming/Work/Lyricus/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o /Users/serenity/Programming/Work/Lyricus/main.m normal i386 objective-c com.apple.compilers.llvmgcc42
+s321804358.567282
+e321804358.949767
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o
+x/Users/serenity/Programming/Work/Lyricus/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@55"Compile /Users/serenity/Programming/Work/Lyricus/main.m321804358#321804358#0(0"0(0#0#47"/Users/serenity/Programming/Work/Lyricus/main.m8604285632#1291"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/main.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/main.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Bulk.o /Users/serenity/Programming/Work/Lyricus/Bulk.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.745841
+e321804123.079335
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Bulk.o
+x/Users/serenity/Programming/Work/Lyricus/Bulk.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/serenity/Programming/Work/Lyricus/Bulk.m321804122#321804123#0(0"0(0#0#47"/Users/serenity/Programming/Work/Lyricus/Bulk.m8608489760#1239"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/Bulk.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Bulk.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Bulk.o /Users/serenity/Programming/Work/Lyricus/Bulk.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.460596
+e321804359.659381
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Bulk.o
+x/Users/serenity/Programming/Work/Lyricus/Bulk.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@55"Compile /Users/serenity/Programming/Work/Lyricus/Bulk.m321804359#321804359#0(0"0(0#0#47"/Users/serenity/Programming/Work/Lyricus/Bulk.m8600383392#1298"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/Bulk.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Bulk.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricController.o /Users/serenity/Programming/Work/Lyricus/LyricController.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.723224
+e321804122.934331
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricController.o
+x/Users/serenity/Programming/Work/Lyricus/LyricController.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Users/serenity/Programming/Work/Lyricus/LyricController.m321804122#321804122#0(0"0(0#0#58"/Users/serenity/Programming/Work/Lyricus/LyricController.m8607518368#1261"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/LyricController.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricController.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricController.o /Users/serenity/Programming/Work/Lyricus/LyricController.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.445954
+e321804359.588296
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricController.o
+x/Users/serenity/Programming/Work/Lyricus/LyricController.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@66"Compile /Users/serenity/Programming/Work/Lyricus/LyricController.m321804359#321804359#0(0"0(0#0#58"/Users/serenity/Programming/Work/Lyricus/LyricController.m8604724064#1320"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/LyricController.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricController.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricreaderController.o /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.419421
+e321804123.116566
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricreaderController.o
+x/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m:72:47: warning: universal character names are only valid in C++ and C99
+lSLF07#2@72"Compile /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m321804122#321804123#0(137"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m:72:47: warning: universal character names are only valid in C++ and C991(22@55"Universal character names are only valid in C++ and C99321804122#0#137#0(6@64"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m321731354#72#0#72#0#0"0(0#0#64"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m8607919040#1273"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricreaderController.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricreaderController.o /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.067804
+e321804359.685035
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricreaderController.o
+x/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+o/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m:72:47: warning: universal character names are only valid in C++ and C99
+lSLF07#2@72"Compile /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m321804359#321804359#0(137"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m:72:47: warning: universal character names are only valid in C++ and C991(22@55"Universal character names are only valid in C++ and C99321804359#0#137#0(6@64"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m321731354#72#0#72#0#0"0(0#0#64"/Users/serenity/Programming/Work/Lyricus/LyricreaderController.m8601036416#1332"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/LyricreaderController.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/LyricreaderController.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSProgressIndicator+ThreadSafeUpdating.o /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.774868
+e321804122.913467
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSProgressIndicator+ThreadSafeUpdating.o
+x/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@89"Compile /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m321804122#321804122#0(0"0(0#0#81"/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m8607978080#1307"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSProgressIndicator+ThreadSafeUpdating.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSProgressIndicator+ThreadSafeUpdating.o /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.486966
+e321804359.596265
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSProgressIndicator+ThreadSafeUpdating.o
+x/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@89"Compile /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m321804359#321804359#0(0"0(0#0#81"/Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m8603900416#1366"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSProgressIndicator+ThreadSafeUpdating.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSProgressIndicator+ThreadSafeUpdating.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSString+ExscapeEdits.o /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.579123
+e321804122.757529
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSString+ExscapeEdits.o
+x/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m321804122#321804122#0(0"0(0#0#64"/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m8608414976#1273"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSString+ExscapeEdits.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSString+ExscapeEdits.o /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.151113
+e321804359.471910
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSString+ExscapeEdits.o
+x/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@72"Compile /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m321804359#321804359#0(0"0(0#0#64"/Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m8605146560#1332"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSString+ExscapeEdits.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSString+ExscapeEdits.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+AppendString.o /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.743164
+e321804122.881142
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+AppendString.o
+x/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@74"Compile /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m321804122#321804122#0(0"0(0#0#66"/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m8609065184#1277"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+AppendString.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+AppendString.o /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.448471
+e321804359.560633
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+AppendString.o
+x/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@74"Compile /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m321804359#321804359#0(0"0(0#0#66"/Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m8601330400#1336"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSTextView+AppendString.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+AppendString.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+ExscapeFontFix.o /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.757654
+e321804122.897431
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+ExscapeFontFix.o
+x/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@76"Compile /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m321804122#321804122#0(0"0(0#0#68"/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m8608319776#1281"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+ExscapeFontFix.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+ExscapeFontFix.o /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.472026
+e321804359.579280
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+ExscapeFontFix.o
+x/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@76"Compile /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m321804359#321804359#0(0"0(0#0#68"/Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m8599233952#1340"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/NSTextView+ExscapeFontFix.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/NSTextView+ExscapeFontFix.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/SitePriorities.o /Users/serenity/Programming/Work/Lyricus/SitePriorities.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.608348
+e321804122.836442
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/SitePriorities.o
+x/Users/serenity/Programming/Work/Lyricus/SitePriorities.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@65"Compile /Users/serenity/Programming/Work/Lyricus/SitePriorities.m321804122#321804122#0(0"0(0#0#57"/Users/serenity/Programming/Work/Lyricus/SitePriorities.m8608300064#1259"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/SitePriorities.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/SitePriorities.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/SitePriorities.o /Users/serenity/Programming/Work/Lyricus/SitePriorities.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.155201
+e321804359.495206
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/SitePriorities.o
+x/Users/serenity/Programming/Work/Lyricus/SitePriorities.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@65"Compile /Users/serenity/Programming/Work/Lyricus/SitePriorities.m321804359#321804359#0(0"0(0#0#57"/Users/serenity/Programming/Work/Lyricus/SitePriorities.m8604844352#1318"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/SitePriorities.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/SitePriorities.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBDarklyrics.o /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.430832
+e321804122.640352
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBDarklyrics.o
+x/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m321804122#321804122#0(0"0(0#0#55"/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m8607870048#1255"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBDarklyrics.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBDarklyrics.o /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.080114
+e321804359.486842
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBDarklyrics.o
+x/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@63"Compile /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m321804359#321804359#0(0"0(0#0#55"/Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m8604432896#1314"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBDarklyrics.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBDarklyrics.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBLyricwiki.o /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.640472
+e321804122.743049
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBLyricwiki.o
+x/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@62"Compile /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m321804122#321804122#0(0"0(0#0#54"/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m8607918272#1253"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBLyricwiki.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBLyricwiki.o /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.233686
+e321804359.445828
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBLyricwiki.o
+x/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@62"Compile /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m321804359#321804359#0(0"0(0#0#54"/Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m8604721472#1312"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBLyricwiki.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBLyricwiki.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBSongmeanings.o /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.504304
+e321804122.745725
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBSongmeanings.o
+x/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@65"Compile /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m321804122#321804122#0(0"0(0#0#57"/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m8607386272#1259"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBSongmeanings.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBSongmeanings.o /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.092431
+e321804359.497729
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBSongmeanings.o
+x/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@65"Compile /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m321804359#321804359#0(0"0(0#0#57"/Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m8604467136#1318"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBSongmeanings.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBSongmeanings.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBUtil.o /Users/serenity/Programming/Work/Lyricus/TBUtil.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.468480
+e321804122.608225
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBUtil.o
+x/Users/serenity/Programming/Work/Lyricus/TBUtil.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@57"Compile /Users/serenity/Programming/Work/Lyricus/TBUtil.m321804122#321804122#0(0"0(0#0#49"/Users/serenity/Programming/Work/Lyricus/TBUtil.m8607735008#1243"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBUtil.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBUtil.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBUtil.o /Users/serenity/Programming/Work/Lyricus/TBUtil.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.091251
+e321804359.460491
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBUtil.o
+x/Users/serenity/Programming/Work/Lyricus/TBUtil.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@57"Compile /Users/serenity/Programming/Work/Lyricus/TBUtil.m321804359#321804359#0(0"0(0#0#49"/Users/serenity/Programming/Work/Lyricus/TBUtil.m8604669920#1302"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/TBUtil.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/TBUtil.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/iTunesHelper.o /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.836582
+e321804123.112892
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/iTunesHelper.o
+x/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m321804122#321804123#0(0"0(0#0#55"/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m8606863104#1255"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/iTunesHelper.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/iTunesHelper.o /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804359.495341
+e321804359.663305
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/iTunesHelper.o
+x/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@63"Compile /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m321804359#321804359#0(0"0(0#0#55"/Users/serenity/Programming/Work/Lyricus/iTunesHelper.m8602271520#1314"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/iTunesHelper.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/iTunesHelper.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/main.o /Users/serenity/Programming/Work/Lyricus/main.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804122.408158
+e321804122.579013
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/main.o
+x/Users/serenity/Programming/Work/Lyricus/main.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@55"Compile /Users/serenity/Programming/Work/Lyricus/main.m321804122#321804122#0(0"0(0#0#47"/Users/serenity/Programming/Work/Lyricus/main.m8608230144#1239"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/main.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/main.o0#
+
+CCompileC build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/main.o /Users/serenity/Programming/Work/Lyricus/main.m normal ppc objective-c com.apple.compilers.llvmgcc42
+s321804358.982953
+e321804359.448357
+r1
+xCompileC
+xbuild/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/main.o
+x/Users/serenity/Programming/Work/Lyricus/main.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@55"Compile /Users/serenity/Programming/Work/Lyricus/main.m321804358#321804359#0(0"0(0#0#47"/Users/serenity/Programming/Work/Lyricus/main.m8602053600#1298"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -include /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch -c /Users/serenity/Programming/Work/Lyricus/main.m -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/main.o0#
+
+CCompileXIB /Users/serenity/Programming/Work/Lyricus/English.lproj/MainMenu.xib
+s321785366.862806
+e321785367.178158
+r1
+xCompileXIB
+x/Users/serenity/Programming/Work/Lyricus/English.lproj/MainMenu.xib
+lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib321785366#321785367#0(0"0(0#0#67"/Users/serenity/Programming/Work/Lyricus/English.lproj/MainMenu.xib8612283680#398"    cd /Users/serenity/Programming/Work/Lyricus    /Volumes/Storage/Xcode3/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/English.lproj/MainMenu.nib /Users/serenity/Programming/Work/Lyricus/English.lproj/MainMenu.xib --sdk /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk0#
+
+CCopyStringsFile /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s321785366.860859
+e321785366.929885
+r1
+xCopyStringsFile
+x/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings321785366#321785366#0(0"0(0#0#72"/Users/serenity/Programming/Work/Lyricus/English.lproj/InfoPlist.strings8612717312#385"    cd /Users/serenity/Programming/Work/Lyricus    setenv ICONV /usr/bin/iconv    /Volumes/Storage/Xcode3/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/English.lproj0#
+
+CCpResource build/Release/Lyricus.app/Contents/Resources/bulk.png bulk.png
+s321785366.862127
+e321785366.890502
+r1
+xCpResource
+xbuild/Release/Lyricus.app/Contents/Resources/bulk.png
+xbulk.png
+lSLF07#2@13"Copy bulk.png321785366#321785366#0(0"0(0#0#49"/Users/serenity/Programming/Work/Lyricus/bulk.png8612435232#359"    cd /Users/serenity/Programming/Work/Lyricus    /Volumes/Storage/Xcode3/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/serenity/Programming/Work/Lyricus/bulk.png /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources0#
+
+CCpResource build/Release/Lyricus.app/Contents/Resources/icon.icns icon.icns
+s321785366.862466
+e321785366.890332
+r1
+xCpResource
+xbuild/Release/Lyricus.app/Contents/Resources/icon.icns
+xicon.icns
+lSLF07#2@14"Copy icon.icns321785366#321785366#0(0"0(0#0#50"/Users/serenity/Programming/Work/Lyricus/icon.icns8612348256#360"    cd /Users/serenity/Programming/Work/Lyricus    /Volumes/Storage/Xcode3/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/serenity/Programming/Work/Lyricus/icon.icns /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources0#
+
+CCpResource build/Release/Lyricus.app/Contents/Resources/search.png search.png
+s321785366.861398
+e321785366.890180
+r1
+xCpResource
+xbuild/Release/Lyricus.app/Contents/Resources/search.png
+xsearch.png
+lSLF07#2@15"Copy search.png321785366#321785366#0(0"0(0#0#51"/Users/serenity/Programming/Work/Lyricus/search.png8612712864#361"    cd /Users/serenity/Programming/Work/Lyricus    /Volumes/Storage/Xcode3/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/serenity/Programming/Work/Lyricus/search.png /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources0#
+
+CCreateUniversalBinary /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/MacOS/Lyricus normal "i386 ppc"
+s321804359.745649
+e321804359.747683
+r1
+xCreateUniversalBinary
+x/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/MacOS/Lyricus
+xnormal
+xi386 ppc
+lSLF07#2@88"CreateUniversalBinary build/Release/Lyricus.app/Contents/MacOS/Lyricus normal "i386 ppc"321804359#321804359#0(0"0(0#0#49"/Users/serenity/Programming/Work/Lyricus/i386 ppc8604190976#409"    cd /Users/serenity/Programming/Work/Lyricus    /usr/bin/lipo -create /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus -output /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/MacOS/Lyricus0#
+
+CLd /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus normal i386
+s321804359.172134
+e321804359.233611
+r1
+xLd
+x/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus
+xnormal
+xi386
+lSLF07#2@123"Link /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus321804359#321804359#0(0"0(0#0#0"8599321440#744"    cd /Users/serenity/Programming/Work/Lyricus    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -arch i386 -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -L/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -filelist /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework ScriptingBridge -framework RegexKit -framework Sparkle -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/i386/Lyricus0#
+
+CLd /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus normal ppc
+s321804359.685100
+e321804359.745579
+r1
+xLd
+x/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus
+xnormal
+xppc
+lSLF07#2@122"Link /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus321804359#321804359#0(0"0(0#0#0"8605178688#741"    cd /Users/serenity/Programming/Work/Lyricus    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -arch ppc -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -L/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -filelist /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework ScriptingBridge -framework RegexKit -framework Sparkle -o /Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Objects-normal/ppc/Lyricus0#
+
+CPBXCp build/Release/Lyricus.app/Contents/Frameworks/RegexKit.framework Frameworks/RegexKit.framework
+s321785370.671557
+e321785370.711283
+r1
+xPBXCp
+xbuild/Release/Lyricus.app/Contents/Frameworks/RegexKit.framework
+xFrameworks/RegexKit.framework
+lSLF07#2@34"Copy Frameworks/RegexKit.framework321785370#321785370#0(0"0(0#0#70"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework8612170720#381"    cd /Users/serenity/Programming/Work/Lyricus    /Volumes/Storage/Xcode3/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Frameworks0#
+
+CPBXCp build/Release/Lyricus.app/Contents/Frameworks/Sparkle.framework Frameworks/Sparkle.framework
+s321785370.711441
+e321785370.871229
+r1
+xPBXCp
+xbuild/Release/Lyricus.app/Contents/Frameworks/Sparkle.framework
+xFrameworks/Sparkle.framework
+lSLF07#2@33"Copy Frameworks/Sparkle.framework321785370#321785370#0(0"0(0#0#69"/Users/serenity/Programming/Work/Lyricus/Frameworks/Sparkle.framework8611816512#380"    cd /Users/serenity/Programming/Work/Lyricus    /Volumes/Storage/Xcode3/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/serenity/Programming/Work/Lyricus/Frameworks/Sparkle.framework /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Frameworks0#
+
+CProcessInfoPlistFile /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Info.plist Info.plist
+s321804358.562643
+e321804358.566864
+r1
+xProcessInfoPlistFile
+x/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Info.plist
+xInfo.plist
+lSLF07#2@18"Process Info.plist321804358#321804358#0(0"0(0#0#51"/Users/serenity/Programming/Work/Lyricus/Info.plist12948342857597028#312"    cd /Users/serenity/Programming/Work/Lyricus    builtin-infoPlistUtility Info.plist -genpkginfo /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Info.plist0#
+
+CProcessPCH /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch.gch Lyricreader_Prefix.pch normal ppc objective-c com.apple.compilers.llvmgcc42
+s321785367.178842
+e321785369.571653
+r1
+xProcessPCH
+x/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch.gch
+xLyricreader_Prefix.pch
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@33"Precompile Lyricreader_Prefix.pch321785367#321785369#0(0"0(0#0#63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch8611590304#1199"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c-header -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -c /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch -o /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-aebpvrxlypuljbdredcrrqophpvi/Lyricreader_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch.gch Lyricreader_Prefix.pch normal ppc objective-c com.apple.compilers.gcc.4_2
+s321804119.965436
+e321804122.093483
+r1
+xProcessPCH
+x/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch.gch
+xLyricreader_Prefix.pch
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@33"Precompile Lyricreader_Prefix.pch321804119#321804122#0(0"0(0#0#63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch8609205888#1140"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c-header -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/ppc -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -c /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch -o /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-atiykufppltjjpggbmealmstylvx/Lyricreader_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ehrvbobpedrgfdbbfdgcolvefpjf/Lyricreader_Prefix.pch.pth Lyricreader_Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s321804085.940234
+e321804087.723703
+r0
+xProcessPCH
+x/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ehrvbobpedrgfdbbfdgcolvefpjf/Lyricreader_Prefix.pch.pth
+xLyricreader_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:
+oIn file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:
+o/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:79:38: error: pointer to function type 'NSString *' may not be 'restrict' qualified
+o + (id)regexWithRegexString:(NSString * const RK_C99(restrict))regexString library:(NSString * const RK_C99(restrict))libraryString options:(const RKCompileOption)libraryOptions error:(NSError **)error;
+o                                      ^
+o/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:79:93: error: pointer to function type 'NSString *' may not be 'restrict' qualified
+o + (id)regexWithRegexString:(NSString * const RK_C99(restrict))regexString library:(NSString * const RK_C99(restrict))libraryString options:(const RKCompileOption)libraryOptions error:(NSError **)error;
+o                                                                                             ^
+o/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:80:37: error: pointer to function type 'NSString *' may not be 'restrict' qualified
+o - (id)initWithRegexString:(NSString * const RK_C99(restrict))regexString options:(const RKCompileOption)options;
+o                                     ^
+o/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:81:37: error: pointer to function type 'NSString *' may not be 'restrict' qualified
+o - (id)initWithRegexString:(NSString * const RK_C99(restrict))regexString library:(NSString * const RK_C99(restrict))library options:(const RKCompileOption)libraryOptions error:(NSError **)error;
+o                                     ^
+o/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:81:92: error: pointer to function type 'NSString *' may not be 'restrict' qualified
+o - (id)initWithRegexString:(NSString * const RK_C99(restrict))regexString library:(NSString * const RK_C99(restrict))library options:(const RKCompileOption)libraryOptions error:(NSError **)error;
+o                                                                                            ^
+o/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:90:52: error: pointer to function type 'NSString *' may not be 'restrict' qualified
+o - (RKUInteger)captureIndexForCaptureName:(NSString * const RK_C99(restrict))captureNameString inMatchedRanges:(const NSRange * const RK_C99(restrict))matchedRanges;
+o                                                    ^
+o/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:91:52: error: pointer to function type 'NSString *' may not be 'restrict' qualified
+o - (RKUInteger)captureIndexForCaptureName:(NSString * const RK_C99(restrict))captureNameString inMatchedRanges:(const NSRange * const RK_C99(restrict))matchedRanges error:(NSError **)error;
+o                                                    ^
+o7 errors generated.
+lSLF07#2@33"Precompile Lyricreader_Prefix.pch321804085#321804087#0(3119"In file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:In file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:79:38: error: pointer to function type 'NSString *' may not be 'restrict' qualified + (id)regexWithRegexString:(NSString * const RK_C99(restrict))regexString library:(NSString * const RK_C99(restrict))libraryString options:(const RKCompileOption)libraryOptions error:(NSError **)error;                                      ^/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:79:93: error: pointer to function type 'NSString *' may not be 'restrict' qualified + (id)regexWithRegexString:(NSString * const RK_C99(restrict))regexString library:(NSString * const RK_C99(restrict))libraryString options:(const RKCompileOption)libraryOptions error:(NSError **)error;                                                                                             ^/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:80:37: error: pointer to function type 'NSString *' may not be 'restrict' qualified - (id)initWithRegexString:(NSString * const RK_C99(restrict))regexString options:(const RKCompileOption)options;                                     ^/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:81:37: error: pointer to function type 'NSString *' may not be 'restrict' qualified - (id)initWithRegexString:(NSString * const RK_C99(restrict))regexString library:(NSString * const RK_C99(restrict))library options:(const RKCompileOption)libraryOptions error:(NSError **)error;                                     ^/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:81:92: error: pointer to function type 'NSString *' may not be 'restrict' qualified - (id)initWithRegexString:(NSString * const RK_C99(restrict))regexString library:(NSString * const RK_C99(restrict))library options:(const RKCompileOption)libraryOptions error:(NSError **)error;                                                                                            ^/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:90:52: error: pointer to function type 'NSString *' may not be 'restrict' qualified - (RKUInteger)captureIndexForCaptureName:(NSString * const RK_C99(restrict))captureNameString inMatchedRanges:(const NSRange * const RK_C99(restrict))matchedRanges;                                                    ^/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h:91:52: error: pointer to function type 'NSString *' may not be 'restrict' qualified - (RKUInteger)captureIndexForCaptureName:(NSString * const RK_C99(restrict))captureNameString inMatchedRanges:(const NSRange * const RK_C99(restrict))matchedRanges error:(NSError **)error;                                                    ^7 errors generated.7(4@69"Pointer to function type 'NSString *' may not be 'restrict' qualified321804087#205#173#3(7@115"In file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:321804087#89#116#0(6@89"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h321455476#71#0#71#0#0"0(7@88"In file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:321804087#0#89#0(6@63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch321455478#8#0#8#0#0"0(13@161"Pointer to function type 'NSString *' may not be 'restrict' qualified in /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321804087#18446744073709551615#0#0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#79#38#0#0#0"0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#79#38#0#0#58"pointer to function type * may not be 'restrict' qualified0(4@69"Pointer to function type 'NSString *' may not be 'restrict' qualified321804087#621#173#3(7@115"In file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:321804087#18446744073709551615#0#0(6@89"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h321455476#71#0#71#0#0"0(7@88"In file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:321804087#18446744073709551615#0#0(6@63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch321455478#8#0#8#0#0"0(13@161"Pointer to function type 'NSString *' may not be 'restrict' qualified in /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321804087#18446744073709551615#0#0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#79#93#0#0#0"0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#79#93#0#0#58"pointer to function type * may not be 'restrict' qualified0(4@69"Pointer to function type 'NSString *' may not be 'restrict' qualified321804087#1092#173#3(7@115"In file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:321804087#18446744073709551615#0#0(6@89"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h321455476#71#0#71#0#0"0(7@88"In file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:321804087#18446744073709551615#0#0(6@63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch321455478#8#0#8#0#0"0(13@161"Pointer to function type 'NSString *' may not be 'restrict' qualified in /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321804087#18446744073709551615#0#0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#80#37#0#0#0"0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#80#37#0#0#58"pointer to function type * may not be 'restrict' qualified0(4@69"Pointer to function type 'NSString *' may not be 'restrict' qualified321804087#1418#173#3(7@115"In file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:321804087#18446744073709551615#0#0(6@89"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h321455476#71#0#71#0#0"0(7@88"In file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:321804087#18446744073709551615#0#0(6@63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch321455478#8#0#8#0#0"0(13@161"Pointer to function type 'NSString *' may not be 'restrict' qualified in /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321804087#18446744073709551615#0#0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#81#37#0#0#0"0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#81#37#0#0#58"pointer to function type * may not be 'restrict' qualified0(4@69"Pointer to function type 'NSString *' may not be 'restrict' qualified321804087#1826#173#3(7@115"In file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:321804087#18446744073709551615#0#0(6@89"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h321455476#71#0#71#0#0"0(7@88"In file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:321804087#18446744073709551615#0#0(6@63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch321455478#8#0#8#0#0"0(13@161"Pointer to function type 'NSString *' may not be 'restrict' qualified in /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321804087#18446744073709551615#0#0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#81#92#0#0#0"0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#81#92#0#0#58"pointer to function type * may not be 'restrict' qualified0(4@69"Pointer to function type 'NSString *' may not be 'restrict' qualified321804087#2289#173#3(7@115"In file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:321804087#18446744073709551615#0#0(6@89"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h321455476#71#0#71#0#0"0(7@88"In file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:321804087#18446744073709551615#0#0(6@63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch321455478#8#0#8#0#0"0(13@161"Pointer to function type 'NSString *' may not be 'restrict' qualified in /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321804087#18446744073709551615#0#0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#90#52#0#0#0"0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#90#52#0#0#58"pointer to function type * may not be 'restrict' qualified0(4@69"Pointer to function type 'NSString *' may not be 'restrict' qualified321804087#2682#173#3(7@115"In file included from /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h:71:321804087#18446744073709551615#0#0(6@89"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RegexKit.h321455476#71#0#71#0#0"0(7@88"In file included from /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch:8:321804087#18446744073709551615#0#0(6@63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch321455478#8#0#8#0#0"0(13@161"Pointer to function type 'NSString *' may not be 'restrict' qualified in /Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321804087#18446744073709551615#0#0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#91#52#0#0#0"0(6@88"/Users/serenity/Programming/Work/Lyricus/Frameworks/RegexKit.framework/Headers/RKRegex.h321455476#91#52#0#0#58"pointer to function type * may not be 'restrict' qualified0(0#0#63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch8607640160#1168"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -fasm-blocks -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -c /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch -o /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ehrvbobpedrgfdbbfdgcolvefpjf/Lyricreader_Prefix.pch.pth1#
+
+CProcessPCH /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch.gch Lyricreader_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s321804119.964797
+e321804121.947836
+r1
+xProcessPCH
+x/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch.gch
+xLyricreader_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@33"Precompile Lyricreader_Prefix.pch321804119#321804121#0(0"0(0#0#63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch8609250848#1132"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -c /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch -o /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-ffewfdtpxoksrkercevasehyyeoi/Lyricreader_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch.gch Lyricreader_Prefix.pch normal i386 objective-c com.apple.compilers.llvmgcc42
+s321785367.178257
+e321785369.567250
+r1
+xProcessPCH
+x/var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch.gch
+xLyricreader_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvmgcc42
+lSLF07#2@33"Precompile Lyricreader_Prefix.pch321785367#321785369#0(0"0(0#0#63"/Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch8611662976#1191"    cd /Users/serenity/Programming/Work/Lyricus    setenv LANG en_US.US-ASCII    /Volumes/Storage/Xcode3/usr/bin/llvm-gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -mfix-and-continue -fobjc-gc-only -mmacosx-version-min=10.6 -gdwarf-2 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/Lyricus.hmap -F/Users/serenity/Programming/Work/Lyricus/build/Release -F/Users/serenity/Programming/Work/Lyricus/Frameworks -I/Users/serenity/Programming/Work/Lyricus/build/Release/include -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources/i386 -I/Users/serenity/Programming/Work/Lyricus/build/Lyricreader.build/Release/Lyricreader.build/DerivedSources -isysroot /Volumes/Storage/Xcode3/SDKs/MacOSX10.6.sdk -c /Users/serenity/Programming/Work/Lyricus/Lyricreader_Prefix.pch -o /var/folders/yK/yKt+LQrNFzWJnaBYzjQHHU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Lyricreader_Prefix-gpgrnsruqbaqutfutoncmmymwxmh/Lyricreader_Prefix.pch.gch0#
+
+CStripNIB /Users/serenity/Programming/Work/Lyricus/Bulk.nib
+s321785366.861754
+e321785366.943172
+r1
+xStripNIB
+x/Users/serenity/Programming/Work/Lyricus/Bulk.nib
+lSLF07#2@17"StripNIB Bulk.nib321785366#321785366#0(0"0(0#0#49"/Users/serenity/Programming/Work/Lyricus/Bulk.nib8612591872#280"    cd /Users/serenity/Programming/Work/Lyricus    /Volumes/Storage/Xcode3/usr/bin/ibtool --strip /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app/Contents/Resources/Bulk.nib --output-format human-readable-text /Users/serenity/Programming/Work/Lyricus/Bulk.nib0#
+
+CTouch /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app
+s321804359.747815
+e321804359.749345
+r1
+xTouch
+x/Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app
+lSLF07#2@72"Touch /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app321804359#321804359#0(0"0(0#0#0"8604037440#137"    cd /Users/serenity/Programming/Work/Lyricus    /usr/bin/touch -c /Users/serenity/Programming/Work/Lyricus/build/Release/Lyricus.app0#
+

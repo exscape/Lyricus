@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100E13AA0F5E803D001E1347 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 100E13A80F5E803D001E1347 /* MainMenu.xib */; };
+		101A926E0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 101A926D0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m */; };
+		101BC6EA133293A20055D720 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 101BC6E9133293A20055D720 /* RegexKitLite.m */; };
+		1027289F0DB2A81900E644E1 /* iTunesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1027289E0DB2A81900E644E1 /* iTunesHelper.m */; };
+		102F3A14133295E8009D9475 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 102F3A13133295E8009D9475 /* libicucore.A.dylib */; };
+		105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A37930DA6AFA0007DEFF5 /* SitePriorities.m */; };
+		105A38980DA6CAB7007DEFF5 /* TBLyricwiki.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A38970DA6CAB7007DEFF5 /* TBLyricwiki.m */; };
+		107CD7350DAE4833003E0D32 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 107CD7340DAE4833003E0D32 /* icon.icns */; };
+		109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109531F90DA12D9A001706FF /* TBDarklyrics.m */; };
+		109532100DA12EEB001706FF /* TBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1095320F0DA12EEB001706FF /* TBUtil.m */; };
+		1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */ = {isa = PBXBuildFile; fileRef = 109532690DA1325E001706FF /* TBSongmeanings.m */; };
+		10AEFB170D9FEDCA0088ECDC /* LyricreaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AEFB160D9FEDCA0088ECDC /* LyricreaderController.m */; };
+		10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */; };
+		10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DB27F10DACB28500BF57D3 /* Bulk.m */; };
+		10DB281A0DACB3AB00BF57D3 /* Bulk.nib in Resources */ = {isa = PBXBuildFile; fileRef = 10DB28190DACB3AB00BF57D3 /* Bulk.nib */; };
+		10DD8DCE0DACE3BA008B0D78 /* bulk.png in Resources */ = {isa = PBXBuildFile; fileRef = 10DD8DCD0DACE3BA008B0D78 /* bulk.png */; };
+		10E2047C0DAB9F9100F85A9F /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E2047B0DAB9F9100F85A9F /* search.png */; };
+		10E2071B0DABE7CB00F85A9F /* LyricController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2071A0DABE7CB00F85A9F /* LyricController.m */; };
+		10E207700DABED8400F85A9F /* NSTextView+AppendString.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */; };
+		10E476510DA1759500F41852 /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10E476350DA1754A00F41852 /* RegexKit.framework */; };
+		10E495A80DA545B50000E68B /* NSString+ExscapeEdits.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */; };
+		10E664F00DAC0AB10059BF5F /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E664EF0DAC0AB10059BF5F /* Sparkle.framework */; };
+		10E664F30DAC0ABF0059BF5F /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10E664EF0DAC0AB10059BF5F /* Sparkle.framework */; };
+		10F56A450DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F56A440DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		10E4763C0DA1757D00F41852 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				10E476510DA1759500F41852 /* RegexKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10E664FF0DAC0AC90059BF5F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				10E664F30DAC0ABF0059BF5F /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		100E13A90F5E803D001E1347 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		101A926C0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+ExscapeFontFix.h"; sourceTree = "<group>"; };
+		101A926D0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+ExscapeFontFix.m"; sourceTree = "<group>"; };
+		101BC6E8133293A20055D720 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		101BC6E9133293A20055D720 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		1027289D0DB2A81900E644E1 /* iTunesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesHelper.h; sourceTree = "<group>"; };
+		1027289E0DB2A81900E644E1 /* iTunesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesHelper.m; sourceTree = "<group>"; };
+		102F3A13133295E8009D9475 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = ../../../../../usr/lib/libicucore.A.dylib; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		105A37920DA6AFA0007DEFF5 /* SitePriorities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitePriorities.h; sourceTree = "<group>"; };
+		105A37930DA6AFA0007DEFF5 /* SitePriorities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitePriorities.m; sourceTree = "<group>"; };
+		105A38960DA6CAB7007DEFF5 /* TBLyricwiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLyricwiki.h; sourceTree = "<group>"; };
+		105A38970DA6CAB7007DEFF5 /* TBLyricwiki.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLyricwiki.m; sourceTree = "<group>"; };
+		107CD7340DAE4833003E0D32 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		109531F80DA12D9A001706FF /* TBDarklyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDarklyrics.h; sourceTree = "<group>"; };
+		109531F90DA12D9A001706FF /* TBDarklyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBDarklyrics.m; sourceTree = "<group>"; };
+		1095320E0DA12EEB001706FF /* TBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBUtil.h; sourceTree = "<group>"; };
+		1095320F0DA12EEB001706FF /* TBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBUtil.m; sourceTree = "<group>"; };
+		109532680DA1325E001706FF /* TBSongmeanings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSongmeanings.h; sourceTree = "<group>"; };
+		109532690DA1325E001706FF /* TBSongmeanings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSongmeanings.m; sourceTree = "<group>"; };
+		10AEFB150D9FEDCA0088ECDC /* LyricreaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricreaderController.h; sourceTree = "<group>"; };
+		10AEFB160D9FEDCA0088ECDC /* LyricreaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricreaderController.m; sourceTree = "<group>"; };
+		10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
+		10DB27F00DACB28500BF57D3 /* Bulk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bulk.h; sourceTree = "<group>"; };
+		10DB27F10DACB28500BF57D3 /* Bulk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bulk.m; sourceTree = "<group>"; };
+		10DB28190DACB3AB00BF57D3 /* Bulk.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = Bulk.nib; sourceTree = "<group>"; };
+		10DD8DCD0DACE3BA008B0D78 /* bulk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulk.png; sourceTree = "<group>"; };
+		10E2047B0DAB9F9100F85A9F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		10E205AB0DABCF1B00F85A9F /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		10E207190DABE7CB00F85A9F /* LyricController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricController.h; sourceTree = "<group>"; };
+		10E2071A0DABE7CB00F85A9F /* LyricController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricController.m; sourceTree = "<group>"; };
+		10E2076E0DABED8400F85A9F /* NSTextView+AppendString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+AppendString.h"; sourceTree = "<group>"; };
+		10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+AppendString.m"; sourceTree = "<group>"; };
+		10E476350DA1754A00F41852 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Frameworks/RegexKit.framework; sourceTree = SOURCE_ROOT; };
+		10E495A60DA545B50000E68B /* NSString+ExscapeEdits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ExscapeEdits.h"; sourceTree = "<group>"; };
+		10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ExscapeEdits.m"; sourceTree = "<group>"; };
+		10E664EF0DAC0AB10059BF5F /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		10F56A430DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProgressIndicator+ThreadSafeUpdating.h"; sourceTree = "<group>"; };
+		10F56A440DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProgressIndicator+ThreadSafeUpdating.m"; sourceTree = "<group>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Lyricreader_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lyricreader_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Lyricus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lyricus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				102F3A14133295E8009D9475 /* libicucore.A.dylib in Frameworks */,
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */,
+				10E664F00DAC0AB10059BF5F /* Sparkle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1027289D0DB2A81900E644E1 /* iTunesHelper.h */,
+				1027289E0DB2A81900E644E1 /* iTunesHelper.m */,
+				10DB27F00DACB28500BF57D3 /* Bulk.h */,
+				10DB27F10DACB28500BF57D3 /* Bulk.m */,
+				1086B26C0DACAFBC007B2EC1 /* Categories */,
+				1086B26B0DACAF9E007B2EC1 /* Sites */,
+				10E207190DABE7CB00F85A9F /* LyricController.h */,
+				10E2071A0DABE7CB00F85A9F /* LyricController.m */,
+				1095320E0DA12EEB001706FF /* TBUtil.h */,
+				1095320F0DA12EEB001706FF /* TBUtil.m */,
+				10AEFB150D9FEDCA0088ECDC /* LyricreaderController.h */,
+				10AEFB160D9FEDCA0088ECDC /* LyricreaderController.m */,
+				105A37920DA6AFA0007DEFF5 /* SitePriorities.h */,
+				105A37930DA6AFA0007DEFF5 /* SitePriorities.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10E664EF0DAC0AB10059BF5F /* Sparkle.framework */,
+				10E476350DA1754A00F41852 /* RegexKit.framework */,
+				10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1086B26B0DACAF9E007B2EC1 /* Sites */ = {
+			isa = PBXGroup;
+			children = (
+				105A38960DA6CAB7007DEFF5 /* TBLyricwiki.h */,
+				105A38970DA6CAB7007DEFF5 /* TBLyricwiki.m */,
+				109532680DA1325E001706FF /* TBSongmeanings.h */,
+				109532690DA1325E001706FF /* TBSongmeanings.m */,
+				109531F80DA12D9A001706FF /* TBDarklyrics.h */,
+				109531F90DA12D9A001706FF /* TBDarklyrics.m */,
+			);
+			name = Sites;
+			sourceTree = "<group>";
+		};
+		1086B26C0DACAFBC007B2EC1 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				10F56A430DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.h */,
+				10F56A440DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m */,
+				101A926C0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.h */,
+				101A926D0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m */,
+				10E2076E0DABED8400F85A9F /* NSTextView+AppendString.h */,
+				10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */,
+				10E495A60DA545B50000E68B /* NSString+ExscapeEdits.h */,
+				10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Lyricus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Lyricreader */ = {
+			isa = PBXGroup;
+			children = (
+				102F3A13133295E8009D9475 /* libicucore.A.dylib */,
+				101BC6E8133293A20055D720 /* RegexKitLite.h */,
+				101BC6E9133293A20055D720 /* RegexKitLite.m */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Lyricreader;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				10E205AB0DABCF1B00F85A9F /* iTunes.h */,
+				32CA4F630368D1EE00C91783 /* Lyricreader_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				100E13A80F5E803D001E1347 /* MainMenu.xib */,
+				107CD7340DAE4833003E0D32 /* icon.icns */,
+				10DD8DCD0DACE3BA008B0D78 /* bulk.png */,
+				10DB28190DACB3AB00BF57D3 /* Bulk.nib */,
+				10E2047B0DAB9F9100F85A9F /* search.png */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Lyricreader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Lyricreader" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				10E4763C0DA1757D00F41852 /* CopyFiles */,
+				10E664FF0DAC0AC90059BF5F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lyricreader;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Lyricreader;
+			productReference = 8D1107320486CEB800E47090 /* Lyricus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Lyricreader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Lyricreader */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Lyricreader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				10E2047C0DAB9F9100F85A9F /* search.png in Resources */,
+				10DB281A0DACB3AB00BF57D3 /* Bulk.nib in Resources */,
+				10DD8DCE0DACE3BA008B0D78 /* bulk.png in Resources */,
+				107CD7350DAE4833003E0D32 /* icon.icns in Resources */,
+				100E13AA0F5E803D001E1347 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				10AEFB170D9FEDCA0088ECDC /* LyricreaderController.m in Sources */,
+				109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */,
+				109532100DA12EEB001706FF /* TBUtil.m in Sources */,
+				1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */,
+				10E495A80DA545B50000E68B /* NSString+ExscapeEdits.m in Sources */,
+				105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */,
+				105A38980DA6CAB7007DEFF5 /* TBLyricwiki.m in Sources */,
+				10E2071B0DABE7CB00F85A9F /* LyricController.m in Sources */,
+				10E207700DABED8400F85A9F /* NSTextView+AppendString.m in Sources */,
+				10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */,
+				101A926E0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m in Sources */,
+				10F56A450DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m in Sources */,
+				1027289F0DB2A81900E644E1 /* iTunesHelper.m in Sources */,
+				101BC6EA133293A20055D720 /* RegexKitLite.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		100E13A80F5E803D001E1347 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				100E13A90F5E803D001E1347 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10F664C50DA7A94100D3881C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+		10F664C60DA7A94100D3881C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Lyricreader_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Lyricus;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Lyricreader_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Lyricus;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Lyricreader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				10F664C60DA7A94100D3881C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Lyricreader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				10F664C50DA7A94100D3881C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

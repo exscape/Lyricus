@@ -1,0 +1,50 @@
+10
+
+dir
+58
+https://lyricus.googlecode.com/svn/trunk/Frameworks/Sparkle.framework/Versions/A/Resources/fr.lproj
+https://lyricus.googlecode.com/svn
+
+
+
+2008-04-06T12:26:33.240075Z
+13
+exscape
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+300e9776-214a-0410-b799-41439e6c7e17
+
+SUAutomaticUpdateAlert.nib
+dir
+
+SUUpdateAlert.nib
+dir
+
+Sparkle.strings
+file
+
+
+
+
+2008-04-09T07:56:14.000000Z
+759a3427ce7d08a653409054bae36b21
+2008-04-06T12:26:33.240075Z
+13
+exscape
+has-props
+
+SUProfileInfo.nib
+dir
+
