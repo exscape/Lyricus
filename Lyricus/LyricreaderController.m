@@ -99,7 +99,7 @@
 		[self getFromiTunesButton:nil];
 		[self goButton:nil];
 	}
-	
+    
 	// Update the site list
 	[lyricController updateSiteList];
 	// NO CODE goes after this!
@@ -698,6 +698,15 @@ end_func:
 	[spinner stopAnimation:nil];
 	[spinner setHidden:YES];
 	return;
+}
+
+-(IBAction)openLyricSearch:(id)sender {
+    if (lyricSearch == nil) {
+        lyricSearch = [[LyricSearchController alloc] initWithWindowNibName:@"LyricSearch"];
+    }
+    [lyricSearch showWindow:self];
+    [lyricSearch.window makeKeyAndOrderFront:self];
+    [lyricSearch showLyricSearch:self];
 }
 
 -(void)finalize {

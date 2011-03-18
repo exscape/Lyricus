@@ -12,6 +12,7 @@
 #import "SitePriorities.h"
 #import "LyricController.h"
 #import "Bulk.h"
+#import "LyricSearchController.h"
 
 
 @interface LyricreaderController : NSObject <NSWindowDelegate, NSTextViewDelegate, NSToolbarDelegate> {
@@ -60,6 +61,7 @@
 	bool manualSearch;
 	
 	Bulk *bulkDownloader;
+    LyricSearchController *lyricSearch;
 }
 
 // Preferences window
@@ -86,4 +88,5 @@
 -(IBAction)openFontPanel:(id)sender;
 -(IBAction)openSongMeaningsPage:(id)sender;
 -(void)openSongmeaningsThread:(NSArray *)data;
+-(IBAction)openLyricSearch:(id)sender;
 @end

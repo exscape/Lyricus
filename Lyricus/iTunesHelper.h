@@ -25,4 +25,6 @@
 
 -(iTunesApplication *)iTunesReference; // Use sparingly!
 
+-(NSArray *)getAllTracksAndLyrics;
+
 @end
