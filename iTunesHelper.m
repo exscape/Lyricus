@@ -13,7 +13,8 @@
 #pragma mark init stuff
 
 -(id) init {
-	if (self = [super init]) {
+    self = [super init];
+	if (self) {
 		iTunes = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
 	}
 	
