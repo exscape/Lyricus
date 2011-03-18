@@ -1,4 +1,3 @@
-# xcode noise
 *.mode1v3
 *.pbxuser
 *.perspective 
@@ -6,6 +5,8 @@
 *.pyc 
 *~.nib/
 build/*
+
+*.xcodeproj/project.xcworkspace/*
 
 .svn
 .DS_Store
