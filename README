@@ -1,6 +1,6 @@
 Lyricus is a minimalist lyric reader/editor for Mac OS X "Snow Leopard" and later. I started developing in part out of boredom, but also in part because I was missing something small to read lyrics in.  Before Lyricus, I used Firefox, but with the lyrics in one tab, you have to switch back and forth a lot. I could have used a new, sized down window, but I wanted to practice Cocoa as well!
 
-See the Wiki (LyricusFeatures) for a list of features.
+See the Wiki for a list of features.
 
 Two old, but mostly relevant pictures (please note that the toolbar can be hidden):
 The main lyric window (0.70): http://static.pici.se/pictures/RMIBcNlCO.png
