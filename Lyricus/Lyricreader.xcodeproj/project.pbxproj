@@ -21,7 +21,7 @@
 		10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */; };
 		10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D5093313337A70006C0FC7 /* libicucore.dylib */; };
 		10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DB27F10DACB28500BF57D3 /* Bulk.m */; };
-		10DB281A0DACB3AB00BF57D3 /* Bulk.nib in Resources */ = {isa = PBXBuildFile; fileRef = 10DB28190DACB3AB00BF57D3 /* Bulk.nib */; };
+		10DB281A0DACB3AB00BF57D3 /* Bulk.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DB28190DACB3AB00BF57D3 /* Bulk.xib */; };
 		10DD8DCE0DACE3BA008B0D78 /* bulk.png in Resources */ = {isa = PBXBuildFile; fileRef = 10DD8DCD0DACE3BA008B0D78 /* bulk.png */; };
 		10E2047C0DAB9F9100F85A9F /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E2047B0DAB9F9100F85A9F /* search.png */; };
 		10E2071B0DABE7CB00F85A9F /* LyricController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2071A0DABE7CB00F85A9F /* LyricController.m */; };
@@ -84,7 +84,7 @@
 		10D5093313337A70006C0FC7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = SDKs/MacOSX10.6.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		10DB27F00DACB28500BF57D3 /* Bulk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bulk.h; sourceTree = "<group>"; };
 		10DB27F10DACB28500BF57D3 /* Bulk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bulk.m; sourceTree = "<group>"; };
-		10DB28190DACB3AB00BF57D3 /* Bulk.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = Bulk.nib; sourceTree = "<group>"; };
+		10DB28190DACB3AB00BF57D3 /* Bulk.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Bulk.xib; sourceTree = "<group>"; };
 		10DD8DCD0DACE3BA008B0D78 /* bulk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulk.png; sourceTree = "<group>"; };
 		10E2047B0DAB9F9100F85A9F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		10E205AB0DABCF1B00F85A9F /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 		10E2071A0DABE7CB00F85A9F /* LyricController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricController.m; sourceTree = "<group>"; };
 		10E2076E0DABED8400F85A9F /* NSTextView+AppendString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+AppendString.h"; sourceTree = "<group>"; };
 		10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+AppendString.m"; sourceTree = "<group>"; };
-		10E476350DA1754A00F41852 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Frameworks/RegexKit.framework; sourceTree = SOURCE_ROOT; };
 		10E495A60DA545B50000E68B /* NSString+ExscapeEdits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ExscapeEdits.h"; sourceTree = "<group>"; };
 		10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ExscapeEdits.m"; sourceTree = "<group>"; };
 		10E664EF0DAC0AB10059BF5F /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
@@ -147,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				10E664EF0DAC0AB10059BF5F /* Sparkle.framework */,
-				10E476350DA1754A00F41852 /* RegexKit.framework */,
 				10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -231,7 +229,7 @@
 				100E13A80F5E803D001E1347 /* MainMenu.xib */,
 				107CD7340DAE4833003E0D32 /* icon.icns */,
 				10DD8DCD0DACE3BA008B0D78 /* bulk.png */,
-				10DB28190DACB3AB00BF57D3 /* Bulk.nib */,
+				10DB28190DACB3AB00BF57D3 /* Bulk.xib */,
 				10E2047B0DAB9F9100F85A9F /* search.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -302,7 +300,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				10E2047C0DAB9F9100F85A9F /* search.png in Resources */,
-				10DB281A0DACB3AB00BF57D3 /* Bulk.nib in Resources */,
+				10DB281A0DACB3AB00BF57D3 /* Bulk.xib in Resources */,
 				10DD8DCE0DACE3BA008B0D78 /* bulk.png in Resources */,
 				107CD7350DAE4833003E0D32 /* icon.icns in Resources */,
 				100E13AA0F5E803D001E1347 /* MainMenu.xib in Resources */,
