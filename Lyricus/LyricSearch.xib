@@ -17,6 +17,7 @@
 			<string>NSScrollView</string>
 			<string>NSButtonCell</string>
 			<string>NSTextFieldCell</string>
+			<string>NSProgressIndicator</string>
 			<string>NSTableView</string>
 			<string>NSCustomObject</string>
 			<string>NSTextView</string>
@@ -302,7 +303,7 @@
 													<string>public.url</string>
 												</object>
 											</object>
-											<string key="NSFrameSize">{324, 52}</string>
+											<string key="NSFrame">{{0, 38}, {324, 14}}</string>
 											<reference key="NSSuperview" ref="693618263"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="288397125"/>
@@ -439,6 +440,39 @@
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
 			</object>
+			<object class="NSWindowTemplate" id="740746720">
+				<int key="NSWindowStyleMask">1</int>
+				<int key="NSWindowBacking">2</int>
+				<string key="NSWindowRect">{{245, 301}, {366, 56}}</string>
+				<int key="NSWTFlags">611844096</int>
+				<string key="NSWindowTitle">Indexing...</string>
+				<string key="NSWindowClass">NSWindow</string>
+				<nil key="NSViewClass"/>
+				<object class="NSView" key="NSWindowView" id="300709705">
+					<reference key="NSNextResponder"/>
+					<int key="NSvFlags">256</int>
+					<object class="NSMutableArray" key="NSSubviews">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSProgressIndicator" id="169595748">
+							<reference key="NSNextResponder" ref="300709705"/>
+							<int key="NSvFlags">1292</int>
+							<object class="NSPSMatrix" key="NSDrawMatrix"/>
+							<string key="NSFrame">{{18, 16}, {330, 20}}</string>
+							<reference key="NSSuperview" ref="300709705"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
+							<int key="NSpiFlags">16392</int>
+							<double key="NSMaxValue">100</double>
+						</object>
+					</object>
+					<string key="NSFrame">{{7, 11}, {366, 56}}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView" ref="169595748"/>
+				</object>
+				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
+				<string key="NSMaxSize">{1e+13, 1e+13}</string>
+			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -466,14 +500,6 @@
 						<reference key="destination" ref="522178120"/>
 					</object>
 					<int key="connectionID">30</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">window</string>
-						<reference key="source" ref="522178120"/>
-						<reference key="destination" ref="111659245"/>
-					</object>
-					<int key="connectionID">35</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -522,6 +548,30 @@
 						<reference key="destination" ref="733614654"/>
 					</object>
 					<int key="connectionID">50</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">indexProgressWindow</string>
+						<reference key="source" ref="522178120"/>
+						<reference key="destination" ref="740746720"/>
+					</object>
+					<int key="connectionID">54</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">indexProgressIndicator</string>
+						<reference key="source" ref="522178120"/>
+						<reference key="destination" ref="169595748"/>
+					</object>
+					<int key="connectionID">55</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">window</string>
+						<reference key="source" ref="522178120"/>
+						<reference key="destination" ref="111659245"/>
+					</object>
+					<int key="connectionID">58</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -675,6 +725,29 @@
 						<reference key="object" ref="733614654"/>
 						<reference key="parent" ref="646588990"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">51</int>
+						<reference key="object" ref="740746720"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="300709705"/>
+						</object>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">52</int>
+						<reference key="object" ref="300709705"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="169595748"/>
+						</object>
+						<reference key="parent" ref="740746720"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">53</int>
+						<reference key="object" ref="169595748"/>
+						<reference key="parent" ref="300709705"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -697,6 +770,10 @@
 					<string>45.IBPluginDependency</string>
 					<string>46.IBPluginDependency</string>
 					<string>47.IBPluginDependency</string>
+					<string>51.IBPluginDependency</string>
+					<string>51.NSWindowTemplate.visibleAtLaunch</string>
+					<string>52.IBPluginDependency</string>
+					<string>53.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 					<string>9.IBWindowTemplateEditedContentRect</string>
@@ -723,6 +800,10 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="NO"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{357, 418}, {480, 270}}</string>
 					<integer value="1"/>
@@ -742,7 +823,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">50</int>
+			<int key="maxID">58</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -786,30 +867,41 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>indexProgressIndicator</string>
+							<string>indexProgressWindow</string>
 							<string>lyricTextView</string>
 							<string>searchTextField</string>
 							<string>trackTableView</string>
-							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSProgressIndicator</string>
+							<string>NSWindow</string>
 							<string>NSTextView</string>
 							<string>NSTextField</string>
 							<string>NSTableView</string>
-							<string>NSWindow</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>indexProgressIndicator</string>
+							<string>indexProgressWindow</string>
 							<string>lyricTextView</string>
 							<string>searchTextField</string>
 							<string>trackTableView</string>
-							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">indexProgressIndicator</string>
+								<string key="candidateClassName">NSProgressIndicator</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">indexProgressWindow</string>
+								<string key="candidateClassName">NSWindow</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">lyricTextView</string>
 								<string key="candidateClassName">NSTextView</string>
@@ -821,10 +913,6 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">trackTableView</string>
 								<string key="candidateClassName">NSTableView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">window</string>
-								<string key="candidateClassName">NSWindow</string>
 							</object>
 						</object>
 					</object>

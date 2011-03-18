@@ -7,6 +7,7 @@
 //
 
 #import "LyricSearchController.h"
+#import "NSProgressIndicator+ThreadSafeUpdating.h"
 
 @implementation LyricSearchController
 
@@ -83,19 +84,25 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 	if (![helper initiTunes])
 		return;
-	
+    
+    [NSApp beginSheet:indexProgressWindow modalForWindow:self.window modalDelegate:self 
+       didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+    
 	@try {
 		SBElementArray *pls = [[[[helper iTunesReference] sources] objectAtIndex:0] playlists];
 		
-        int tmp = 0;
 		for (iTunesPlaylist *pl in pls) {
             if ([[pl name] isEqualToString:@"Music"]) {
+
+                // Set up the progress indicator
+                [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[[pl tracks] count]] waitUntilDone:YES];
+                [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMinValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
+                [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
+
                 for (iTunesTrack *t in [pl tracks]) {
                     [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
-                    if (tmp++ % 50) 
-                        NSLog(@".");
-                    if (tmp % 500)
-                        NSLog(@"\n");
+
+                    [indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
                 }
             }
         }
@@ -104,11 +111,22 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	
     NSFileManager *fm = [NSFileManager defaultManager];
     [fm createDirectoryAtPath:[@"~/Library/Application Support/Lyricus" stringByExpandingTildeInPath] withIntermediateDirectories:YES attributes:nil error:nil];
-    [dataArray writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES];    
+    [dataArray writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES];
+     
+    sleep(2);
+    [NSApp endSheet:indexProgressWindow];
+}
+
+
+
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+	if (sheet == indexProgressWindow) {
+		[indexProgressWindow orderOut:nil];
+    }
 }
 
 -(void) showLyricSearch:(id) sender {
-    [window makeKeyAndOrderFront:sender];
+    [self.window makeKeyAndOrderFront:sender];
 }
 
 -(IBAction) updateTracklist:(id) sender {

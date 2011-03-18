@@ -10,10 +10,11 @@
 #import "iTunesHelper.h"
 
 @interface LyricSearchController : NSWindowController {
-    IBOutlet NSWindow *window;
     IBOutlet NSTextField *searchTextField;
     IBOutlet NSTableView *trackTableView;
     IBOutlet NSTextView *lyricTextView;
+    IBOutlet NSWindow *indexProgressWindow;
+    IBOutlet NSProgressIndicator *indexProgressIndicator;
     iTunesHelper *helper;
     NSArray *trackData;
     NSMutableArray *matches;
