@@ -17,11 +17,26 @@
         helper = [[iTunesHelper alloc] init];
         matches = [[NSMutableArray alloc] init];
         trackData = [NSArray arrayWithContentsOfFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]];
-        if (!trackData)
+        if (!trackData) {
             [[NSAlert alertWithMessageText:@"You need to create a track index." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"To start using the lyric search window, update your index."] runModal];
+        }
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackSelected:) name:@"NSTableViewSelectionDidChangeNotification" object:nil];
     }
     
     return self;
+}
+
+- (void)trackSelected:(NSNotification *)note { 
+    NSInteger index = [trackTableView selectedRow];
+    if (index >= [matches count]) {
+        return;
+    }
+    
+    NSDictionary *track = [matches objectAtIndex:index];
+    
+    NSString *lyrics = [track objectForKey:@"lyrics"];
+    
+    [[NSAlert alertWithMessageText:@"Lyrics" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:lyrics] runModal];
 }
 
 - (void)controlTextDidChange:(NSNotification *)nd {
@@ -30,7 +45,7 @@
     
     if ([searchString length] >= 2) {
         for (NSDictionary *track in trackData) {
-//            if ([[track objectForKey:@"lyrics"] containsString:searchString]) {
+            // Case insensitive search
             if ([[[track objectForKey:@"lyrics"] lowercaseString] containsString:[searchString lowercaseString]]) {
                 [matches addObject:track];
             }
