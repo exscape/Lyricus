@@ -36,7 +36,14 @@
     
     NSString *lyrics = [track objectForKey:@"lyrics"];
     
-    [[NSAlert alertWithMessageText:@"Lyrics" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:lyrics] runModal];
+    [lyricTextView setString:lyrics];
+//    [lyricTextView setHidden:NO];
+    
+//    NSRect cur = [window frame];
+  //  NSLog(@"%@", NSStringFromRect(cur));
+    
+
+    //[window setFrame:NSMakeRect(cur.origin.x, cur.origin.y, cur.size.width, 538) display:YES animate:NO];
 }
 
 - (void)controlTextDidChange:(NSNotification *)nd {

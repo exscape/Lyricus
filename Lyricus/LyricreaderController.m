@@ -195,7 +195,7 @@
 
 -(IBAction) alwaysOnTopClicked:(id) sender {
 	// The always on top option was checked/unchecked
-	// It's boring to restart apps, so lets make it work right away:
+	// It's boring to restart apps, so let's make it work right away:
 	if ([alwaysOnTop state] == NSOnState) {
 		[mainWindow setLevel:NSFloatingWindowLevel];	
 	}

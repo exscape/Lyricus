@@ -13,6 +13,7 @@
     IBOutlet NSWindow *window;
     IBOutlet NSTextField *searchTextField;
     IBOutlet NSTableView *trackTableView;
+    IBOutlet NSTextView *lyricTextView;
     iTunesHelper *helper;
     NSArray *trackData;
     NSMutableArray *matches;
