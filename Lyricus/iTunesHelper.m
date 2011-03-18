@@ -12,6 +12,34 @@
 #pragma mark -
 #pragma mark init stuff
 
+static iTunesHelper *sharediTunesHelper = nil;
+
++(iTunesHelper *)sharediTunesHelper {
+    @synchronized(self) {
+        if (sharediTunesHelper == nil) {
+            sharediTunesHelper = [[iTunesHelper alloc] init];
+            NSLog(@"[iTunesHelper sharediTunesHelper]: %@", sharediTunesHelper);
+        }
+    }
+    return sharediTunesHelper;
+}
+
++(id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharediTunesHelper == nil) {
+            sharediTunesHelper = [super allocWithZone:zone];
+            return sharediTunesHelper;
+        }
+    }
+    return sharediTunesHelper;
+}
+
+- (id)copyWithZone:(NSZone *)zone 
+{ 
+	return self; 
+} 
+
+
 -(id) init {
     self = [super init];
 	if (self) {
@@ -111,34 +139,6 @@
 	@catch (NSException *e) { return nil; }
 	
 	return trackList;
-}
-
--(NSArray *)getAllTracksAndLyrics {
-	NSMutableArray *dataArray = [[NSMutableArray alloc] init];
-    
-	if (![self initiTunes])
-		return nil;
-	
-	@try {
-		SBElementArray *pls = [[[iTunes sources] objectAtIndex:0] playlists];
-		
-        int tmp = 0;
-		for (iTunesPlaylist *pl in pls) {
-            if ([[pl name] isEqualToString:@"Music"]) {
-//                NSLog(@"Starting track fetch... %@ tracks", [[pl tracks] count]);
-                for (iTunesTrack *t in [pl tracks]) {
-                    [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
-                    if (tmp++ % 50) 
-                        NSLog(@".");
-                    if (tmp % 500)
-                        NSLog(@"\n");
-                }
-            }
-        }
-    }
-	@catch (NSException *e) { return nil; }
-	
-	return dataArray;
 }
 
 -(iTunesTrack *)getCurrentTrack {

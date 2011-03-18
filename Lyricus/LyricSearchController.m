@@ -14,7 +14,7 @@
 {
     self = [super initWithWindow:inWindow];
     if (self) {
-        helper = [[iTunesHelper alloc] init];
+        helper = [iTunesHelper sharediTunesHelper];
         matches = [[NSMutableArray alloc] init];
         trackData = [NSArray arrayWithContentsOfFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]];
         if (!trackData) {
@@ -78,18 +78,35 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 -(IBAction) updateTrackIndex:(id) sender {
     [[NSAlert alertWithMessageText:@"Starting index update" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This may take a few minutes."] runModal];
- /*  
-  *
-  * Commented out for performance during debugging
-  *
-  *
-    NSArray *trackData = [helper getAllTracksAndLyrics];
+    
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+
+	if (![helper initiTunes])
+		return;
+	
+	@try {
+		SBElementArray *pls = [[[[helper iTunesReference] sources] objectAtIndex:0] playlists];
+		
+        int tmp = 0;
+		for (iTunesPlaylist *pl in pls) {
+            if ([[pl name] isEqualToString:@"Music"]) {
+                for (iTunesTrack *t in [pl tracks]) {
+                    [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
+                    if (tmp++ % 50) 
+                        NSLog(@".");
+                    if (tmp % 500)
+                        NSLog(@"\n");
+                }
+            }
+        }
+    }
+	@catch (NSException *e) { return; }
+	
     NSFileManager *fm = [NSFileManager defaultManager];
     [fm createDirectoryAtPath:[@"~/Library/Application Support/Lyricus" stringByExpandingTildeInPath] withIntermediateDirectories:YES attributes:nil error:nil];
-    [trackData writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES];
-   */ 
-    
+    [dataArray writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES];    
 }
+
 -(void) showLyricSearch:(id) sender {
     [window makeKeyAndOrderFront:sender];
 }

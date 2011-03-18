@@ -49,7 +49,7 @@
 	if (playlists == nil) {
 		playlists = [[NSMutableArray alloc] init];
 		lyricController = [[LyricController alloc] init];
-		helper = [[iTunesHelper alloc] init];
+		helper = [iTunesHelper sharediTunesHelper];
 
 		[playlistView setDelegate:self];
 		[bulkWindow setDelegate:self];

@@ -53,7 +53,7 @@
 	[self setupToolbar];
 	
 	lyricController = [[LyricController alloc] init];
-	helper = [[iTunesHelper alloc] init];
+	helper = [iTunesHelper sharediTunesHelper];
 	
 	[searchWindow setDelegate:self];
 	

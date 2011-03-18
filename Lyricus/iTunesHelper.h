@@ -12,6 +12,7 @@
 	iTunesApplication *iTunes;	
 }
 
+-(BOOL) initiTunes;
 -(NSArray *)getAllPlaylists;
 -(NSArray *)getSelectedTracks;
 -(NSArray *)getAllTracksForTitle:(NSString *)theTitle byArtist:(NSString *)theArtist;
@@ -25,6 +26,6 @@
 
 -(iTunesApplication *)iTunesReference; // Use sparingly!
 
--(NSArray *)getAllTracksAndLyrics;
++(iTunesHelper *)sharediTunesHelper;
 
 @end
