@@ -58,14 +58,12 @@
     NSDictionary *track = [matches objectAtIndex:index];
     
     NSString *lyrics = [track objectForKey:@"lyrics"];
-    
     [lyricTextView setString:lyrics];
-//    [lyricTextView setHidden:NO];
-    
-//    NSRect cur = [window frame];
-    
 
-    //[window setFrame:NSMakeRect(cur.origin.x, cur.origin.y, cur.size.width, 538) display:YES animate:NO];
+    // Highlight the search string
+    NSRange range = [lyrics rangeOfString:[searchTextField stringValue] options:NSCaseInsensitiveSearch];
+    [lyricTextView scrollRangeToVisible:range];
+    [lyricTextView showFindIndicatorForRange:range];
 }
 
 - (void)controlTextDidChange:(NSNotification *)nd {
