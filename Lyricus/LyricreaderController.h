@@ -73,7 +73,9 @@
 // Search window
 -(IBAction) openSearchWindow:(id) sender;
 -(IBAction) goButton:(id) sender;				// Search-for-lyric button
+-(void) fetchAndDisplayLyrics:(BOOL) manualSearch;
 -(IBAction) getFromiTunesButton:(id) sender;
+-(void) updateTextFieldsFromiTunes;
 -(IBAction) closeSearchWindow:(id) sender;			// Close search window
 -(IBAction) followiTunesCheckboxClicked:(id) sender;		// Auto-update checkbox clicked
 

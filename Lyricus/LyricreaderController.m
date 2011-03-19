@@ -96,8 +96,8 @@
 	
 	// If we're following iTunes, check if something's playing and if so, grab the lyric right away!
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"]) {
-		[self getFromiTunesButton:nil];
-		[self goButton:nil];
+		[self updateTextFieldsFromiTunes];
+		[self fetchAndDisplayLyrics:NO];
 	}
     
 	// Update the site list
@@ -132,8 +132,8 @@
 -(IBAction) followiTunesCheckboxClicked:(id) sender {
 	if ([followiTunesCheckbox state] == NSOnState) {
 		if ([helper isiTunesRunning]) {
-			[self getFromiTunesButton:nil];
-			[self goButton:nil];
+			[self updateTextFieldsFromiTunes];
+			[self fetchAndDisplayLyrics:NO];
 		}
 	}
 /*	else if ([followiTunesCheckbox state] == NSOffState) {
@@ -168,7 +168,11 @@
 }
 
 -(IBAction) getFromiTunesButton:(id) sender {
-	iTunesTrack *track = [helper getCurrentTrack];
+    [self updateTextFieldsFromiTunes];
+}
+
+-(void) updateTextFieldsFromiTunes {
+    iTunesTrack *track = [helper getCurrentTrack];
 	if (track == nil)
 		return;
 	@try {
@@ -198,14 +202,14 @@
 }
 
 -(IBAction) goButton:(id) sender {
-	if (loadingLyrics) {
-			return;
+    [self fetchAndDisplayLyrics:/*manual=*/YES];
+}
+
+-(void) fetchAndDisplayLyrics:(BOOL)manual {
+    if (loadingLyrics) {
+        return;
 	}
-	
-	if (sender == nil)
-		manualSearch = NO;
-	else
-		manualSearch = YES;
+    manualSearch = manual;
 	
 	NSString *artist, *title;
 	artist = [artistField stringValue];
@@ -213,7 +217,7 @@
 	
 	if ([artist length] == 0 || [title length] == 0)
 	{
-		if (sender != nil) { // Don't show if it was called programmatically
+		if (manualSearch == NO) { // Don't show if it was called programmatically
 			[[NSAlert alertWithMessageText:@"No artist/title pair specificed" defaultButton:@"OK" alternateButton:nil otherButton:nil
 				 informativeTextWithFormat:@"Hey, you need to give me an artist and song title to search for!"] runModal];
 		}
@@ -411,18 +415,9 @@
 	// If the track changed while loading, go get the NEW lyrics instead. Do NOT do this with manual searches, or the current track
 	// would be displayed no matter what.
 	if (!manualSearch && ! ([displayedArtist isEqualToString:[[helper getCurrentTrack] artist]] && [displayedTitle isEqualToString:[[helper getCurrentTrack] name]]) ) {
-		[self getFromiTunesButton:nil];
-		[self goButton:nil];
+		[self updateTextFieldsFromiTunes];
+		[self fetchAndDisplayLyrics:NO];
 	}
-	/*
-	 // Doh. We do NOT want this: if a manual search is done, and the track changes during that time, we WANT it to show 
-	 // "no lyrics found" if that is the case.
-	else if ((manualSearch && !lyricsDisplayed) && ! ([displayedArtist isEqualToString:[[helper getCurrentTrack] artist]] && [displayedTitle isEqualToString:[[helper getCurrentTrack] name]]) ) {
-		[self getFromiTunesButton:nil];
-		[self goButton:nil];
-	}
-	*/
-
 }	
 
 -(BOOL) haveLyricsLocallyForCurrentTrack {
@@ -465,8 +460,8 @@
 		if ([track isEqualToString:newTrack] && ![track isEqualToString:lastTrack]) {
 			// Track DID change,so lets get the lyrics and stuff.
 			lastTrack = [NSString stringWithString:newTrack];
-			[self getFromiTunesButton:nil];
-			[self goButton:nil];
+			[self updateTextFieldsFromiTunes];
+			[self fetchAndDisplayLyrics:NO];
 		}
 	}
 	@catch (NSException *e) {}
@@ -638,7 +633,7 @@ end_return:
 	[self disableEditMode];
 	
 	// Refresh the lyric display and fix the title, etc.
-	[self goButton:nil];
+	[self fetchAndDisplayLyrics:NO];
 	return;
 }
 
