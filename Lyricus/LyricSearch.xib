@@ -258,7 +258,7 @@
 											<string key="NSFrameSize">{324, 14}</string>
 											<reference key="NSSuperview" ref="693618263"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="288397125"/>
+											<reference key="NSNextKeyView" ref="91705455"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="401382341">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -354,7 +354,6 @@
 									<string key="NSFrame">{{325, 1}, {15, 340}}</string>
 									<reference key="NSSuperview" ref="646588990"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<reference key="NSTarget" ref="646588990"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSCurValue">1</double>
@@ -377,7 +376,7 @@
 							<string key="NSFrame">{{20, 20}, {341, 342}}</string>
 							<reference key="NSSuperview" ref="1036285004"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="91705455"/>
+							<reference key="NSNextKeyView" ref="693618263"/>
 							<int key="NSsFlags">18</int>
 							<reference key="NSVScroller" ref="288397125"/>
 							<reference key="NSHScroller" ref="91705455"/>
@@ -422,7 +421,6 @@
 							<string key="NSFrame">{{276, 12}, {76, 32}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="7655529">
 								<int key="NSCellFlags">67239424</int>
@@ -538,6 +536,14 @@
 						<reference key="destination" ref="1001"/>
 					</object>
 					<int key="connectionID">126</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">abortButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="199010075"/>
+					</object>
+					<int key="connectionID">127</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -782,7 +788,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">126</int>
+			<int key="maxID">127</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -833,6 +839,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>abortButton</string>
 							<string>indexProgressIndicator</string>
 							<string>indexProgressWindow</string>
 							<string>lyricTextView</string>
@@ -841,6 +848,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSButton</string>
 							<string>NSProgressIndicator</string>
 							<string>NSWindow</string>
 							<string>NSTextView</string>
@@ -852,6 +860,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>abortButton</string>
 							<string>indexProgressIndicator</string>
 							<string>indexProgressWindow</string>
 							<string>lyricTextView</string>
@@ -860,6 +869,10 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">abortButton</string>
+								<string key="candidateClassName">NSButton</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">indexProgressIndicator</string>
 								<string key="candidateClassName">NSProgressIndicator</string>

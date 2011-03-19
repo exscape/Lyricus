@@ -15,9 +15,10 @@
     IBOutlet NSTextView *lyricTextView;
     IBOutlet NSWindow *indexProgressWindow;
     IBOutlet NSProgressIndicator *indexProgressIndicator;
+    IBOutlet NSButton *abortButton;
     NSThread *thread;
     iTunesHelper *helper;
-    NSArray *trackData;
+    NSMutableArray *trackData;
     NSMutableArray *matches;
 @private
     

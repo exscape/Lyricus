@@ -88,9 +88,12 @@
     }
 }
 
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
+    return [matches count];
+}
+
 - (id)tableView:(NSTableView *)aTableView
-objectValueForTableColumn:(NSTableColumn *)aTableColumn
-            row:(NSInteger)rowIndex {
+objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
     if (rowIndex < [matches count]) {
         NSDictionary *match = [matches objectAtIndex:rowIndex];
         return [NSString stringWithFormat:@"%@ - %@", [match objectForKey:@"artist"], [match objectForKey:@"name"]];
@@ -107,8 +110,8 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 		return YES;
 	}
 	
-	if ([[NSAlert alertWithMessageText:@"Abort indexing?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" 
-                            otherButton:nil informativeTextWithFormat:@"Do you want to abort the current operation?"] runModal] == NSAlertDefaultReturn) {
+	if ([[NSAlert alertWithMessageText:@"Abort indexing?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Do you want to abort the indexing operation?"] runModal] 
+        == NSAlertDefaultReturn) {
 		// Yes, abort:
 		[thread cancel];
 		[[self window] orderOut:self];
@@ -120,19 +123,20 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	}
 }
 
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
-    return [matches count];
-}
-
 -(void)threadWorker:(id)unused {
-    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
-    
 	if (![helper initiTunes])
 		return;
-        
+
+    if (trackData == nil) {
+        trackData = [[NSMutableArray alloc] init];
+    }
+    else {
+        [trackData removeAllObjects];
+    }
+
 	@try {
 		SBElementArray *pls = [[[[helper iTunesReference] sources] objectAtIndex:0] playlists];
+        
 		
 		for (iTunesPlaylist *pl in pls) {
             if ([[pl name] isEqualToString:@"Music"]) {
@@ -143,7 +147,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
                 [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
                 
                 for (iTunesTrack *t in [pl tracks]) {
-                    [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
+                    [trackData addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
                     
                     [indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
                     
@@ -157,9 +161,11 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	@catch (NSException *e) { return; }
 	
     NSFileManager *fm = [NSFileManager defaultManager];
+    
     [fm createDirectoryAtPath:[@"~/Library/Application Support/Lyricus" stringByExpandingTildeInPath] withIntermediateDirectories:YES attributes:nil error:nil];
     [fm removeItemAtPath:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] error:nil];
-    if ([dataArray writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES]) {
+    
+    if ([trackData writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES]) {
         
     NSNumber *timestamp = [NSNumber numberWithInt:(int)[[NSDate date] timeIntervalSince1970]];
     [[NSUserDefaults standardUserDefaults] setValue:timestamp forKey:@"Lyricus index update time"];
@@ -190,9 +196,13 @@ indexing_cancelled:
     thread = [[NSThread alloc] initWithTarget:self selector:@selector(threadWorker:) object:nil];
 	[thread start];
     
-    if (sender != self) {
-        [[NSAlert alertWithMessageText:@"Updating index" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This may take a few minutes."] runModal];
+    // Don't allow abort if no previous index exists
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if (![fm fileExistsAtPath:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]]) {
+        [abortButton setEnabled:NO];
     }
+    else
+        [abortButton setEnabled:YES];
 }
 
 
