@@ -32,12 +32,12 @@
 	SendNote(@"Trying darklyrics...\n");
 	SendNote(@"\tFetching lyric URL...\n");
 	
-	NSString *artistURL = [self getURLForArtist:artist];
+	NSString *artistURL = [self getURLForArtist:artist] /* cannot fail */;
 	if (artistURL == nil)
 		return nil;
-	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL];
+	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
 	SendNote(@"\tFetching and parsing lyrics...\n");
-	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title];
+	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title error:error];
     
 	if (lyrics != nil && [lyrics length] < 5) {
 		return nil;
@@ -49,7 +49,7 @@
 #pragma mark -
 #pragma mark Internal/private
 
--(NSString *)getURLForArtist:(NSString *) artist {
+-(NSString *)getURLForArtist:(NSString *) artist /* cannot fail, so no &error */ {
 	// Easy enough, all URLs seem to be in the form "http://www.darklyrics.com/t/theartistnamegoeshere.html"
 	
 	// First, make the artist name lowercase and remove all non-chars
@@ -62,14 +62,20 @@
 	return [NSString stringWithFormat:@"http://www.darklyrics.com/%c/%@.html", [artist characterAtIndex:0], artist];
 }
 
--(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)inURL {
+-(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)inURL error:(NSError **)error {
 	//
 	// Looks through an artist page (i.e. "http://www.darklyrics.com/d/darktranquillity.html") for the track link
 	//
 	NSURL *artistURL = [NSURL URLWithString:inURL];
 	NSString *html = [TBUtil getHTMLFromURL:artistURL];
-	if (html == nil) 
-		return nil;
+	if (html == nil) {
+        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
+        if (*error != nil) {
+            *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+        }
+        return nil;
+    }
     
 	NSString *regex = 
 	@"<a href=\"../([^#]*?)\\#\\d+\">([^<]*?)</a><br />";
@@ -82,7 +88,7 @@
 	return nil;
 }
 
--(NSString *)extractLyricsFromURL:(NSString *)url forTrack:(NSString *)trackName{
+-(NSString *)extractLyricsFromURL:(NSString *)url forTrack:(NSString *)trackName error:(NSError **)error {
 	//
 	// Extracts and returns the lyrics from a given URL and trackname.
 	//
@@ -104,14 +110,20 @@
 			[albumCache setObject:source forKey:url];
 	}
 	
-	if (source == nil)
-		return nil;
+	if (source == nil) {
+        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
+        if (*error != nil) {
+            *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+        }
+        return nil;
+    }
 	
 	NSMutableString *lyrics;
 	NSString *regex = 
 	@"(?i)<h3><a name=\"\\d+\">\\d+\\. ([^<]*?)</a></h3><br />\\s*([\\s\\S]+?)(?=<br /><br />)";
-    
-	// Ah, the beauty of regular expressions.
+    // Ah, the beauty of regular expressions.
+
     NSArray *matchesArray = [source arrayOfDictionariesByMatchingRegex:regex withKeysAndCaptures:@"title", 1, @"lyrics", 2, nil];
     
     for (NSDictionary *match in matchesArray) {
@@ -122,8 +134,14 @@
 			return [lyrics stringByTrimmingWhitespace];
 		}
 	}
-	// If we've checked all titles, and none matched, oh well...
-	return nil;
+    
+	// If we've checked all titles, something is wrong, since darklyrics provides a list of the lyrics supported to be at this URL. This is likely because the regular expression doesn't match due to site updates.
+    NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+    [errorDetail setValue:@"Unable to parse lyrics. Please report this to the developer at serenity@exscape.org!"forKey:NSLocalizedDescriptionKey];
+    if (*error != nil) {
+        *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusLyricParseError userInfo:errorDetail];
+    }
+    return nil;
 }
 
 @end

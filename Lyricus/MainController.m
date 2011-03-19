@@ -262,7 +262,6 @@
 	else 
 #endif 
 	{
-
 		// Not in iTunes, lets fetch it
 		lyricStr = [lyricController fetchLyricsForTrack:title byArtist:artist error:&err];
 		
@@ -284,25 +283,24 @@
 		}
 	}
 	
-	if (lyricStr == nil && err == nil) {
-		lyricStr = [NSString stringWithFormat:@"No lyrics found!\n"
-					@"For the record, I searched for:\n%@ - %@",
-					artist, title];
+	if (lyricStr == nil) {
+        if (err == nil) {
+            lyricStr = [NSString stringWithFormat:@"No lyrics found!\n"
+                        @"For the record, I searched for:\n%@ - %@",
+                        artist, title];
+        }
+        else { // error
+            lyricStr = [NSString stringWithFormat: @"An error occured: %@", [err localizedDescription]];
+        }
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
 		lyricsDisplayed = NO;
 	}
-	else if (lyricStr != nil && err == nil){
+	else if (lyricStr != nil){
 		// We found some lyrics!
 		NSString *fullTitle = [NSString stringWithFormat:@"%@ - %@", artist, title];
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:fullTitle waitUntilDone:YES];
 		lyricsDisplayed = YES;
 	}
-    else if (err != nil) {
-        lyricStr = [NSString stringWithFormat:@"An error occured. %@", [err localizedDescription]];
-		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
-		lyricsDisplayed = NO;
-
-    }
 	
 	// Display lyrics + set font
 	SetLyric(lyricStr);
