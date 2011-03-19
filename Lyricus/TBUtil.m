@@ -10,9 +10,9 @@
 
 @implementation TBUtil
 
-+(void) showAlert:(NSString *) errText withCaption:(NSString *) caption {
++(NSInteger) showAlert:(NSString *) informativeText withCaption:(NSString *) caption {
 	// Shows an alert, pure and simple. Not just for error messages, despite the method names.
-	[[NSAlert alertWithMessageText:caption defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:errText]
+	return [[NSAlert alertWithMessageText:caption defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:informativeText]
 	 runModal];
 }
 

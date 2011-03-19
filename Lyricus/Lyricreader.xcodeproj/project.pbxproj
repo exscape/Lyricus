@@ -19,7 +19,7 @@
 		109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109531F90DA12D9A001706FF /* TBDarklyrics.m */; };
 		109532100DA12EEB001706FF /* TBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1095320F0DA12EEB001706FF /* TBUtil.m */; };
 		1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */ = {isa = PBXBuildFile; fileRef = 109532690DA1325E001706FF /* TBSongmeanings.m */; };
-		10AEFB170D9FEDCA0088ECDC /* LyricreaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AEFB160D9FEDCA0088ECDC /* LyricreaderController.m */; };
+		10AEFB170D9FEDCA0088ECDC /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AEFB160D9FEDCA0088ECDC /* MainController.m */; };
 		10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */; };
 		10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D5093313337A70006C0FC7 /* libicucore.dylib */; };
 		10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DB27F10DACB28500BF57D3 /* Bulk.m */; };
@@ -83,8 +83,8 @@
 		1095320F0DA12EEB001706FF /* TBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBUtil.m; sourceTree = "<group>"; };
 		109532680DA1325E001706FF /* TBSongmeanings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSongmeanings.h; sourceTree = "<group>"; };
 		109532690DA1325E001706FF /* TBSongmeanings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSongmeanings.m; sourceTree = "<group>"; };
-		10AEFB150D9FEDCA0088ECDC /* LyricreaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricreaderController.h; sourceTree = "<group>"; };
-		10AEFB160D9FEDCA0088ECDC /* LyricreaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricreaderController.m; sourceTree = "<group>"; };
+		10AEFB150D9FEDCA0088ECDC /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MainController.h; sourceTree = "<group>"; };
+		10AEFB160D9FEDCA0088ECDC /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
 		10D5093313337A70006C0FC7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = SDKs/MacOSX10.6.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		10DB27F00DACB28500BF57D3 /* Bulk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bulk.h; sourceTree = "<group>"; };
@@ -141,8 +141,8 @@
 				10E2071A0DABE7CB00F85A9F /* LyricController.m */,
 				1095320E0DA12EEB001706FF /* TBUtil.h */,
 				1095320F0DA12EEB001706FF /* TBUtil.m */,
-				10AEFB150D9FEDCA0088ECDC /* LyricreaderController.h */,
-				10AEFB160D9FEDCA0088ECDC /* LyricreaderController.m */,
+				10AEFB150D9FEDCA0088ECDC /* MainController.h */,
+				10AEFB160D9FEDCA0088ECDC /* MainController.m */,
 				105A37920DA6AFA0007DEFF5 /* SitePriorities.h */,
 				105A37930DA6AFA0007DEFF5 /* SitePriorities.m */,
 			);
@@ -324,7 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				10AEFB170D9FEDCA0088ECDC /* LyricreaderController.m in Sources */,
+				10AEFB170D9FEDCA0088ECDC /* MainController.m in Sources */,
 				109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */,
 				109532100DA12EEB001706FF /* TBUtil.m in Sources */,
 				1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */,
