@@ -16,7 +16,6 @@
     IBOutlet NSWindow *indexProgressWindow;
     IBOutlet NSProgressIndicator *indexProgressIndicator;
     IBOutlet NSButton *abortButton;
-    IBOutlet NSTextField *labelUpdating;
     NSThread *thread;
     iTunesHelper *helper;
     NSMutableArray *trackData;

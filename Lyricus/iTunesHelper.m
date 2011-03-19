@@ -197,12 +197,8 @@ static iTunesHelper *sharediTunesHelper = nil;
 		SBElementArray *arr = (SBElementArray *)[[self getLibraryPlaylist] searchFor:theTitle only:iTunesESrASongs];
 		// NOTE TO SELF: Don't use [TBUtil string: isEqual...] here, as we DO want diacritics and stuff to matter - but not capitalization
 		for (iTunesTrack *track in arr) {
-			/* [t1 compare:t2 options:(NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch)] == NSOrderedSame */
 			if ([[track artist] compare:theArtist options:NSCaseInsensitiveSearch] == NSOrderedSame) // Make sure that we don't overwrite some other artist's song
 				if ([[track name] compare:theTitle options:NSCaseInsensitiveSearch] == NSOrderedSame) // ... or some other track that matches (a search for Artist - Song might match Artist - Song (live) first!)
-			/*			if ([[track artist] isEqualToString:theArtist]) // Make sure that we don't overwrite some other artist's song
-			 if ([[track name] isEqualToString:theTitle]) // ... or some other track that matches (a search for Artist - Song might match Artist - Song (live) first!) */
-
 				{
 					[outArray addObject:[track get]];
 				}
@@ -226,7 +222,6 @@ static iTunesHelper *sharediTunesHelper = nil;
 			if ([TBUtil string:[track artist] isEqualToString:theArtist]) // Make sure that we don't overwrite some other artist's song
 				if ([TBUtil string:[track name] isEqualToString:theTitle]) // Make sure that we don't overwrite some other song e.g. [this song's name] (live)
 				{
-					// NSLog(@"%@ - %@ (%@)", [[track get] artist], [[track get] name], [track get]);
 					return [track get];
 				}
 		}
