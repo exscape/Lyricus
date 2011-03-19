@@ -64,13 +64,6 @@
 		
 		NSMutableDictionary *d; 
 
-		/*
-		d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-			 [NSNumber numberWithInt:1], @"enabled",
-			 @"Lyricwiki", @"site",
-			 nil];
-		[data addObject:d];
-		*/
 		d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
 			 [NSNumber numberWithInt:1], @"enabled",
 			 @"Songmeanings", @"site",

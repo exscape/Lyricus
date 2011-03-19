@@ -83,7 +83,7 @@
 	// Remember the window position
 	[mainWindow setFrameAutosaveName:@"mainWindow"];	
 	
-	// Sign up for iTunes notifications when the track changes etc., way more efficient (and way faster, experience wise) than polling
+	// Register for iTunes notifications (for when the track changes, etc.)
 	[[NSDistributedNotificationCenter defaultCenter]
 	 addObserver:self
 	 selector:@selector(handleiTunesNotification:)
@@ -126,7 +126,8 @@
 -(BOOL)windowShouldClose:(id)sender {
 	if (sender == mainWindow)
 		[NSApp terminate:nil];
-	/* else ;) */ return YES;
+	/* else */
+        return YES;
 }
 
 -(IBAction) followiTunesCheckboxClicked:(id) sender {
@@ -136,9 +137,6 @@
 			[self fetchAndDisplayLyrics:NO];
 		}
 	}
-/*	else if ([followiTunesCheckbox state] == NSOffState) {
-	}
- */
 }
 
 -(IBAction) openSearchWindow:(id) sender {
@@ -161,6 +159,14 @@
 -(IBAction) openPreferencesWindow:(id) sender {
 	[NSApp beginSheet:preferencesWindow modalForWindow:mainWindow modalDelegate:self 
 	   didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+	if (sheet == searchWindow)
+		[searchWindow orderOut:nil];
+	else if (sheet == preferencesWindow) {
+		[preferencesWindow orderOut:nil];
+	}
 }
 
 -(void) setTitle:(NSString *)theTitle {
@@ -193,14 +199,6 @@
 	}
 }
 
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
-	if (sheet == searchWindow)
-		[searchWindow orderOut:nil];
-	else if (sheet == preferencesWindow) {
-		[preferencesWindow orderOut:nil];
-	}
-}
-
 -(IBAction) goButton:(id) sender {
     [self fetchAndDisplayLyrics:/*manual=*/YES];
 }
@@ -219,7 +217,7 @@
 	{
 		if (manualSearch == NO) { // Don't show if it was called programmatically
 			[[NSAlert alertWithMessageText:@"No artist/title pair specificed" defaultButton:@"OK" alternateButton:nil otherButton:nil
-				 informativeTextWithFormat:@"Hey, you need to give me an artist and song title to search for!"] runModal];
+				 informativeTextWithFormat:@""] runModal];
 		}
 		return;
 	}
@@ -234,11 +232,92 @@
 	[lyricView setString:@"Loading lyrics, please wait...\n"];
 	[mainWindow setTitle:@"Lyricus - loading..."];
 	
-	NSArray *data = [NSArray arrayWithObjects:title, artist, nil];
+//	NSArray *data = [NSArray arrayWithObjects:title, artist, nil];
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", artist, @"artist", nil];
 	NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(runThread:) object:data];
-	// We have all the info we need, so start working:	
 	[thread start];
 }
+
+- (void)runThread:(NSDictionary *)data {
+	NSString *title = [data objectForKey:@"title"];
+	NSString *artist = [data objectForKey:@"artist"];
+
+	if (title == nil || artist == nil) {
+		loadingLyrics = NO;
+		return;
+	}
+	
+	NSString *lyricStr;
+	NSMutableArray *lyricData;
+	SendNote(@"Trying iTunes...\n");
+	
+	// First, lets check if iTunes has an entry for this track already
+	iTunesTrack *currentTrack = [helper getTrackForTitle:title byArtist:artist];
+	NSString *iTunesLyrics = [helper getLyricsForTrack:currentTrack];
+#ifndef DISABLE_CACHE
+	if (iTunesLyrics != nil && [iTunesLyrics length] > 5) {
+		lyricData = [NSMutableArray arrayWithObjects:@"No URL", iTunesLyrics, nil];
+	}
+	else 
+#endif 
+	{
+		// Not in iTunes, lets fetch it
+		lyricData = [lyricController fetchDataForTrack:title byArtist:artist];
+		
+		// Beautiful code:
+		// (Basically, it checks if the data we got is OK, ond if it should save it to iTunes)
+		if (lyricData != nil && [lyricData objectAtIndex:LYRIC] != nil) {
+			if ([[currentTrack artist] isEqualToString:artist] && [[currentTrack name] isEqualToString:title]) {
+				// The above line is to make sure we don't save into the wrong track, in case the currently displayed track isn't the one playing
+				
+				// This needs to be done when the track isn't playing. Otherwise, there will be a (very) noticable pause in the playback when iTunes writes the data to disk.
+				NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+									  currentTrack, @"currentTrack",
+									  [NSString stringWithString:[lyricData objectAtIndex:LYRIC]], @"lyric",
+									  nil];
+				
+				NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(updateLyriciniTunes:) object:data];
+				[thread start];
+			}
+		}
+	}
+	
+	if (lyricData == nil || [lyricData objectAtIndex:LYRIC] == nil) {
+		lyricStr = [NSString stringWithFormat:@"Nothing found, or an error occured somewhere! If you're online, the former is more likely, I'd say.\n"
+					@"For the record, I searched for:\n%@ - %@",
+					artist, title];
+		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
+		lyricsDisplayed = NO;
+	}
+	else {
+		// We found some lyrics!
+		lyricStr = [lyricData objectAtIndex:LYRIC];
+		NSString *fullTitle = [NSString stringWithFormat:@"%@ - %@", artist, title];
+		[self performSelectorOnMainThread:@selector(setTitle:) withObject:fullTitle waitUntilDone:YES];
+		lyricsDisplayed = YES;
+	}
+	
+	// Display lyrics + set font
+	SetLyric(lyricStr);
+	displayedArtist = [artist copy];
+	displayedTitle = [title copy];
+	
+	// Scroll to the top (I don't think this is neccesary (anymore), but it doesn't hurt)
+	[lyricView scrollRangeToVisible:NSMakeRange(0,0)];
+	
+	loadingLyrics = NO;
+    
+	[spinner stopAnimation:nil];
+	[spinner setHidden:YES];
+	[goButton setEnabled:YES];
+	
+	// If the track changed while loading, go get the NEW lyrics instead. Do NOT do this with manual searches, or the current track
+	// would be displayed no matter what.
+	if (!manualSearch && ! ([displayedArtist isEqualToString:[[helper getCurrentTrack] artist]] && [displayedTitle isEqualToString:[[helper getCurrentTrack] name]]) ) {
+		[self updateTextFieldsFromiTunes];
+		[self fetchAndDisplayLyrics:NO];
+	}
+}	
 
 - (IBAction) closeSearchWindow:(id) sender {
 	[NSApp endSheet:searchWindow];
@@ -269,7 +348,6 @@
 }
 
 -(void)doSetLyric:(NSString *)str {
-	// FIXME: The name! Ugh, lol
 	[lyricView setString:str];
 }
 
@@ -339,90 +417,9 @@
 	@catch (NSException *e) { NSLog(@"Unable to save lyrics to iTunes: some exception occured."); }
 }
 
-- (void)runThread:(NSArray *)inData {
-	NSString *title = [inData objectAtIndex:0];
-	NSString *artist = [inData objectAtIndex:1];
-	if (title == nil || artist == nil) {
-		loadingLyrics = NO;
-		return;
-	}
-	
-	NSString *lyricStr;
-	NSMutableArray *lyricData;
-	SendNote(@"Trying iTunes...\n");
-	
-	// First, lets check if iTunes has an entry for this track already
-	iTunesTrack *currentTrack = [helper getTrackForTitle:title byArtist:artist];
-	NSString *iTunesLyrics = [helper getLyricsForTrack:currentTrack];
-#ifndef DISABLE_CACHE
-	if (iTunesLyrics != nil && [iTunesLyrics length] > 5) {
-		lyricData = [NSMutableArray arrayWithObjects:@"No URL", iTunesLyrics, nil];
-	}
-	else 
-#endif 
-	{
-		// Not in iTunes, lets fetch it
-		lyricData = [lyricController fetchDataForTrack:title byArtist:artist];
-		
-		// Beautiful code:
-		// (Basically, it checks if the data we got is OK, ond if it should save it to iTunes)
-		if (lyricData != nil && [lyricData objectAtIndex:LYRIC] != nil) {
-			if ([[currentTrack artist] isEqualToString:artist] && [[currentTrack name] isEqualToString:title]) {
-				// The above line is to make sure we don't save into the wrong track, in case the currently displayed track isn't the one playing
-				
-				// This needs to be done when the track isn't playing. Otherwise, there will be a (very) noticable pause in the playback
-				// when iTunes writes the data to disk.
-				NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-									  currentTrack, @"currentTrack",
-									  [NSString stringWithString:[lyricData objectAtIndex:LYRIC]], @"lyric",
-									  nil];
-				
-				NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(updateLyriciniTunes:) object:data];
-				[thread start];
-			}
-		}
-	}
-	
-	if (lyricData == nil || [lyricData objectAtIndex:LYRIC] == nil) {
-		lyricStr = [NSString stringWithFormat:@"Nothing found, or an error occured somewhere! If you're online, the former is more likely, I'd say.\n"
-					@"For the record, I searched for:\n%@ - %@",
-					artist, title];
-		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
-		lyricsDisplayed = NO;
-	}
-	else {
-		// We found some lyrics!
-		lyricStr = [lyricData objectAtIndex:LYRIC];
-		NSString *fullTitle = [NSString stringWithFormat:@"%@ - %@", artist, title];
-		[self performSelectorOnMainThread:@selector(setTitle:) withObject:fullTitle waitUntilDone:YES];
-		lyricsDisplayed = YES;
-	}
-	
-	// Display lyrics + set font
-	SetLyric(lyricStr);
-	displayedArtist = [artist copy];
-	displayedTitle = [title copy];
-	
-	// Scroll to the top (I don't think this is neccesary (anymore), but it doesn't hurt)
-	[lyricView scrollRangeToVisible:NSMakeRange(0,0)];
-	
-	loadingLyrics = NO;
-		
-	[spinner stopAnimation:nil];
-	[spinner setHidden:YES];
-	[goButton setEnabled:YES];
-	
-	// If the track changed while loading, go get the NEW lyrics instead. Do NOT do this with manual searches, or the current track
-	// would be displayed no matter what.
-	if (!manualSearch && ! ([displayedArtist isEqualToString:[[helper getCurrentTrack] artist]] && [displayedTitle isEqualToString:[[helper getCurrentTrack] name]]) ) {
-		[self updateTextFieldsFromiTunes];
-		[self fetchAndDisplayLyrics:NO];
-	}
-}	
-
 -(BOOL) haveLyricsLocallyForCurrentTrack {
 	//
-	// Returns YES if lyric is in iTunes or cached, NO otherwise
+	// Returns YES if lyric is in iTunes, NO otherwise
 	//
 	iTunesTrack *currentTrack = [helper getCurrentTrack];
 	if (currentTrack == nil)
@@ -436,7 +433,7 @@
 
 -(void)trackUpdated:(NSDictionary *)note {
 	//
-	// Checks if a new track has started playing, and if so, fetches the lyrics for that track
+    // This is called whenever iTunes starts playing a track. We need to check whether if it's a new track or not.
 	//
 	NSString *track = [NSString stringWithFormat:@"%@ - %@", [note objectForKey:@"Artist"], [note objectForKey:@"Name"]];
 
@@ -447,7 +444,7 @@
 	}
 	@catch (NSException *e) {} // Ignore, will most likely only happen on the first track, which means nothing really
 	
-	if ( ! [self haveLyricsLocallyForCurrentTrack]) {
+	if (![self haveLyricsLocallyForCurrentTrack]) {
 		sleep (3); 	// To make sure the user didn't just skip a bunch of tracks;
 					// We want to be sure that this is *the* new track.
 	}
@@ -471,7 +468,6 @@
 	//
 	// Receives notifications from iTunes, and forwards them to trackUpdated: if a track started playing
 	//
-	//	if ([followiTunesCheckbox state] == NSOffState)
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"] == NO)
 		return;
 	
@@ -493,6 +489,7 @@
 
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar
 {
+    // Toolbar delegate method
 	return [NSArray arrayWithObjects:NSToolbarSeparatorItemIdentifier,
 			NSToolbarSpaceItemIdentifier,
 			NSToolbarFlexibleSpaceItemIdentifier,
@@ -506,6 +503,7 @@
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
 {
+    // Toolbar delegate method
     return [NSArray arrayWithObjects:kSearchIdentifier,
 			kBulkIdentifier,
 			NSToolbarFlexibleSpaceItemIdentifier,
@@ -516,6 +514,7 @@
 	 itemForItemIdentifier:(NSString *)itemIdentifier
  willBeInsertedIntoToolbar:(BOOL)flag
 {
+    // Toolbar delegate method
     NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
 	if ([[item itemIdentifier] isEqualToString:kProgressIndicatorIdentifier]) {
 		NSRect fRect = [spinnerView frame];
@@ -622,14 +621,13 @@ end_return:
 -(IBAction)saveDisplayedLyricsToCurrentlyPlayingTrack:(id) sender  {
 	NSString *newLyric = [lyricView string];
 
-	if (newLyric == nil || [newLyric length] <= 1) {
+	if (newLyric == nil || [newLyric length] < 1) {
 		[TBUtil showAlert:@"You tried to save without having any lyrics displayed!" withCaption:@"Unable to save"];
-		goto end_return;
+		return;
 	}
 	
 	[[helper getCurrentTrack] setLyrics: newLyric];
 	
-end_return:
 	[self disableEditMode];
 	
 	// Refresh the lyric display and fix the title, etc.

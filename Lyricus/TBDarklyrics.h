@@ -12,7 +12,7 @@
 }
 
 //
-// Sorted by calling order. I think. Only one, fetchLyrics... is called from the outside.
+// Sorted by calling order
 //
 -(NSMutableArray *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist;
 -(NSString *) getURLForArtist:(NSString *) artist;

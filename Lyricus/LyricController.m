@@ -86,8 +86,6 @@
 			[sitesByPriority addObject: [[TBDarklyrics alloc] init]];
 		else if ([siteName isEqualToString:@"songmeanings"])
 			[sitesByPriority addObject: [[TBSongmeanings alloc] init]];
-//		else if ([siteName isEqualToString:@"lyricwiki"])
-//			[sitesByPriority addObject: [[TBLyricwiki alloc] init]];
 	}
 }
 

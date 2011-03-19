@@ -14,7 +14,6 @@
 		1041B7C71333B49F003F4429 /* LyricSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1041B7C61333B49F003F4429 /* LyricSearch.xib */; };
 		1041B7CA1333B4CA003F4429 /* LyricSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1041B7C91333B4CA003F4429 /* LyricSearchController.m */; };
 		105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A37930DA6AFA0007DEFF5 /* SitePriorities.m */; };
-		105A38980DA6CAB7007DEFF5 /* TBLyricwiki.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A38970DA6CAB7007DEFF5 /* TBLyricwiki.m */; };
 		107CD7350DAE4833003E0D32 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 107CD7340DAE4833003E0D32 /* icon.icns */; };
 		109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109531F90DA12D9A001706FF /* TBDarklyrics.m */; };
 		109532100DA12EEB001706FF /* TBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1095320F0DA12EEB001706FF /* TBUtil.m */; };
@@ -74,8 +73,6 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		105A37920DA6AFA0007DEFF5 /* SitePriorities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitePriorities.h; sourceTree = "<group>"; };
 		105A37930DA6AFA0007DEFF5 /* SitePriorities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitePriorities.m; sourceTree = "<group>"; };
-		105A38960DA6CAB7007DEFF5 /* TBLyricwiki.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLyricwiki.h; sourceTree = "<group>"; };
-		105A38970DA6CAB7007DEFF5 /* TBLyricwiki.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLyricwiki.m; sourceTree = "<group>"; };
 		107CD7340DAE4833003E0D32 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		109531F80DA12D9A001706FF /* TBDarklyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDarklyrics.h; sourceTree = "<group>"; };
 		109531F90DA12D9A001706FF /* TBDarklyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBDarklyrics.m; sourceTree = "<group>"; };
@@ -83,7 +80,7 @@
 		1095320F0DA12EEB001706FF /* TBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBUtil.m; sourceTree = "<group>"; };
 		109532680DA1325E001706FF /* TBSongmeanings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSongmeanings.h; sourceTree = "<group>"; };
 		109532690DA1325E001706FF /* TBSongmeanings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSongmeanings.m; sourceTree = "<group>"; };
-		10AEFB150D9FEDCA0088ECDC /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MainController.h; sourceTree = "<group>"; };
+		10AEFB150D9FEDCA0088ECDC /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		10AEFB160D9FEDCA0088ECDC /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
 		10D5093313337A70006C0FC7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = SDKs/MacOSX10.6.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
@@ -129,9 +126,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1027289D0DB2A81900E644E1 /* iTunesHelper.h */,
 				1041B7C81333B4CA003F4429 /* LyricSearchController.h */,
 				1041B7C91333B4CA003F4429 /* LyricSearchController.m */,
+				1027289D0DB2A81900E644E1 /* iTunesHelper.h */,
 				1027289E0DB2A81900E644E1 /* iTunesHelper.m */,
 				10DB27F00DACB28500BF57D3 /* Bulk.h */,
 				10DB27F10DACB28500BF57D3 /* Bulk.m */,
@@ -172,8 +169,6 @@
 		1086B26B0DACAF9E007B2EC1 /* Sites */ = {
 			isa = PBXGroup;
 			children = (
-				105A38960DA6CAB7007DEFF5 /* TBLyricwiki.h */,
-				105A38970DA6CAB7007DEFF5 /* TBLyricwiki.m */,
 				109532680DA1325E001706FF /* TBSongmeanings.h */,
 				109532690DA1325E001706FF /* TBSongmeanings.m */,
 				109531F80DA12D9A001706FF /* TBDarklyrics.h */,
@@ -330,7 +325,6 @@
 				1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */,
 				10E495A80DA545B50000E68B /* NSString+ExscapeEdits.m in Sources */,
 				105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */,
-				105A38980DA6CAB7007DEFF5 /* TBLyricwiki.m in Sources */,
 				10E2071B0DABE7CB00F85A9F /* LyricController.m in Sources */,
 				10E207700DABED8400F85A9F /* NSTextView+AppendString.m in Sources */,
 				10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */,
