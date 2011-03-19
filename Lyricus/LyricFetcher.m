@@ -50,7 +50,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
 
 @synthesize sitesByPriority;
 
--(NSMutableArray *)fetchDataForTrack:(NSString *)theTrack byArtist:(NSString *)theArtist {
+-(NSString *)fetchLyricsForTrack:(NSString *)theTrack byArtist:(NSString *)theArtist error:(NSError **)error {
 	
 	if (theTrack && [theTrack containsString:@"(live" ignoringCaseAndDiacritics:YES]) {
         theTrack = [theTrack stringByReplacingOccurrencesOfRegex:@"(?i)(.*?)\\s*\\(live.*" withString:@"$1"];
@@ -65,14 +65,21 @@ static LyricFetcher *sharedLyricFetcher = nil;
 	// Runs through the list of sites, in order, until
 	// 1) there are no more sites (return nil), or
 	// 2) the lyric is found and returned
+    
+    NSString *lyrics = nil;
+//    NSError *err;
 	for (id site in sitesByPriority) {
-		NSMutableArray *dataArray = [site fetchLyricsForTrack:theTrack byArtist:theArtist];
-		
-		if (dataArray != nil && [dataArray objectAtIndex:LYRIC] != nil) {
-			return dataArray;
-		}
-	}
-	return nil;
+		lyrics = [site fetchLyricsForTrack:theTrack byArtist:theArtist error:error];
+//        if (err != nil) {
+  //          if (*error != nil) {
+    //            *error = [err copy];
+      //      }
+        //    return nil;
+    }
+        if (lyrics != nil)
+            return lyrics;
+        // else continue;
+	return lyrics;
 }
 
 -(void) updateSiteList {

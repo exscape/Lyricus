@@ -75,13 +75,12 @@
 	BOOL oldSetting = [[NSUserDefaults standardUserDefaults] boolForKey:@"Show loading messages"];
 	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"Show loading messages"];
 	NSString *str;
-	NSMutableArray *data;
 	int count = 0;
 	
 	int totalCount = [theTracks count];
 	if ([theTracks count] == 0) {
 		[[NSAlert alertWithMessageText:@"The selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
-		  @"If you are using the \"[Selected tracks\] playlist, make sure the tracks are selected in iTunes."] runModal];
+		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
 		[goButton setEnabled:YES];
 		return;
 	}
@@ -135,18 +134,23 @@
 			}
 		} @catch (NSException *e) { continue; }
 		
-		
-		data = [lyricController fetchDataForTrack:[track name] byArtist:[track artist]];
-		if (data && [data objectAtIndex:1]) {
+		NSError *err = nil; // Ignored
+		NSString *lyrics = [lyricController fetchLyricsForTrack:[track name] byArtist:[track artist] error:&err];
+		if (lyrics) {
 			@try { // Scripting bridge seems to be a bit unstable
 				set_lyrics++;
-				[track setLyrics:[data objectAtIndex:1]];
+				[track setLyrics:lyrics];
 			} 
 			@catch (NSException *e) { set_lyrics--; }
 		}
-		else {
+		else if (err == nil) {
 			lyrics_not_found++;
 			str = [NSString stringWithFormat:@"No lyrics found for track %@ - %@\n", [track artist], [track name]];
+			ProgressUpdate(str);
+		}
+        else {
+			lyrics_not_found++;
+			str = [NSString stringWithFormat:@"An error occured when trying to download lyrics for %@ - %@\n", [track artist], [track name]];
 			ProgressUpdate(str);
 		}
 		

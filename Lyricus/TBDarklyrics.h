@@ -14,7 +14,7 @@
 //
 // Sorted by calling order
 //
--(NSMutableArray *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist;
+-(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist error:(NSError **)error;
 -(NSString *) getURLForArtist:(NSString *) artist;
 -(NSString *) getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)artistURL;
 -(NSString *) extractLyricsFromURL:(NSString *)url forTrack:(NSString *)trackName;

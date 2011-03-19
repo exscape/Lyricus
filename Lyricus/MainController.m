@@ -232,7 +232,6 @@
 	[lyricView setString:@"Loading lyrics, please wait...\n"];
 	[mainWindow setTitle:@"Lyricus - loading..."];
 	
-//	NSArray *data = [NSArray arrayWithObjects:title, artist, nil];
     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", artist, @"artist", nil];
 	NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(runThread:) object:data];
 	[thread start];
@@ -248,32 +247,35 @@
 	}
 	
 	NSString *lyricStr;
-	NSMutableArray *lyricData;
 	SendNote(@"Trying iTunes...\n");
 	
-	// First, lets check if iTunes has an entry for this track already
+
+    NSError *err = nil;
+    
+    // First, lets check if iTunes has an entry for this track already
 	iTunesTrack *currentTrack = [helper getTrackForTitle:title byArtist:artist];
 	NSString *iTunesLyrics = [helper getLyricsForTrack:currentTrack];
 #ifndef DISABLE_CACHE
 	if (iTunesLyrics != nil && [iTunesLyrics length] > 5) {
-		lyricData = [NSMutableArray arrayWithObjects:@"No URL", iTunesLyrics, nil];
+		lyricStr = iTunesLyrics;
 	}
 	else 
 #endif 
 	{
+
 		// Not in iTunes, lets fetch it
-		lyricData = [lyricController fetchDataForTrack:title byArtist:artist];
+		lyricStr = [lyricController fetchLyricsForTrack:title byArtist:artist error:&err];
 		
 		// Beautiful code:
 		// (Basically, it checks if the data we got is OK, ond if it should save it to iTunes)
-		if (lyricData != nil && [lyricData objectAtIndex:LYRIC] != nil) {
+		if (lyricStr != nil) {
 			if ([[currentTrack artist] isEqualToString:artist] && [[currentTrack name] isEqualToString:title]) {
 				// The above line is to make sure we don't save into the wrong track, in case the currently displayed track isn't the one playing
 				
 				// This needs to be done when the track isn't playing. Otherwise, there will be a (very) noticable pause in the playback when iTunes writes the data to disk.
 				NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
 									  currentTrack, @"currentTrack",
-									  [NSString stringWithString:[lyricData objectAtIndex:LYRIC]], @"lyric",
+									  [NSString stringWithString:lyricStr], @"lyric",
 									  nil];
 				
 				NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(updateLyriciniTunes:) object:data];
@@ -282,20 +284,25 @@
 		}
 	}
 	
-	if (lyricData == nil || [lyricData objectAtIndex:LYRIC] == nil) {
-		lyricStr = [NSString stringWithFormat:@"Nothing found, or an error occured somewhere! If you're online, the former is more likely, I'd say.\n"
+	if (lyricStr == nil && err == nil) {
+		lyricStr = [NSString stringWithFormat:@"No lyrics found!\n"
 					@"For the record, I searched for:\n%@ - %@",
 					artist, title];
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
 		lyricsDisplayed = NO;
 	}
-	else {
+	else if (lyricStr != nil && err == nil){
 		// We found some lyrics!
-		lyricStr = [lyricData objectAtIndex:LYRIC];
 		NSString *fullTitle = [NSString stringWithFormat:@"%@ - %@", artist, title];
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:fullTitle waitUntilDone:YES];
 		lyricsDisplayed = YES;
 	}
+    else if (err != nil) {
+        lyricStr = [NSString stringWithFormat:@"An error occured. %@", [err localizedDescription]];
+		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
+		lyricsDisplayed = NO;
+
+    }
 	
 	// Display lyrics + set font
 	SetLyric(lyricStr);
@@ -652,12 +659,17 @@ end_return:
 	if (!songmeanings) {
 		songmeanings = [[TBSongmeanings alloc] init];
 	}
+    NSError *err = nil;
 	
-	NSString *artistURL = [songmeanings getURLForArtist:displayedArtist];
-	if (!artistURL) {
+	NSString *artistURL = [songmeanings getURLForArtist:displayedArtist error:&err];
+	if (!artistURL && err == nil) {
 		[TBUtil showAlert:@"Artist not found on songmeanings!" withCaption:@"Unable to open songmeanings page"];
 		goto end_func;
 	}
+    else if (!artistURL && err != nil) {
+        [TBUtil showAlert:@"An error occured when trying to open requested page." withCaption:@"Unable to open songmeanings page"];
+		goto end_func;
+    }
 	
 	NSString *myTitle = displayedTitle;
 	
@@ -665,11 +677,16 @@ end_return:
 		myTitle = [NSString stringWithString:[displayedTitle stringByReplacingOccurrencesOfRegex:@"(?i)(.*?)\\s*\\(live.*" withString:@"$1"]];
 	}
 	
-	NSString *lyricURL = [songmeanings getLyricURLForTrack:myTitle fromArtistURL:artistURL];
-	if (!lyricURL) {
+	NSString *lyricURL = [songmeanings getLyricURLForTrack:myTitle fromArtistURL:artistURL error:&err];
+	if (!lyricURL && err == nil) {
 		[TBUtil showAlert:@"Lyric not found on songmeanings!" withCaption:@"Unable to open songmeanings page"];
 		goto end_func;
 	}
+    if (!lyricURL && err != nil) {
+        [TBUtil showAlert:@"An error occured when trying to open requested page." withCaption:@"Unable to open songmeanings page"];
+        goto end_func;
+
+    }
 	
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:lyricURL]];
 end_func:

@@ -24,7 +24,7 @@
 #pragma mark -
 #pragma mark Public
 
--(NSMutableArray *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist {
+-(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist error:(NSError **)error {
 	//
 	// The only method called from the outside
 	//
@@ -38,15 +38,12 @@
 	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL];
 	SendNote(@"\tFetching and parsing lyrics...\n");
 	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title];
+    
 	if (lyrics != nil && [lyrics length] < 5) {
 		return nil;
 	}
-	else if (lyrics == nil)
-		return nil;
-	else {
-		//	lyrics = [lyrics stringByAppendingString:@"\n\nLyrics from www.darklyrics.com"];
-		return [NSMutableArray arrayWithObjects:trackURL, lyrics, nil];
-	}
+	else
+        return lyrics; // may still be nil, but in that case we would return nil anyway
 }
 
 #pragma mark -

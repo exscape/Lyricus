@@ -24,6 +24,9 @@ userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]];
 #define LYRIC 1
 #define TIMESTAMP 2
 
+#define LyricusHTMLFetchError 1
+#define LyricusLyricParseError 2
+
 // #define NSLog(x) NULL
 
 #endif

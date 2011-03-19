@@ -14,11 +14,11 @@
 //
 // Sorted by order of invocation
 //
--(NSMutableArray *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist;
+-(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist error:(NSError **)error;
 
 // Private methods
--(NSString *)getURLForArtist:(NSString *) artist;
--(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)artistURL;
--(NSString *)extractLyricsFromURL:(NSString *)url;
+-(NSString *)getURLForArtist:(NSString *) artist error:(NSError **)error;
+-(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)artistURL error:(NSError **)error;
+-(NSString *)extractLyricsFromURL:(NSString *)url error:(NSError **)error;
 
 @end

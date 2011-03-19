@@ -14,6 +14,6 @@
 +(NSString *)getHTMLFromURL:(NSURL *)url;
 +(NSString *)getHTMLFromURL:(NSURL *)url withCharset:(NSStringEncoding)theEncoding;
 +(BOOL) string:(NSString *) string isEqualToString:(NSString *)otherTitle;
-+(void) showAlert:(NSString *) errText withCaption:(NSString *) caption;
++(NSInteger) showAlert:(NSString *) errText withCaption:(NSString *) caption;
 
 @end

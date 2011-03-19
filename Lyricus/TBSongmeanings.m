@@ -21,37 +21,37 @@
 #pragma mark -
 #pragma mark Public
 
--(NSMutableArray *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist {
+-(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist error:(NSError **)error {
 	//
 	// The only method called from the outside.
 	//
 	SendNote(@"Trying songmeanings...\n");
 	SendNote(@"\tFetching song list...\n");
 	
-	NSString *artistURL = [self getURLForArtist:artist];
+	NSString *artistURL = [self getURLForArtist:artist error:error];
 	if (artistURL == nil) {
 		SendNote(@"\tArtist not found!\n");
 		return nil;
 	}
 	SendNote(@"\tFetching lyric URL...\n");
-	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL:artistURL];
+	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL:artistURL error:error];
 	if (trackURL == nil) {
 		SendNote(@"\tTrack not found!\n");
 		return nil;
 	}
 	
 	SendNote(@"\tFetching and parsing lyrics...\n");
-	NSString *lyrics = [self extractLyricsFromURL:trackURL];
+	NSString *lyrics = [self extractLyricsFromURL:trackURL error:error];
 	if (lyrics == nil)
 		return nil;
 	
-	return [NSMutableArray arrayWithObjects:trackURL, lyrics, nil];
+	return lyrics;
 }
 
 #pragma mark -
 #pragma mark Private/internal
 
--(NSString *)getURLForArtist:(NSString *) inArtist {
+-(NSString *)getURLForArtist:(NSString *) inArtist error:(NSError **)error {
 	//
 	// Does a search for the artist name, and tries to return the URL to the artist's page,
 	// which in turn contains a link to all the artist's songs.
@@ -66,8 +66,14 @@
 
 	// Do the search and fetch results
 	NSString *html = [TBUtil getHTMLFromURL:url];
-	if (html == nil)
-		return nil;
+	if (html == nil) {
+            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
+        if (*error != nil) {
+            *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+        }
+        return nil;
+    }
 	
 	if ([html containsString:@"There are <strong>no results</strong>"])
 		return nil;
@@ -87,14 +93,21 @@
 	return nil;
 }
 
--(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)artistURL {
+-(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)artistURL error:(NSError **)error {
 	//
 	// Given an artist URL and a track, this tries to return the URL to the actual lyric.
 	//
 	
 	NSString *html = [TBUtil getHTMLFromURL:[NSURL URLWithString:artistURL]];
-	if (html == nil) 
+    if (html == nil) {
+        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
+        if (*error != nil) {
+            *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+        }
 		return nil;
+    }
+        
 	NSString *regex = 
       @"<tr class='row[01]'><td><a href=\"/songs/view/(\\d+)/\">(.*?)</a></td>";
     
@@ -107,14 +120,22 @@
 	return nil;
 }
 
--(NSString *)extractLyricsFromURL:(NSString *)url {
+-(NSString *)extractLyricsFromURL:(NSString *)url error:(NSError **)error {
 	//
 	// Given an URL and the track's name, tries to extract the lyrics.
 	//
 	if (url == nil)
 		return nil;
+    
 	NSString *html = [TBUtil getHTMLFromURL:[NSURL URLWithString:url]];
-	if (html == nil) return nil;
+	if (html == nil) {
+        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
+        if (*error != nil) {
+            *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus.HTMLFetchError" code:LyricusHTMLFetchError userInfo:errorDetail];
+        }
+        return nil;
+    }
 	
 	// Why THE HELL is this required!?!! Took me HOURS of debugging to find out. Seems to break even with dot matches all,
 	// so lets use this:
@@ -125,8 +146,14 @@
 	@"<!-- end ringtones -->(.*?)<!--ringtones and media links -->";
     NSMutableString *lyrics = [[html stringByMatching:regex capture:1L] mutableCopy];
 
-    if (lyrics == nil) 
-			return nil;
+    if (lyrics == nil) {
+        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:@"Unable to parse lyrics from songmeanings. Please report this to the developer at serenity@exscape.org!" forKey:NSLocalizedDescriptionKey];
+        if (*error != nil) {
+            *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus.LyricParseError" code:LyricusLyricParseError userInfo:errorDetail];
+        }
+        return nil;
+    }
 
     [lyrics replaceOccurrencesOfRegex:@"<br />" withString:@"\n"];
     [lyrics replaceOccurrencesOfRegex:@"<[^>]*>" withString:@""];

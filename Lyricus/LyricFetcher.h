@@ -18,7 +18,7 @@
 @property (readonly) NSMutableArray *sitesByPriority;
 
 // Our face outwards
--(NSMutableArray *)fetchDataForTrack:(NSString *)theTrack byArtist:(NSString *)theArtist;
+-(NSString *)fetchLyricsForTrack:(NSString *)theTrack byArtist:(NSString *)theArtist error:(NSError **)error;
 
 -(void) updateSiteList;
 
