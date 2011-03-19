@@ -21,6 +21,16 @@
         if (!trackData) {
             [[NSAlert alertWithMessageText:@"You need to create a track index." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"To start using the lyric search window, update your index."] runModal];
         }
+        
+        // Make sure the index is up-to-date
+        NSNumber *currentTimestamp = [NSNumber numberWithInt:(int)[[NSDate date] timeIntervalSince1970]];
+        NSNumber *indexTimestamp = [[NSUserDefaults standardUserDefaults] valueForKey:@"Lyricus index update time"];
+        int diff = ([currentTimestamp intValue] - [indexTimestamp intValue]);
+        
+        if (diff > 86400*7) { // 1 week
+            [[NSAlert alertWithMessageText:@"Your index is old" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal];
+        }
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackSelected:) name:@"NSTableViewSelectionDidChangeNotification" object:nil];
     }
     
@@ -73,36 +83,57 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
     else
         return nil;
 }
+
+- (BOOL)windowShouldClose:(id)sender {
+	// No need to confirm if nothing is running
+	if (![thread isExecuting]) {
+		[[self window] orderOut:self];
+		return YES;
+	}
+	
+	if ([[NSAlert alertWithMessageText:@"Abort indexing?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" 
+                            otherButton:nil informativeTextWithFormat:@"Do you want to abort the current operation?"] runModal] == NSAlertDefaultReturn) {
+		// Yes, abort:
+		[thread cancel];
+		[[self window] orderOut:self];
+		return YES;
+	}
+	else {
+		// No, don't abort
+		return NO;
+	}
+}
+
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
     return [matches count];
 }
 
--(IBAction) updateTrackIndex:(id) sender {
-    [[NSAlert alertWithMessageText:@"Starting index update" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This may take a few minutes."] runModal];
-    
+-(void)threadWorker:(id)unused {
     NSMutableArray *dataArray = [[NSMutableArray alloc] init];
-
+    
 	if (![helper initiTunes])
 		return;
-    
-    [NSApp beginSheet:indexProgressWindow modalForWindow:self.window modalDelegate:self 
-       didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
-    
+        
 	@try {
 		SBElementArray *pls = [[[[helper iTunesReference] sources] objectAtIndex:0] playlists];
 		
 		for (iTunesPlaylist *pl in pls) {
             if ([[pl name] isEqualToString:@"Music"]) {
-
+                
                 // Set up the progress indicator
                 [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[[pl tracks] count]] waitUntilDone:YES];
                 [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMinValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
                 [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
-
+                
                 for (iTunesTrack *t in [pl tracks]) {
-                    [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
-
+//                    [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
+                    
                     [indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
+                    
+                    if ([thread isCancelled]) {
+                        goto indexing_cancelled;
+                    }
                 }
             }
         }
@@ -111,10 +142,39 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 	
     NSFileManager *fm = [NSFileManager defaultManager];
     [fm createDirectoryAtPath:[@"~/Library/Application Support/Lyricus" stringByExpandingTildeInPath] withIntermediateDirectories:YES attributes:nil error:nil];
-    [dataArray writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES];
-     
-    sleep(2);
+    [fm removeItemAtPath:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] error:nil];
+    if ([dataArray writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES]) {
+        
+    NSNumber *timestamp = [NSNumber numberWithInt:(int)[[NSDate date] timeIntervalSince1970]];
+    [[NSUserDefaults standardUserDefaults] setValue:timestamp forKey:@"Lyricus index update time"];
+        
+    }
+    else {
+        [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that /Users/<your username>/Library/Application Support/Lyricus is writable."] runModal];
+    }
+    
+indexing_cancelled:
+    
     [NSApp endSheet:indexProgressWindow];
+
+}
+
+-(IBAction) abortIndexing:(id) sender {
+    if (thread != nil) {
+        if ([thread isExecuting]) {
+            [thread cancel];
+        }
+    }
+}
+
+-(IBAction) updateTrackIndex:(id) sender {
+    [NSApp beginSheet:indexProgressWindow modalForWindow:self.window modalDelegate:self 
+       didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+    
+    thread = [[NSThread alloc] initWithTarget:self selector:@selector(threadWorker:) object:nil];
+	[thread start];
+    
+    [[NSAlert alertWithMessageText:@"Updating index" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This may take a few minutes."] runModal];
 }
 
 

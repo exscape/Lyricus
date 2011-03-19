@@ -15,6 +15,7 @@
     IBOutlet NSTextView *lyricTextView;
     IBOutlet NSWindow *indexProgressWindow;
     IBOutlet NSProgressIndicator *indexProgressIndicator;
+    NSThread *thread;
     iTunesHelper *helper;
     NSArray *trackData;
     NSMutableArray *matches;
@@ -25,5 +26,6 @@
 -(void) showLyricSearch:(id) sender;
 -(IBAction) updateTracklist:(id) sender;
 -(IBAction) updateTrackIndex:(id) sender;
+-(IBAction) abortIndexing:(id) sender;
 
 @end

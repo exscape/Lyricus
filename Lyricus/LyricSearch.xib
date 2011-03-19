@@ -443,7 +443,7 @@
 			<object class="NSWindowTemplate" id="740746720">
 				<int key="NSWindowStyleMask">1</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{245, 301}, {366, 56}}</string>
+				<string key="NSWindowRect">{{245, 301}, {366, 96}}</string>
 				<int key="NSWTFlags">611844096</int>
 				<string key="NSWindowTitle">Indexing...</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -457,15 +457,37 @@
 							<reference key="NSNextResponder" ref="300709705"/>
 							<int key="NSvFlags">1292</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
-							<string key="NSFrame">{{18, 16}, {330, 20}}</string>
+							<string key="NSFrame">{{18, 56}, {330, 20}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
+							<reference key="NSNextKeyView" ref="199010075"/>
 							<int key="NSpiFlags">16392</int>
 							<double key="NSMaxValue">100</double>
 						</object>
+						<object class="NSButton" id="199010075">
+							<reference key="NSNextResponder" ref="300709705"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{276, 12}, {76, 32}}</string>
+							<reference key="NSSuperview" ref="300709705"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="7655529">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents">Abort</string>
+								<reference key="NSSupport" ref="102061716"/>
+								<reference key="NSControlView" ref="199010075"/>
+								<int key="NSButtonFlags">-2038284033</int>
+								<int key="NSButtonFlags2">129</int>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
 					</object>
-					<string key="NSFrame">{{7, 11}, {366, 56}}</string>
+					<string key="NSFrame">{{7, 11}, {366, 96}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="169595748"/>
@@ -572,6 +594,14 @@
 						<reference key="destination" ref="111659245"/>
 					</object>
 					<int key="connectionID">58</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">abortIndexing:</string>
+						<reference key="source" ref="522178120"/>
+						<reference key="destination" ref="199010075"/>
+					</object>
+					<int key="connectionID">61</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -740,6 +770,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="169595748"/>
+							<reference ref="199010075"/>
 						</object>
 						<reference key="parent" ref="740746720"/>
 					</object>
@@ -747,6 +778,20 @@
 						<int key="objectID">53</int>
 						<reference key="object" ref="169595748"/>
 						<reference key="parent" ref="300709705"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">59</int>
+						<reference key="object" ref="199010075"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="7655529"/>
+						</object>
+						<reference key="parent" ref="300709705"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">60</int>
+						<reference key="object" ref="7655529"/>
+						<reference key="parent" ref="199010075"/>
 					</object>
 				</object>
 			</object>
@@ -774,6 +819,8 @@
 					<string>51.NSWindowTemplate.visibleAtLaunch</string>
 					<string>52.IBPluginDependency</string>
 					<string>53.IBPluginDependency</string>
+					<string>59.IBPluginDependency</string>
+					<string>60.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 					<string>9.IBWindowTemplateEditedContentRect</string>
@@ -805,6 +852,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{357, 418}, {480, 270}}</string>
 					<integer value="1"/>
 					<string>{196, 240}</string>
@@ -823,7 +872,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">58</int>
+			<int key="maxID">61</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -835,11 +884,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>abortIndexing:</string>
 							<string>updateTrackIndex:</string>
 							<string>updateTracklist:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -848,11 +899,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>abortIndexing:</string>
 							<string>updateTrackIndex:</string>
 							<string>updateTracklist:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">abortIndexing:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">updateTrackIndex:</string>
 								<string key="candidateClassName">id</string>
