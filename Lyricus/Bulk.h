@@ -9,7 +9,7 @@
 #import "LyricController.h"
 #import "iTunesHelper.h"
 
-@interface Bulk : NSObject <NSWindowDelegate, NSTableViewDelegate> {
+@interface Bulk : NSWindowController <NSWindowDelegate, NSTableViewDelegate> {
 	
 	NSMutableArray *playlists;
 	LyricController *lyricController;
@@ -18,16 +18,11 @@
 	
 	IBOutlet NSTableView *playlistView;
 	IBOutlet NSTextView *resultView;
-	IBOutlet NSWindow *bulkWindow;
 	IBOutlet NSProgressIndicator *progressIndicator;
 	IBOutlet NSButton *goButton;
-	BOOL bulkDownloaderOpened;	
 }
 
-@property BOOL bulkDownloaderOpened;
-
--(void)focusWindow;
 -(IBAction) goButtonClicked:(id)sender;
--(void)openBulkDownloader;
+-(void)showBulkDownloader;
 
 @end

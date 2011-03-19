@@ -108,21 +108,6 @@
 #pragma mark -
 #pragma mark UI stuff 
 
--(IBAction)openBulkDownloader:(id)sender {
-	if (bulkDownloader == nil) {
-		bulkDownloader = [[Bulk alloc] init];
-	}
-		
-	if ([bulkDownloader bulkDownloaderOpened] == NO) {
-//		NSLog(@"bulkDownlader %@ not opened", bulkDownloader);
-		[NSBundle loadNibNamed:@"Bulk" owner:bulkDownloader];
-	//	[bulkDownloader openBulkDownloader];
-	}
-	else {
-		[bulkDownloader focusWindow];
-	}
-}
-
 -(IBAction)openFontPanel:(id)sender {
 	[[NSFontPanel sharedFontPanel] makeKeyAndOrderFront:nil];
 }
@@ -703,6 +688,15 @@ end_func:
 -(IBAction)lyricSearchUpdateIndex:(id) sender {
     [self openLyricSearch:sender];
     [lyricSearch updateTrackIndex:sender];
+}
+
+-(IBAction)openBulkDownloader:(id)sender {
+    if (bulkDownloader == nil) {
+        bulkDownloader = [[Bulk alloc] initWithWindowNibName:@"Bulk"];
+    }
+    [bulkDownloader showWindow:self];
+    [bulkDownloader.window makeKeyAndOrderFront:self];
+    [bulkDownloader showBulkDownloader];
 }
 
 -(IBAction)openLyricSearch:(id)sender {

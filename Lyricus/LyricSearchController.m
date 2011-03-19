@@ -63,7 +63,6 @@
 //    [lyricTextView setHidden:NO];
     
 //    NSRect cur = [window frame];
-  //  NSLog(@"%@", NSStringFromRect(cur));
     
 
     //[window setFrame:NSMakeRect(cur.origin.x, cur.origin.y, cur.size.width, 538) display:YES animate:NO];
@@ -81,6 +80,11 @@
             }
             [trackTableView reloadData];
         }
+    }
+    else {
+        // Clear the track list if the search string is too short (or nonexistent)
+        [matches removeAllObjects];
+        [trackTableView reloadData];
     }
 }
 

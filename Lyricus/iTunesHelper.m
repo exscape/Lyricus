@@ -18,7 +18,6 @@ static iTunesHelper *sharediTunesHelper = nil;
     @synchronized(self) {
         if (sharediTunesHelper == nil) {
             sharediTunesHelper = [[iTunesHelper alloc] init];
-            NSLog(@"[iTunesHelper sharediTunesHelper]: %@", sharediTunesHelper);
         }
     }
     return sharediTunesHelper;

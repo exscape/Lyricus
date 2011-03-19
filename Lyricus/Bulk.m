@@ -14,12 +14,13 @@
 #pragma mark -
 #pragma mark Init stuff
 
-@synthesize bulkDownloaderOpened;
-
--(Bulk *) init {
-    self = [super init];
+-(id) initWithWindowNibName:(NSString *)windowNibName {
+    self = [super initWithWindowNibName:windowNibName];
 	if (self) {
-		bulkDownloaderOpened = NO;
+		playlists = [[NSMutableArray alloc] init];
+		lyricController = [[LyricController alloc] init];
+		helper = [iTunesHelper sharediTunesHelper];
+        
 		return self;
 	}
 	return nil;
@@ -28,15 +29,12 @@
 - (BOOL)windowShouldClose:(id)sender {
 	// No need to confirm if nothing is running
 	if (![thread isExecuting]) {
-		[self setBulkDownloaderOpened:NO];
 		return YES;
 	}
 	
-	if ([[NSAlert 	alertWithMessageText:@"Abort?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" 
-					otherButton:nil informativeTextWithFormat:@"Do you want to abort the current operation?"] runModal] == NSAlertDefaultReturn) {
+	if ([[NSAlert alertWithMessageText:@"Abort?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Do you want to abort the current operation?"] runModal] == NSAlertDefaultReturn) {
 		// Yes, abort:
 		[thread cancel];
-		[self setBulkDownloaderOpened:NO];
 		return YES;
 	}
 	else {
@@ -45,24 +43,11 @@
 	}
 }
 
--(void) awakeFromNib {
-	if (playlists == nil) {
-		playlists = [[NSMutableArray alloc] init];
-		lyricController = [[LyricController alloc] init];
-		helper = [iTunesHelper sharediTunesHelper];
-
-		[playlistView setDelegate:self];
-		[bulkWindow setDelegate:self];
-		[self openBulkDownloader];
-
-	}
+-(void) windowDidLoad {
+		[self showBulkDownloader];
 }
 
--(void)focusWindow {
-		[bulkWindow makeKeyAndOrderFront:self];
-}
-
--(void)openBulkDownloader {
+-(void)showBulkDownloader {
 	//
 	// Initialize and fetch the list of playlists
 	//
@@ -71,10 +56,10 @@
 	for (iTunesPlaylist *pl in [helper getAllPlaylists]) {
 		[playlists addObject:[pl name]];
 	}
-	
-	[self setBulkDownloaderOpened:YES];
-	[playlistView reloadData];
-	[bulkWindow makeKeyAndOrderFront:self];
+
+    [playlistView reloadData];
+
+    [self.window makeKeyAndOrderFront:self];
 }
 
 #pragma mark -
@@ -172,7 +157,7 @@
 					 set_lyrics, had_lyrics, lyrics_not_found];
 	ProgressUpdate(str);
 
-	[self openBulkDownloader];
+	[self showBulkDownloader];
 	[[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.", count]
 	 runModal];
 	

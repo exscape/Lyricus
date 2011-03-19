@@ -77,6 +77,7 @@
 											<string key="NSFrameSize">{177, 302}</string>
 											<reference key="NSSuperview" ref="673255718"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView" ref="918431738"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="505540827">
 												<reference key="NSNextResponder" ref="974965361"/>
@@ -84,6 +85,7 @@
 												<string key="NSFrameSize">{177, 17}</string>
 												<reference key="NSSuperview" ref="974965361"/>
 												<reference key="NSWindow"/>
+												<reference key="NSNextKeyView" ref="673255718"/>
 												<reference key="NSTableView" ref="881512582"/>
 											</object>
 											<object class="_NSCornerView" key="NSCornerView" id="252488104">
@@ -92,6 +94,7 @@
 												<string key="NSFrame">{{-26, 0}, {16, 17}}</string>
 												<reference key="NSSuperview" ref="699046089"/>
 												<reference key="NSWindow"/>
+												<reference key="NSNextKeyView" ref="974965361"/>
 											</object>
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
@@ -193,6 +196,7 @@
 									<string key="NSFrame">{{163, 17}, {15, 287}}</string>
 									<reference key="NSSuperview" ref="699046089"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView" ref="937377184"/>
 									<reference key="NSTarget" ref="699046089"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSCurValue">37</double>
@@ -204,6 +208,7 @@
 									<string key="NSFrame">{{1, 304}, {162, 15}}</string>
 									<reference key="NSSuperview" ref="699046089"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView" ref="791291385"/>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="699046089"/>
 									<string key="NSAction">_doScroller:</string>
@@ -229,7 +234,7 @@
 							<string key="NSFrame">{{20, 60}, {179, 320}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="673255718"/>
+							<reference key="NSNextKeyView" ref="252488104"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="918431738"/>
 							<reference key="NSHScroller" ref="937377184"/>
@@ -254,6 +259,7 @@
 											<string key="NSFrameSize">{371, 14}</string>
 											<reference key="NSSuperview" ref="470639511"/>
 											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView" ref="817001643"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="1012450328">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -364,6 +370,7 @@
 									<string key="NSFrame">{{372, 1}, {15, 318}}</string>
 									<reference key="NSSuperview" ref="791291385"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView" ref="282989072"/>
 									<reference key="NSTarget" ref="791291385"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.3826715</double>
@@ -374,6 +381,7 @@
 									<string key="NSFrame">{{-100, -100}, {87, 18}}</string>
 									<reference key="NSSuperview" ref="791291385"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView" ref="470639511"/>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="791291385"/>
 									<string key="NSAction">_doScroller:</string>
@@ -384,7 +392,7 @@
 							<string key="NSFrame">{{207, 60}, {388, 320}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="470639511"/>
+							<reference key="NSNextKeyView" ref="947116700"/>
 							<int key="NSsFlags">18</int>
 							<reference key="NSVScroller" ref="817001643"/>
 							<reference key="NSHScroller" ref="947116700"/>
@@ -396,6 +404,7 @@
 							<string key="NSFrame">{{543, 12}, {58, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="427962198">
 								<int key="NSCellFlags">67239424</int>
@@ -418,6 +427,7 @@
 							<string key="NSFrame">{{18, 20}, {525, 20}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="899422881"/>
 							<int key="NSpiFlags">16392</int>
 							<double key="NSMaxValue">100</double>
 						</object>
@@ -425,62 +435,15 @@
 					<string key="NSFrame">{{7, 11}, {615, 400}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView" ref="699046089"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">goButtonClicked:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="899422881"/>
-					</object>
-					<int key="connectionID">31</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">progressIndicator</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="282989072"/>
-					</object>
-					<int key="connectionID">34</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">goButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="899422881"/>
-					</object>
-					<int key="connectionID">35</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">bulkWindow</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="1005"/>
-					</object>
-					<int key="connectionID">36</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">resultView</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="141932742"/>
-					</object>
-					<int key="connectionID">37</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="881512582"/>
-						<reference key="destination" ref="1001"/>
-					</object>
-					<int key="connectionID">38</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
@@ -495,7 +458,39 @@
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="881512582"/>
 					</object>
-					<int key="connectionID">40</int>
+					<int key="connectionID">42</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">resultView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="141932742"/>
+					</object>
+					<int key="connectionID">43</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">progressIndicator</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="282989072"/>
+					</object>
+					<int key="connectionID">44</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">goButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="899422881"/>
+					</object>
+					<int key="connectionID">45</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">goButtonClicked:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="899422881"/>
+					</object>
+					<int key="connectionID">46</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -503,7 +498,23 @@
 						<reference key="source" ref="881512582"/>
 						<reference key="destination" ref="1001"/>
 					</object>
-					<int key="connectionID">41</int>
+					<int key="connectionID">48</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="881512582"/>
+						<reference key="destination" ref="1001"/>
+					</object>
+					<int key="connectionID">49</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">window</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1005"/>
+					</object>
+					<int key="connectionID">50</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -720,14 +731,14 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">41</int>
+			<int key="maxID">50</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
 					<string key="className">Bulk</string>
-					<string key="superclassName">NSObject</string>
+					<string key="superclassName">NSWindowController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<string key="NS.key.0">goButtonClicked:</string>
 						<string key="NS.object.0">id</string>
@@ -743,7 +754,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>bulkWindow</string>
 							<string>goButton</string>
 							<string>playlistView</string>
 							<string>progressIndicator</string>
@@ -751,7 +761,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSWindow</string>
 							<string>NSButton</string>
 							<string>NSTableView</string>
 							<string>NSProgressIndicator</string>
@@ -762,7 +771,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>bulkWindow</string>
 							<string>goButton</string>
 							<string>playlistView</string>
 							<string>progressIndicator</string>
@@ -770,10 +778,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">bulkWindow</string>
-								<string key="candidateClassName">NSWindow</string>
-							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">goButton</string>
 								<string key="candidateClassName">NSButton</string>
