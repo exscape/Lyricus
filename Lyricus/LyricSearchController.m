@@ -18,23 +18,35 @@
         helper = [iTunesHelper sharediTunesHelper];
         matches = [[NSMutableArray alloc] init];
         trackData = [NSArray arrayWithContentsOfFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]];
-        if (!trackData) {
-            [[NSAlert alertWithMessageText:@"You need to create a track index." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"To start using the lyric search window, update your index."] runModal];
-        }
         
-        // Make sure the index is up-to-date
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackSelected:) name:@"NSTableViewSelectionDidChangeNotification" object:nil];
+    }
+    return self;
+}
+
+-(void) windowDidLoad {
+    [super windowDidLoad];
+    
+    if (!trackData) {
+        [[NSAlert alertWithMessageText:@"You need to create a track index." defaultButton:@"Create index now" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This function needs a track index to work. Click \"Create index now\" to start."] runModal];
+        [self updateTrackIndex:self];
+    }
+    else {
+        // Check index age
+        
         NSNumber *currentTimestamp = [NSNumber numberWithInt:(int)[[NSDate date] timeIntervalSince1970]];
         NSNumber *indexTimestamp = [[NSUserDefaults standardUserDefaults] valueForKey:@"Lyricus index update time"];
         int diff = ([currentTimestamp intValue] - [indexTimestamp intValue]);
         
         if (diff > 86400*7) { // 1 week
-            [[NSAlert alertWithMessageText:@"Your index is old" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal];
+            if (
+                [[NSAlert alertWithMessageText:@"Your index is old" defaultButton:@"Update index now" alternateButton:@"Ignore" otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal]
+                == NSAlertDefaultReturn) {
+                [self updateTrackIndex:self];
+            }
         }
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackSelected:) name:@"NSTableViewSelectionDidChangeNotification" object:nil];
     }
     
-    return self;
 }
 
 - (void)trackSelected:(NSNotification *)note { 
@@ -127,7 +139,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
                 [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
                 
                 for (iTunesTrack *t in [pl tracks]) {
-//                    [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
+                    [dataArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
                     
                     [indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
                     
@@ -174,7 +186,9 @@ indexing_cancelled:
     thread = [[NSThread alloc] initWithTarget:self selector:@selector(threadWorker:) object:nil];
 	[thread start];
     
-    [[NSAlert alertWithMessageText:@"Updating index" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This may take a few minutes."] runModal];
+    if (sender != self) {
+        [[NSAlert alertWithMessageText:@"Updating index" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This may take a few minutes."] runModal];
+    }
 }
 
 
@@ -196,13 +210,6 @@ indexing_cancelled:
 - (void)dealloc
 {
     [super dealloc];
-}
-
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
 @end

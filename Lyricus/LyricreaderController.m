@@ -700,6 +700,11 @@ end_func:
 	return;
 }
 
+-(IBAction)lyricSearchUpdateIndex:(id) sender {
+    [self openLyricSearch:sender];
+    [lyricSearch updateTrackIndex:sender];
+}
+
 -(IBAction)openLyricSearch:(id)sender {
     if (lyricSearch == nil) {
         lyricSearch = [[LyricSearchController alloc] initWithWindowNibName:@"LyricSearch"];
