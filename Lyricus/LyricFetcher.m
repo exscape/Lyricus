@@ -92,8 +92,8 @@ static LyricFetcher *sharedLyricFetcher = nil;
 	}
 	
 	if (!prio) {
-		[TBUtil showAlert:@"Site priority list not found! Please go into the preferences window, drag them in the order you'd like, then try again."
-			  withCaption:@"Error"];
+		[TBUtil showAlert:@"Please go into the preferences window, drag them in the order you'd like, then try again."
+			  withCaption:@"Site priority list not found!"];
 		return;
 	}
 	

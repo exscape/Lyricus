@@ -32,7 +32,7 @@
 		return YES;
 	}
 	
-	if ([[NSAlert alertWithMessageText:@"Abort?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Do you want to abort the current operation?"] runModal] == NSAlertDefaultReturn) {
+	if ([[NSAlert alertWithMessageText:@"Do you want to abort the current operation??" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Lyrics downloaded so far will be saved."] runModal] == NSAlertDefaultReturn) {
 		// Yes, abort:
 		[thread cancel];
 		return YES;
@@ -80,8 +80,8 @@
 	
 	int totalCount = [theTracks count];
 	if ([theTracks count] == 0) {
-		[[NSAlert alertWithMessageText:@"Empty playlist" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
-		  @"I found no tracks in the selected playlist!"] runModal];
+		[[NSAlert alertWithMessageText:@"The selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
+		  @"If you are using the \"[Selected tracks\] playlist, make sure the tracks are selected in iTunes."] runModal];
 		[goButton setEnabled:YES];
 		return;
 	}
@@ -194,30 +194,17 @@ restore_settings:
 		tracks = [helper getTracksForPlaylist:plName];
 	
 	if (tracks == nil) {
-		[[NSAlert alertWithMessageText:@"No tracks found" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"No tracks found for the playlist specified."]
-		 runModal];
+        if ([plName isEqualToString:@"[Selected tracks]"]) {
+            [[NSAlert alertWithMessageText:@"No tracks found" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"No tracks found for the playlist specified."] runModal];
+        }
 		[goButton setEnabled:YES];
 		return;
 	}
 	if ([tracks count] > 40) {
-		NSInteger choice = [[NSAlert alertWithMessageText:@"Continue?" defaultButton:@"Yes" alternateButton:@"No" otherButton:nil informativeTextWithFormat:
-							 @"There are %d tracks to process. Continue?", [tracks count]]
-							runModal];
+		NSInteger choice = [[NSAlert alertWithMessageText:[NSString stringWithFormat:@"There are %d tracks to process. Do you want to continue?", [tracks count]] defaultButton:@"Yes" alternateButton:@"No" otherButton:nil informativeTextWithFormat:@"This action may tike some time."] runModal];
 		
 		if (choice == 0) {
 			[goButton setEnabled:YES];
-			return;
-		}
-	}
-	
-	if ([[[lyricController sitesByPriority] objectAtIndex:0] isKindOfClass:[TBSongmeanings class]]) {
-		if ([[NSAlert alertWithMessageText:@"Warning" defaultButton:@"Yes" alternateButton:@"No" otherButton:nil informativeTextWithFormat:
-			  @"The first priority site is currently set to Songmeanings, which is often quite slow."
-			  @"Are you sure you want to continue?"] runModal]
-			== 0) // no
-		{
-			[goButton setEnabled:YES];
-//			[bulkWindow close];
 			return;
 		}
 	}

@@ -217,7 +217,7 @@
 	{
 		if (manualSearch == NO) { // Don't show if it was called programmatically
 			[[NSAlert alertWithMessageText:@"No artist/title pair specificed" defaultButton:@"OK" alternateButton:nil otherButton:nil
-				 informativeTextWithFormat:@""] runModal];
+				 informativeTextWithFormat:@"You need to type in both an artist and a track title to search."] runModal];
 		}
 		return;
 	}

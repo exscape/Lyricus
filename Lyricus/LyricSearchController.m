@@ -40,7 +40,7 @@
         
         if (diff > 86400*7) { // 1 week
             if (
-                [[NSAlert alertWithMessageText:@"Your index is old" defaultButton:@"Update index now" alternateButton:@"Ignore" otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal]
+                [[NSAlert alertWithMessageText:@"The lyric index is out-of-date." defaultButton:@"Update index now" alternateButton:@"Ignore" otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal]
                 == NSAlertDefaultReturn) {
                 [self updateTrackIndex:self];
             }
@@ -108,7 +108,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 		return YES;
 	}
 	
-	if ([[NSAlert alertWithMessageText:@"Abort indexing?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Do you want to abort the indexing operation?"] runModal] 
+	if ([[NSAlert alertWithMessageText:@"Do you want to abort the indexing process?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"This process needs to finish before this window is usable."] runModal] 
         == NSAlertDefaultReturn) {
 		// Yes, abort:
 		[thread cancel];
@@ -170,7 +170,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
         
     }
     else {
-        [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that /Users/<your username>/Library/Application Support/Lyricus is writable."] runModal];
+        [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that %@ is writable.", [@"~/Library/Application Support/Lyricus" stringByExpandingTildeInPath]] runModal];
     }
     
 indexing_cancelled:
@@ -213,10 +213,6 @@ indexing_cancelled:
 
 -(void) showLyricSearch:(id) sender {
     [self.window makeKeyAndOrderFront:sender];
-}
-
--(IBAction) updateTracklist:(id) sender {
-    [[NSAlert alertWithMessageText:@"Test message" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Test"] runModal];
 }
 
 - (void)dealloc

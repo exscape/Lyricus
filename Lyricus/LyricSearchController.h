@@ -25,7 +25,6 @@
 }
 
 -(void) showLyricSearch:(id) sender;
--(IBAction) updateTracklist:(id) sender;
 -(IBAction) updateTrackIndex:(id) sender;
 -(IBAction) abortIndexing:(id) sender;
 
