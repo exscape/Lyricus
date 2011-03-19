@@ -5,12 +5,38 @@
 // All rights reserved.
 //
 
-#import "LyricController.h"
+#import "LyricFetcher.h"
 #import "RegexKitLite.h"
 
-@implementation LyricController
+@implementation LyricFetcher
 
--(LyricController *)init {
+static LyricFetcher *sharedLyricFetcher = nil;
+
++(LyricFetcher *)sharedLyricFetcher {
+    @synchronized(self) {
+        if (sharedLyricFetcher == nil) {
+            sharedLyricFetcher = [[LyricFetcher alloc] init];
+        }
+    }
+    return sharedLyricFetcher;
+}
+
++(id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedLyricFetcher == nil) {
+            sharedLyricFetcher = [super allocWithZone:zone];
+            return sharedLyricFetcher;
+        }
+    }
+    return sharedLyricFetcher;
+}
+
+- (id)copyWithZone:(NSZone *)zone 
+{ 
+	return self; 
+} 
+
+-(LyricFetcher *)init {
     self = [super init];
 	if (self) {
 		[self updateSiteList];

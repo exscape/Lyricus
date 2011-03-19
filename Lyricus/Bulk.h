@@ -6,13 +6,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "LyricController.h"
+#import "LyricFetcher.h"
 #import "iTunesHelper.h"
 
 @interface Bulk : NSWindowController <NSWindowDelegate, NSTableViewDelegate> {
 	
 	NSMutableArray *playlists;
-	LyricController *lyricController;
+	LyricFetcher *lyricController;
 	iTunesHelper *helper;
 	NSThread *thread;
 	

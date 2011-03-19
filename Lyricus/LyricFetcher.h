@@ -11,7 +11,7 @@
 #import "TBDarklyrics.h"
 //#import "TBLyricwiki.h"
 
-@interface LyricController : NSObject {
+@interface LyricFetcher : NSObject {
 	NSMutableArray *sitesByPriority;
 }
 

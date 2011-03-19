@@ -18,7 +18,7 @@
     self = [super initWithWindowNibName:windowNibName];
 	if (self) {
 		playlists = [[NSMutableArray alloc] init];
-		lyricController = [[LyricController alloc] init];
+		lyricController = [[LyricFetcher alloc] init];
 		helper = [iTunesHelper sharediTunesHelper];
         
 		return self;

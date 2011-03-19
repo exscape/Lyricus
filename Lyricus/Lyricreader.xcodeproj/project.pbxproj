@@ -25,7 +25,7 @@
 		10DB281A0DACB3AB00BF57D3 /* Bulk.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DB28190DACB3AB00BF57D3 /* Bulk.xib */; };
 		10DD8DCE0DACE3BA008B0D78 /* bulk.png in Resources */ = {isa = PBXBuildFile; fileRef = 10DD8DCD0DACE3BA008B0D78 /* bulk.png */; };
 		10E2047C0DAB9F9100F85A9F /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E2047B0DAB9F9100F85A9F /* search.png */; };
-		10E2071B0DABE7CB00F85A9F /* LyricController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2071A0DABE7CB00F85A9F /* LyricController.m */; };
+		10E2071B0DABE7CB00F85A9F /* LyricFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */; };
 		10E207700DABED8400F85A9F /* NSTextView+AppendString.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */; };
 		10E495A80DA545B50000E68B /* NSString+ExscapeEdits.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */; };
 		10E664F00DAC0AB10059BF5F /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E664EF0DAC0AB10059BF5F /* Sparkle.framework */; };
@@ -90,8 +90,8 @@
 		10DD8DCD0DACE3BA008B0D78 /* bulk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulk.png; sourceTree = "<group>"; };
 		10E2047B0DAB9F9100F85A9F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		10E205AB0DABCF1B00F85A9F /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
-		10E207190DABE7CB00F85A9F /* LyricController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricController.h; sourceTree = "<group>"; };
-		10E2071A0DABE7CB00F85A9F /* LyricController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricController.m; sourceTree = "<group>"; };
+		10E207190DABE7CB00F85A9F /* LyricFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LyricFetcher.h; sourceTree = "<group>"; };
+		10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricFetcher.m; sourceTree = "<group>"; };
 		10E2076E0DABED8400F85A9F /* NSTextView+AppendString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+AppendString.h"; sourceTree = "<group>"; };
 		10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+AppendString.m"; sourceTree = "<group>"; };
 		10E495A60DA545B50000E68B /* NSString+ExscapeEdits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ExscapeEdits.h"; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 				10DB27F10DACB28500BF57D3 /* Bulk.m */,
 				1086B26C0DACAFBC007B2EC1 /* Categories */,
 				1086B26B0DACAF9E007B2EC1 /* Sites */,
-				10E207190DABE7CB00F85A9F /* LyricController.h */,
-				10E2071A0DABE7CB00F85A9F /* LyricController.m */,
+				10E207190DABE7CB00F85A9F /* LyricFetcher.h */,
+				10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */,
 				1095320E0DA12EEB001706FF /* TBUtil.h */,
 				1095320F0DA12EEB001706FF /* TBUtil.m */,
 				10AEFB150D9FEDCA0088ECDC /* MainController.h */,
@@ -325,7 +325,7 @@
 				1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */,
 				10E495A80DA545B50000E68B /* NSString+ExscapeEdits.m in Sources */,
 				105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */,
-				10E2071B0DABE7CB00F85A9F /* LyricController.m in Sources */,
+				10E2071B0DABE7CB00F85A9F /* LyricFetcher.m in Sources */,
 				10E207700DABED8400F85A9F /* NSTextView+AppendString.m in Sources */,
 				10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */,
 				101A926E0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m in Sources */,

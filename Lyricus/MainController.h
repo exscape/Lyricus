@@ -10,7 +10,7 @@
 #import "NSString+ExscapeEdits.h"
 #import "NSTextView+ExscapeFontFix.h"
 #import "SitePriorities.h"
-#import "LyricController.h"
+#import "LyricFetcher.h"
 #import "Bulk.h"
 #import "LyricSearchController.h"
 
@@ -49,7 +49,7 @@
 	//
 //	TBDarklyrics *darkLyrics;
 	TBSongmeanings *songmeanings;
-	LyricController *lyricController;
+	LyricFetcher *lyricController;
 	iTunesHelper *helper;
 	NSString *textURL;
 	NSString *lastTrack;
