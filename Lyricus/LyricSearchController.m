@@ -137,9 +137,12 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 	@try {
 		SBElementArray *pls = [[[[helper iTunesReference] sources] objectAtIndex:0] playlists];
         
-		
-		for (iTunesPlaylist *pl in pls) {
+        for (iTunesPlaylist *pl in pls) {
             if ([[pl name] isEqualToString:@"Music"]) {
+                
+                float start = (float)[[NSDate date] timeIntervalSince1970];
+                long totalTracks = [[pl tracks] count];
+                long currentTrack = 0;
                 
                 // Set up the progress indicator
                 [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[[pl tracks] count]] waitUntilDone:YES];
@@ -147,10 +150,22 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
                 [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
                 
                 for (iTunesTrack *t in [pl tracks]) {
+                    currentTrack++;
                     [trackData addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
                     
-                    [indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
+                    if (currentTrack % 25 == 0) {
+                        // Update ETA
+                        float now = (float)[[NSDate date] timeIntervalSince1970];
+                        if (now - start > 3) { // Don't calculate progress too early
+                            float totalTime = (now - start) / ((float)currentTrack / (float)totalTracks);
+                            float timeRemaining = totalTime - (now - start);
+                            [labelUpdating setStringValue:[NSString stringWithFormat:@"Updating lyric index... ETA: %.0f seconds", timeRemaining]];
+                            
+                        }
+                    }
                     
+                    [indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
+                        
                     if ([thread isCancelled]) {
                         goto indexing_cancelled;
                     }
