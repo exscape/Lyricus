@@ -42,12 +42,9 @@
 	IBOutlet NSImageView *iconView;
 	IBOutlet NSTextField *aboutVersion;
 
-//	IBOutlet NSWindow *bulkWindow;
-	
 	//
 	// Instance variables
 	//
-//	TBDarklyrics *darkLyrics;
 	TBSongmeanings *songmeanings;
 	LyricFetcher *lyricController;
 	iTunesHelper *helper;

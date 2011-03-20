@@ -90,7 +90,7 @@
 		10DD8DCD0DACE3BA008B0D78 /* bulk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulk.png; sourceTree = "<group>"; };
 		10E2047B0DAB9F9100F85A9F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		10E205AB0DABCF1B00F85A9F /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
-		10E207190DABE7CB00F85A9F /* LyricFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LyricFetcher.h; sourceTree = "<group>"; };
+		10E207190DABE7CB00F85A9F /* LyricFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricFetcher.h; sourceTree = "<group>"; };
 		10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricFetcher.m; sourceTree = "<group>"; };
 		10E2076E0DABED8400F85A9F /* NSTextView+AppendString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+AppendString.h"; sourceTree = "<group>"; };
 		10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+AppendString.m"; sourceTree = "<group>"; };
@@ -203,9 +203,6 @@
 		29B97314FDCFA39411CA2CEA /* Lyricreader */ = {
 			isa = PBXGroup;
 			children = (
-				10D5093313337A70006C0FC7 /* libicucore.dylib */,
-				101BC6E8133293A20055D720 /* RegexKitLite.h */,
-				101BC6E9133293A20055D720 /* RegexKitLite.m */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -218,6 +215,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				101BC6E8133293A20055D720 /* RegexKitLite.h */,
+				101BC6E9133293A20055D720 /* RegexKitLite.m */,
 				10E205AB0DABCF1B00F85A9F /* iTunes.h */,
 				32CA4F630368D1EE00C91783 /* Lyricreader_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
@@ -243,6 +242,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10D5093313337A70006C0FC7 /* libicucore.dylib */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);

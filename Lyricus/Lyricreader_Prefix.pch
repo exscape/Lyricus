@@ -10,7 +10,7 @@
 #import "iTunes.h"
 #import "NSString+ExscapeEdits.h"
 
-#define MY_VERSION @"0.86"
+#define MY_VERSION @"0.90"
 #define kSetLyric @"exscapeSetLyricNotification"
 
 #define SendNote(x)	if ([[NSUserDefaults standardUserDefaults] integerForKey:@"Show loading messages"]) { \
