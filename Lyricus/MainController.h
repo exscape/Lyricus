@@ -15,7 +15,7 @@
 #import "LyricSearchController.h"
 
 
-@interface MainController : NSObject <NSWindowDelegate, NSTextViewDelegate, NSToolbarDelegate> {
+@interface MainController : NSObject <NSWindowDelegate, NSTextViewDelegate> {
 	
 	// Main window
 	IBOutlet NSWindow *mainWindow;
@@ -41,6 +41,7 @@
 	IBOutlet NSWindow *aboutWindow;
 	IBOutlet NSImageView *iconView;
 	IBOutlet NSTextField *aboutVersion;
+	IBOutlet NSTextView *aboutTextView;
 
 	//
 	// Instance variables
@@ -82,7 +83,6 @@
 -(IBAction)saveLyrics:(id) sender;
 -(IBAction)saveDisplayedLyricsToCurrentlyPlayingTrack:(id) sender;
 -(IBAction) showAboutWindow:(id) sender;
--(void) setupToolbar;
 -(IBAction)openBulkDownloader:(id)sender;
 -(IBAction)openFontPanel:(id)sender;
 -(IBAction)openSongMeaningsPage:(id)sender;

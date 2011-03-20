@@ -24,8 +24,6 @@
 		10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D5093313337A70006C0FC7 /* libicucore.dylib */; };
 		10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DB27F10DACB28500BF57D3 /* Bulk.m */; };
 		10DB281A0DACB3AB00BF57D3 /* Bulk.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DB28190DACB3AB00BF57D3 /* Bulk.xib */; };
-		10DD8DCE0DACE3BA008B0D78 /* bulk.png in Resources */ = {isa = PBXBuildFile; fileRef = 10DD8DCD0DACE3BA008B0D78 /* bulk.png */; };
-		10E2047C0DAB9F9100F85A9F /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E2047B0DAB9F9100F85A9F /* search.png */; };
 		10E2071B0DABE7CB00F85A9F /* LyricFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */; };
 		10E207700DABED8400F85A9F /* NSTextView+AppendString.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */; };
 		10E495A80DA545B50000E68B /* NSString+ExscapeEdits.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */; };
@@ -90,8 +88,6 @@
 		10DB27F00DACB28500BF57D3 /* Bulk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bulk.h; sourceTree = "<group>"; };
 		10DB27F10DACB28500BF57D3 /* Bulk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bulk.m; sourceTree = "<group>"; };
 		10DB28190DACB3AB00BF57D3 /* Bulk.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Bulk.xib; sourceTree = "<group>"; };
-		10DD8DCD0DACE3BA008B0D78 /* bulk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulk.png; sourceTree = "<group>"; };
-		10E2047B0DAB9F9100F85A9F /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		10E205AB0DABCF1B00F85A9F /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		10E207190DABE7CB00F85A9F /* LyricFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricFetcher.h; sourceTree = "<group>"; };
 		10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricFetcher.m; sourceTree = "<group>"; };
@@ -235,9 +231,7 @@
 				100E13A80F5E803D001E1347 /* MainMenu.xib */,
 				1041B7C61333B49F003F4429 /* LyricSearch.xib */,
 				107CD7340DAE4833003E0D32 /* icon.icns */,
-				10DD8DCD0DACE3BA008B0D78 /* bulk.png */,
 				10DB28190DACB3AB00BF57D3 /* Bulk.xib */,
-				10E2047B0DAB9F9100F85A9F /* search.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 			);
@@ -307,9 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				10E2047C0DAB9F9100F85A9F /* search.png in Resources */,
 				10DB281A0DACB3AB00BF57D3 /* Bulk.xib in Resources */,
-				10DD8DCE0DACE3BA008B0D78 /* bulk.png in Resources */,
 				107CD7350DAE4833003E0D32 /* icon.icns in Resources */,
 				100E13AA0F5E803D001E1347 /* MainMenu.xib in Resources */,
 				1041B7C71333B49F003F4429 /* LyricSearch.xib in Resources */,

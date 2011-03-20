@@ -50,8 +50,6 @@
 	[lyricView bind:@"backgroundColor" toObject:[NSUserDefaultsController sharedUserDefaultsController]
  withKeyPath:@"values.BackgroundColor" options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:@"NSValueTransformerName"]];
 	
-	[self setupToolbar];
-	
 	lyricController = [[LyricFetcher alloc] init];
 	helper = [iTunesHelper sharediTunesHelper];
 	
@@ -121,6 +119,18 @@
 	[iconView setImage:[NSApp applicationIconImage]];
 	[aboutVersion setStringValue:@"v" MY_VERSION];
 	[aboutWindow makeKeyAndOrderFront:self];
+	[aboutTextView setString:
+	 @"Everything Lyricus:\n"
+	 @"  Thomas Backman <serenity@exscape.org>\n"
+	 @"  http://lyricus.exscape.org\n"
+	 @"\n"
+	 @"Thanks to:\n"
+	 @"John Engelhart\n"
+	 @"  http://regexkit.sourceforge.net\n"
+	 @"\n"
+	 @"Tom Harrington, Andy Matuschak and Sparkle contributors\n"
+	 @"  http://code.google.com/p/sparkleplus"
+	 ];
 }
 
 -(BOOL)windowShouldClose:(id)sender {
@@ -487,74 +497,6 @@
 			
 		}
 	}
-}
-
-#pragma mark -
-#pragma mark Toolbar stuff
-
-- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar
-{
-    // Toolbar delegate method
-	return [NSArray arrayWithObjects:NSToolbarSeparatorItemIdentifier,
-			NSToolbarSpaceItemIdentifier,
-			NSToolbarFlexibleSpaceItemIdentifier,
-			kProgressIndicatorIdentifier,
-			kSearchIdentifier,
-			kBulkIdentifier,
-			NSToolbarShowFontsItemIdentifier,
-			NSToolbarCustomizeToolbarItemIdentifier,
-			nil];
-}
-
-- (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar
-{
-    // Toolbar delegate method
-    return [NSArray arrayWithObjects:kSearchIdentifier,
-			kBulkIdentifier,
-			NSToolbarFlexibleSpaceItemIdentifier,
-			kProgressIndicatorIdentifier, nil];
-}
-
-- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
-	 itemForItemIdentifier:(NSString *)itemIdentifier
- willBeInsertedIntoToolbar:(BOOL)flag
-{
-    // Toolbar delegate method
-    NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
-	if ([[item itemIdentifier] isEqualToString:kProgressIndicatorIdentifier]) {
-		NSRect fRect = [spinnerView frame];
-		[item setLabel:@"Progress"];
-		[item setPaletteLabel:@"Progress indicator"];
-		[item setView:spinnerView];
-		[item setMinSize:fRect.size];
-		[item setMaxSize:fRect.size];
-	}
-	else if ([[item itemIdentifier] isEqualToString:kSearchIdentifier]) {
-		[item setLabel:@"Search"];
-		[item setPaletteLabel:@"Search for lyric"];
-		[item setImage:[NSImage imageNamed:@"search"]];
-		[item setTarget:self];
-		[item setAction:@selector(openSearchWindow:)];
-	}
-	else if ([[item itemIdentifier] isEqualToString:kBulkIdentifier]) {
-		[item setLabel:@"Bulk"];
-		[item setPaletteLabel:@"Open bulk downloader"];
-		[item setImage:[NSImage imageNamed:@"bulk"]];
-		[item setTarget:self];
-		[item setAction:@selector(openBulkDownloader:)];
-	}
-	
-	return item;
-}
-
--(void)setupToolbar {
-	NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:@"mainToolbar"];
-    [toolbar setDelegate:self];
-    [toolbar setAllowsUserCustomization:YES];
-    [toolbar setAutosavesConfiguration:YES];
-	[toolbar setSizeMode:NSToolbarSizeModeSmall];
-	[toolbar setDisplayMode:NSToolbarDisplayModeIconOnly];
-    [mainWindow setToolbar:toolbar];
 }
 
 #pragma mark -

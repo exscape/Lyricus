@@ -31,7 +31,7 @@
 	SendNote(@"Trying AZLyrics...\n");
 	SendNote(@"\tFetching lyric URL...\n");
 	
-	NSString *artistURL = [self getURLForArtist:artist] /* cannot fail */;
+	NSString *artistURL = [self getURLForArtist:artist error:error] /* cannot fail */;
 	if (artistURL == nil)
 		return nil;
 	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
@@ -48,22 +48,14 @@
 #pragma mark -
 #pragma mark Internal/private
 
--(NSString *)getURLForArtist:(NSString *) artist /* cannot fail, so no &error */ {
-	// Easy enough, all URLs seem to be in the form "http://www.AZLyrics.com/t/theartistnamegoeshere.html"
+-(NSString *)getURLForArtist:(NSString *) artist error:(NSError **)error {
+#warning FIX
 	
-	// First, make the artist name lowercase and remove all non-chars
-	artist = [[artist lowercaseString] stringByStrippingNonCharacters];
-	
-	if (artist == nil || [artist length] < 1)
-		return nil;
-	
-	// Then, create the URL and return it.
-	return [NSString stringWithFormat:@"http://www.AZLyrics.com/%c/%@.html", [artist characterAtIndex:0], artist];
 }
 
 -(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)inURL error:(NSError **)error {
 	//
-	// Looks through an artist page (i.e. "http://www.AZLyrics.com/d/darktranquillity.html") for the track link
+	// Looks through an artist page (i.e. "http://www.azlyrics.com/d/darktranquillity.html") for the track link
 	//
 	NSURL *artistURL = [NSURL URLWithString:inURL];
     NSError *err = nil;
