@@ -67,14 +67,9 @@ static LyricFetcher *sharedLyricFetcher = nil;
 	// 2) the lyric is found and returned
     
     NSString *lyrics = nil;
-//    NSError *err;
+
 	for (id site in sitesByPriority) {
 		lyrics = [site fetchLyricsForTrack:theTrack byArtist:theArtist error:error];
-//        if (err != nil) {
-  //          if (*error != nil) {
-    //            *error = [err copy];
-      //      }
-        //    return nil;
     }
         if (lyrics != nil)
             return lyrics;
@@ -119,6 +114,8 @@ static LyricFetcher *sharedLyricFetcher = nil;
 			[sitesByPriority addObject: [[TBDarklyrics alloc] init]];
 		else if ([siteName isEqualToString:@"songmeanings"])
 			[sitesByPriority addObject: [[TBSongmeanings alloc] init]];
+        else if ([siteName isEqualToString:@"azlyrics"])
+            [sitesByPriority addObject: [[TBAZLyrics alloc] init]];
 	}
 }
 

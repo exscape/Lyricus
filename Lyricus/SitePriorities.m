@@ -20,27 +20,16 @@
 
 -(BOOL)load {
 	data = [[NSUserDefaults standardUserDefaults] objectForKey:@"Site priority list"];
-
-	// Delete LyricWiki entry if present
-	// Old-style C loop due to some trouble with the foreach variety
-	// Yes, this is ugly. Don't code when you should sleep, kids.
-	if (data != nil) {
-		int del = -1;
-		int i = 0;
-		for (i=0; i < [data count]; i++) {
-			NSDictionary *dict = [data objectAtIndex:i];
-			if ([[dict objectForKey:@"site"] isEqualToString:@"Lyricwiki"]) {
-				del = i;
-				break;
-			}
-		}
-		
-		if (del != -1) {
-			[data removeObjectAtIndex:i];
-		}
-	}
-	
-	return (data != nil);
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Site list version"] intValue] != 3) {
+        // Format changed; user must recreate settings.
+        data = nil;
+        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:3] forKey:@"Site list version"];
+        [TBUtil showAlert:@"You need to set up the site order in the Lyricus preferences to continue. Drag and drop them in the order that you want Lyricus to check them. Only checked items are enabled." withCaption:@"You need to set up site priorities"];
+        
+        return NO;
+    }
+    
+    return (data != nil);
 }
 
 -(BOOL)save {	
@@ -64,17 +53,27 @@
 		
 		NSMutableDictionary *d; 
 
+        /// Songmeanings, enabled by default
 		d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
 			 [NSNumber numberWithInt:1], @"enabled",
 			 @"Songmeanings", @"site",
 			 nil];
 		[data addObject:d];
-		
+
+        // AZLyrics, enabled by default
+        d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+			 [NSNumber numberWithInt:1], @"enabled",
+			 @"AZLyrics", @"site",
+			 nil];
+		[data addObject:d];
+
+        // Darklyrics, disabled by default
 		d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
 			 [NSNumber numberWithInt:0], @"enabled",
 			 @"Darklyrics", @"site",
 			 nil];
 		[data addObject:d];
+        
 		
 		[self save];
 	}

@@ -9,7 +9,7 @@
 #import "SitePriorities.h"
 #import "TBSongmeanings.h"
 #import "TBDarklyrics.h"
-//#import "TBLyricwiki.h"
+#import "TBAZLyrics.h"
 
 @interface LyricFetcher : NSObject {
 	NSMutableArray *sitesByPriority;

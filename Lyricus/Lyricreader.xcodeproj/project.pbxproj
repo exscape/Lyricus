@@ -18,6 +18,7 @@
 		109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109531F90DA12D9A001706FF /* TBDarklyrics.m */; };
 		109532100DA12EEB001706FF /* TBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1095320F0DA12EEB001706FF /* TBUtil.m */; };
 		1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */ = {isa = PBXBuildFile; fileRef = 109532690DA1325E001706FF /* TBSongmeanings.m */; };
+		109B44C813360BF100CD4A43 /* TBAZLyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109B44C713360BF000CD4A43 /* TBAZLyrics.m */; };
 		10AEFB170D9FEDCA0088ECDC /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AEFB160D9FEDCA0088ECDC /* MainController.m */; };
 		10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */; };
 		10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D5093313337A70006C0FC7 /* libicucore.dylib */; };
@@ -80,6 +81,8 @@
 		1095320F0DA12EEB001706FF /* TBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBUtil.m; sourceTree = "<group>"; };
 		109532680DA1325E001706FF /* TBSongmeanings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSongmeanings.h; sourceTree = "<group>"; };
 		109532690DA1325E001706FF /* TBSongmeanings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSongmeanings.m; sourceTree = "<group>"; };
+		109B44C613360BF000CD4A43 /* TBAZLyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBAZLyrics.h; sourceTree = "<group>"; };
+		109B44C713360BF000CD4A43 /* TBAZLyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBAZLyrics.m; sourceTree = "<group>"; };
 		10AEFB150D9FEDCA0088ECDC /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		10AEFB160D9FEDCA0088ECDC /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
@@ -170,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				109532680DA1325E001706FF /* TBSongmeanings.h */,
+				109B44C613360BF000CD4A43 /* TBAZLyrics.h */,
+				109B44C713360BF000CD4A43 /* TBAZLyrics.m */,
 				109532690DA1325E001706FF /* TBSongmeanings.m */,
 				109531F80DA12D9A001706FF /* TBDarklyrics.h */,
 				109531F90DA12D9A001706FF /* TBDarklyrics.m */,
@@ -333,6 +338,7 @@
 				1027289F0DB2A81900E644E1 /* iTunesHelper.m in Sources */,
 				101BC6EA133293A20055D720 /* RegexKitLite.m in Sources */,
 				1041B7CA1333B4CA003F4429 /* LyricSearchController.m in Sources */,
+				109B44C813360BF100CD4A43 /* TBAZLyrics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
