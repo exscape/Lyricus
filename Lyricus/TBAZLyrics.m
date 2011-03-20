@@ -111,9 +111,9 @@
         }
         return nil;
     }
-	
+
 	NSString *regex = 
-	@"<!-- start of lyrics -->(.*?)<!-- end of lyrics -->";
+	@"<!-- start of lyrics -->([\\s\\S]*?)<!-- end of lyrics -->";
     
     NSMutableString *lyrics = [[source stringByMatching:regex capture:1L] mutableCopy];
 

@@ -172,9 +172,9 @@
 		1086B26B0DACAF9E007B2EC1 /* Sites */ = {
 			isa = PBXGroup;
 			children = (
-				109532680DA1325E001706FF /* TBSongmeanings.h */,
 				109B44C613360BF000CD4A43 /* TBAZLyrics.h */,
 				109B44C713360BF000CD4A43 /* TBAZLyrics.m */,
+				109532680DA1325E001706FF /* TBSongmeanings.h */,
 				109532690DA1325E001706FF /* TBSongmeanings.m */,
 				109531F80DA12D9A001706FF /* TBDarklyrics.h */,
 				109531F90DA12D9A001706FF /* TBDarklyrics.m */,

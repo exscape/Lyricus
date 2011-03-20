@@ -149,13 +149,8 @@
         return nil;
     }
     
-	// Why THE HELL is this required!?!! Took me HOURS of debugging to find out. Seems to break even with dot matches all,
-	// so lets use this:
-	html = [html stringByReplacingOccurrencesOfString:@"\r" withString:@""];
-	html = [html stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-
 	NSString *regex = 
-	@"<!-- end ringtones -->(.*?)<!--ringtones and media links -->";
+	@"<!-- end ringtones -->([\\s\\S]*?)<!--ringtones and media links -->";
     NSMutableString *lyrics = [[html stringByMatching:regex capture:1L] mutableCopy];
 
     if (lyrics == nil) {
@@ -167,7 +162,6 @@
         return nil;
     }
 
-    [lyrics replaceOccurrencesOfRegex:@"<br />" withString:@"\n"];
     [lyrics replaceOccurrencesOfRegex:@"<[^>]*>" withString:@""];
     return [lyrics stringByTrimmingWhitespace];
 }
