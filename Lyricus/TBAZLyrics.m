@@ -29,12 +29,15 @@
 	//
 	
 	SendNote(@"Trying AZLyrics...\n");
-	SendNote(@"\tFetching lyric URL...\n");
-	
+	SendNote(@"\tFetching artist URL...\n");
+
 	NSString *artistURL = [self getURLForArtist:artist error:error] /* cannot fail */;
 	if (artistURL == nil)
 		return nil;
+
+	SendNote(@"\tFetching lyric URL...\n");
 	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
+	
 	SendNote(@"\tFetching and parsing lyrics...\n");
 	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title error:error];
     
@@ -48,8 +51,32 @@
 #pragma mark -
 #pragma mark Internal/private
 
--(NSString *)getURLForArtist:(NSString *) artist error:(NSError **)error {
-#warning FIX
+-(NSString *)getURLForArtist:(NSString *) inArtist error:(NSError **)error {
+	NSString *artist = [inArtist stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+	artist = [artist stringByAddingPercentEscapesUsingEncoding:NSISOLatin1StringEncoding];
+	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://search.azlyrics.com/search.php?q=%@", artist]];
+
+	NSError *err = nil;
+	NSString *html = [TBUtil getHTMLFromURL:url error:error];
+	if (html == nil) {
+        if (err != nil) {
+            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+            [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
+            if (error != nil) {
+                *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+            }
+        }
+        return nil;
+    }
+	
+	NSString *regex =
+	@"<a href=\"(http://www.azlyrics.com/\\w/[^.]*\\.html)\" rel=\"external\"><b>.*? lyrics</b>";
+	// CASE SENSITIVE, as "BAND lyrics" is the right link ("BAND LYRICS - <song name>" is not.)
+	
+	NSString *trackURL = [html stringByMatching:regex capture:1L];
+	
+	return trackURL;
+
 	
 }
 
