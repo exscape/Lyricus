@@ -57,7 +57,7 @@
 	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://search.azlyrics.com/search.php?q=%@", artist]];
 
 	NSError *err = nil;
-	NSString *html = [TBUtil getHTMLFromURL:url error:error];
+	NSString *html = [TBUtil getHTMLFromURL:url error:&err];
 	if (html == nil) {
         if (err != nil) {
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
