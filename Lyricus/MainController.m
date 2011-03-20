@@ -290,7 +290,7 @@
                         artist, title];
         }
         else { // error
-            lyricStr = [NSString stringWithFormat: @"An error occured: %@", [err localizedDescription]];
+            lyricStr = [NSString stringWithFormat: @"An error occured:\n%@", [err localizedDescription]];
         }
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
 		lyricsDisplayed = NO;

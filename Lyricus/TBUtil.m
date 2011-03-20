@@ -30,15 +30,12 @@
 	return ( [t1 compare:t2 options:(NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch)] == NSOrderedSame );
 }
 
-+(NSString *)getHTMLFromURL:(NSURL *)url {
-	return [self getHTMLFromURL:url withCharset:NSISOLatin1StringEncoding];
++(NSString *)getHTMLFromURL:(NSURL *)url error:(NSError **)error {
+	return [self getHTMLFromURL:url withCharset:NSISOLatin1StringEncoding error:error];
 }
 
-+(NSString *)getHTMLFromURL:(NSURL *)url withCharset:(NSStringEncoding)theEncoding {
-	//
-	// Quick, dirty, no-error-checking fetching of an URL
-	//
-	NSData *data = [NSData dataWithContentsOfURL:url];
++(NSString *)getHTMLFromURL:(NSURL *)url withCharset:(NSStringEncoding)theEncoding error:(NSError **)error {
+	NSData *data = [NSData dataWithContentsOfURL:url options:0 error:error];
 	if (data == nil)
 		return nil;
 	

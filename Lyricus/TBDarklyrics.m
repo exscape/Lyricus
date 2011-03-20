@@ -67,12 +67,15 @@
 	// Looks through an artist page (i.e. "http://www.darklyrics.com/d/darktranquillity.html") for the track link
 	//
 	NSURL *artistURL = [NSURL URLWithString:inURL];
-	NSString *html = [TBUtil getHTMLFromURL:artistURL];
+    NSError *err = nil;
+	NSString *html = [TBUtil getHTMLFromURL:artistURL error:&err];
 	if (html == nil) {
-        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-        [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
-        if (*error != nil) {
-            *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+        if (err != nil) {
+            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+            [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
+            if (error != nil) {
+                *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+            }
         }
         return nil;
     }
@@ -99,22 +102,23 @@
 	// 10 times for 10 tracks, we'll only download it once. The cache is NOT saved between sessions, which also shouldn't be necessary.
 	// (Darklyrics displays the lyrics for ALL tracks an on album on the same page, so fetching it 10 times for 10 tracks is just stupid.)
 	NSString *source;
+    NSError *err = nil;
 	if ([albumCache objectForKey:url] != nil) {
 		source = [albumCache objectForKey:url];
-        //		NSLog(@"Using cached darklyrics page");
 	}
 	else {
-		source = [TBUtil getHTMLFromURL:[NSURL URLWithString:url]];
-        //		NSLog(@"Downloading and caching darklyrics page");
+		source = [TBUtil getHTMLFromURL:[NSURL URLWithString:url] error:&err];
 		if (source)
 			[albumCache setObject:source forKey:url];
 	}
 	
 	if (source == nil) {
-        NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-        [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
-        if (*error != nil) {
-            *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+        if (err != nil) {
+            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+            [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
+            if (error != nil) {
+                *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+            }
         }
         return nil;
     }
@@ -136,9 +140,10 @@
 	}
     
 	// If we've checked all titles, something is wrong, since darklyrics provides a list of the lyrics supported to be at this URL. This is likely because the regular expression doesn't match due to site updates.
+
     NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-    [errorDetail setValue:@"Unable to parse lyrics. Please report this to the developer at serenity@exscape.org!"forKey:NSLocalizedDescriptionKey];
-    if (*error != nil) {
+    [errorDetail setValue:@"Unable to parse lyrics. Please report this to the developer at serenity@exscape.org!" forKey:NSLocalizedDescriptionKey];
+    if (error != nil) {
         *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusLyricParseError userInfo:errorDetail];
     }
     return nil;
