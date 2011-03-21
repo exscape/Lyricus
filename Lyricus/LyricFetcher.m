@@ -70,11 +70,11 @@ static LyricFetcher *sharedLyricFetcher = nil;
 
 	for (id site in sitesByPriority) {
 		lyrics = [site fetchLyricsForTrack:theTrack byArtist:theArtist error:error];
+		if (lyrics != nil)
+			return lyrics;
     }
-        if (lyrics != nil)
-            return lyrics;
-        // else continue;
-	return lyrics;
+	
+	return nil;
 }
 
 -(void) updateSiteList {

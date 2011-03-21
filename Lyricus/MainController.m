@@ -273,7 +273,6 @@
 	NSString *lyricStr;
 	SendNote(@"Trying iTunes...\n");
 	
-
     NSError *err = nil;
     
     // First, lets check if iTunes has an entry for this track already
