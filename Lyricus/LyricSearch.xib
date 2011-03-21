@@ -218,7 +218,7 @@
 									<reference key="NSNextKeyView" ref="939036647"/>
 									<reference key="NSTarget" ref="145175523"/>
 									<string key="NSAction">_doScroller:</string>
-									<double key="NSPercent">0.9925373134328358</double>
+									<double key="NSPercent">0.80263157894736847</double>
 								</object>
 								<object class="NSScroller" id="939036647">
 									<reference key="NSNextResponder" ref="145175523"/>
@@ -230,7 +230,7 @@
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="145175523"/>
 									<string key="NSAction">_doScroller:</string>
-									<double key="NSPercent">0.99772209567198178</double>
+									<double key="NSPercent">0.99705882352941178</double>
 								</object>
 							</object>
 							<string key="NSFrame">{{20, 370}, {341, 78}}</string>
@@ -333,7 +333,7 @@
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{463, 1e+07}</string>
-											<string key="NSMinize">{223, 8}</string>
+											<string key="NSMinize">{223, 0}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</object>
@@ -388,7 +388,7 @@
 					<string key="NSFrame">{{7, 11}, {381, 498}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="135533793"/>
+					<reference key="NSNextKeyView"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
@@ -412,7 +412,6 @@
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
 							<string key="NSFrame">{{18, 45}, {319, 20}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="199010075"/>
 							<int key="NSpiFlags">16392</int>
 							<double key="NSMaxValue">100</double>
@@ -422,8 +421,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{265, 12}, {76, 32}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="7655529">
 								<int key="NSCellFlags">67239424</int>
@@ -444,7 +441,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 73}, {321, 17}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="169595748"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="613346502">
@@ -465,7 +461,6 @@
 					</object>
 					<string key="NSFrame">{{7, 11}, {355, 110}}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="872859683"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -833,7 +828,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">131</int>
+			<int key="maxID">133</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -847,11 +842,9 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>abortIndexing:</string>
 							<string>updateTrackIndex:</string>
-							<string>updateTracklist:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -862,7 +855,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>abortIndexing:</string>
 							<string>updateTrackIndex:</string>
-							<string>updateTracklist:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -872,10 +864,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">updateTrackIndex:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">updateTracklist:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>

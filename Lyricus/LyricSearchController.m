@@ -177,7 +177,6 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 indexing_cancelled:
     
     [NSApp endSheet:indexProgressWindow];
-
 }
 
 -(IBAction) abortIndexing:(id) sender {
@@ -203,8 +202,6 @@ indexing_cancelled:
     else
         [abortButton setEnabled:YES];
 }
-
-
 
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
 	if (sheet == indexProgressWindow) {
