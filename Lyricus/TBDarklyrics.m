@@ -74,7 +74,7 @@
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
             [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
             if (error != nil) {
-                *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+                *error = [NSError errorWithDomain:@"org.exscape.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
             }
         }
         return nil;
@@ -117,7 +117,7 @@
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
             [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
             if (error != nil) {
-                *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
+                *error = [NSError errorWithDomain:@"org.exscape.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
             }
         }
         return nil;
@@ -144,7 +144,7 @@
     NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
     [errorDetail setValue:@"Unable to parse lyrics. Please report this to the developer at serenity@exscape.org!" forKey:NSLocalizedDescriptionKey];
     if (error != nil) {
-        *error = [NSError errorWithDomain:@"org.exscape.org.Lyricus" code:LyricusLyricParseError userInfo:errorDetail];
+        *error = [NSError errorWithDomain:@"org.exscape.Lyricus" code:LyricusLyricParseError userInfo:errorDetail];
     }
     return nil;
 }

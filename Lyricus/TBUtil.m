@@ -35,7 +35,26 @@
 }
 
 +(NSString *)getHTMLFromURL:(NSURL *)url withCharset:(NSStringEncoding)theEncoding error:(NSError **)error {
-	NSData *data = [NSData dataWithContentsOfURL:url options:0 error:error];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:10.0];
+	NSHTTPURLResponse *response = nil;
+	
+	NSError *err = nil;
+	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+	NSInteger statusCode = [response statusCode];
+	
+	if (statusCode != 200 && statusCode != 301 && statusCode != 302 && statusCode != 303 && statusCode != 304 && statusCode != 307
+		&& statusCode != 404 && statusCode != 410) {
+		// The rationale for this is that if the status code is one of the above, the request should have either succeeded or failed due to a page not existing, rather than errors such as invalid requests or broken connections.
+		// Thus the above codes are seen as non-errors by the lyric downloader.
+
+		NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
+        [errorDetail setValue:[NSString stringWithFormat:@"HTTP error. Status code %d", statusCode] forKey:NSLocalizedDescriptionKey];
+        if (error != nil) {
+            *error = [NSError errorWithDomain:@"org.exscape.Lyricus" code:LyricusHTTPError userInfo:errorDetail];
+        }
+		// Fall through
+	}
+	
 	if (data == nil)
 		return nil;
 	

@@ -26,6 +26,7 @@ userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]];
 
 #define LyricusHTMLFetchError 1
 #define LyricusLyricParseError 2
+#define LyricusHTTPError 3
 
 // #define NSLog(x) NULL
 
