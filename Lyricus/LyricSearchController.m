@@ -148,11 +148,12 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
                     [trackData addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
 
                     [indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
-                }
-                        
-                    if ([thread isCancelled]) {
+					
+					if ([thread isCancelled]) {
                         goto indexing_cancelled;
                     }
+                }
+                        
             }
         }
     }
