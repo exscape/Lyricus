@@ -20,9 +20,15 @@
 	IBOutlet NSTextView *resultView;
 	IBOutlet NSProgressIndicator *progressIndicator;
 	IBOutlet NSButton *goButton;
+	
+	BOOL bulkDownloaderIsWorking;
 }
 
 -(IBAction) goButtonClicked:(id)sender;
 -(void)showBulkDownloader;
 
+@property BOOL bulkDownloaderIsWorking;
+
 @end
+
+

@@ -11,6 +11,8 @@
 
 @implementation Bulk
 
+@synthesize bulkDownloaderIsWorking;
+
 #pragma mark -
 #pragma mark Init stuff
 
@@ -20,21 +22,23 @@
 		playlists = [[NSMutableArray alloc] init];
 		lyricController = [[LyricFetcher alloc] init];
 		helper = [iTunesHelper sharediTunesHelper];
+		[self setBulkDownloaderIsWorking:NO];
         
 		return self;
 	}
 	return nil;
 }
 
-- (BOOL)windowShouldClose:(id)sender {
+- (BOOL)windowShouldClose:(id)Bsender {
 	// No need to confirm if nothing is running
 	if (![thread isExecuting]) {
 		return YES;
 	}
 	
-	if ([[NSAlert alertWithMessageText:@"Do you want to abort the current operation??" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Lyrics downloaded so far will be saved."] runModal] == NSAlertDefaultReturn) {
+	if ([[NSAlert alertWithMessageText:@"Do you want to abort the bulk download?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Lyrics downloaded so far will be saved."] runModal] == NSAlertDefaultReturn) {
 		// Yes, abort:
 		[thread cancel];
+		[self setBulkDownloaderIsWorking:NO];
 		return YES;
 	}
 	else {
@@ -58,6 +62,8 @@
 	}
 
     [playlistView reloadData];
+	
+	[self setBulkDownloaderIsWorking:NO];
 
     [self.window makeKeyAndOrderFront:self];
 }
@@ -204,10 +210,11 @@ restore_settings:
 		[goButton setEnabled:YES];
 		return;
 	}
+	
 	if ([tracks count] > 40) {
-		NSInteger choice = [[NSAlert alertWithMessageText:[NSString stringWithFormat:@"There are %d tracks to process. Do you want to continue?", [tracks count]] defaultButton:@"Yes" alternateButton:@"No" otherButton:nil informativeTextWithFormat:@"This action may tike some time."] runModal];
+		NSInteger choice = [[NSAlert alertWithMessageText:[NSString stringWithFormat:@"There are %d tracks to process. Do you want to continue?", [tracks count]] defaultButton:@"Continue" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"This action may tike some time."] runModal];
 		
-		if (choice == 0) {
+		if (choice == NSAlertAlternateReturn) {
 			[goButton setEnabled:YES];
 			return;
 		}
@@ -218,6 +225,7 @@ restore_settings:
 
 	[resultView appendString:[NSString stringWithFormat:@"Starting lyric download for %d tracks\n\n", [tracks count]]];	
 		
+	[self setBulkDownloaderIsWorking:YES];
 	// Start the worker thread
 	thread = [[NSThread alloc] initWithTarget:self selector:@selector(dirtyWorker:) object:tracks];
 	[thread start];

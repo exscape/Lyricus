@@ -222,6 +222,18 @@
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+	if (bulkDownloader != nil && [bulkDownloader bulkDownloaderIsWorking]) {
+		// The bulk downloader is downloading tracks. Ask the user whether we still should quit.
+		if ([[NSAlert alertWithMessageText:@"The bulk downloader is currently working. Do you still want to quit?" defaultButton:@"Don't quit" alternateButton:@"Quit" otherButton:nil informativeTextWithFormat:@"Lyrics that have been downloaded until now will be saved."] runModal]
+			==
+			NSAlertDefaultReturn) {
+			// Don't quit
+			return NSTerminateCancel;
+		}
+		// else fall through to the checks below...
+	}
+	
+	
 	// Make sure unsaved changes are saved by the user
 	
 	// If there are no unsaved changes, simply quit

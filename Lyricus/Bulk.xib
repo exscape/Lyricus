@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10J3210</string>
+		<string key="IBDocument.SystemVersion">10J3250</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
@@ -77,7 +77,7 @@
 											<string key="NSFrameSize">{177, 302}</string>
 											<reference key="NSSuperview" ref="673255718"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="918431738"/>
+											<reference key="NSNextKeyView" ref="252488104"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="505540827">
 												<reference key="NSNextResponder" ref="974965361"/>
@@ -234,7 +234,7 @@
 							<string key="NSFrame">{{20, 60}, {179, 320}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="252488104"/>
+							<reference key="NSNextKeyView" ref="673255718"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="918431738"/>
 							<reference key="NSHScroller" ref="937377184"/>
@@ -259,7 +259,7 @@
 											<string key="NSFrameSize">{371, 14}</string>
 											<reference key="NSSuperview" ref="470639511"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="817001643"/>
+											<reference key="NSNextKeyView" ref="947116700"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="1012450328">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -392,7 +392,7 @@
 							<string key="NSFrame">{{207, 60}, {388, 320}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="947116700"/>
+							<reference key="NSNextKeyView" ref="470639511"/>
 							<int key="NSsFlags">18</int>
 							<reference key="NSVScroller" ref="817001643"/>
 							<reference key="NSHScroller" ref="947116700"/>
@@ -404,7 +404,6 @@
 							<string key="NSFrame">{{543, 12}, {58, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="427962198">
 								<int key="NSCellFlags">67239424</int>
@@ -515,6 +514,14 @@
 						<reference key="destination" ref="1005"/>
 					</object>
 					<int key="connectionID">50</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="1005"/>
+						<reference key="destination" ref="1001"/>
+					</object>
+					<int key="connectionID">51</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -731,7 +738,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">50</int>
+			<int key="maxID">51</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
