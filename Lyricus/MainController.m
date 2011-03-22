@@ -95,13 +95,7 @@
 	// Sign up for the SetLyric message, sent from another thread later on
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self selector:@selector(setLyric:) name:kSetLyric object:nil];
-	
-	// If we're following iTunes, check if something's playing and if so, grab the lyric right away!
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"]) {
-		[self updateTextFieldsFromiTunes];
-		[self fetchAndDisplayLyrics:NO];
-	}
-	
+		
 	// Create a progress indicator
 	NSRect spinnerFrame = NSMakeRect([lyricView frame].size.width - 16, 0, 16, 16);
 	spinner = [[NSProgressIndicator alloc] initWithFrame:spinnerFrame];
@@ -111,8 +105,15 @@
 	[lyricView addSubview:spinner positioned:NSWindowAbove relativeTo:nil];
 	[lyricView setAutoresizesSubviews:YES];
 	[spinner setAutoresizingMask:NSViewMinXMargin];
+	
+	// If we're following iTunes, check if something's playing and if so, grab the lyric right away!
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"]) {
+		[self updateTextFieldsFromiTunes];
+		[self fetchAndDisplayLyrics:NO];
+	}
 		    
 	// Update the site list
+	// Is this really needed? [LyricController init] does this already.
 	[lyricController updateSiteList];
 	// NO CODE goes after this!
 }
@@ -160,6 +161,8 @@
 	[NSApp beginSheet:searchWindow modalForWindow:mainWindow modalDelegate:self 
 	   didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 	
+	[self updateTextFieldsFromiTunes];
+	
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"]) {
 		// Warn the user that follow iTunes + search isn't a good idea
 		NSRect cur = [searchWindow frame];
@@ -196,11 +199,33 @@
 
 -(void) updateTextFieldsFromiTunes {
     iTunesTrack *track = [helper getCurrentTrack];
-	if (track == nil)
-		return;
+	//	if (track == nil)
+	//	return;
 	@try {
-		[artistField setStringValue: [track artist]];
-		[titleField setStringValue: [track name]];
+		//		NSString *artist = [track artist];
+		//		NSString *title = [track name];
+		if (track != nil && [track artist] != nil && [track name] != nil) {
+			// Both or neither!
+			[artistField setStringValue: [track artist]];
+			[titleField setStringValue: [track name]];
+		}
+		else {
+			NSString *streamTitle = [[helper iTunesReference] currentStreamTitle];
+			if (streamTitle != nil && [streamTitle length] > 5) { // length("a - b" == 5)
+				NSArray *tmp = [streamTitle arrayOfDictionariesByMatchingRegex:@"([\\s\\S]+) - ([\\s\\S]+)" withKeysAndCaptures:@"artist", 1, @"title", 2, nil];
+				if ([tmp count] != 1)
+					return;
+				
+				NSString *artist = [[tmp objectAtIndex:0] objectForKey:@"artist"];
+				NSString *title = [[tmp objectAtIndex:0]  objectForKey:@"title"];
+				
+				if (artist != nil && title != nil) {
+					// Again, both or neither
+					[artistField setStringValue:artist];
+					[titleField setStringValue:title];
+				}
+			}
+		}
 	}
 	@catch (NSException *e) {}
 }
@@ -440,7 +465,7 @@
 	displayedTitle = [title copy];
 	
 	// Scroll to the top (I don't think this is neccesary (anymore), but it doesn't hurt)
-	[lyricView scrollRangeToVisible:NSMakeRange(0,0)];
+	//	[lyricView scrollRangeToVisible:NSMakeRange(0,0)];
 	
 	loadingLyrics = NO;
     
@@ -450,10 +475,50 @@
 	
 	// If the track changed while loading, go get the NEW lyrics instead. Do NOT do this with manual searches, or the current track
 	// would be displayed no matter what.
-	if (!manualSearch && ! ([displayedArtist isEqualToString:[[helper getCurrentTrack] artist]] && [displayedTitle isEqualToString:[[helper getCurrentTrack] name]]) ) {
-		[self updateTextFieldsFromiTunes];
-		[self fetchAndDisplayLyrics:NO];
+	
+	if (!manualSearch) {
+		NSString *currentArtist;
+		NSString *currentTitle;
+		if ([helper currentTrackIsStream]) {
+			NSString *streamTitle = [[helper iTunesReference] currentStreamTitle];
+			if (streamTitle != nil && [streamTitle length] > 5) { // length("a - b" == 5)
+				NSArray *tmp = [streamTitle arrayOfDictionariesByMatchingRegex:@"([\\s\\S]+) - ([\\s\\S]+)" withKeysAndCaptures:@"artist", 1, @"title", 2, nil];
+				if ([tmp count] != 1)
+					return;
+				
+				currentArtist = [[tmp objectAtIndex:0] objectForKey:@"artist"];
+				currentTitle = [[tmp objectAtIndex:0]  objectForKey:@"title"];
+			}
+			else {
+				currentArtist = @"";
+				currentTitle = @"";
+			}
+		}
+		else {
+			currentArtist = [[helper getCurrentTrack] artist];
+			currentTitle = [[helper getCurrentTrack] name];							
+		}
+		
+		if (![displayedArtist isEqualToString:currentArtist] && ![displayedTitle isEqualToString:currentTitle]) {
+				[self updateTextFieldsFromiTunes];
+				[self fetchAndDisplayLyrics:NO];
+			}
+
+		/*
+		// Stream, title doesn't match current (split) title
+		else if (([helper currentTrackIsStream] == YES && 
+				  ![[[helper iTunesReference] currentStreamTitle] isEqualToString:
+					[NSString stringWithFormat:@"%@ - %@", displayedArtist, displayedTitle]]))
+		{
+			[self updateTextFieldsFromiTunes];
+			[self fetchAndDisplayLyrics:NO];
+		}
+		 */
+
 	}
+	// Check if the track has changed while loading
+	//	[self trackUpdated];
+#warning FIXME!!!
 }	
 
 - (IBAction) closeSearchWindow:(id) sender {
@@ -568,11 +633,15 @@
 		return NO;
 }
 
--(void)trackUpdated:(NSDictionary *)note {
+-(void)trackUpdated {
 	//
     // This is called whenever iTunes starts playing a track. We need to check whether if it's a new track or not.
 	//
-	NSString *track = [NSString stringWithFormat:@"%@ - %@", [note objectForKey:@"Artist"], [note objectForKey:@"Name"]];
+	NSString *track;
+	if (![helper currentTrackIsStream])
+		track = [NSString stringWithFormat:@"%@ - %@", [[helper getCurrentTrack] artist], [[helper getCurrentTrack] name]];
+	else
+		track = [[helper iTunesReference] currentStreamTitle];
 
 	@try { 
 		if ([track isEqualToString:lastTrack]) {
@@ -580,17 +649,25 @@
 		}
 	}
 	@catch (NSException *e) {} // Ignore, will most likely only happen on the first track, which means nothing really
-	
+	/*
 	if (![self haveLyricsLocallyForCurrentTrack]) {
 		sleep (3); 	// To make sure the user didn't just skip a bunch of tracks;
 					// We want to be sure that this is *the* new track.
 	}
+	*/
 	@try {
 		iTunesTrack *currentTrack = [helper getCurrentTrack];
-		if (currentTrack == nil)
+		NSString *newTrack;
+		if (currentTrack == nil && ![helper currentTrackIsStream])
 			return;
 		
-		NSString *newTrack = [NSString stringWithFormat:@"%@ - %@", [currentTrack artist], [currentTrack name]];
+		if (![helper currentTrackIsStream]) {
+			newTrack = [NSString stringWithFormat:@"%@ - %@", [currentTrack artist], [currentTrack name]];
+		}
+		else {
+			newTrack = [[helper iTunesReference] currentStreamTitle];
+		}
+		
 		if ([track isEqualToString:newTrack] && ![track isEqualToString:lastTrack]) {
 			// Track DID change,so lets get the lyrics and stuff.
 			lastTrack = [NSString stringWithString:newTrack];
@@ -608,14 +685,16 @@
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"] == NO)
 		return;
 	
+		NSLog(@"%@", [note userInfo]);
+	
 	NSString *location = [[note userInfo] objectForKey:@"Location"];
 	if (location == nil)
 		return;
 	
-	if ([[location substringToIndex:4] isEqualToString:@"file"]) { // Not a HTTP stream or such
+	if ([[location substringToIndex:4] isEqualToString:@"file"] || [helper currentTrackIsStream]) {
 		if ([[[note userInfo] objectForKey:@"Player State"] isEqualToString:@"Playing"]) {
 			// We have a playing track!
-			[self trackUpdated:[note userInfo]];
+			[self trackUpdated];
 			
 		}
 	}
@@ -720,7 +799,11 @@ end_return:
 	
 	// Refresh the lyric display and fix the title, etc.
 	[self setDocumentEdited:NO];
-	[self fetchAndDisplayLyrics:NO];
+	
+
+#warning TEST THIS CHANGE
+	//	[self fetchAndDisplayLyrics:NO];
+	[self trackUpdated];
 
 	return;
 }

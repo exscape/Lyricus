@@ -48,6 +48,19 @@ static iTunesHelper *sharediTunesHelper = nil;
 	return self;
 }
 
+-(BOOL)currentTrackIsStream {
+	if (![self initiTunes])
+		return NO; // Ugh.
+	
+	@try {
+		return ([iTunes currentStreamTitle] != nil);
+	}
+	@catch (NSException *e) { return NO; }
+	
+	// Silence warning
+	return NO;
+}
+
 -(BOOL) initiTunes {
 	@try {
 		if (iTunes == nil)
@@ -142,6 +155,9 @@ static iTunesHelper *sharediTunesHelper = nil;
 
 -(iTunesTrack *)getCurrentTrack {
 	if (![self initiTunes])
+		return nil;
+	
+	if ([self currentTrackIsStream])
 		return nil;
 	
 	@try {

@@ -67,6 +67,8 @@
 -(BOOL) documentEdited;
 -(void) setDocumentEdited:(BOOL) value;
 
+-(void)trackUpdated;
+
 // Preferences window
 -(IBAction) openPreferencesWindow:(id) sender;
 -(IBAction) alwaysOnTopClicked:(id) sender;
