@@ -291,12 +291,45 @@
 		// Don't change the displayed lyrics while editing
 		return; 
 	}
-/*	
+
 	if ([self documentEdited]) {
-		[[NSAlert alertWithMessageText:@"FIXME: Ask user whether or not to save and/or change the displayed lyrics" defaultButton:@"1" alternateButton:@"2" otherButton:@"3" informativeTextWithFormat:@"FIXME"] runModal];
-		return;
+		
+		switch ([[NSAlert alertWithMessageText:@"FIXME: Ask user whether or not to save and/or change the displayed lyrics" defaultButton:@"Save" alternateButton:@"Don't save" otherButton:@"Cancel" informativeTextWithFormat:@"FIXME"] runModal]) {
+				
+			case NSAlertAlternateReturn:
+				// "Don't save"
+				[self setDocumentEdited:NO];
+				break;
+				
+			case NSAlertDefaultReturn:
+				// "Save"
+				if ([self saveLyricsToNamedTrack]) {
+					// We've saved; simply break and let the code below switch to the new track.
+					break;
+				}
+				else {
+					// Save failed
+					if (
+						[[NSAlert alertWithMessageText:@"Unable to save lyrics. Do you want to switch the lyric display anyway? Your changes will be lost." defaultButton:@"Don't switch" alternateButton:@"Switch and discard changes" otherButton:nil informativeTextWithFormat:@"If  you still switch the lyric display, any changes you have made to the lyric text will be lost."] runModal]
+						==
+						NSAlertAlternateReturn) {
+						// Simply break and let the code below switch to the new track.
+						break;
+					}
+					else {
+						// "Abort shutdown"
+						// Save failed and used din't want to exit
+						return;
+					}
+				}
+				break;
+			case NSAlertOtherReturn:
+				// "Cancel"
+				// User wants to cancel the track switch
+				return;
+		}
 	}
-*/	
+	
     manualSearch = manual;
 	
 	NSString *artist, *title;
