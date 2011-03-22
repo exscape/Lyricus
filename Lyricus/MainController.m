@@ -498,27 +498,13 @@
 			currentArtist = [[helper getCurrentTrack] artist];
 			currentTitle = [[helper getCurrentTrack] name];							
 		}
-		
-		if (![displayedArtist isEqualToString:currentArtist] && ![displayedTitle isEqualToString:currentTitle]) {
+
+		// Check whether the track has changed or not
+		if ( ! ([displayedArtist isEqualToString:currentArtist] && [displayedTitle isEqualToString:currentTitle]) ) {
 				[self updateTextFieldsFromiTunes];
 				[self fetchAndDisplayLyrics:NO];
 			}
-
-		/*
-		// Stream, title doesn't match current (split) title
-		else if (([helper currentTrackIsStream] == YES && 
-				  ![[[helper iTunesReference] currentStreamTitle] isEqualToString:
-					[NSString stringWithFormat:@"%@ - %@", displayedArtist, displayedTitle]]))
-		{
-			[self updateTextFieldsFromiTunes];
-			[self fetchAndDisplayLyrics:NO];
-		}
-		 */
-
 	}
-	// Check if the track has changed while loading
-	//	[self trackUpdated];
-#warning FIXME!!!
 }	
 
 - (IBAction) closeSearchWindow:(id) sender {
@@ -691,11 +677,14 @@
 	if (location == nil)
 		return;
 	
-	if ([[location substringToIndex:4] isEqualToString:@"file"] || [helper currentTrackIsStream]) {
+	BOOL isStream = [helper currentTrackIsStream];
+	if ([[location substringToIndex:4] isEqualToString:@"file"] || isStream) {
 		if ([[[note userInfo] objectForKey:@"Player State"] isEqualToString:@"Playing"]) {
 			// We have a playing track!
-			[self trackUpdated];
-			
+			//			if (!isStream)
+				[self trackUpdated];
+			//else
+			//	sleep (2);
 		}
 	}
 }
