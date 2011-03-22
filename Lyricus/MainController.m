@@ -72,6 +72,7 @@
 	lyricsDisplayed = NO;
 	loadingLyrics = NO;
 	manualSearch = NO;
+	documentEdited = NO;
 	
 	// Change the lorem ipsum text to something more useful (or at least something less weird)
 	[lyricView setString:@"Lyricus v" MY_VERSION " ready.\nPress \u2318N or turn on \"Follow iTunes\" (and start playing a track!) in the preferences window to get started."];
@@ -147,13 +148,6 @@
 	 ];
 }
 
--(BOOL)windowShouldClose:(id)sender {
-	if (sender == mainWindow)
-		[NSApp terminate:nil];
-	/* else */
-        return YES;
-}
-
 -(IBAction) followiTunesCheckboxClicked:(id) sender {
 	if ([followiTunesCheckbox state] == NSOnState) {
 		if ([helper isiTunesRunning]) {
@@ -227,10 +221,74 @@
     [self fetchAndDisplayLyrics:/*manual=*/YES];
 }
 
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+	// Make sure unsaved changes are saved by the user
+	
+	// If there are no unsaved changes, simply quit
+	if (![self documentEdited]) {
+			return NSTerminateNow;
+	}
+	
+	// There are unsaved changes. Ask the user what to do.
+	
+	switch ([[NSAlert alertWithMessageText:@"Message" defaultButton:@"Save" alternateButton:@"Don't save" otherButton:@"Cancel" informativeTextWithFormat:@"Informative text"] runModal]) {
+			
+		case NSAlertAlternateReturn:
+			// "Don't save"
+			return NSTerminateNow;
+			break;
+			
+		case NSAlertDefaultReturn:
+			// "Save"
+			if ([self saveLyricsToNamedTrack])
+				return NSTerminateNow;
+			else {
+				// Save failed
+				if (
+				[[NSAlert alertWithMessageText:@"Unable to save lyrics." defaultButton:@"Abort shutdown" alternateButton:@"Exit without saving" otherButton:nil informativeTextWithFormat:@"If  you still quit, any changes you have made to the lyric text will be lost."] runModal]
+				 ==
+					NSAlertAlternateReturn) {
+					// "Exit without saving"
+					// Save failed but user still wants to exit
+					return NSTerminateNow;
+				}
+				else {
+					// "Abort shutdown"
+					// Save failed and used din't want to exit
+					return NSTerminateCancel;
+				}
+			}
+			break;
+		case NSAlertOtherReturn:
+			// "Cancel"
+			// User wants to cancel the shutdown
+			return NSTerminateCancel;
+			break;
+	}
+
+	// Shouldn't be reached
+	return YES;
+}
+
+-(BOOL) windowShouldClose:(id)sender {
+	if (sender == mainWindow) {
+		[NSApp terminate:nil];
+		// If the above call returned, the user cancelled the shutdown; let's keep the main window open
+		return NO; 
+	}
+	
+	return YES;
+}			
+
 -(void) fetchAndDisplayLyrics:(BOOL)manual {
     if (loadingLyrics) {
         return;
 	}
+	
+	if ([self documentEdited]) {
+		return;
+	}
+	
     manualSearch = manual;
 	
 	NSString *artist, *title;
@@ -554,18 +612,28 @@
 }
 
 -(IBAction)saveLyrics:(id) sender {
+	[self saveLyricsToNamedTrack];
+}
+
+-(BOOL)saveLyricsToNamedTrack {
+	BOOL ret = FALSE; // What we return
 	if (!displayedArtist || !displayedTitle) {
 		[TBUtil showAlert:@"You tried to save without having a track's lyrics displayed!" withCaption:@"Unable to save"];
+		ret = FALSE;
 		goto end_return;
 	}
 	
 	NSArray *theTracks = [helper getAllTracksForTitle:displayedTitle byArtist:displayedArtist];
 	if (theTracks == nil) {
-		[TBUtil showAlert:@"You tried to save the lyrics to a track I can't find in your iTunes library!" withCaption:@"Unable to save"];
+		[TBUtil showAlert:@"The currently displayed track is not in your iTunes library. Lyricus saves its lyrics in the audio file metadata and as such cannot save." withCaption:@"Unable to save lyrics"];
+		ret = FALSE;
 		goto end_return;
 	}
-
+	else
+		ret = TRUE;
+	
 	// Ugh, setLyrics returns void, so we can't check for errors.
+	// We'll have to assume it worked if the track was found above.
 	NSString *newLyric = [lyricView string];
 	
 	for (iTunesTrack *theTrack in theTracks) {
@@ -575,7 +643,8 @@
 end_return:
 	lyricsDisplayed = YES; // To make sure edit mode isn't bugged when adding new lyrics to a track
 	[self disableEditMode];
-	return;
+	[self setDocumentEdited:NO];
+	return ret;
 }
 
 -(IBAction)saveDisplayedLyricsToCurrentlyPlayingTrack:(id) sender  {
@@ -591,7 +660,9 @@ end_return:
 	[self disableEditMode];
 	
 	// Refresh the lyric display and fix the title, etc.
+	[self setDocumentEdited:NO];
 	[self fetchAndDisplayLyrics:NO];
+
 	return;
 }
 
@@ -648,6 +719,10 @@ end_func:
 	return;
 }
 
+-(void) textDidChange:(NSNotification *)notification {
+	[self setDocumentEdited: YES];
+}
+
 -(IBAction)lyricSearchUpdateIndex:(id) sender {
     [self openLyricSearch:sender];
     [lyricSearch updateTrackIndex:sender];
@@ -669,6 +744,15 @@ end_func:
     [lyricSearch showWindow:self];
     [lyricSearch.window makeKeyAndOrderFront:self];
     [lyricSearch showLyricSearch:self];
+}
+
+-(BOOL) documentEdited {
+	return documentEdited;
+}
+
+-(void) setDocumentEdited:(BOOL) value {
+	documentEdited = value;
+	[mainWindow setDocumentEdited:value];
 }
 
 -(void)finalize {

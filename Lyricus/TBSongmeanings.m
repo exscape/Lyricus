@@ -68,7 +68,7 @@
     NSError *err = nil;
 	NSString *html = [TBUtil getHTMLFromURL:url error:&err];
 
-	if (html == nil) {
+		if (html == nil) {
         if (err != nil) {
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
             [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
@@ -77,7 +77,7 @@
             }
         }
         return nil;
-    }
+	}
 
 	if ([html containsString:@"There are <strong>no results</strong>"])
 		return nil;

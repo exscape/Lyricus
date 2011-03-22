@@ -60,7 +60,11 @@
 	
 	Bulk *bulkDownloader;
     LyricSearchController *lyricSearch;
+	
+	BOOL documentEdited;
 }
+-(BOOL) documentEdited;
+-(void) setDocumentEdited:(BOOL) value;
 
 // Preferences window
 -(IBAction) openPreferencesWindow:(id) sender;
@@ -81,6 +85,7 @@
 -(void)disableEditMode;
 -(IBAction)toggleEditMode:(id) sender;
 -(IBAction)saveLyrics:(id) sender;
+-(BOOL)saveLyricsToNamedTrack;
 -(IBAction)saveDisplayedLyricsToCurrentlyPlayingTrack:(id) sender;
 -(IBAction) showAboutWindow:(id) sender;
 -(IBAction)openBulkDownloader:(id)sender;
