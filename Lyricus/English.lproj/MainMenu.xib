@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">10J3210</string>
+		<string key="IBDocument.SystemVersion">10J3250</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
@@ -574,7 +574,7 @@
 								</object>
 								<object class="NSMenuItem" id="793353531">
 									<reference key="NSMenu" ref="960709101"/>
-									<string key="NSTitle">Bulk downloader</string>
+									<string key="NSTitle">Bulk downloader...</string>
 									<string key="NSKeyEquiv">b</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -592,7 +592,7 @@
 								</object>
 								<object class="NSMenuItem" id="381776125">
 									<reference key="NSMenu" ref="960709101"/>
-									<string key="NSTitle">Reverse lyric search</string>
+									<string key="NSTitle">Reverse lyric search...</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -719,7 +719,7 @@
 										<object class="NSTextView" id="312580367">
 											<reference key="NSNextResponder" ref="892662577"/>
 											<int key="NSvFlags">2322</int>
-											<string key="NSFrameSize">{268, 157}</string>
+											<string key="NSFrameSize">{283, 144}</string>
 											<reference key="NSSuperview" ref="892662577"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="363208009"/>
@@ -895,7 +895,7 @@
 													<nil key="NSDelegate"/>
 												</object>
 												<reference key="NSTextView" ref="312580367"/>
-												<double key="NSWidth">268</double>
+												<double key="NSWidth">283</double>
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
@@ -942,7 +942,7 @@
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
-									<string key="NSFrameSize">{268, 379}</string>
+									<string key="NSFrameSize">{283, 379}</string>
 									<reference key="NSSuperview" ref="580506046"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="312580367"/>
@@ -956,8 +956,8 @@
 								</object>
 								<object class="NSScroller" id="363208009">
 									<reference key="NSNextResponder" ref="580506046"/>
-									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{268, 0}, {15, 379}}</string>
+									<int key="NSvFlags">-2147483392</int>
+									<string key="NSFrame">{{-100, -100}, {15, 379}}</string>
 									<reference key="NSSuperview" ref="580506046"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView"/>
@@ -983,7 +983,7 @@
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="558419868"/>
-							<int key="NSsFlags">16</int>
+							<int key="NSsFlags">528</int>
 							<reference key="NSVScroller" ref="363208009"/>
 							<reference key="NSHScroller" ref="558419868"/>
 							<reference key="NSContentView" ref="892662577"/>
@@ -1672,7 +1672,7 @@
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<object class="NSView" key="NSWindowView" id="300256411">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSImageView" id="756281719">
@@ -1747,7 +1747,7 @@
 											<int key="NSvFlags">2322</int>
 											<string key="NSFrameSize">{235, 168}</string>
 											<reference key="NSSuperview" ref="952129484"/>
-											<reference key="NSNextKeyView" ref="848929836"/>
+											<reference key="NSNextKeyView" ref="794054711"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="368161160">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -1827,7 +1827,7 @@ ZnJlZV9pY29ucw</bytes>
 							</array>
 							<string key="NSFrame">{{25, 20}, {252, 137}}</string>
 							<reference key="NSSuperview" ref="300256411"/>
-							<reference key="NSNextKeyView" ref="794054711"/>
+							<reference key="NSNextKeyView" ref="952129484"/>
 							<int key="NSsFlags">82</int>
 							<reference key="NSVScroller" ref="848929836"/>
 							<reference key="NSHScroller" ref="794054711"/>
@@ -1835,7 +1835,6 @@ ZnJlZV9pY29ucw</bytes>
 						</object>
 					</array>
 					<string key="NSFrame">{{7, 11}, {297, 292}}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="756281719"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
