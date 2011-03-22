@@ -178,18 +178,12 @@ restore_settings:
 
 -(IBAction)goButtonClicked:(id)sender {
 	//
-	// The user clicked "go", hopefully with a playlist to work on selected!
+	// The user clicked "go"
 	//
 	[lyricController updateSiteList];
 	[goButton setEnabled:NO];
 	NSInteger row;
-	if ( (row = [playlistView selectedRow]) == -1) {
-		// Mmm nope, no playlist selected.
-		[[NSAlert alertWithMessageText:@"No playlist selected" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
-		  @"You need to select a playlist containing the tracks to fetch lyrics for."] runModal];
-		[goButton setEnabled:YES];
-		return;
-	}
+	row = [playlistView selectedRow];
 	
 	NSString *plName = [playlists objectAtIndex:row];
 	NSArray *tracks;	
@@ -237,6 +231,11 @@ restore_settings:
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
 	return [playlists objectAtIndex:rowIndex];
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+	if ([playlistView selectedRow] >= 0)
+		[goButton setEnabled:YES];
 }
 
 -(void)finalize {
