@@ -107,7 +107,7 @@
 	spinner = [[NSProgressIndicator alloc] initWithFrame:spinnerFrame];
 	[spinner setStyle:NSProgressIndicatorSpinningStyle];
 	[spinner setControlSize:NSSmallControlSize];
-	[spinner setHidden:NO];
+	[spinner setHidden:YES];
 	[lyricView addSubview:spinner positioned:NSWindowAbove relativeTo:nil];
 	[lyricView setAutoresizesSubviews:YES];
 	[spinner setAutoresizingMask:NSViewMinXMargin];
@@ -349,7 +349,7 @@
 	
 	if ([artist length] == 0 || [title length] == 0)
 	{
-		if (manualSearch == NO) { // Don't show if it was called programmatically
+		if (manualSearch == YES) { // Don't show if it was called programmatically
 			[[NSAlert alertWithMessageText:@"No artist/title pair specificed" defaultButton:@"OK" alternateButton:nil otherButton:nil
 				 informativeTextWithFormat:@"You need to type in both an artist and a track title to search."] runModal];
 		}

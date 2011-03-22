@@ -182,8 +182,7 @@ restore_settings:
 	//
 	[lyricController updateSiteList];
 	[goButton setEnabled:NO];
-	NSInteger row;
-	row = [playlistView selectedRow];
+	NSInteger row = [playlistView selectedRow];
 	
 	NSString *plName = [playlists objectAtIndex:row];
 	NSArray *tracks;	
