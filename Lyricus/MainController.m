@@ -294,7 +294,7 @@
 
 	if ([self documentEdited]) {
 		
-		switch ([[NSAlert alertWithMessageText:@"FIXME: Ask user whether or not to save and/or change the displayed lyrics" defaultButton:@"Save" alternateButton:@"Don't save" otherButton:@"Cancel" informativeTextWithFormat:@"FIXME"] runModal]) {
+		switch ([[NSAlert alertWithMessageText:@"The lyrics currently displayed have been modified, but not saved. Do you want to save your changes?" defaultButton:@"Save" alternateButton:@"Don't save" otherButton:@"Cancel" informativeTextWithFormat:@"If you don't save, your changes will be lost."] runModal]) {
 				
 			case NSAlertAlternateReturn:
 				// "Don't save"
