@@ -62,6 +62,7 @@
     LyricSearchController *lyricSearch;
 	
 	BOOL documentEdited;
+	BOOL trackChangedWhileInEditMode;
 }
 -(BOOL) documentEdited;
 -(void) setDocumentEdited:(BOOL) value;

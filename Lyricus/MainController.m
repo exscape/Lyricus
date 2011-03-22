@@ -231,7 +231,7 @@
 	
 	// There are unsaved changes. Ask the user what to do.
 	
-	switch ([[NSAlert alertWithMessageText:@"Message" defaultButton:@"Save" alternateButton:@"Don't save" otherButton:@"Cancel" informativeTextWithFormat:@"Informative text"] runModal]) {
+	switch ([[NSAlert alertWithMessageText:@"Do you want to save lyric edits before exiting?" defaultButton:@"Save" alternateButton:@"Don't save" otherButton:@"Cancel" informativeTextWithFormat:@"If you don't save now, your changes will be lost. You can cancel to review your changes."] runModal]) {
 			
 		case NSAlertAlternateReturn:
 			// "Don't save"
@@ -285,10 +285,18 @@
         return;
 	}
 	
+	if ([editModeMenuItem state] == 1) {
+		// Edit mode is active
+		trackChangedWhileInEditMode = YES;
+		// Don't change the displayed lyrics while editing
+		return; 
+	}
+/*	
 	if ([self documentEdited]) {
+		[[NSAlert alertWithMessageText:@"FIXME: Ask user whether or not to save and/or change the displayed lyrics" defaultButton:@"1" alternateButton:@"2" otherButton:@"3" informativeTextWithFormat:@"FIXME"] runModal];
 		return;
 	}
-	
+*/	
     manualSearch = manual;
 	
 	NSString *artist, *title;
@@ -325,7 +333,6 @@
 
 	if (title == nil || artist == nil) {
 		loadingLyrics = NO;
-		return;
 	}
 	
 	NSString *lyricStr;
@@ -577,8 +584,12 @@
 	[editModeMenuItem setState:0];
 	[lyricView setEditable:NO];
 	[mainWindow setTitle:[NSString stringWithFormat:@"%@ - %@", displayedArtist, displayedTitle, nil]];
-/*	[lyricView setBackgroundColor: [NSColor colorWithDeviceRed:1.0 green:1.0 blue:1.0 alpha:1.0]]; */
 	[lyricView setBackgroundColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:@"BackgroundColor"]]];
+	
+	if (trackChangedWhileInEditMode) {
+		trackChangedWhileInEditMode = NO;
+		[self fetchAndDisplayLyrics:NO];
+	}
 }
 	
 -(IBAction)toggleEditMode:(id) sender {
@@ -642,8 +653,12 @@
 	
 end_return:
 	lyricsDisplayed = YES; // To make sure edit mode isn't bugged when adding new lyrics to a track
-	[self disableEditMode];
+	
+	// This line must be fixed BEFORE disabling edit mode, to not ask the user if the changes are already saved
+	// 
 	[self setDocumentEdited:NO];
+	[self disableEditMode];
+
 	return ret;
 }
 
