@@ -13,7 +13,7 @@
 #define MY_VERSION @"0.90"
 #define kSetLyric @"exscapeSetLyricNotification"
 
-#define SendNote(x)	if ([[NSUserDefaults standardUserDefaults] integerForKey:@"Show loading messages"]) { \
+#define SendNote(x)	if ([self class] != [Bulk class]) { \
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateStatusNotification" object:self \
 	userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]]; }
 

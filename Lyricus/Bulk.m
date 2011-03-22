@@ -23,7 +23,7 @@
 		lyricController = [[LyricFetcher alloc] init];
 		helper = [iTunesHelper sharediTunesHelper];
 		[self setBulkDownloaderIsWorking:NO];
-        
+		
 		return self;
 	}
 	return nil;
@@ -35,7 +35,7 @@
 		return YES;
 	}
 	
-	if ([[NSAlert alertWithMessageText:@"Do you want to abort the bulk download?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Lyrics downloaded so far will be saved."] runModal] == NSAlertDefaultReturn) {
+	if ([[NSAlert alertWithMessageText:@"Do you want to abort the bulk download and close the window?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"Lyrics downloaded so far will be saved."] runModal] == NSAlertDefaultReturn) {
 		// Yes, abort:
 		[thread cancel];
 		[self setBulkDownloaderIsWorking:NO];
@@ -48,7 +48,8 @@
 }
 
 -(void) windowDidLoad {
-		[self showBulkDownloader];
+	[self showBulkDownloader];
+	[resultView setString:@"Select a playlist from the list on the left and click \"Go\" to fetch lyrics for the playlist."];
 }
 
 -(void)showBulkDownloader {
@@ -77,9 +78,6 @@
 #pragma mark Worker and main methods
 
 -(void)dirtyWorker:(NSMutableArray *)theTracks {
-	// Turn off loading messages, since they'll show up in the lyric window otherwise... Ugh, ugly.
-	BOOL oldSetting = [[NSUserDefaults standardUserDefaults] boolForKey:@"Show loading messages"];
-	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"Show loading messages"];
 	NSString *str;
 	int count = 0;
 	
@@ -172,7 +170,6 @@
 	 runModal];
 	
 restore_settings:
-	[[NSUserDefaults standardUserDefaults] setBool:oldSetting forKey:@"Show loading messages"];
 	[goButton setEnabled:YES];
 	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 

@@ -35,7 +35,6 @@
 	  [NSNumber numberWithInt:0], 	@"Always on top",			// Off
 	  [NSNumber numberWithInt:0], 	@"Hit count",				// 0
 	  [NSNumber numberWithInt:0], 	@"Miss count",			// 0
-	  [NSNumber numberWithInt:1], 	@"Show loading messages",	// On
 	  [NSNumber numberWithInt:1], 	@"Save lyrics to iTunes",	// On
 	  [NSNumber numberWithInt:1], 	@"Follow iTunes",			// On
 	  [NSNumber numberWithInt:1],	@"Verbose_bulk_downloader", 	// On

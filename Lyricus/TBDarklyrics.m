@@ -7,6 +7,7 @@
 
 #import "TBDarklyrics.h"
 #import "NSString+ExscapeEdits.h"
+#import "Bulk.h" // Used for the [self class] check in the SendNote() define... hopefully temporarily.
 
 @implementation TBDarklyrics
 
