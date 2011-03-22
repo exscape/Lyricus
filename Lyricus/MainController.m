@@ -623,6 +623,9 @@
 	//
     // This is called whenever iTunes starts playing a track. We need to check whether if it's a new track or not.
 	//
+	
+	NSLog(@"trackupdated");
+	
 	NSString *track;
 	if (![helper currentTrackIsStream])
 		track = [NSString stringWithFormat:@"%@ - %@", [[helper getCurrentTrack] artist], [[helper getCurrentTrack] name]];
@@ -671,7 +674,7 @@
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"] == NO)
 		return;
 	
-		NSLog(@"%@", [note userInfo]);
+	NSLog(@"handleiTunesNotification");
 	
 	NSString *location = [[note userInfo] objectForKey:@"Location"];
 	if (location == nil)
@@ -683,8 +686,10 @@
 			// We have a playing track!
 			//			if (!isStream)
 				[self trackUpdated];
-			//else
-			//	sleep (2);
+			//			else
+			//				[self performSelector:@selector(trackUpdated) withObject:nil afterDelay:5.0];
+#warning FIX ME (delay)
+				//	[[NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(trackUpdated:) userInfo:nil repeats:NO] add
 		}
 	}
 }
@@ -789,11 +794,6 @@ end_return:
 	// Refresh the lyric display and fix the title, etc.
 	[self setDocumentEdited:NO];
 	
-
-#warning TEST THIS CHANGE
-	//	[self fetchAndDisplayLyrics:NO];
-	[self trackUpdated];
-
 	return;
 }
 
@@ -837,7 +837,7 @@ end_return:
 		[TBUtil showAlert:@"Lyric not found on songmeanings!" withCaption:@"Unable to open songmeanings page"];
 		goto end_func;
 	}
-    if (!lyricURL && err != nil) {
+    else if (!lyricURL && err != nil) {
         [TBUtil showAlert:@"An error occured when trying to open requested page." withCaption:@"Unable to open songmeanings page"];
         goto end_func;
 
