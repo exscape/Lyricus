@@ -12,7 +12,6 @@
 
 @implementation MainController
 
-
 //#define DISABLE_CACHE 1
 #ifdef DISABLE_CACHE
 #warning DISABLE_CACHE ENABLED
@@ -207,18 +206,14 @@
 
 -(void) updateTextFieldsFromiTunes {
     iTunesTrack *track = [helper getCurrentTrack];
-	//	if (track == nil)
-	//	return;
 	@try {
-		//		NSString *artist = [track artist];
-		//		NSString *title = [track name];
 		if (track != nil && [track artist] != nil && [track name] != nil) {
 			// Both or neither!
 			[artistField setStringValue: [track artist]];
 			[titleField setStringValue: [track name]];
 		}
 		else {
-			NSString *streamTitle = [[helper iTunesReference] currentStreamTitle];
+			NSString *streamTitle = [helper currentStreamTitle];
 			if (streamTitle != nil && [streamTitle length] > 5) { // length("a - b" == 5)
 				NSArray *tmp = [streamTitle arrayOfDictionariesByMatchingRegex:@"([\\s\\S]+) - ([\\s\\S]+)" withKeysAndCaptures:@"artist", 1, @"title", 2, nil];
 				if ([tmp count] != 1)
@@ -487,7 +482,7 @@
 		NSString *currentArtist;
 		NSString *currentTitle;
 		if ([helper currentTrackIsStream]) {
-			NSString *streamTitle = [[helper iTunesReference] currentStreamTitle];
+			NSString *streamTitle = [helper currentStreamTitle];
 			if (streamTitle != nil && [streamTitle length] > 5) { // length("a - b" == 5)
 				NSArray *tmp = [streamTitle arrayOfDictionariesByMatchingRegex:@"([\\s\\S]+) - ([\\s\\S]+)" withKeysAndCaptures:@"artist", 1, @"title", 2, nil];
 				if ([tmp count] != 1)
@@ -620,10 +615,7 @@
 	if (currentTrack == nil)
 		return NO;
 	
-	if ([helper getLyricsForTrack:[helper getCurrentTrack]] != nil)
-		return YES;
-	else
-		return NO;
+	return ([helper getLyricsForTrack:[helper getCurrentTrack]] != nil);
 }
 
 -(void)trackUpdated {
@@ -633,13 +625,12 @@
 	
 	// Reset notification handling
 	receivedFirstNotification = NO;
-	NSLog(@"trackupdated");
 	
 	NSString *newTrack;
 	if (![helper currentTrackIsStream])
 		newTrack = [NSString stringWithFormat:@"%@ - %@", [[currentNotification userInfo] objectForKey:@"Artist"], [[currentNotification userInfo] objectForKey:@"Name"]];
 	else
-		newTrack = [[helper iTunesReference] currentStreamTitle];
+		newTrack = [helper currentStreamTitle];
 
 	if (!lastTrack || ![newTrack isEqualToString:lastTrack]) {
 			// Track DID change,so lets get the lyrics and stuff.
@@ -677,21 +668,17 @@
 				// The real "artist - title" string usually arrives in a SECOND notification a second or two later.
 
 				if (!receivedFirstNotification) {
-					NSLog(@"Waiting for second notification...");
 					// This is the first notification - let's wait and see
 					receivedFirstNotification = YES;
 					self.currentNotification = note;
-					NSLog(@"%d", [NSThread isMultiThreaded]);
 
 					NSThread* timerThread = [[NSThread alloc] initWithTarget:self selector:@selector(startTimerThread) object:nil];
 					[timerThread start]; //start the thread
 				}
 				else {
 					// Yay, we received the second notification
-					NSLog(@"Received second notification in time! Aborting timer and calling manually.");
 					self.currentNotification = note;
 					if (notificationTimer != nil) {
-						NSLog(@"Invalidating timer");
 						[notificationTimer invalidate];
 					}
 					notificationTimer = nil;
@@ -702,7 +689,6 @@
 	}
 }
 -(void) startTimerThread {
-	NSLog(@"startTimerThread");
 	NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
 	notificationTimer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target: self selector: @selector(trackUpdated) userInfo: nil repeats: NO];
 	

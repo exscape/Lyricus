@@ -128,6 +128,16 @@ static iTunesHelper *sharediTunesHelper = nil;
 #pragma mark -
 #pragma mark Track stuff
 
+-(NSString *)currentStreamTitle {
+	if (![self initiTunes])
+		return nil;
+	
+	@try {
+		return [iTunes currentStreamTitle];
+	}
+	@catch (NSException *e) { return nil; }
+}
+
 -(NSArray *)getTracksForPlaylist:(NSString *)thePlaylist {
 	//
 	// Takes a playlist name as an argument, and returns a regular array with iTunesTrack * pointers.

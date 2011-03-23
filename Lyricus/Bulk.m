@@ -29,7 +29,7 @@
 	return nil;
 }
 
-- (BOOL)windowShouldClose:(id)Bsender {
+- (BOOL)windowShouldClose:(id)sender {
 	// No need to confirm if nothing is running
 	if (![thread isExecuting]) {
 		return YES;

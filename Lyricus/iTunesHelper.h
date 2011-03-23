@@ -25,6 +25,8 @@
 -(BOOL)isiTunesRunning;
 -(iTunesTrack *)getTrackForTitle:(NSString *)theTitle byArtist:(NSString *)theArtist;
 
+-(NSString *)currentStreamTitle;
+	
 -(iTunesApplication *)iTunesReference; // Use sparingly!
 
 +(iTunesHelper *)sharediTunesHelper;
