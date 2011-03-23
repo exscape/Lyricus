@@ -66,6 +66,7 @@
 	
 	[self setBulkDownloaderIsWorking:NO];
 
+	[self showWindow:self];
     [self.window makeKeyAndOrderFront:self];
 }
 

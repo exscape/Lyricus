@@ -859,9 +859,23 @@ end_func:
     if (bulkDownloader == nil) {
         bulkDownloader = [[Bulk alloc] initWithWindowNibName:@"Bulk"];
     }
-    [bulkDownloader showWindow:self];
-    [bulkDownloader.window makeKeyAndOrderFront:self];
-    [bulkDownloader showBulkDownloader];
+	
+	while (![helper isiTunesRunning]) {
+		if ([[NSAlert alertWithMessageText:@"The bulk downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Retry" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"retry\". If you don't want to open the bulk downloader now, click \"abort\"."] runModal]
+			==
+			NSAlertDefaultReturn) {
+			// User clicked retry, so restart the loop and check for iTunes again
+			continue;
+		}
+		else {
+			// User clicked abort; don't show the bulk downlader
+			return;
+		}
+	}
+	
+	// This point is only reached if iTunes is running.
+
+	[bulkDownloader showBulkDownloader];
 }
 
 -(IBAction)openLyricSearch:(id)sender {
