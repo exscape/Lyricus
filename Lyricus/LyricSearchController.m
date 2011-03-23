@@ -63,7 +63,10 @@
     // Highlight the search string
     NSRange range = [lyrics rangeOfString:[searchTextField stringValue] options:NSCaseInsensitiveSearch];
     [lyricTextView scrollRangeToVisible:range];
+	[self.window makeFirstResponder:lyricTextView];
+	[lyricTextView setSelectedRange:range];
     [lyricTextView showFindIndicatorForRange:range];
+
 }
 
 - (void)controlTextDidChange:(NSNotification *)nd {
