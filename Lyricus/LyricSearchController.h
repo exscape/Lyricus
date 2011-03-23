@@ -1,11 +1,3 @@
-//
-//  LyricSearchController.h
-//  Lyricreader
-//
-//  Created by Thomas Backman on 3/18/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
 #import "iTunesHelper.h"
 
