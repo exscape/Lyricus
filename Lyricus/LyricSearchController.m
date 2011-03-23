@@ -60,7 +60,7 @@
     NSString *lyrics = [track objectForKey:@"lyrics"];
     [lyricTextView setString:lyrics];
 
-    // Highlight the search string
+    // Highlight and select the search string
     NSRange range = [lyrics rangeOfString:[searchTextField stringValue] options:NSCaseInsensitiveSearch];
     [lyricTextView scrollRangeToVisible:range];
 	[self.window makeFirstResponder:lyricTextView];

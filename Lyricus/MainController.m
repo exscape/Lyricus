@@ -450,8 +450,7 @@
 	
 	if (lyricStr == nil) {
         if (err == nil) {
-            lyricStr = [NSString stringWithFormat:@"No lyrics found!\n"
-                        @"For the record, I searched for:\n%@ - %@",
+            lyricStr = [NSString stringWithFormat:@"No lyrics found for:\n%@ - %@",
                         artist, title];
         }
         else { // error
@@ -636,45 +635,18 @@
 	receivedFirstNotification = NO;
 	NSLog(@"trackupdated");
 	
-	NSString *track;
+	NSString *newTrack;
 	if (![helper currentTrackIsStream])
-		track = [NSString stringWithFormat:@"%@ - %@", [[currentNotification userInfo] objectForKey:@"Artist"], [[currentNotification userInfo] objectForKey:@"Title"]];
+		newTrack = [NSString stringWithFormat:@"%@ - %@", [[currentNotification userInfo] objectForKey:@"Artist"], [[currentNotification userInfo] objectForKey:@"Name"]];
 	else
-		track = [[helper iTunesReference] currentStreamTitle];
+		newTrack = [[helper iTunesReference] currentStreamTitle];
 
-	@try { 
-		if ([track isEqualToString:lastTrack]) {
-			return;
-		}
-	}
-	@catch (NSException *e) {} // Ignore, will most likely only happen on the first track, which means nothing really
-	/*
-	if (![self haveLyricsLocallyForCurrentTrack]) {
-		sleep (3); 	// To make sure the user didn't just skip a bunch of tracks;
-					// We want to be sure that this is *the* new track.
-	}
-	*/
-	@try {
-		iTunesTrack *currentTrack = [helper getCurrentTrack];
-		NSString *newTrack;
-		if (currentTrack == nil && ![helper currentTrackIsStream])
-			return;
-		
-		if (![helper currentTrackIsStream]) {
-			newTrack = [NSString stringWithFormat:@"%@ - %@", [currentTrack artist], [currentTrack name]];
-		}
-		else {
-			newTrack = [[helper iTunesReference] currentStreamTitle];
-		}
-		
-		if ([track isEqualToString:newTrack] && ![track isEqualToString:lastTrack]) {
+	if (!lastTrack || ![newTrack isEqualToString:lastTrack]) {
 			// Track DID change,so lets get the lyrics and stuff.
 			lastTrack = [NSString stringWithString:newTrack];
 			[self updateTextFieldsFromiTunes];
 			[self fetchAndDisplayLyrics:NO];
-		}
 	}
-	@catch (NSException *e) {}
 }
 
 -(void)handleiTunesNotification:(NSNotification *)note {
