@@ -709,13 +709,17 @@
 					// This is the first notification - let's wait and see
 					receivedFirstNotification = YES;
 					self.currentNotification = note;
-					notificationTimer = [NSTimer timerWithTimeInterval:5.0 target:self selector:@selector(trackUpdated) userInfo:nil repeats:NO];
+					NSLog(@"%d", [NSThread isMultiThreaded]);
+
+					NSThread* timerThread = [[NSThread alloc] initWithTarget:self selector:@selector(startTimerThread) object:nil];
+					[timerThread start]; //start the thread
 				}
 				else {
 					// Yay, we received the second notification
 					NSLog(@"Received second notification in time! Aborting timer and calling manually.");
 					self.currentNotification = note;
 					if (notificationTimer != nil) {
+						NSLog(@"Invalidating timer");
 						[notificationTimer invalidate];
 					}
 					notificationTimer = nil;
@@ -724,6 +728,13 @@
 			}
 		}
 	}
+}
+-(void) startTimerThread {
+	NSLog(@"startTimerThread");
+	NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
+	notificationTimer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target: self selector: @selector(trackUpdated) userInfo: nil repeats: NO];
+	
+	[runLoop run];	
 }
 
 #pragma mark -
