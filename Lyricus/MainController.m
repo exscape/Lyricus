@@ -6,9 +6,6 @@
 //
 
 #import "MainController.h"
-#define kProgressIndicatorIdentifier @"ProgressIndicatorIdentifier"
-#define kSearchIdentifier @"SearchIdentifier"
-#define kBulkIdentifier @"BulkIdentifier"
 
 @implementation MainController
 
@@ -35,8 +32,6 @@
 	[[NSUserDefaults standardUserDefaults] registerDefaults: 
 	 [NSDictionary dictionaryWithObjectsAndKeys:
 	  [NSNumber numberWithInt:0], 	@"Always on top",			// Off
-	  [NSNumber numberWithInt:0], 	@"Hit count",				// 0
-	  [NSNumber numberWithInt:0], 	@"Miss count",			// 0
 	  [NSNumber numberWithInt:1], 	@"Save lyrics to iTunes",	// On
 	  [NSNumber numberWithInt:1], 	@"Follow iTunes",			// On
 	  [NSNumber numberWithInt:1],	@"Verbose_bulk_downloader", 	// On
