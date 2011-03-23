@@ -63,6 +63,10 @@
 	
 	BOOL documentEdited;
 	BOOL trackChangedWhileInEditMode;
+	
+	NSNotification *currentNotification;
+	NSTimer *notificationTimer;
+	BOOL receivedFirstNotification;
 }
 -(BOOL) documentEdited;
 -(void) setDocumentEdited:(BOOL) value;
@@ -96,4 +100,8 @@
 -(IBAction)openSongMeaningsPage:(id)sender;
 -(void)openSongmeaningsThread:(NSArray *)data;
 -(IBAction)openLyricSearch:(id)sender;
+
+@property (retain) NSNotification *currentNotification;
+@property (retain) NSTimer *notificationTimer;
+
 @end

@@ -22,6 +22,9 @@
 #pragma mark -
 #pragma mark Init stuff
 
+@synthesize currentNotification;
+@synthesize notificationTimer;
+
 -(void) awakeFromNib {
 	//
 	// Set up the default settings
@@ -72,6 +75,11 @@
 	loadingLyrics = NO;
 	manualSearch = NO;
 	documentEdited = NO;
+	receivedFirstNotification = NO;
+	
+	notificationTimer = nil;
+	currentNotification = nil;
+	
 	
 	// Change the lorem ipsum text to something more useful (or at least something less weird)
 	[lyricView setString:@"Lyricus v" MY_VERSION " ready.\nPress \u2318N or turn on \"Follow iTunes\" (and start playing a track!) in the preferences window to get started."];
@@ -624,11 +632,13 @@
     // This is called whenever iTunes starts playing a track. We need to check whether if it's a new track or not.
 	//
 	
+	// Reset notification handling
+	receivedFirstNotification = NO;
 	NSLog(@"trackupdated");
 	
 	NSString *track;
 	if (![helper currentTrackIsStream])
-		track = [NSString stringWithFormat:@"%@ - %@", [[helper getCurrentTrack] artist], [[helper getCurrentTrack] name]];
+		track = [NSString stringWithFormat:@"%@ - %@", [[currentNotification userInfo] objectForKey:@"Artist"], [[currentNotification userInfo] objectForKey:@"Title"]];
 	else
 		track = [[helper iTunesReference] currentStreamTitle];
 
@@ -674,22 +684,44 @@
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"] == NO)
 		return;
 	
-	NSLog(@"handleiTunesNotification");
-	
 	NSString *location = [[note userInfo] objectForKey:@"Location"];
 	if (location == nil)
 		return;
 	
-	BOOL isStream = [helper currentTrackIsStream];
+	BOOL isStream = ([[note userInfo] objectForKey:@"Stream Title"] != nil);
+	
 	if ([[location substringToIndex:4] isEqualToString:@"file"] || isStream) {
 		if ([[[note userInfo] objectForKey:@"Player State"] isEqualToString:@"Playing"]) {
-			// We have a playing track!
-			//			if (!isStream)
+			if (!isStream) {
+				self.currentNotification = note;
 				[self trackUpdated];
-			//			else
-			//				[self performSelector:@selector(trackUpdated) withObject:nil afterDelay:5.0];
-#warning FIX ME (delay)
-				//	[[NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(trackUpdated:) userInfo:nil repeats:NO] add
+			}
+			else {
+				// Wait for the FIRST of two conditions to occur:
+				// a) We receive another notification and uses that
+				// b) Two seconds pass without another notification
+				// The reason for this is simple (but annoying): there are no specific artist/title tags when the metadata
+				// comes from a stream - only a stream title, which often LOOKS like a title to a program, yet is useless.
+				// The real "artist - title" string usually arrives in a SECOND notification a second or two later.
+
+				if (!receivedFirstNotification) {
+					NSLog(@"Waiting for second notification...");
+					// This is the first notification - let's wait and see
+					receivedFirstNotification = YES;
+					self.currentNotification = note;
+					notificationTimer = [NSTimer timerWithTimeInterval:5.0 target:self selector:@selector(trackUpdated) userInfo:nil repeats:NO];
+				}
+				else {
+					// Yay, we received the second notification
+					NSLog(@"Received second notification in time! Aborting timer and calling manually.");
+					self.currentNotification = note;
+					if (notificationTimer != nil) {
+						[notificationTimer invalidate];
+					}
+					notificationTimer = nil;
+					[self trackUpdated];
+				}
+			}
 		}
 	}
 }

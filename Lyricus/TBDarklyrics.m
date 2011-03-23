@@ -54,7 +54,8 @@
 	// Easy enough, all URLs seem to be in the form "http://www.darklyrics.com/t/theartistnamegoeshere.html"
 	
 	// First, make the artist name lowercase and remove all non-chars
-	artist = [[artist lowercaseString] stringByStrippingNonCharacters];
+	artist = [[[artist lowercaseString] stringByStrippingNonCharacters]
+			  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	
 	if (artist == nil || [artist length] < 1)
 		return nil;

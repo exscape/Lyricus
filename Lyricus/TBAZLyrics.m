@@ -30,7 +30,7 @@
 	SendNote(@"Trying AZLyrics...\n");
 	SendNote(@"\tFetching artist URL...\n");
 
-	NSString *artistURL = [self getURLForArtist:artist error:error] /* cannot fail */;
+	NSString *artistURL = [self getURLForArtist:artist error:error];
 	if (artistURL == nil)
 		return nil;
 
