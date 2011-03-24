@@ -533,17 +533,12 @@
 	NSDictionary *info = [note userInfo];
 	if (info == nil)
 		return;
+	
 	SetLyric([[lyricView string] stringByAppendingString: [info objectForKey:@"Text"]]);
 }
 
--(void)doSetLyric:(NSString *)str {
-	[lyricView setString:str];
-}
-
 -(void)setLyric:(NSNotification *)note {
-	[self performSelectorOnMainThread:@selector(doSetLyric:) withObject:[[note userInfo] objectForKey:@"Text"] waitUntilDone:YES];
-}
-
+	[lyricView performSelectorOnMainThread:@selector(setString:) withObject:[[note userInfo] objectForKey:@"Text"] waitUntilDone:YES];
 #pragma mark -
 #pragma mark Util/misc stuff 
 
