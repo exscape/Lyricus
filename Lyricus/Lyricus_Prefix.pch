@@ -9,12 +9,12 @@
 #define MY_VERSION @"0.90"
 #define kSetLyric @"exscapeSetLyricNotification"
 
-#define SendNote(x)	if ([self class] != [Bulk class]) { \
+#define SendNote(x) \
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateStatusNotification" object:self \
-	userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]]; }
+	userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]]
 
 #define SetLyric(x)	[[NSNotificationCenter defaultCenter] postNotificationName:kSetLyric object:self \
-userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]];
+userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]]
 
 #define URL 0
 #define LYRIC 1

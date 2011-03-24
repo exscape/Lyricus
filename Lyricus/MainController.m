@@ -526,6 +526,10 @@
 	// In other words: if we get here, the user has requested them, so just display them:
 	//
 	
+	// Don't show messages if the bulk downloader is asking for lyrics
+	if (bulkDownloader != nil && [bulkDownloader bulkDownloaderIsWorking])
+		return;
+	
 	NSDictionary *info = [note userInfo];
 	if (info == nil)
 		return;
