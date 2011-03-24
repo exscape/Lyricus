@@ -42,7 +42,7 @@
 		[thread cancel];
 		[self setBulkDownloaderIsWorking:NO];
 		[goButton setTitle:@"Go"];
-		ProgressUpdate(@"\nBulk download aborted");
+		//		ProgressUpdate(@"\nBulk download aborted");
 		return YES;
 	}
 	else {
@@ -108,7 +108,7 @@
 		count++;
 		if (count % 10 == 0) { // Print stats every 10 tracks
 			str = [NSString stringWithFormat:@"Working on track %d out of %d (%.2f%%)\n", count, totalCount, ( (float)count / totalCount)*100];
-			ProgressUpdate(str);
+			//			ProgressUpdate(str);
 		}		
 		
 		[progressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
@@ -187,7 +187,7 @@ restore_settings:
 	if ([thread isExecuting]) {
 		[thread cancel];
 		[goButton setTitle:@"Go"];
-		ProgressUpdate(@"\nBulk download aborted");
+		//		ProgressUpdate(@"\nBulk download aborted");
 		[self setBulkDownloaderIsWorking:NO];
 		
 		return;
