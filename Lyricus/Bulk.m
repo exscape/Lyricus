@@ -254,9 +254,4 @@ restore_settings:
 		[goButton setEnabled:YES];
 }
 
--(void)finalize {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[super finalize];
-}
-
 @end

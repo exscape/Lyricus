@@ -460,9 +460,6 @@
 	displayedArtist = [artist copy];
 	displayedTitle = [title copy];
 	
-	// Scroll to the top (I don't think this is neccesary (anymore), but it doesn't hurt)
-	//	[lyricView scrollRangeToVisible:NSMakeRange(0,0)];
-	
 	loadingLyrics = NO;
     
 	[spinner stopAnimation:nil];
@@ -893,13 +890,6 @@ end_func:
 -(void) setDocumentEdited:(BOOL) value {
 	documentEdited = value;
 	[mainWindow setDocumentEdited:value];
-}
-
--(void)finalize {
-	// This doesn't seem to be called, but what the heck.
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
-	[super finalize];
 }
 
 @end
