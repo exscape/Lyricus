@@ -539,6 +539,8 @@
 
 -(void)setLyric:(NSNotification *)note {
 	[lyricView performSelectorOnMainThread:@selector(setString:) withObject:[[note userInfo] objectForKey:@"Text"] waitUntilDone:YES];
+}
+
 #pragma mark -
 #pragma mark Util/misc stuff 
 
