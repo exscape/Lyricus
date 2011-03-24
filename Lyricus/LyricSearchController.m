@@ -11,8 +11,7 @@
 
 @implementation LyricSearchController
 
-- (id)initWithWindow:(NSWindow *)inWindow
-{
+- (id)initWithWindow:(NSWindow *)inWindow {
     self = [super initWithWindow:inWindow];
     if (self) {
         helper = [iTunesHelper sharediTunesHelper];
@@ -216,8 +215,7 @@ indexing_cancelled:
     [self.window makeKeyAndOrderFront:sender];
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [super dealloc];
 }
 

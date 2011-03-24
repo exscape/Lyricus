@@ -370,8 +370,7 @@
 	artist = [artistField stringValue];
 	title  = [titleField stringValue];
 	
-	if ([artist length] == 0 || [title length] == 0)
-	{
+	if ([artist length] == 0 || [title length] == 0) {
 		if (manualSearch == YES) { // Don't show if it was called programmatically
 			[[NSAlert alertWithMessageText:@"No artist/title pair specificed" defaultButton:@"OK" alternateButton:nil otherButton:nil
 				 informativeTextWithFormat:@"You need to type in both an artist and a track title to search."] runModal];
@@ -581,8 +580,7 @@
 	@try {
 		while (1) {
 			// Wait until track stops playing, to avoid the skip when iTunes writes the lyrics to disk
-			if (iTunes == nil || ![iTunes isRunning])
-			{
+			if (iTunes == nil || ![iTunes isRunning]) {
 				NSLog(@"iTunes not running anymore, can't save data");
 				break;
 			}

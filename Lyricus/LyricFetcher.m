@@ -31,8 +31,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
     return sharedLyricFetcher;
 }
 
-- (id)copyWithZone:(NSZone *)zone 
-{ 
+- (id)copyWithZone:(NSZone *)zone { 
 	return self; 
 } 
 

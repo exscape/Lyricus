@@ -7,8 +7,7 @@
 
 @implementation NSTextView (ExscapeFontFix)
 
-- (void)changeFont:(id)sender
-{
+- (void)changeFont:(id)sender {
     NSFont *oldFont = [self font];
     NSFont *newFont = [sender convertFont:oldFont];
 	[self setFont:newFont];

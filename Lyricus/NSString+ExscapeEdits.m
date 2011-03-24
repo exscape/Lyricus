@@ -38,8 +38,7 @@
 	return [self containsString:needle ignoringCaseAndDiacritics:NO];
 }
 
--(BOOL) containsString:(NSString *)needle ignoringCaseAndDiacritics:(BOOL) ignoreCase
-{
+-(BOOL) containsString:(NSString *)needle ignoringCaseAndDiacritics:(BOOL) ignoreCase {
 	if (self == nil || needle == nil)
 		return NO;
 

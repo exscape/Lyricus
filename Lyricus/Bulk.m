@@ -29,7 +29,7 @@
 		return self;
 	}
 	return nil;
-}
+} 
 
 - (BOOL)windowShouldClose:(id)sender {
 	// No need to confirm if nothing is running
@@ -192,11 +192,9 @@ restore_settings:
 		
 		return;
 	}
-	
 	[goButton setTitle:@"Stop"];
 	
 	[lyricController updateSiteList];
-	//	[goButton setEnabled:NO];
 	
 	NSInteger row = [playlistView selectedRow];
 	

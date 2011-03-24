@@ -11,11 +11,9 @@
 
 @implementation TBDarklyrics
 
--(TBDarklyrics *) init
-{
+-(TBDarklyrics *) init {
     self = [super init];
-	if (self)
-	{
+	if (self) {
 		albumCache = [[NSMutableDictionary alloc] init];
 		return self;
 	}

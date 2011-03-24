@@ -16,8 +16,7 @@
 	 runModal];
 }
 
-+(BOOL) string:(NSString *) string isEqualToString:(NSString *)otherString
-{
++(BOOL) string:(NSString *) string isEqualToString:(NSString *)otherString {
 	//
 	// Compares two track titles, ignoring everything but actual characters, and also ignoring "the" and diacritics (üàñ etc).
 	//

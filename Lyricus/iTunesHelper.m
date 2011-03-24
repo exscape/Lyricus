@@ -33,8 +33,7 @@ static iTunesHelper *sharediTunesHelper = nil;
     return sharediTunesHelper;
 }
 
-- (id)copyWithZone:(NSZone *)zone 
-{ 
+- (id)copyWithZone:(NSZone *)zone { 
 	return self; 
 } 
 
