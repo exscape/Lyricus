@@ -78,7 +78,7 @@
 #pragma mark Worker and main methods
 
 -(void)dirtyWorker:(NSMutableArray *)theTracks {
-	NSString *str;
+	NSString *trackTitle;
 	int count = 0;
 	
 	int totalCount = [theTracks count];
@@ -107,7 +107,7 @@
 		
 		count++;
 		if (count % 10 == 0) { // Print stats every 10 tracks
-			str = [NSString stringWithFormat:@"Working on track %d out of %d (%.2f%%)\n", count, totalCount, ( (float)count / totalCount)*100];
+			trackTitle = [NSString stringWithFormat:@"Working on track %d out of %d (%.2f%%)\n", count, totalCount, ( (float)count / totalCount)*100];
 			//			ProgressUpdate(str);
 		}		
 		
@@ -121,17 +121,16 @@
 			[track lyrics]; [track name]; [track artist];
 		} 
 		@catch (NSException *e) { continue; }
-
-		if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Verbose_bulk_downloader"]) {
-			NSString *tmp = [NSString stringWithFormat:@">> %@ - %@\n", [track artist], [track name]];
-			ProgressUpdate(tmp);
-		}		
 		
 		@try {
+			trackTitle = [NSString stringWithFormat:@" %@ - %@\n", [track artist], [track name]];
+			
 			if ([[track lyrics] length] > 8) { 
 				if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Verbose_bulk_downloader"]) {
-					str = [NSString stringWithString:@"\talready had lyrics, skipping\n"];
-					ProgressUpdate(str);
+
+					[resultView appendImageNamed:@"icon_found.tif"];
+
+					ProgressUpdate(trackTitle);
 				}
 				had_lyrics++;
 				continue;
@@ -144,26 +143,33 @@
 			@try { // Scripting bridge seems to be a bit unstable
 				set_lyrics++;
 				[track setLyrics:lyrics];
+				
+				[resultView appendImageNamed:@"icon_found.tif"];
+				ProgressUpdate(trackTitle);
+
 			} 
 			@catch (NSException *e) { set_lyrics--; }
 		}
 		else if (err == nil) {
 			lyrics_not_found++;
-			str = [NSString stringWithFormat:@"No lyrics found for track %@ - %@\n", [track artist], [track name]];
-			ProgressUpdate(str);
+			
+			[resultView appendImageNamed:@"icon_notfound.tif"];
+			ProgressUpdate(trackTitle);
+
+			ProgressUpdate(trackTitle);
 		}
         else {
 			lyrics_not_found++;
-			str = [NSString stringWithFormat:@"An error occured when trying to download lyrics for %@ - %@\n", [track artist], [track name]];
-			ProgressUpdate(str);
+			[resultView appendImageNamed:@"icon_notfound.tif"];
+			ProgressUpdate(trackTitle);
 		}
 		
 	}
 	ProgressUpdate(@"\nAll done!\n");
 	
-	str = [NSString stringWithFormat:@"Found and set lyrics for %d tracks\n%d tracks already had lyrics\nCouldn't find lyrics for %d tracks\n",
+	trackTitle = [NSString stringWithFormat:@"Found and set lyrics for %d tracks\n%d tracks already had lyrics\nCouldn't find lyrics for %d tracks\n",
 					 set_lyrics, had_lyrics, lyrics_not_found];
-	ProgressUpdate(str);
+	ProgressUpdate(trackTitle);
 
 	[self showBulkDownloader];
 	[[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.", count]

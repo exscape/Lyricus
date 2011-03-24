@@ -21,4 +21,13 @@
 	[self setSelectedRange:oldSel];
 }
 
+-(void)appendImageNamed:(NSString *)imageName {
+	NSImage *image = [NSImage imageNamed:imageName];
+	NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
+	NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+	[attachment setAttachmentCell:attachmentCell];
+	NSAttributedString *attributedString = [NSAttributedString attributedStringWithAttachment:attachment];
+	[[self textStorage] appendAttributedString:attributedString];
+}
+
 @end

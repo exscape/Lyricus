@@ -10,6 +10,7 @@
 @interface NSTextView (AppendString)
 
 -(void)appendString:(NSString *)theString;
+-(void)appendImageNamed:(NSString *)imageName;
 
 @end
 

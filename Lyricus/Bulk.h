@@ -22,6 +22,9 @@
 	IBOutlet NSButton *goButton;
 	
 	BOOL bulkDownloaderIsWorking;
+	
+	NSAttributedString *attributedStringNotFound;
+	NSAttributedString *attributedStringFound;
 }
 
 -(IBAction) goButtonClicked:(id)sender;
