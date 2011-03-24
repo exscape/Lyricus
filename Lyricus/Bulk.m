@@ -13,6 +13,8 @@
 
 @synthesize bulkDownloaderIsWorking;
 
+#define ProgressUpdate(x) if (bulkDownloaderIsWorking) { [resultView performSelectorOnMainThread:@selector(appendString:) withObject:x waitUntilDone:YES]; }
+
 #pragma mark -
 #pragma mark Init stuff
 
@@ -39,6 +41,8 @@
 		// Yes, abort:
 		[thread cancel];
 		[self setBulkDownloaderIsWorking:NO];
+		[goButton setTitle:@"Go"];
+		ProgressUpdate(@"\nBulk download aborted");
 		return YES;
 	}
 	else {
@@ -71,11 +75,6 @@
 }
 
 #pragma mark -
-#pragma mark Helpers
-
-#define ProgressUpdate(x) [resultView performSelectorOnMainThread:@selector(appendString:) withObject:x waitUntilDone:YES];
-
-#pragma mark -
 #pragma mark Worker and main methods
 
 -(void)dirtyWorker:(NSMutableArray *)theTracks {
@@ -86,7 +85,7 @@
 	if ([theTracks count] == 0) {
 		[[NSAlert alertWithMessageText:@"The selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
 		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
-		[goButton setEnabled:YES];
+		[goButton setTitle:@"Go"];
 		return;
 	}
 
@@ -171,7 +170,9 @@
 	 runModal];
 	
 restore_settings:
-	[goButton setEnabled:YES];
+	[goButton setTitle:@"Go"];
+
+	//	[goButton setEnabled:YES];
 	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 
 	// NO more code goes here!
@@ -181,8 +182,22 @@ restore_settings:
 	//
 	// The user clicked "go"
 	//
+	
+	// The thread is already running; abort
+	if ([thread isExecuting]) {
+		[thread cancel];
+		[goButton setTitle:@"Go"];
+		ProgressUpdate(@"\nBulk download aborted");
+		[self setBulkDownloaderIsWorking:NO];
+		
+		return;
+	}
+	
+	[goButton setTitle:@"Stop"];
+	
 	[lyricController updateSiteList];
-	[goButton setEnabled:NO];
+	//	[goButton setEnabled:NO];
+	
 	NSInteger row = [playlistView selectedRow];
 	
 	NSString *plName = [playlists objectAtIndex:row];
@@ -198,7 +213,9 @@ restore_settings:
         if ([plName isEqualToString:@"[Selected tracks]"]) {
             [[NSAlert alertWithMessageText:@"No tracks found" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"No tracks found for the playlist specified."] runModal];
         }
-		[goButton setEnabled:YES];
+		[self setBulkDownloaderIsWorking:NO];
+		[goButton setTitle:@"Go"];
+		//		[goButton setEnabled:YES];
 		return;
 	}
 	
@@ -206,7 +223,8 @@ restore_settings:
 		NSInteger choice = [[NSAlert alertWithMessageText:[NSString stringWithFormat:@"There are %d tracks to process. Do you want to continue?", [tracks count]] defaultButton:@"Continue" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"This action may tike some time."] runModal];
 		
 		if (choice == NSAlertAlternateReturn) {
-			[goButton setEnabled:YES];
+			[self setBulkDownloaderIsWorking:NO];
+			[goButton setTitle:@"Go"];
 			return;
 		}
 	}

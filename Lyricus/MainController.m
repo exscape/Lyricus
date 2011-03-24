@@ -861,7 +861,7 @@ end_func:
     }
 	
 	while (![helper isiTunesRunning]) {
-		if ([[NSAlert alertWithMessageText:@"The bulk downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Retry" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"retry\". If you don't want to open the bulk downloader now, click \"abort\"."] runModal]
+		if ([[NSAlert alertWithMessageText:@"The bulk downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Check again" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"retry\". If you don't want to open the bulk downloader now, click \"abort\"."] runModal]
 			==
 			NSAlertDefaultReturn) {
 			// User clicked retry, so restart the loop and check for iTunes again
