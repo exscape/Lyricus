@@ -20,6 +20,7 @@
 	IBOutlet NSTextView *resultView;
 	IBOutlet NSProgressIndicator *progressIndicator;
 	IBOutlet NSButton *goButton;
+	IBOutlet NSTextField *statusLabel;
 	
 	BOOL bulkDownloaderIsWorking;
 	

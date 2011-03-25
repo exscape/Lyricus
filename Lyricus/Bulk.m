@@ -44,6 +44,7 @@
 		[thread cancel];
 		[self setBulkDownloaderIsWorking:NO];
 		[goButton setTitle:@"Go"];
+		[statusLabel setStringValue:@"Idle"];
 		//		ProgressUpdate(@"\nBulk download aborted");
 		return YES;
 	}
@@ -73,6 +74,8 @@
 
     [playlistView reloadData];
 	
+	[statusLabel setStringValue:@"Idle"];
+	
 	[self setBulkDownloaderIsWorking:NO];
 
 	[self showWindow:self];
@@ -92,6 +95,7 @@
 		[goButton setTitle:@"Go"];
 		return;
 	}
+	NSUInteger numberOfTracks = [theTracks count];
 
 	// Set up the progress indicator
 	[progressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[theTracks count]] waitUntilDone:YES];
@@ -104,16 +108,15 @@
 	int lyrics_not_found = 0;
 	
 	for (iTunesTrack *track in theTracks) {
+		count++;
+		[statusLabel setStringValue:[NSString stringWithFormat:@"Working... %d/%u", count, numberOfTracks]];
+		
 		if ([thread isCancelled]) {
 			goto restore_settings; 	// We can't just break as that would display the window with stats, etc. The user *closed* the window,
 									// it shouldn't just pop open again.
 		}
 		
 		count++;
-		if (count % 10 == 0) { // Print stats every 10 tracks
-							   //			trackTitle = [NSString stringWithFormat:@"Working on track %d out of %d (%.2f%%)\n", count, totalCount, ( (float)count / totalCount)*100];
-			//			ProgressUpdate(str);
-		}		
 		
 		[progressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
 		
@@ -133,6 +136,7 @@
 				if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Verbose_bulk_downloader"]) {
 
 					ProgressUpdateFound(trackTitle);
+					
 				}
 				had_lyrics++;
 				continue;
@@ -167,7 +171,6 @@
 	trackTitle = [NSString stringWithFormat:@"\nFound and set lyrics for %d tracks\n%d tracks already had lyrics\nCouldn't find lyrics for %d tracks\n",
 					 set_lyrics, had_lyrics, lyrics_not_found];
 	[resultView performSelectorOnMainThread:@selector(appendString:) withObject:trackTitle waitUntilDone:YES];
-	//	ProgressUpdate(trackTitle);
 
 	[self showBulkDownloader];
 	[[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.", count]
@@ -175,6 +178,7 @@
 	
 restore_settings:
 	[goButton setTitle:@"Go"];
+	[statusLabel setStringValue:@"Idle"];
 
 	//	[goButton setEnabled:YES];
 	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
@@ -191,12 +195,15 @@ restore_settings:
 	if ([thread isExecuting]) {
 		[thread cancel];
 		[goButton setTitle:@"Go"];
+		[statusLabel setStringValue:@"Idle"];
 		//		ProgressUpdate(@"\nBulk download aborted");
 		[self setBulkDownloaderIsWorking:NO];
 		
 		return;
 	}
 	[goButton setTitle:@"Stop"];
+	[statusLabel setStringValue:@"Working..."];
+
 	
 	[lyricController updateSiteList];
 	
@@ -220,6 +227,8 @@ restore_settings:
         }
 		[self setBulkDownloaderIsWorking:NO];
 		[goButton setTitle:@"Go"];
+		[statusLabel setStringValue:@"Idle"];
+
 		//		[goButton setEnabled:YES];
 		return;
 	}
@@ -229,6 +238,7 @@ restore_settings:
 		
 		if (choice == NSAlertAlternateReturn) {
 			[self setBulkDownloaderIsWorking:NO];
+			[statusLabel setStringValue:@"Idle"];
 			[goButton setTitle:@"Go"];
 			return;
 		}
