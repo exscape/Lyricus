@@ -138,25 +138,25 @@
 		
 		// This is REALLY ugly, but is needed...
 		size.width *= 1.1;
+		size.width += 10;
 		
 		if (size.width > width) {
 			width = size.width;
 		}
 	}
 	
-	// Step 2: calculate the height needed to display the text with a width constrained just enough
+	// Step 2: calculate the *height* needed to display the text with a width constrained just enough
 	// for the widest line to fit
-	NSSize constrains = NSMakeSize(width, MAXFLOAT);
-	CGFloat height = [string boundingRectWithSize:constrains options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingDisableScreenFontSubstitution attributes:stringAttributes].size.height;
+	NSSize constraints = NSMakeSize(width, MAXFLOAT);
+	CGFloat height = [string boundingRectWithSize:constraints options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingDisableScreenFontSubstitution attributes:stringAttributes].size.height + 10;
 	 
-	width += 10;
-	height += 10;
-	
+	// Force a minimum size
 	if (width < 200)
 		width = 200;
 	if (height < 300)
 		height = 300;
 
+	// Resize the window
 	NSRect curRect = [mainWindow frame];
 	[mainWindow setFrame: NSMakeRect(curRect.origin.x, curRect.origin.y, width, height) display:NO animate:YES];	
 }
