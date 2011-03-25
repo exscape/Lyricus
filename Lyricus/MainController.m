@@ -155,6 +155,11 @@
 		width = 200;
 	if (height < 300)
 		height = 300;
+	
+	// Don't resize the window so that the resize strip (bottom right) is outside the screen
+	CGFloat screenWidth = [[NSScreen mainScreen] frame].size.width;
+	if (width > screenWidth)
+		width = screenWidth;
 
 	// Resize the window
 	NSRect curRect = [mainWindow frame];
