@@ -23,13 +23,11 @@
 	IBOutlet NSTextField *statusLabel;
 	
 	BOOL bulkDownloaderIsWorking;
-	
-	NSAttributedString *attributedStringNotFound;
-	NSAttributedString *attributedStringFound;
 }
 
 -(IBAction) goButtonClicked:(id)sender;
 -(void)showBulkDownloader;
+-(void)progressUpdateWithType:(int) type andString: (NSString *)string;
 
 @property BOOL bulkDownloaderIsWorking;
 

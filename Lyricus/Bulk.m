@@ -9,20 +9,17 @@
 #import "NSTextView+AppendString.h"
 #import "NSProgressIndicator+ThreadSafeUpdating.h"
 
+#define LyricusStartingWorkType 1
+#define LyricusFoundType 2
+#define LyricusNotFoundType 3
 @implementation Bulk
 
 @synthesize bulkDownloaderIsWorking;
-
-#define ProgressUpdateStartingWorkOnTrack(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_working.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
-
-#define ProgressUpdateFound(x) if (bulkDownloaderIsWorking) { [resultView removeStringOfLength:[[self stringByTruncatingToMaxWidth:x] length]]; [resultView appendImageNamed:@"icon_found.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
-#define ProgressUpdateNotFound(x) if (bulkDownloaderIsWorking) { [resultView removeStringOfLength:[[self stringByTruncatingToMaxWidth:x] length]]; [resultView appendImageNamed:@"icon_notfound.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
 
 -(NSString *)stringByTruncatingToMaxWidth:(NSString *)string {
 	// Truncate the string, if necessary, to fit on a single line
 	NSSize size = [string sizeWithAttributes: [NSDictionary dictionaryWithObject: [resultView font] forKey: NSFontAttributeName]];
 	NSString *outString = [string copy];
-	
 	while (size.width > 340) {
 		outString = [outString substringWithRange:NSMakeRange(0, [outString length]-6)];
 		outString = [outString stringByAppendingString:@"..."];
@@ -30,6 +27,43 @@
 	}
 		  
 	return [outString stringByAppendingString:@"\n"];
+}
+
+-(void)progressUpdateWithType:(int) type andString: (NSString *)string {
+	
+	string = [self stringByTruncatingToMaxWidth:string];
+	NSMutableAttributedString *update;
+		
+	if (type == LyricusStartingWorkType) {
+		if (bulkDownloaderIsWorking) {
+			[resultView appendImageNamed:@"icon_working.tif"];
+			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
+		}
+	}
+	else if (type == LyricusFoundType) {
+		if (bulkDownloaderIsWorking) {
+			NSImage *image = [NSImage imageNamed:@"icon_found.tif"];
+			NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
+			NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+			[attachment setAttachmentCell:attachmentCell];
+			update = [[NSAttributedString attributedStringWithAttachment:attachment] mutableCopy];
+			[update appendAttributedString:[[NSAttributedString alloc] initWithString:string]];
+			
+			[[resultView textStorage] replaceCharactersInRange:NSMakeRange([[resultView textStorage] length] - [string length] - 1, [string length] + 1) withAttributedString:update];
+		}
+	}
+	else if (type == LyricusNotFoundType) {
+		if (bulkDownloaderIsWorking) {
+			NSImage *image = [NSImage imageNamed:@"icon_notfound.tif"];
+			NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
+			NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+			[attachment setAttachmentCell:attachmentCell];
+			update = [[NSAttributedString attributedStringWithAttachment:attachment] mutableCopy];
+			[update appendAttributedString:[[NSAttributedString alloc] initWithString:string]];
+			 
+			[[resultView textStorage] replaceCharactersInRange:NSMakeRange([[resultView textStorage] length] - [string length] - 1, [string length] + 1) withAttributedString:update];
+		}
+	}
 }
 
 #pragma mark -
@@ -60,7 +94,6 @@
 		[self setBulkDownloaderIsWorking:NO];
 		[goButton setTitle:@"Go"];
 		[statusLabel setStringValue:@"Idle"];
-		//		ProgressUpdate(@"\nBulk download aborted");
 		return YES;
 	}
 	else {
@@ -147,12 +180,12 @@
 		@try {
 			trackTitle = [NSString stringWithFormat:@" %@ - %@", [track artist], [track name]];
 			
-			ProgressUpdateStartingWorkOnTrack(trackTitle);
+			[self progressUpdateWithType:LyricusStartingWorkType andString:trackTitle];
 			
 			if ([[track lyrics] length] > 8) { 
 				if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Verbose_bulk_downloader"]) {
 
-					ProgressUpdateFound(trackTitle);
+					[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
 					
 				}
 				had_lyrics++;
@@ -167,7 +200,7 @@
 				set_lyrics++;
 				[track setLyrics:lyrics];
 	
-				ProgressUpdateNotFound(trackTitle);
+				[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
 
 			} 
 			@catch (NSException *e) { set_lyrics--; }
@@ -175,11 +208,12 @@
 		else if (err == nil) {
 			lyrics_not_found++;
 			
-			ProgressUpdateNotFound(trackTitle);
+			[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
 		}
         else {
 			lyrics_not_found++;
-			ProgressUpdateNotFound(trackTitle);
+			[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
+
 		}
 		
 	}
@@ -212,7 +246,6 @@ restore_settings:
 		[thread cancel];
 		[goButton setTitle:@"Go"];
 		[statusLabel setStringValue:@"Idle"];
-		//		ProgressUpdate(@"\nBulk download aborted");
 		[self setBulkDownloaderIsWorking:NO];
 		
 		return;

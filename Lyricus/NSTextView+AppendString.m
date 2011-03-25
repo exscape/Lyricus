@@ -9,10 +9,6 @@
 
 @implementation NSTextView (AppendString)
 
--(void)removeStringOfLength:(NSInteger)length {
-	[[self textStorage] deleteCharactersInRange:NSMakeRange([[self textStorage] length] - length - 1, length + 1)];
-}
-
 -(void)appendString:(NSString *)theString {
 	if (theString == nil || [theString length] < 1)
 		return;
