@@ -16,7 +16,6 @@
 
 
 @interface MainController : NSObject <NSWindowDelegate, NSTextViewDelegate> {
-	
 	// Main window
 	IBOutlet NSWindow *mainWindow;
 	IBOutlet NSTextView *lyricView;

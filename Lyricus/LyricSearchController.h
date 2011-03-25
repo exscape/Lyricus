@@ -12,8 +12,6 @@
     iTunesHelper *helper;
     NSMutableArray *trackData;
     NSMutableArray *matches;
-@private
-    
 }
 
 -(void) showLyricSearch:(id) sender;

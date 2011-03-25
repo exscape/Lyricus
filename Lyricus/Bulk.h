@@ -10,7 +10,6 @@
 #import "iTunesHelper.h"
 
 @interface Bulk : NSWindowController <NSWindowDelegate, NSTableViewDelegate> {
-	
 	NSMutableArray *playlists;
 	LyricFetcher *lyricController;
 	iTunesHelper *helper;

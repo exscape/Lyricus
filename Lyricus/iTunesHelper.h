@@ -7,7 +7,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface iTunesHelper : NSObject {
 	iTunesApplication *iTunes;	
 }
