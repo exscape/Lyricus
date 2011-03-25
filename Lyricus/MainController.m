@@ -106,6 +106,12 @@
 	[lyricView setAutoresizesSubviews:YES];
 	[spinner setAutoresizingMask:NSViewMinXMargin];
 	
+	NSButton *zoomButton = [mainWindow standardWindowButton: NSWindowZoomButton];
+	[zoomButton setEnabled: YES];
+	[zoomButton setTarget: self];
+	[zoomButton setAction: @selector(zoomButtonClicked:)];
+
+	
 	[self updateTextFieldsFromiTunes];
 	[self fetchAndDisplayLyrics:NO];
 		    
@@ -113,6 +119,46 @@
 	// Is this really needed? [LyricController init] does this already.
 	[lyricController updateSiteList];
 	// NO CODE goes after this!
+}
+
+-(void) zoomButtonClicked:(id)param {
+	NSString *string = [lyricView string];
+	if (string == nil || [string length] < 5)
+		return;
+	
+	NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject: [lyricView font] forKey: NSFontAttributeName];
+	
+	// Step 1: calculate the widest line in the text
+	
+	NSArray *lines = [string componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
+	
+	int width = 0;
+	for (NSString *line in lines) {
+		NSSize size = [line sizeWithAttributes:stringAttributes];
+		
+		// This is REALLY ugly, but is needed...
+		size.width *= 1.1;
+		
+		if (size.width > width) {
+			width = size.width;
+		}
+	}
+	
+	// Step 2: calculate the height needed to display the text with a width constrained just enough
+	// for the widest line to fit
+	NSSize constrains = NSMakeSize(width, MAXFLOAT);
+	CGFloat height = [string boundingRectWithSize:constrains options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingDisableScreenFontSubstitution attributes:stringAttributes].size.height;
+	 
+	width += 10;
+	height += 10;
+	
+	if (width < 200)
+		width = 200;
+	if (height < 300)
+		height = 300;
+
+	NSRect curRect = [mainWindow frame];
+	[mainWindow setFrame: NSMakeRect(curRect.origin.x, curRect.origin.y, width, height) display:NO animate:YES];	
 }
 
 #pragma mark -
