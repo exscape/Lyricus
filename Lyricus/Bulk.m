@@ -13,10 +13,10 @@
 
 @synthesize bulkDownloaderIsWorking;
 
-#define ProgressUpdateFound(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_found.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self truncatedString:x] waitUntilDone:YES]; }
-#define ProgressUpdateNotFound(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_notfound.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self truncatedString:x] waitUntilDone:YES]; }
+#define ProgressUpdateFound(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_found.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
+#define ProgressUpdateNotFound(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_notfound.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
 
--(NSString *)truncatedString:(NSString *)string {
+-(NSString *)stringByTruncatingToMaxWidth:(NSString *)string {
 	// Truncate the string, if necessary, to fit on a single line
 	NSSize size = [string sizeWithAttributes: [NSDictionary dictionaryWithObject: [resultView font] forKey: NSFontAttributeName]];
 	NSString *outString = [string copy];
