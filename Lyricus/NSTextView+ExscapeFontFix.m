@@ -15,8 +15,8 @@
 	[[NSUserDefaults standardUserDefaults] setObject:[newFont fontName] forKey:@"FontName"];
 	[[NSUserDefaults standardUserDefaults] setFloat:[newFont pointSize] forKey:@"FontSize"];
 
-	[super changeFont:sender];
-
+	// ... this causes an exception in [NSText changeFont:]. Why?!
+	//	[super changeFont:sender];
 }
 
 @end
