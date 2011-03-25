@@ -33,7 +33,6 @@
 	 [NSDictionary dictionaryWithObjectsAndKeys:
 	  [NSNumber numberWithInt:0], 	@"Always on top",			// Off
 	  [NSNumber numberWithInt:1], 	@"Save lyrics to iTunes",	// On
-	  [NSNumber numberWithInt:1], 	@"Follow iTunes",			// On
 	  [NSNumber numberWithInt:1],	@"Verbose_bulk_downloader", 	// On
 	  [NSNumber numberWithInt:1],	@"SUCheckAtStartup", // On
 	  @"Helvetica",					@"FontName",
@@ -76,7 +75,7 @@
 	
 	
 	// Change the lorem ipsum text to something more useful (or at least something less weird)
-	[lyricView setString:@"Lyricus v" MY_VERSION " ready.\nPress \u2318N or turn on \"Follow iTunes\" (and start playing a track!) in the preferences window to get started."];
+	[lyricView setString:@"Lyricus v" MY_VERSION " ready. Start playing a track in iTunes to get started!"];
 	// Restore settings
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Always on top"])
 		[mainWindow setLevel:NSFloatingWindowLevel];
@@ -108,11 +107,8 @@
 	[lyricView setAutoresizesSubviews:YES];
 	[spinner setAutoresizingMask:NSViewMinXMargin];
 	
-	// If we're following iTunes, check if something's playing and if so, grab the lyric right away!
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"]) {
-		[self updateTextFieldsFromiTunes];
-		[self fetchAndDisplayLyrics:NO];
-	}
+	[self updateTextFieldsFromiTunes];
+	[self fetchAndDisplayLyrics:NO];
 		    
 	// Update the site list
 	// Is this really needed? [LyricController init] does this already.
@@ -164,18 +160,6 @@
 	   didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 	
 	[self updateTextFieldsFromiTunes];
-	
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"]) {
-		// Warn the user that follow iTunes + search isn't a good idea
-		NSRect cur = [searchWindow frame];
-		[searchWindow setFrame:NSMakeRect(cur.origin.x, cur.origin.y, cur.size.width, 115) display:YES animate:NO];
-		[warningLabel setHidden:NO];
-	}
-	else {
-		NSRect cur = [searchWindow frame];
-		[searchWindow setFrame:NSMakeRect(cur.origin.x, cur.origin.y, cur.size.width, 90) display:YES animate:NO];
-		[warningLabel setHidden:YES];
-	}	
 }
 
 -(IBAction) openPreferencesWindow:(id) sender {
@@ -635,8 +619,6 @@
 	//
 	// Receives notifications from iTunes, and forwards them to trackUpdated: if a track started playing
 	//
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Follow iTunes"] == NO)
-		return;
 	
 	NSString *location = [[note userInfo] objectForKey:@"Location"];
 	if (location == nil)

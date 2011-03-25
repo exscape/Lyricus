@@ -30,7 +30,6 @@
 	IBOutlet NSTextField *artistField;
 	IBOutlet NSTextField *titleField;
 	IBOutlet NSButton *goButton;
-	IBOutlet NSTextField *warningLabel;
 	
 	// Preferences window
 	IBOutlet NSWindow *preferencesWindow;
