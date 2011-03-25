@@ -12,6 +12,7 @@
 #define LyricusStartingWorkType 1
 #define LyricusFoundType 2
 #define LyricusNotFoundType 3
+
 @implementation Bulk
 
 @synthesize bulkDownloaderIsWorking;
@@ -29,50 +30,48 @@
 	return [outString stringByAppendingString:@"\n"];
 }
 
+-(void)doReplace:(NSDictionary *)dict {
+	NSImage *image = [NSImage imageNamed:[dict objectForKey:@"imageName"]];
+	NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
+	NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+	[attachment setAttachmentCell:attachmentCell];
+	NSAttributedString *attributedString = [NSAttributedString attributedStringWithAttachment:attachment];
+
+	int position = [[dict objectForKey:@"position"] intValue];
+	[[resultView textStorage] replaceCharactersInRange:NSMakeRange([[resultView textStorage] length] - position - 1, 1) withAttributedString:attributedString];
+}
+
 -(void)progressUpdateWithType:(int) type andString: (NSString *)string {
 	
 	string = [self stringByTruncatingToMaxWidth:string];
-	//	NSMutableAttributedString *update;
 		
 	if (type == LyricusStartingWorkType) {
 		if (bulkDownloaderIsWorking) {
-			//			[resultView appendImageNamed:@"icon_working.tif"];
-			//			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
+			[resultView appendImageNamed:@"icon_working.tif"];
+			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
-	/* else */ if (type == LyricusFoundType) {		
+	
+	else if (type == LyricusFoundType) {		
 		if (bulkDownloaderIsWorking) {
-		/*
-			NSImage *image = [NSImage imageNamed:@"icon_found.tif"];
-			NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
-			NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-			[attachment setAttachmentCell:attachmentCell];
-			update = [[NSAttributedString attributedStringWithAttachment:attachment] mutableCopy];
-			[update appendAttributedString:[[NSAttributedString alloc] initWithString:string]];
-			
-			[[resultView textStorage] replaceCharactersInRange:NSMakeRange([[resultView textStorage] length] - [string length] - 1, [string length] + 1) withAttributedString:update];
+			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_found.tif", @"imageName", nil];
+			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
 		 
-		*/
-			[resultView appendImageNamed:@"icon_found.tif"];
-			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
+		
+			//			[resultView appendImageNamed:@"icon_found.tif"];
+			//			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
 	else if (type == LyricusNotFoundType) {
 		if (bulkDownloaderIsWorking) {
-		/*
-			NSImage *image = [NSImage imageNamed:@"icon_notfound.tif"];
-			NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
-			NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-			[attachment setAttachmentCell:attachmentCell];
-			update = [[NSAttributedString attributedStringWithAttachment:attachment] mutableCopy];
-			[update appendAttributedString:[[NSAttributedString alloc] initWithString:string]];
-			 
-			[[resultView textStorage] replaceCharactersInRange:NSMakeRange([[resultView textStorage] length] - [string length] - 1, [string length] + 1) withAttributedString:update];
-		 */
-			[resultView appendImageNamed:@"icon_notfound.tif"];
-			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
+			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_notfound.tif", @"imageName", nil];
+			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
+		 
+			//	[resultView appendImageNamed:@"icon_notfound.tif"];
+			//	[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
+	
 }
 
 #pragma mark -
