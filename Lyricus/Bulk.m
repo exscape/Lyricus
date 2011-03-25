@@ -47,7 +47,7 @@
 		
 	if (type == LyricusStartingWorkType) {
 		if (bulkDownloaderIsWorking) {
-			[resultView appendImageNamed:@"icon_working.tif"];
+			[resultView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.tif" waitUntilDone:YES];
 			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
