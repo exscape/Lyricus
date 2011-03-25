@@ -90,7 +90,7 @@ static iTunesHelper *sharediTunesHelper = nil;
 				if (!pl)
 					continue;
 				int kind = [pl specialKind];
-				if (kind == iTunesESpKNone || kind == 'kVdN') // Damn Apple, changing things between iTunes versions!
+				if (kind == iTunesESpKNone || kind == 'kVdN') // This changed between iTunes versions. Uh. Let's support both.
 					[playlistArray addObject:pl];
 			}
 		}
