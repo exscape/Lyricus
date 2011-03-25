@@ -9,6 +9,7 @@
 
 @interface NSTextView (AppendString)
 
+-(void)removeStringOfLength:(NSInteger)length;
 -(void)appendString:(NSString *)theString;
 -(void)appendImageNamed:(NSString *)imageName;
 

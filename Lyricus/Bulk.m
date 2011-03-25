@@ -13,8 +13,10 @@
 
 @synthesize bulkDownloaderIsWorking;
 
-#define ProgressUpdateFound(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_found.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
-#define ProgressUpdateNotFound(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_notfound.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
+#define ProgressUpdateStartingWorkOnTrack(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_working.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
+
+#define ProgressUpdateFound(x) if (bulkDownloaderIsWorking) { [resultView removeStringOfLength:[[self stringByTruncatingToMaxWidth:x] length]]; [resultView appendImageNamed:@"icon_found.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
+#define ProgressUpdateNotFound(x) if (bulkDownloaderIsWorking) { [resultView removeStringOfLength:[[self stringByTruncatingToMaxWidth:x] length]]; [resultView appendImageNamed:@"icon_notfound.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:[self stringByTruncatingToMaxWidth:x] waitUntilDone:YES]; }
 
 -(NSString *)stringByTruncatingToMaxWidth:(NSString *)string {
 	// Truncate the string, if necessary, to fit on a single line
@@ -29,7 +31,6 @@
 		  
 	return [outString stringByAppendingString:@"\n"];
 }
-
 
 #pragma mark -
 #pragma mark Init stuff
@@ -146,6 +147,8 @@
 		@try {
 			trackTitle = [NSString stringWithFormat:@" %@ - %@", [track artist], [track name]];
 			
+			ProgressUpdateStartingWorkOnTrack(trackTitle);
+			
 			if ([[track lyrics] length] > 8) { 
 				if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Verbose_bulk_downloader"]) {
 
@@ -176,7 +179,6 @@
 		}
         else {
 			lyrics_not_found++;
-			[resultView appendImageNamed:@"icon_notfound.tif"];
 			ProgressUpdateNotFound(trackTitle);
 		}
 		

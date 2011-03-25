@@ -16,6 +16,7 @@
 		1041B7CA1333B4CA003F4429 /* LyricSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1041B7C91333B4CA003F4429 /* LyricSearchController.m */; };
 		105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A37930DA6AFA0007DEFF5 /* SitePriorities.m */; };
 		107CD7350DAE4833003E0D32 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 107CD7340DAE4833003E0D32 /* icon.icns */; };
+		1087522C133CA09700685E13 /* icon_working.tif in Resources */ = {isa = PBXBuildFile; fileRef = 1087522B133CA09700685E13 /* icon_working.tif */; };
 		109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109531F90DA12D9A001706FF /* TBDarklyrics.m */; };
 		109532100DA12EEB001706FF /* TBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1095320F0DA12EEB001706FF /* TBUtil.m */; };
 		1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */ = {isa = PBXBuildFile; fileRef = 109532690DA1325E001706FF /* TBSongmeanings.m */; };
@@ -76,6 +77,7 @@
 		105A37920DA6AFA0007DEFF5 /* SitePriorities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitePriorities.h; sourceTree = "<group>"; };
 		105A37930DA6AFA0007DEFF5 /* SitePriorities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitePriorities.m; sourceTree = "<group>"; };
 		107CD7340DAE4833003E0D32 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		1087522B133CA09700685E13 /* icon_working.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = icon_working.tif; sourceTree = "<group>"; };
 		109531F80DA12D9A001706FF /* TBDarklyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDarklyrics.h; sourceTree = "<group>"; };
 		109531F90DA12D9A001706FF /* TBDarklyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBDarklyrics.m; sourceTree = "<group>"; };
 		1095320E0DA12EEB001706FF /* TBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBUtil.h; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1087522B133CA09700685E13 /* icon_working.tif */,
 				10C749BF133BCFA2009E42E6 /* icon_found.tif */,
 				101EBF90133BC4E40090F092 /* icon_notfound.tif */,
 				100E13A80F5E803D001E1347 /* MainMenu.xib */,
@@ -313,6 +316,7 @@
 				1041B7C71333B49F003F4429 /* LyricSearch.xib in Resources */,
 				101EBF91133BC4E40090F092 /* icon_notfound.tif in Resources */,
 				10C749C0133BCFA2009E42E6 /* icon_found.tif in Resources */,
+				1087522C133CA09700685E13 /* icon_working.tif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
