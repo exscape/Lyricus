@@ -1,7 +1,7 @@
 //
 // This file is part of Lyricus.
 // Copyright (c) 2008-2011, Thomas Backman <serenity@exscape.org>
-// All rights reserved.
+// This software is distributed under the terms of the MIT license. For details, see license.txt.
 //
 
 #import "NSString+ExscapeEdits.h"
