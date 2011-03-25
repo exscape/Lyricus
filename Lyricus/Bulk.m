@@ -32,16 +32,17 @@
 -(void)progressUpdateWithType:(int) type andString: (NSString *)string {
 	
 	string = [self stringByTruncatingToMaxWidth:string];
-	NSMutableAttributedString *update;
+	//	NSMutableAttributedString *update;
 		
 	if (type == LyricusStartingWorkType) {
 		if (bulkDownloaderIsWorking) {
-			[resultView appendImageNamed:@"icon_working.tif"];
-			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
+			//			[resultView appendImageNamed:@"icon_working.tif"];
+			//			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
-	else if (type == LyricusFoundType) {		
+	/* else */ if (type == LyricusFoundType) {		
 		if (bulkDownloaderIsWorking) {
+		/*
 			NSImage *image = [NSImage imageNamed:@"icon_found.tif"];
 			NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
 			NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
@@ -50,12 +51,15 @@
 			[update appendAttributedString:[[NSAttributedString alloc] initWithString:string]];
 			
 			[[resultView textStorage] replaceCharactersInRange:NSMakeRange([[resultView textStorage] length] - [string length] - 1, [string length] + 1) withAttributedString:update];
+		 
+		*/
+			[resultView appendImageNamed:@"icon_found.tif"];
+			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
 	else if (type == LyricusNotFoundType) {
-		return;
-		
 		if (bulkDownloaderIsWorking) {
+		/*
 			NSImage *image = [NSImage imageNamed:@"icon_notfound.tif"];
 			NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
 			NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
@@ -64,6 +68,9 @@
 			[update appendAttributedString:[[NSAttributedString alloc] initWithString:string]];
 			 
 			[[resultView textStorage] replaceCharactersInRange:NSMakeRange([[resultView textStorage] length] - [string length] - 1, [string length] + 1) withAttributedString:update];
+		 */
+			[resultView appendImageNamed:@"icon_notfound.tif"];
+			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
 }
@@ -165,8 +172,6 @@
 			goto restore_settings; 	// We can't just break as that would display the window with stats, etc. The user *closed* the window,
 									// it shouldn't just pop open again.
 		}
-		
-		count++;
 		
 		[progressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
 		
