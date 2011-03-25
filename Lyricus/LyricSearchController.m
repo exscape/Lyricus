@@ -16,7 +16,7 @@
     if (self) {
         helper = [iTunesHelper sharediTunesHelper];
         matches = [[NSMutableArray alloc] init];
-        trackData = [NSMutableArray arrayWithContentsOfFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]];
+        trackData = [NSMutableArray arrayWithContentsOfFile:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]];
 		
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackSelected:) name:@"NSTableViewSelectionDidChangeNotification" object:nil];
     }
@@ -158,17 +158,17 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 	
     NSFileManager *fm = [NSFileManager defaultManager];
     
-    [fm createDirectoryAtPath:[@"~/Library/Application Support/Lyricus" stringByExpandingTildeInPath] withIntermediateDirectories:YES attributes:nil error:nil];
-    [fm removeItemAtPath:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] error:nil];
+    [fm createDirectoryAtPath:[@"~/Library/Caches/org.exscape.Lyricus" stringByExpandingTildeInPath] withIntermediateDirectories:YES attributes:nil error:nil];
+    [fm removeItemAtPath:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] error:nil];
     
-    if ([trackData writeToFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES]) {
+    if ([trackData writeToFile:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES]) {
         
     NSNumber *timestamp = [NSNumber numberWithInt:(int)[[NSDate date] timeIntervalSince1970]];
     [[NSUserDefaults standardUserDefaults] setValue:timestamp forKey:@"Lyricus index update time"];
         
     }
     else {
-        [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that %@ is writable.", [@"~/Library/Application Support/Lyricus" stringByExpandingTildeInPath]] runModal];
+        [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that %@ is writable.", [@"~/Library/Caches/org.exscape.Lyricus" stringByExpandingTildeInPath]] runModal];
     }
     
 indexing_cancelled:
@@ -193,7 +193,7 @@ indexing_cancelled:
     
     // Don't allow abort if no previous index exists
     NSFileManager *fm = [NSFileManager defaultManager];
-    if (![fm fileExistsAtPath:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]]) {
+    if (![fm fileExistsAtPath:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]]) {
         [abortButton setEnabled:NO];
     }
     else
