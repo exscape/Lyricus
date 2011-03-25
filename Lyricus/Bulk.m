@@ -13,7 +13,9 @@
 
 @synthesize bulkDownloaderIsWorking;
 
-#define ProgressUpdate(x) if (bulkDownloaderIsWorking) { [resultView performSelectorOnMainThread:@selector(appendString:) withObject:x waitUntilDone:YES]; }
+#define ProgressUpdateFound(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_found.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:x waitUntilDone:YES]; }
+#define ProgressUpdateNotFound(x) if (bulkDownloaderIsWorking) { [resultView appendImageNamed:@"icon_notfound.tif"]; [resultView performSelectorOnMainThread:@selector(appendString:) withObject:x waitUntilDone:YES]; }
+
 
 #pragma mark -
 #pragma mark Init stuff
@@ -107,7 +109,7 @@
 		
 		count++;
 		if (count % 10 == 0) { // Print stats every 10 tracks
-			trackTitle = [NSString stringWithFormat:@"Working on track %d out of %d (%.2f%%)\n", count, totalCount, ( (float)count / totalCount)*100];
+							   //			trackTitle = [NSString stringWithFormat:@"Working on track %d out of %d (%.2f%%)\n", count, totalCount, ( (float)count / totalCount)*100];
 			//			ProgressUpdate(str);
 		}		
 		
@@ -128,9 +130,7 @@
 			if ([[track lyrics] length] > 8) { 
 				if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Verbose_bulk_downloader"]) {
 
-					[resultView appendImageNamed:@"icon_found.tif"];
-
-					ProgressUpdate(trackTitle);
+					ProgressUpdateFound(trackTitle);
 				}
 				had_lyrics++;
 				continue;
@@ -143,9 +143,8 @@
 			@try { // Scripting bridge seems to be a bit unstable
 				set_lyrics++;
 				[track setLyrics:lyrics];
-				
-				[resultView appendImageNamed:@"icon_found.tif"];
-				ProgressUpdate(trackTitle);
+	
+				ProgressUpdateNotFound(trackTitle);
 
 			} 
 			@catch (NSException *e) { set_lyrics--; }
@@ -153,23 +152,20 @@
 		else if (err == nil) {
 			lyrics_not_found++;
 			
-			[resultView appendImageNamed:@"icon_notfound.tif"];
-			ProgressUpdate(trackTitle);
-
-			ProgressUpdate(trackTitle);
+			ProgressUpdateNotFound(trackTitle);
 		}
         else {
 			lyrics_not_found++;
 			[resultView appendImageNamed:@"icon_notfound.tif"];
-			ProgressUpdate(trackTitle);
+			ProgressUpdateNotFound(trackTitle);
 		}
 		
 	}
-	ProgressUpdate(@"\nAll done!\n");
 	
-	trackTitle = [NSString stringWithFormat:@"Found and set lyrics for %d tracks\n%d tracks already had lyrics\nCouldn't find lyrics for %d tracks\n",
+	trackTitle = [NSString stringWithFormat:@"\nFound and set lyrics for %d tracks\n%d tracks already had lyrics\nCouldn't find lyrics for %d tracks\n",
 					 set_lyrics, had_lyrics, lyrics_not_found];
-	ProgressUpdate(trackTitle);
+	[resultView performSelectorOnMainThread:@selector(appendString:) withObject:trackTitle waitUntilDone:YES];
+	//	ProgressUpdate(trackTitle);
 
 	[self showBulkDownloader];
 	[[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.", count]
