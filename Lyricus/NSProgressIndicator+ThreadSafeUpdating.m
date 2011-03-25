@@ -1,7 +1,6 @@
-
 //
 // This file is part of Lyricus.
-// Copyright (c) 2008, Thomas Backman <serenity@exscape.org>
+// Copyright (c) 2008-2011, Thomas Backman <serenity@exscape.org>
 // All rights reserved.
 //
 

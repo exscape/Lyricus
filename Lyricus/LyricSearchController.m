@@ -1,10 +1,9 @@
 //
-//  LyricSearchController.m
-//  Lyricreader
+// This file is part of Lyricus.
+// Copyright (c) 2008-2011, Thomas Backman <serenity@exscape.org>
+// All rights reserved.
 //
-//  Created by Thomas Backman on 3/18/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
+
 
 #import "LyricSearchController.h"
 #import "NSProgressIndicator+ThreadSafeUpdating.h"
