@@ -47,7 +47,6 @@
 	TBSongmeanings *songmeanings;
 	LyricFetcher *lyricController;
 	iTunesHelper *helper;
-	NSString *textURL;
 	NSString *lastTrack;
 	
 	NSString *displayedArtist;

@@ -30,8 +30,6 @@
 		10E2071B0DABE7CB00F85A9F /* LyricFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */; };
 		10E207700DABED8400F85A9F /* NSTextView+AppendString.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */; };
 		10E495A80DA545B50000E68B /* NSString+ExscapeEdits.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */; };
-		10E664F00DAC0AB10059BF5F /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E664EF0DAC0AB10059BF5F /* Sparkle.framework */; };
-		10E664F30DAC0ABF0059BF5F /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10E664EF0DAC0AB10059BF5F /* Sparkle.framework */; };
 		10F56A450DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F56A440DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -54,7 +52,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				10E664F30DAC0ABF0059BF5F /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +98,6 @@
 		10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+AppendString.m"; sourceTree = "<group>"; };
 		10E495A60DA545B50000E68B /* NSString+ExscapeEdits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ExscapeEdits.h"; sourceTree = "<group>"; };
 		10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ExscapeEdits.m"; sourceTree = "<group>"; };
-		10E664EF0DAC0AB10059BF5F /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		10F56A430DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProgressIndicator+ThreadSafeUpdating.h"; sourceTree = "<group>"; };
 		10F56A440DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProgressIndicator+ThreadSafeUpdating.m"; sourceTree = "<group>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -121,7 +117,6 @@
 				10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */,
-				10E664F00DAC0AB10059BF5F /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +149,6 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				10E664EF0DAC0AB10059BF5F /* Sparkle.framework */,
 				10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);

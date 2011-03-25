@@ -24,7 +24,5 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUFeedURL</key>
-	<string>http://lyricus.exscape.org/appcast.php</string>
 </dict>
 </plist>

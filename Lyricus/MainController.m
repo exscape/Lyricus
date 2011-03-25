@@ -33,7 +33,6 @@
 	 [NSDictionary dictionaryWithObjectsAndKeys:
 	  [NSNumber numberWithInt:0], 	@"Always on top",			// Off
 	  [NSNumber numberWithInt:1], 	@"Save lyrics to iTunes",	// On
-	  [NSNumber numberWithInt:1],	@"SUCheckAtStartup", // On
 	  @"Helvetica",					@"FontName",
 	  [NSNumber numberWithFloat:13.0], @"FontSize",
 	  [NSArchiver archivedDataWithRootObject:[NSColor whiteColor]], @"BackgroundColor",
@@ -60,7 +59,6 @@
 	
 	[mainWindow makeFirstResponder:lyricView];
 	
-	textURL = nil;
 	displayedArtist = nil;
 	displayedTitle = nil;
 	lyricsDisplayed = NO;
@@ -189,11 +187,10 @@
 	 @"\n"
 	 @"Thanks to:\n"
 	 @"John Engelhart\n"
-	 @"  http://regexkit.sourceforge.net\n"
-	 @"\n"
+	 @"  http://regexkit.sourceforge.net\n"];
+/*	 @"\n"
 	 @"Tom Harrington, Andy Matuschak and Sparkle contributors\n"
-	 @"  http://code.google.com/p/sparkleplus"
-	 ];
+	 @"  http://code.google.com/p/sparkleplus"]; */
 }
 
 -(IBAction) followiTunesCheckboxClicked:(id) sender {
