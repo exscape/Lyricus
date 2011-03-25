@@ -16,7 +16,7 @@
     if (self) {
         helper = [iTunesHelper sharediTunesHelper];
         matches = [[NSMutableArray alloc] init];
-        trackData = [NSArray arrayWithContentsOfFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]];
+        trackData = [NSMutableArray arrayWithContentsOfFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackSelected:) name:@"NSTableViewSelectionDidChangeNotification" object:nil];
     }
@@ -136,27 +136,22 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
     
 	@try {
 		SBElementArray *pls = [[[[helper iTunesReference] sources] objectAtIndex:0] playlists];
+		iTunesPlaylist *library = [pls objectAtIndex:0];
         
-        for (iTunesPlaylist *pl in pls) {
-            if ([[pl name] isEqualToString:@"Music"]) {
-
-                // Set up the progress indicator
-                [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[[pl tracks] count]] waitUntilDone:YES];
-                [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMinValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
-                [indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
-                
-                NSArray *tracks = [pl tracks]; // Does this help prevent a crash (possibly from a mutating array)?
-                for (iTunesTrack *t in tracks) {
-                    [trackData addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
-
-                    [indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
-					
-					if ([thread isCancelled]) {
-                        goto indexing_cancelled;
-                    }
-                }
-                        
-            }
+		// Set up the progress indicator
+		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[[library tracks] count]] waitUntilDone:YES];
+		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMinValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
+		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
+		
+		NSArray *tracks = [library tracks]; // Does this help prevent a crash (possibly from a mutating array)?
+		for (iTunesTrack *t in tracks) {
+			[trackData addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
+			
+			[indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
+			
+			if ([thread isCancelled]) {
+				goto indexing_cancelled;
+			}
         }
     }
 	@catch (NSException *e) { return; }
