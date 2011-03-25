@@ -162,6 +162,16 @@ static iTunesHelper *sharediTunesHelper = nil;
 	return trackList;
 }
 
+-(NSArray *)getTracksForLibraryPlaylist {
+	if (![self initiTunes])
+		return nil;
+	
+	@try {
+		return [[[[[iTunes sources] objectAtIndex:0] playlists] objectAtIndex:0] tracks];
+	}
+	@catch (NSException *e) { return nil; }
+}
+
 -(iTunesTrack *)getCurrentTrack {
 	if (![self initiTunes])
 		return nil;

@@ -17,6 +17,7 @@
 -(NSArray *)getSelectedTracks;
 -(NSArray *)getAllTracksForTitle:(NSString *)theTitle byArtist:(NSString *)theArtist;
 -(NSArray *)getTracksForPlaylist:(NSString *)thePlaylist;
+-(NSArray *)getTracksForLibraryPlaylist;
 -(iTunesTrack *)getCurrentTrack;
 -(BOOL)currentTrackIsStream;
 -(NSString *)getLyricsForTrack:(iTunesTrack *)theTrack;

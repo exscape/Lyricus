@@ -63,7 +63,10 @@
 	// Initialize and fetch the list of playlists
 	//
 	[playlists removeAllObjects];
+
+	[playlists addObject:@"[Entire library]"];
 	[playlists addObject:@"[Selected tracks]"];
+
 	for (iTunesPlaylist *pl in [helper getAllPlaylists]) {
 		[playlists addObject:[pl name]];
 	}
@@ -83,7 +86,6 @@
 	NSString *trackTitle;
 	int count = 0;
 	
-	int totalCount = [theTracks count];
 	if ([theTracks count] == 0) {
 		[[NSAlert alertWithMessageText:@"The selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
 		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
@@ -205,6 +207,9 @@ restore_settings:
 
 	if ([plName isEqualToString:@"[Selected tracks]"]) {
 		tracks = [helper getSelectedTracks];
+	}
+	else if ([plName isEqualToString:@"[Entire library]"]) {
+		tracks = [helper getTracksForLibraryPlaylist];
 	}
 	else
 		tracks = [helper getTracksForPlaylist:plName];
