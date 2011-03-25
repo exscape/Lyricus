@@ -33,7 +33,6 @@
 	 [NSDictionary dictionaryWithObjectsAndKeys:
 	  [NSNumber numberWithInt:0], 	@"Always on top",			// Off
 	  [NSNumber numberWithInt:1], 	@"Save lyrics to iTunes",	// On
-	  [NSNumber numberWithInt:1],	@"Verbose_bulk_downloader", 	// On
 	  [NSNumber numberWithInt:1],	@"SUCheckAtStartup", // On
 	  @"Helvetica",					@"FontName",
 	  [NSNumber numberWithFloat:13.0], @"FontSize",

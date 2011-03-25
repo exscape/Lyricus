@@ -1202,7 +1202,7 @@
 			<object class="NSWindowTemplate" id="97880315">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 182}, {247, 292}}</string>
+				<string key="NSWindowRect">{{196, 182}, {247, 272}}</string>
 				<int key="NSWTFlags">603979776</int>
 				<string key="NSWindowTitle">Preferences</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1214,10 +1214,10 @@
 						<object class="NSButton" id="672621495">
 							<reference key="NSNextResponder" ref="217934024"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{18, 153}, {209, 18}}</string>
+							<string key="NSFrame">{{18, 133}, {209, 18}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="537537261"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="305707826">
 								<int key="NSCellFlags">-2080244224</int>
@@ -1443,7 +1443,7 @@
 								</object>
 								<reference ref="992430093"/>
 							</array>
-							<string key="NSFrame">{{20, 197}, {215, 75}}</string>
+							<string key="NSFrame">{{20, 177}, {215, 75}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="279844268"/>
@@ -1480,7 +1480,7 @@
 						<object class="NSButton" id="615710758">
 							<reference key="NSNextResponder" ref="217934024"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{18, 173}, {211, 18}}</string>
+							<string key="NSFrame">{{18, 153}, {211, 18}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="137600271"/>
@@ -1491,30 +1491,6 @@
 								<string key="NSContents">Check for updates on startup</string>
 								<reference key="NSSupport" ref="815574472"/>
 								<reference key="NSControlView" ref="615710758"/>
-								<int key="NSButtonFlags">1211912703</int>
-								<int key="NSButtonFlags2">2</int>
-								<reference key="NSNormalImage" ref="883109080"/>
-								<reference key="NSAlternateImage" ref="778083653"/>
-								<string key="NSAlternateContents"/>
-								<string key="NSKeyEquivalent"/>
-								<int key="NSPeriodicDelay">200</int>
-								<int key="NSPeriodicInterval">25</int>
-							</object>
-						</object>
-						<object class="NSButton" id="537537261">
-							<reference key="NSNextResponder" ref="217934024"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{18, 133}, {183, 18}}</string>
-							<reference key="NSSuperview" ref="217934024"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="615710758"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="986114767">
-								<int key="NSCellFlags">67239424</int>
-								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Verbose bulk downloader</string>
-								<reference key="NSSupport" ref="815574472"/>
-								<reference key="NSControlView" ref="537537261"/>
 								<int key="NSButtonFlags">1211912703</int>
 								<int key="NSButtonFlags2">2</int>
 								<reference key="NSNormalImage" ref="883109080"/>
@@ -1631,7 +1607,7 @@
 							</object>
 						</object>
 					</array>
-					<string key="NSFrame">{{7, 11}, {247, 292}}</string>
+					<string key="NSFrame">{{7, 11}, {247, 272}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="860944783"/>
@@ -2266,22 +2242,6 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="destination" ref="330238536"/>
 					</object>
 					<int key="connectionID">829</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Verbose_bulk_downloader</string>
-						<reference key="source" ref="537537261"/>
-						<reference key="destination" ref="600444374"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="537537261"/>
-							<reference key="NSDestination" ref="600444374"/>
-							<string key="NSLabel">value: values.Verbose_bulk_downloader</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Verbose_bulk_downloader</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">855</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -3125,7 +3085,6 @@ ZnJlZV9pY29ucw</bytes>
 						<array class="NSMutableArray" key="children">
 							<reference ref="860944783"/>
 							<reference ref="672621495"/>
-							<reference ref="537537261"/>
 							<reference ref="615710758"/>
 							<reference ref="923422590"/>
 							<reference ref="995885636"/>
@@ -3368,19 +3327,6 @@ ZnJlZV9pY29ucw</bytes>
 						<int key="objectID">828</int>
 						<reference key="object" ref="330238536"/>
 						<reference key="parent" ref="601547808"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">850</int>
-						<reference key="object" ref="537537261"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="986114767"/>
-						</array>
-						<reference key="parent" ref="217934024"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">851</int>
-						<reference key="object" ref="986114767"/>
-						<reference key="parent" ref="537537261"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">858</int>
@@ -3785,16 +3731,6 @@ ZnJlZV9pY29ucw</bytes>
 				<string key="828.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="83.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="83.ImportedFromIB2"/>
-				<object class="NSMutableDictionary" key="850.IBAttributePlaceholdersKey">
-					<string key="NS.key.0">ToolTip</string>
-					<object class="IBToolTipAttribute" key="NS.object.0">
-						<string key="name">ToolTip</string>
-						<reference key="object" ref="537537261"/>
-						<string key="toolTip">When checked, the bulk downloader will list every track processed</string>
-					</object>
-				</object>
-				<string key="850.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="851.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<object class="NSMutableDictionary" key="858.IBAttributePlaceholdersKey">
 					<string key="NS.key.0">ToolTip</string>
 					<object class="IBToolTipAttribute" key="NS.object.0">

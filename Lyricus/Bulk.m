@@ -40,7 +40,7 @@
 			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
-	else if (type == LyricusFoundType) {
+	else if (type == LyricusFoundType) {		
 		if (bulkDownloaderIsWorking) {
 			NSImage *image = [NSImage imageNamed:@"icon_found.tif"];
 			NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
@@ -53,6 +53,8 @@
 		}
 	}
 	else if (type == LyricusNotFoundType) {
+		return;
+		
 		if (bulkDownloaderIsWorking) {
 			NSImage *image = [NSImage imageNamed:@"icon_notfound.tif"];
 			NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
@@ -183,11 +185,7 @@
 			[self progressUpdateWithType:LyricusStartingWorkType andString:trackTitle];
 			
 			if ([[track lyrics] length] > 8) { 
-				if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Verbose_bulk_downloader"]) {
-
-					[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
-					
-				}
+				[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
 				had_lyrics++;
 				continue;
 			}
