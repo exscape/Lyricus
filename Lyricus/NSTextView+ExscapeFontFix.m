@@ -14,8 +14,9 @@
 	
 	[[NSUserDefaults standardUserDefaults] setObject:[newFont fontName] forKey:@"FontName"];
 	[[NSUserDefaults standardUserDefaults] setFloat:[newFont pointSize] forKey:@"FontSize"];
-	
+
 	[super changeFont:sender];
+
 }
 
 @end
