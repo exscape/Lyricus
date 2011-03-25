@@ -17,7 +17,7 @@
         helper = [iTunesHelper sharediTunesHelper];
         matches = [[NSMutableArray alloc] init];
         trackData = [NSMutableArray arrayWithContentsOfFile:[@"~/Library/Application Support/Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]];
-        
+		
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trackSelected:) name:@"NSTableViewSelectionDidChangeNotification" object:nil];
     }
     return self;

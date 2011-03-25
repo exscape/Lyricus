@@ -402,6 +402,7 @@
 				GCC_PREFIX_HEADER = Lyricus_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				"OTHER_CFLAGS[arch=*]" = "-DRKL_BLOCKS=0";
 				PRODUCT_NAME = Lyricus;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
@@ -427,6 +428,7 @@
 				GCC_PREFIX_HEADER = Lyricus_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				"OTHER_CFLAGS[arch=*]" = "-DRKL_BLOCKS=0";
 				PRODUCT_NAME = Lyricus;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;

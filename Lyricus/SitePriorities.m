@@ -23,8 +23,6 @@
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Site list version"] intValue] != 3) {
         // Format changed; user must recreate settings.
         data = nil;
-        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:3] forKey:@"Site list version"];
-        [TBUtil showAlert:@"You need to set up the site order in the Lyricus preferences to continue. Drag and drop them in the order that you want Lyricus to check them. Only checked items are enabled." withCaption:@"You need to set up site priorities"];
         
         return NO;
     }
