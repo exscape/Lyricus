@@ -33,9 +33,9 @@
     else {
         // Check index age
         
-        NSNumber *currentTimestamp = [NSNumber numberWithInt:(int)[[NSDate date] timeIntervalSince1970]];
-        NSNumber *indexTimestamp = [[NSUserDefaults standardUserDefaults] valueForKey:@"Lyricus index update time"];
-        int diff = ([currentTimestamp intValue] - [indexTimestamp intValue]);
+        NSInteger currentTimestamp = [[NSDate date] timeIntervalSince1970];
+        NSInteger indexTimestamp = [[NSUserDefaults standardUserDefaults] integerForKey:@"Lyricus index update time"];
+        int diff = (currentTimestamp - indexTimestamp);
         
         if (diff > 86400*7) { // 1 week
             if (
@@ -162,10 +162,8 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
     [fm removeItemAtPath:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] error:nil];
     
     if ([trackData writeToFile:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES]) {
-        
-    NSNumber *timestamp = [NSNumber numberWithInt:(int)[[NSDate date] timeIntervalSince1970]];
-    [[NSUserDefaults standardUserDefaults] setValue:timestamp forKey:@"Lyricus index update time"];
-        
+		NSInteger timestamp = [[NSDate date] timeIntervalSince1970];
+		[[NSUserDefaults standardUserDefaults] setInteger:timestamp forKey:@"Lyricus index update time"];        
     }
     else {
         [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that %@ is writable.", [@"~/Library/Caches/org.exscape.Lyricus" stringByExpandingTildeInPath]] runModal];

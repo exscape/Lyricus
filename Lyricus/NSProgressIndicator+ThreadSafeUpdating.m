@@ -11,8 +11,9 @@
 @implementation NSProgressIndicator (ThreadSafeUpdating)
 
 //
-// Note:these methods are obviously not thread safe on their own, but they make it easier to say
-// [progressIndicator performSelector:@selector(thrSetCurrentValue:) onMainThread... etc.
+// NOTE: These methods are NOT thread-safe on their own.
+// They are, however, needed to to performSelectorOnMainThread, since doubles aren't objects, and thus
+// cannot be passed using that method.
 //
 
 -(void) thrSetMaxValue:(NSNumber *)max {
