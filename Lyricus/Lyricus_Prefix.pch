@@ -21,10 +21,6 @@
 #define SetLyric(x)	[[NSNotificationCenter defaultCenter] postNotificationName:kSetLyric object:self \
 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]]
 
-#define URL 0
-#define LYRIC 1
-#define TIMESTAMP 2
-
 #define LyricusHTMLFetchError 1
 #define LyricusLyricParseError 2
 #define LyricusHTTPError 3
