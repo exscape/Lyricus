@@ -19,19 +19,12 @@
 
 -(BOOL)load {
 	data = [[NSUserDefaults standardUserDefaults] objectForKey:@"Site priority list"];
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Site list version"] intValue] != 3) {
-        // Format changed; user must recreate settings.
-        data = nil;
-        
-        return NO;
-    }
     
     return (data != nil);
 }
 
--(BOOL)save {	
+-(void)save {	
 	[[NSUserDefaults standardUserDefaults] setObject:data forKey:@"Site priority list"];
-	return YES;
 }
 
 -(id) init {
@@ -51,21 +44,21 @@
 
         /// Songmeanings, enabled by default
 		d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-			 [NSNumber numberWithInt:1], @"enabled",
+			 [NSNumber numberWithBool:YES], @"enabled",
 			 @"Songmeanings", @"site",
 			 nil];
 		[data addObject:d];
 
         // AZLyrics, enabled by default
         d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-			 [NSNumber numberWithInt:1], @"enabled",
+			 [NSNumber numberWithBool:YES], @"enabled",
 			 @"AZLyrics", @"site",
 			 nil];
 		[data addObject:d];
 
         // Darklyrics, disabled by default
 		d = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-			 [NSNumber numberWithInt:0], @"enabled",
+			 [NSNumber numberWithBool:NO], @"enabled",
 			 @"Darklyrics", @"site",
 			 nil];
 		[data addObject:d];
@@ -126,12 +119,13 @@
 	
 	// Reload data and save site priority list
 	[table reloadData];
-	return [self save];
+	[self save];
+	return YES;
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
 	// Kind of speaks for itself. Not sure the if() is needed, but better safe than sorry.
-	if (data)
+	if (data != nil)
 		return [data count];
 	else 
 		return 0;
@@ -147,7 +141,6 @@
 	// Set the data for row 'rowIndex' at column 'aTableColumn'...
 	NSMutableDictionary *e = [data objectAtIndex:rowIndex];
 	[e setValue:anObject forKey:[aTableColumn identifier]];
-	
 	// ... and save the changes to the defaults system
 	[self save];
 }
