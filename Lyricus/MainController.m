@@ -91,10 +91,6 @@
 	 name:@"com.apple.iTunes.playerInfo"
 	 object:nil];
 	
-	// Sign up for the SetLyric message, sent from another thread later on
-	[[NSNotificationCenter defaultCenter]
-	 addObserver:self selector:@selector(setLyric:) name:kSetLyric object:nil];
-		
 	// Create a progress indicator
 	NSRect spinnerFrame = NSMakeRect([lyricView frame].size.width - 16, 0, 16, 16);
 	spinner = [[NSProgressIndicator alloc] initWithFrame:spinnerFrame];
@@ -489,7 +485,7 @@
 	}
 	
 	// Display lyrics + set font
-	SetLyric(lyricStr);
+	[lyricView performSelectorOnMainThread:@selector(setString:) withObject:lyricStr waitUntilDone:YES];
 	displayedArtist = [artist copy];
 	displayedTitle = [title copy];
 	
@@ -548,6 +544,25 @@
 	[NSApp endSheet:preferencesWindow];
 }
 
+-(void)doReplace:(NSDictionary *)dict {
+	//
+	// Ugly hack. Used to make the image replacement on the main thread.
+	//
+	
+	NSImage *image = [NSImage imageNamed:[dict objectForKey:@"imageName"]];
+	NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
+	NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+	[attachment setAttachmentCell:attachmentCell];
+	NSAttributedString *attributedString = [NSAttributedString attributedStringWithAttachment:attachment];
+	
+	int position = [[dict objectForKey:@"position"] intValue];
+	[[lyricView textStorage] replaceCharactersInRange:NSMakeRange([[lyricView textStorage] length] - position - 1, 1) withAttributedString:attributedString];
+}
+
+/*			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_found.tif", @"imageName", nil];
+			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
+ */
+
 -(void) updateStatus:(NSNotification *)note {
 	//
 	// Called when we receive a notification about the download progress.
@@ -563,11 +578,10 @@
 	if (info == nil)
 		return;
 	
-	SetLyric([[lyricView string] stringByAppendingString: [info objectForKey:@"Text"]]);
-}
-
--(void)setLyric:(NSNotification *)note {
-	[lyricView performSelectorOnMainThread:@selector(setString:) withObject:[[note userInfo] objectForKey:@"Text"] waitUntilDone:YES];
+	[lyricView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.tif" waitUntilDone:YES];
+	
+	[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:[info objectForKey:@"Text"] waitUntilDone:YES];
+		NSLog(@"documentEdited after text: %d", [self documentEdited]);
 }
 
 #pragma mark -
