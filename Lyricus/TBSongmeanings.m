@@ -24,27 +24,38 @@
 	//
 	// The only method called from the outside.
 	//
-	SendNote(@"Trying songmeanings...\n");
-	SendNote(@"\tFetching song list...\n");
+
+	SendStatusUpdate(LyricusNoteHeader, @"Trying songmeanings...");
+	
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching artist URL...");
 	
 	NSString *artistURL = [self getURLForArtist:artist error:error];
 	if (artistURL == nil) {
-		SendNote(@"\tArtist not found!\n");
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching artist URL...");
 		return nil;
 	}
-	SendNote(@"\tFetching lyric URL...\n");
+	else
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching artist URL...");
+	
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching lyric URL...");
 	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL:artistURL error:error];
 	if (trackURL == nil) {
-		SendNote(@"\tTrack not found!\n");
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching lyric URL...");
 		return nil;
 	}
+	else
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching lyric URL...");
 	
-	SendNote(@"\tFetching and parsing lyrics...\n");
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching lyrics...");
 	NSString *lyrics = [self extractLyricsFromURL:trackURL error:error];
-	if (lyrics == nil)
+	if (lyrics == nil) {
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching lyrics...");
 		return nil;
-	
-	return lyrics;
+	}
+	else {
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching lyrics...");
+		return lyrics;
+	}
 }
 
 #pragma mark -

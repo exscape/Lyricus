@@ -12,9 +12,14 @@
 #import "iTunes.h"
 #import "NSString+ExscapeEdits.h"
 
-#define SendNote(x) \
+#define LyricusNoteHeader 0
+#define LyricusNoteStartedWorking 1
+#define LyricusNoteSuccess 2
+#define LyricusNoteFailure 3
+
+#define SendStatusUpdate(type, text) \
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateStatusNotification" object:self \
-	userInfo:[NSDictionary dictionaryWithObjectsAndKeys:x, @"Text", nil]]
+	userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:type], @"type", text, @"Text", nil]]
 
 #define LyricusHTMLFetchError 1
 #define LyricusLyricParseError 2

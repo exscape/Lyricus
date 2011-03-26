@@ -25,22 +25,37 @@
 	//
 	// The only method called from the outside
 	//
-	
-	SendNote(@"Trying darklyrics...\n");
-	SendNote(@"\tFetching lyric URL...\n");
-	
-	NSString *artistURL = [self getURLForArtist:artist] /* cannot fail */;
-	if (artistURL == nil)
-		return nil;
-	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
-	SendNote(@"\tFetching and parsing lyrics...\n");
-	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title error:error];
-    
-	if (lyrics != nil && [lyrics length] < 5) {
+	SendStatusUpdate(LyricusNoteHeader, @"Trying darklyrics...");
+
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching artist URL...");
+	NSURL *artistURL = [self getURLForArtist:artist];
+	if (artistURL == nil) {
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching artist URL...");
 		return nil;
 	}
 	else
-        return lyrics; // may still be nil, but in that case we would return nil anyway
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching artist URL...");
+	
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching lyric URL...");
+	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
+	if (trackURL == nil) {
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching lyric URL...");
+		return nil;
+	}
+	else
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching lyric URL...");
+	
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching lyrics...");
+	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title error:error];
+    
+	if (lyrics == nil || [lyrics length] < 5) {
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching lyrics...");
+		return nil;
+	}
+	else {
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching lyrics...");
+        return lyrics;
+	}
 }
 
 #pragma mark -
@@ -57,14 +72,13 @@
 		return nil;
 	
 	// Then, create the URL and return it.
-	return [NSString stringWithFormat:@"http://www.darklyrics.com/%c/%@.html", [artist characterAtIndex:0], artist];
+	return [NSURL URLWithString:[NSString stringWithFormat:@"http://www.darklyrics.com/%c/%@.html", [artist characterAtIndex:0], artist]];
 }
 
--(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)inURL error:(NSError **)error {
+-(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSURL *)artistURL error:(NSError **)error {
 	//
 	// Looks through an artist page (i.e. "http://www.darklyrics.com/d/darktranquillity.html") for the track link
 	//
-	NSURL *artistURL = [NSURL URLWithString:inURL];
     NSError *err = nil;
 	NSString *html = [TBUtil getHTMLFromURL:artistURL error:&err];
 	if (html == nil) {

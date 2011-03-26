@@ -24,25 +24,38 @@
 	//
 	// The only method called from the outside
 	//
+	SendStatusUpdate(LyricusNoteHeader, @"Trying AZLyrics...");
 	
-	SendNote(@"Trying AZLyrics...\n");
-	SendNote(@"\tFetching artist URL...\n");
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching artist URL...");
 
 	NSString *artistURL = [self getURLForArtist:artist error:error];
-	if (artistURL == nil)
-		return nil;
-
-	SendNote(@"\tFetching lyric URL...\n");
-	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
-	
-	SendNote(@"\tFetching and parsing lyrics...\n");
-	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title error:error];
-    
-	if (lyrics != nil && [lyrics length] < 5) {
+	if (artistURL == nil) {
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching artist URL...");
 		return nil;
 	}
 	else
-        return lyrics; // may still be nil, but in that case we would return nil anyway
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching artist URL...");
+
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching lyric URL...");
+	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
+	if (trackURL == nil) {
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching lyric URL...");
+		return nil;
+	}
+	else
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching lyric URL...");
+	
+	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching and parsing lyrics...");
+	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title error:error];
+    
+	if (lyrics == nil || [lyrics length] < 5) {
+		return nil;
+		SendStatusUpdate(LyricusNoteFailure, @"Fetching and parsing lyrics...");
+	}
+	else {
+		SendStatusUpdate(LyricusNoteSuccess, @"Fetching and parsing lyrics...");
+        return lyrics;
+	}
 }
 
 #pragma mark -

@@ -414,6 +414,10 @@
 	
 	[NSApp endSheet:searchWindow];
 	loadingLyrics = YES;
+	// Display loading messages in Helvetica 13
+	
+	[lyricView setFont:[NSFont fontWithName:@"Helvetica" size:13.0]];
+
 	[lyricView setString:@"Loading lyrics, please wait...\n"];
 	[mainWindow setTitle:@"Lyricus - loading..."];
 	
@@ -431,7 +435,7 @@
 	}
 	
 	NSString *lyricStr;
-	SendNote(@"Trying iTunes...\n");
+	SendStatusUpdate(LyricusNoteHeader, @"Trying iTunes...");
 	
     NSError *err = nil;
     
@@ -485,6 +489,9 @@
 	}
 	
 	// Display lyrics + set font
+	[lyricView setFont:[NSFont fontWithName:[[NSUserDefaults standardUserDefaults] stringForKey:@"FontName"]
+									   size:[[NSUserDefaults standardUserDefaults] floatForKey:@"FontSize"]]];
+
 	[lyricView performSelectorOnMainThread:@selector(setString:) withObject:lyricStr waitUntilDone:YES];
 	displayedArtist = [artist copy];
 	displayedTitle = [title copy];
@@ -559,9 +566,6 @@
 	[[lyricView textStorage] replaceCharactersInRange:NSMakeRange([[lyricView textStorage] length] - position - 1, 1) withAttributedString:attributedString];
 }
 
-/*			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_found.tif", @"imageName", nil];
-			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
- */
 
 -(void) updateStatus:(NSNotification *)note {
 	//
@@ -577,11 +581,34 @@
 	NSDictionary *info = [note userInfo];
 	if (info == nil)
 		return;
+	NSString *text = [info objectForKey:@"Text"];
+	int type = [[info objectForKey:@"type"] intValue];
 	
-	[lyricView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.tif" waitUntilDone:YES];
+	 
 	
-	[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:[info objectForKey:@"Text"] waitUntilDone:YES];
-		NSLog(@"documentEdited after text: %d", [self documentEdited]);
+	text = [text stringByAppendingString:@"\n"];
+
+	if (type == LyricusNoteHeader) {
+		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:text waitUntilDone:YES];
+	}
+	else if (type == LyricusNoteStartedWorking) {
+		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:@"\t" waitUntilDone:YES];
+		[lyricView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.tif" waitUntilDone:YES];
+		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:@" " waitUntilDone:YES];
+		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:text waitUntilDone:YES];
+		return;
+	}
+	else if (type == LyricusNoteSuccess) {
+		NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[text length]+ 1], @"position", @"icon_found.tif", @"imageName", nil];
+		[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
+	}
+	else if (type == LyricusNoteFailure) {
+		NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[text length] + 1], @"position", @"icon_notfound.tif", @"imageName", nil];
+		[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
+	}
+	else {
+		NSLog(@"STOP!");
+	}
 }
 
 #pragma mark -
