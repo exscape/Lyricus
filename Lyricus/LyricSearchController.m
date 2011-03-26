@@ -59,7 +59,7 @@
     [lyricTextView setString:lyrics];
 
     // Highlight and select the search string
-    NSRange range = [lyrics rangeOfString:[searchTextField stringValue] options:NSCaseInsensitiveSearch];
+    NSRange range = [lyrics rangeOfString:[searchTextField stringValue] options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
     [lyricTextView scrollRangeToVisible:range];
 	[self.window makeFirstResponder:lyricTextView];
 	[lyricTextView setSelectedRange:range];
@@ -72,13 +72,10 @@
     [matches removeAllObjects];
     
     if ([searchString length] >= 2) {
-        for (NSDictionary *track in trackData) {
-            // Case insensitive search
-            if ([[[track objectForKey:@"lyrics"] lowercaseString] containsString:[searchString lowercaseString]]) {
-                [matches addObject:track];
-            }
-            [trackTableView reloadData];
-        }
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"lyrics CONTAINS[cd] %@", searchString];
+		matches = [trackData mutableCopy];
+		[matches filterUsingPredicate:predicate];
+		[trackTableView reloadData];
     }
     else {
         // Clear the track list if the search string is too short (or nonexistent)
