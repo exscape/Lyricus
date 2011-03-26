@@ -13,7 +13,7 @@
     IBOutlet NSTextView *lyricTextView;
     IBOutlet NSWindow *indexProgressWindow;
     IBOutlet NSProgressIndicator *indexProgressIndicator;
-    IBOutlet NSButton *abortButton;
+    IBOutlet NSButton *abortIndexingButton;
     NSThread *thread;
     iTunesHelper *helper;
     NSMutableArray *trackData;

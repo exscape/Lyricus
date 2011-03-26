@@ -191,10 +191,10 @@ indexing_cancelled:
     // Don't allow abort if no previous index exists
     NSFileManager *fm = [NSFileManager defaultManager];
     if (![fm fileExistsAtPath:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath]]) {
-        [abortButton setEnabled:NO];
+        [abortIndexingButton setEnabled:NO];
     }
     else
-        [abortButton setEnabled:YES];
+        [abortIndexingButton setEnabled:YES];
 }
 
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
