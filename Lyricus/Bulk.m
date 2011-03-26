@@ -63,7 +63,6 @@
 			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
 		}
 	}
-	
 }
 
 #pragma mark -
