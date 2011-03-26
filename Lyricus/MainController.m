@@ -186,9 +186,6 @@
 	 @"Thanks to:\n"
 	 @"John Engelhart\n"
 	 @"  http://regexkit.sourceforge.net\n"];
-/*	 @"\n"
-	 @"Tom Harrington, Andy Matuschak and Sparkle contributors\n"
-	 @"  http://code.google.com/p/sparkleplus"]; */
 }
 
 -(IBAction) followiTunesCheckboxClicked:(id) sender {

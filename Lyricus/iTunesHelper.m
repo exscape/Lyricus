@@ -238,7 +238,8 @@ static iTunesHelper *sharediTunesHelper = nil;
 					[outArray addObject:[track get]];
 				}
 		}
-	} @catch (NSException *e) { return nil; }
+	} 
+	@catch (NSException *e) { return nil; }
 	
 	if ([outArray count] == 0)
 		return nil;
@@ -260,7 +261,8 @@ static iTunesHelper *sharediTunesHelper = nil;
 					return [track get];
 				}
 		}
-	} @catch (NSException *e) { 
+	}
+	@catch (NSException *e) { 
         return nil;
     }
 	
