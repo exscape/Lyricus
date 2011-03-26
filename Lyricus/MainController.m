@@ -70,8 +70,10 @@
 	currentNotification = nil;
 	
 	
-	// Change the lorem ipsum text to something more useful (or at least something less weird)
-	[lyricView setString:@"Lyricus v" MY_VERSION " ready. Start playing a track in iTunes to get started!"];
+	// Change the lorem ipsum text to something more useful (or at least something less weird)'
+	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+	
+	[lyricView setString:[NSString stringWithFormat:@"Lyricus v%@ ready. Start playing a track in iTunes to get started!", version]];
 	// Restore settings
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Always on top"])
 		[mainWindow setLevel:NSFloatingWindowLevel];
@@ -177,7 +179,8 @@
 
 -(IBAction) showAboutWindow:(id) sender {
 	[iconView setImage:[NSApp applicationIconImage]];
-	[aboutVersion setStringValue:@"v" MY_VERSION];
+	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+	[aboutVersion setStringValue:[@"v" stringByAppendingString:version]];
 	[aboutWindow makeKeyAndOrderFront:self];
 	[aboutTextView setString:
 	 @"Everything Lyricus:\n"
