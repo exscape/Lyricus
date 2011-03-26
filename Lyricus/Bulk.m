@@ -154,6 +154,7 @@
 	int set_lyrics = 0;
 	int had_lyrics = 0;
 	int lyrics_not_found = 0;
+	int errors_in_a_row = 0; // Used to abort when things appear to be going wrong
 	
 	for (iTunesTrack *track in theTracks) {
 		count++;
@@ -183,6 +184,7 @@
 			if ([[track lyrics] length] > 8) { 
 				[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
 				had_lyrics++;
+				// DON'T update errors_in_a_row since we don't know if searching would have worked or not
 				continue;
 			}
 		} @catch (NSException *e) { continue; }
@@ -191,6 +193,7 @@
 		NSString *lyrics = [lyricController fetchLyricsForTrack:[track name] byArtist:[track artist] error:&err];
 		if (lyrics) {
 			@try { // Scripting bridge seems to be a bit unstable
+				errors_in_a_row = 0;
 				set_lyrics++;
 				[track setLyrics:lyrics];
 	
@@ -201,13 +204,20 @@
 		}
 		else if (err == nil) {
 			lyrics_not_found++;
+			errors_in_a_row = 0;
 			
 			[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
 		}
         else {
+			errors_in_a_row++;
 			lyrics_not_found++;
 			[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
 
+		}
+		if (errors_in_a_row >= 10) {
+			[thread cancel];
+			[[NSAlert alertWithMessageText:@"The bulk downloader aborted due to encountering too many errors." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that your internet connection is active. If possible, try enabling multiple sites in the Lyricus preferences."] runModal];
+			goto restore_settings;
 		}
 		
 	}
