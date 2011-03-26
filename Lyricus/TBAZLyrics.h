@@ -5,8 +5,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "TBLyricClass.h"
 
-@interface TBAZLyrics : NSObject {
+@interface TBAZLyrics : TBLyricClass {
 	NSMutableDictionary *albumCache;
 }
 

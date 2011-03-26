@@ -5,8 +5,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "TBLyricClass.h"
 
-@interface TBSongmeanings : NSObject {
+@interface TBSongmeanings : TBLyricClass {
 	TBUtil *util;
 }
 

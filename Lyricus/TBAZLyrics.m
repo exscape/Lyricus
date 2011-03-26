@@ -24,36 +24,36 @@
 	//
 	// The only method called from the outside
 	//
-	SendStatusUpdate(LyricusNoteHeader, @"Trying AZLyrics...");
+	[self sendStatusUpdate:@"Trying AZLyrics..." ofType:LyricusNoteHeader];
 	
-	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching artist URL...");
+	[self sendStatusUpdate:@"Fetching artist URL..." ofType:LyricusNoteStartedWorking];
 
 	NSString *artistURL = [self getURLForArtist:artist error:error];
 	if (artistURL == nil) {
-		SendStatusUpdate(LyricusNoteFailure, @"Fetching artist URL...");
+		[self sendStatusUpdate:@"Fetching artist URL..." ofType:LyricusNoteFailure];
 		return nil;
 	}
 	else
-		SendStatusUpdate(LyricusNoteSuccess, @"Fetching artist URL...");
+		[self sendStatusUpdate:@"Fetching artist URL..." ofType:LyricusNoteSuccess];
 
-	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching lyric URL...");
+	[self sendStatusUpdate:@"Fetching lyric URL..." ofType:LyricusNoteStartedWorking];
 	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
 	if (trackURL == nil) {
-		SendStatusUpdate(LyricusNoteFailure, @"Fetching lyric URL...");
+		[self sendStatusUpdate:@"Fetching lyric URL..." ofType:LyricusNoteFailure];
 		return nil;
 	}
 	else
-		SendStatusUpdate(LyricusNoteSuccess, @"Fetching lyric URL...");
+		[self sendStatusUpdate:@"Fetching lyric URL..." ofType:LyricusNoteSuccess];
 	
-	SendStatusUpdate(LyricusNoteStartedWorking, @"Fetching and parsing lyrics...");
+	[self sendStatusUpdate:@"Fetching and parsing lyrics..." ofType:LyricusNoteStartedWorking];
 	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title error:error];
     
 	if (lyrics == nil || [lyrics length] < 5) {
 		return nil;
-		SendStatusUpdate(LyricusNoteFailure, @"Fetching and parsing lyrics...");
+		[self sendStatusUpdate:@"Fetching and parsing lyrics..." ofType:LyricusNoteFailure];
 	}
 	else {
-		SendStatusUpdate(LyricusNoteSuccess, @"Fetching and parsing lyrics...");
+		[self sendStatusUpdate:@"Fetching and parsing lyrics..." ofType:LyricusNoteSuccess];
         return lyrics;
 	}
 }

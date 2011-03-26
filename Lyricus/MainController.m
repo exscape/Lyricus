@@ -435,7 +435,9 @@
 	}
 	
 	NSString *lyricStr;
-	SendStatusUpdate(LyricusNoteHeader, @"Trying iTunes...");
+
+	// This is done in a superclass in the lyric classes
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateStatusNotification" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:LyricusNoteHeader], @"type", @"Trying iTunes...", @"Text", nil]];
 	
     NSError *err = nil;
     
