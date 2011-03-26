@@ -481,7 +481,7 @@
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
 		lyricsDisplayed = NO;
 	}
-	else if (lyricStr != nil){
+	else if (lyricStr != nil) {
 		// We found some lyrics!
 		NSString *fullTitle = [NSString stringWithFormat:@"%@ - %@", artist, title];
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:fullTitle waitUntilDone:YES];
@@ -493,6 +493,7 @@
 									   size:[[NSUserDefaults standardUserDefaults] floatForKey:@"FontSize"]]];
 
 	[lyricView performSelectorOnMainThread:@selector(setString:) withObject:lyricStr waitUntilDone:YES];
+
 	displayedArtist = [artist copy];
 	displayedTitle = [title copy];
 	
