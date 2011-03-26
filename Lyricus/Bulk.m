@@ -55,19 +55,12 @@
 		if (bulkDownloaderIsWorking) {
 			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_found.tif", @"imageName", nil];
 			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
-		 
-		
-			//			[resultView appendImageNamed:@"icon_found.tif"];
-			//			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
 	else if (type == LyricusNotFoundType) {
 		if (bulkDownloaderIsWorking) {
 			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_notfound.tif", @"imageName", nil];
 			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
-		 
-			//	[resultView appendImageNamed:@"icon_notfound.tif"];
-			//	[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
 	
