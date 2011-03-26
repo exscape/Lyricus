@@ -27,33 +27,33 @@
 	//
 	[self sendStatusUpdate:@"Trying darklyrics..." ofType:LyricusNoteHeader];
 
-	[self sendStatusUpdate:@"Fetching artist URL..." ofType:LyricusNoteStartedWorking];
+	[self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteStartedWorking];
 	NSURL *artistURL = [self getURLForArtist:artist];
 	if (artistURL == nil) {
-		[self sendStatusUpdate:@"Fetching artist URL..." ofType:LyricusNoteFailure];
+		[self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteFailure];
 		return nil;
 	}
 	else
-		[self sendStatusUpdate:@"Fetching artist URL..." ofType:LyricusNoteSuccess];
+		[self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteSuccess];
 	
-	[self sendStatusUpdate:@"Fetching lyric URL..." ofType:LyricusNoteStartedWorking];
+	[self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteStartedWorking];
 	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL: artistURL error:error];
 	if (trackURL == nil) {
-		[self sendStatusUpdate:@"Fetching lyric URL..." ofType:LyricusNoteFailure];
+		[self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteFailure];
 		return nil;
 	}
 	else
-		[self sendStatusUpdate:@"Fetching lyric URL..." ofType:LyricusNoteSuccess];
+		[self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteSuccess];
 	
-	[self sendStatusUpdate:@"Fetching lyrics..." ofType:LyricusNoteStartedWorking];
+	[self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteStartedWorking];
 	NSString *lyrics = [self extractLyricsFromURL:trackURL forTrack:title error:error];
     
 	if (lyrics == nil || [lyrics length] < 5) {
-		[self sendStatusUpdate:@"Fetching lyrics..." ofType:LyricusNoteFailure];
+		[self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteFailure];
 		return nil;
 	}
 	else {
-		[self sendStatusUpdate:@"Fetching lyrics..." ofType:LyricusNoteSuccess];
+		[self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteSuccess];
         return lyrics;
 	}
 }
