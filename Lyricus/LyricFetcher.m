@@ -54,9 +54,9 @@ static LyricFetcher *sharedLyricFetcher = nil;
         theTrack = [theTrack stringByReplacingOccurrencesOfRegex:@"(?i)(.*?)\\s*\\(live.*" withString:@"$1"];
 	}
 	
+	// This should never happen, as there are checks to prevent from saving an empty list. Still...
 	if (sitesByPriority == nil || [sitesByPriority count] == 0) {
-		[TBUtil showAlert:@"List of site priorities not set up! Please go to the preferences window, drag them in the order you like and then try again."
-			  withCaption:@"Site list not found"];
+		[[NSAlert alertWithMessageText:@"Unable to fetch lyrics because the site list isn't set up." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"To fix this, please go to the preferences window and enable at least one site."] runModal];
 		return nil;
 	}
 	
@@ -92,7 +92,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
 	}
 	
 	if (!prio) {
-		[TBUtil showAlert:@"Please go into the preferences window, drag them in the order you'd like, then try again."
+		[TBUtil showAlert:@"Please go into the preferences window, drag the sites in the order you'd like, then try again. Make sure to enable at least one site."
 			  withCaption:@"Site priority list not found!"];
 		return;
 	}

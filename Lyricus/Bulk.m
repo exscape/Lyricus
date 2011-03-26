@@ -137,8 +137,9 @@
 	int count = 0;
 	
 	if ([theTracks count] == 0) {
-		[[NSAlert alertWithMessageText:@"The selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
+		[[NSAlert alertWithMessageText:@"The bulk downloader cannot start because the selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
 		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
+		[statusLabel setStringValue:@"Idle"];
 		[goButton setTitle:@"Go"];
 		return;
 	}
@@ -263,9 +264,8 @@ restore_settings:
 		tracks = [helper getTracksForPlaylist:plName];
 	
 	if (tracks == nil) {
-        if ([plName isEqualToString:@"[Selected tracks]"]) {
-            [[NSAlert alertWithMessageText:@"No tracks found" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"No tracks found for the playlist specified."] runModal];
-        }
+		// Appears to happen only when iTunes is not running
+		[[NSAlert alertWithMessageText:@"The bulk downloader cannot start because no tracks were found." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running and that there are tracks in the chosen playlist."] runModal];
 		[self setBulkDownloaderIsWorking:NO];
 		[goButton setTitle:@"Go"];
 		[statusLabel setStringValue:@"Idle"];

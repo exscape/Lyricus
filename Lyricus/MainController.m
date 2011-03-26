@@ -308,7 +308,7 @@
 			else {
 				// Save failed
 				if (
-				[[NSAlert alertWithMessageText:@"Unable to save lyrics." defaultButton:@"Abort shutdown" alternateButton:@"Exit without saving" otherButton:nil informativeTextWithFormat:@"If  you still quit, any changes you have made to the lyric text will be lost."] runModal]
+				[[NSAlert alertWithMessageText:@"Unable to save lyrics for an unknown reason." defaultButton:@"Abort shutdown" alternateButton:@"Exit without saving" otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running, then try again. If  you still quit, any changes you have made to the lyric text will be lost."] runModal]
 				 ==
 					NSAlertAlternateReturn) {
 					// "Exit without saving"
@@ -373,7 +373,7 @@
 				else {
 					// Save failed
 					if (
-						[[NSAlert alertWithMessageText:@"Unable to save lyrics. Do you want to switch the lyric display anyway? Your changes will be lost." defaultButton:@"Don't switch" alternateButton:@"Switch and discard changes" otherButton:nil informativeTextWithFormat:@"If  you still switch the lyric display, any changes you have made to the lyric text will be lost."] runModal]
+						[[NSAlert alertWithMessageText:@"Unable to save lyrics. Do you want to switch the lyric display anyway? Your changes will be lost." defaultButton:@"Don't switch" alternateButton:@"Switch and discard changes" otherButton:nil informativeTextWithFormat:@"If  you still switch the lyric display, any changes you have made to the lyric will be lost."] runModal]
 						==
 						NSAlertAlternateReturn) {
 						// Simply break and let the code below switch to the new track.
@@ -547,7 +547,7 @@
 	[lyricController updateSiteList];
 	if ([[lyricController sitesByPriority] count] == 0) {
 		// Make sure the user selects at least one site
-		[TBUtil showAlert:@"You need to select at least one site to use!" withCaption:@"No site selected"];
+		[TBUtil showAlert:@"Please enable at least one of the sites in the list." withCaption:@"You have not enabled any sites."];
 		return;
 	}
 	
@@ -813,7 +813,7 @@
 -(BOOL)saveLyricsToNamedTrack {
 	BOOL ret = FALSE; // What we return
 	if (!displayedArtist || !displayedTitle) {
-		[TBUtil showAlert:@"You tried to save without having a track's lyrics displayed!" withCaption:@"Unable to save"];
+		[TBUtil showAlert:@"Try searching for the track again." withCaption:@"Lyricus is unable to save the lyrics because the artist and/or title is not known."];
 		ret = FALSE;
 		goto end_return;
 	}
@@ -835,12 +835,15 @@
 		[theTrack setLyrics:newLyric];
 	}
 	
+	// This line must be fixed BEFORE disabling edit mode, to not ask the user if the changes are already saved
+	// It must also be BEFORE end_return below, so that a failure to save doesn't
+	// set documentEdited to NO.
+	[self setDocumentEdited:NO];
+	
 end_return:
 	lyricsDisplayed = YES; // To make sure edit mode isn't bugged when adding new lyrics to a track
 	
-	// This line must be fixed BEFORE disabling edit mode, to not ask the user if the changes are already saved
-	// 
-	[self setDocumentEdited:NO];
+	
 	[self disableEditMode];
 
 	return ret;
@@ -849,10 +852,8 @@ end_return:
 -(IBAction)saveDisplayedLyricsToCurrentlyPlayingTrack:(id) sender  {
 	NSString *newLyric = [lyricView string];
 
-	if (newLyric == nil || [newLyric length] < 1) {
-		[TBUtil showAlert:@"You tried to save without having any lyrics displayed!" withCaption:@"Unable to save"];
-		return;
-	}
+	if (newLyric == nil)
+		newLyric = @"";
 	
 	[[helper getCurrentTrack] setLyrics: newLyric];
 	
@@ -866,7 +867,7 @@ end_return:
 
 -(IBAction)openSongMeaningsPage:(id)sender {
 	if (!displayedArtist || !displayedTitle) {
-		[TBUtil showAlert:@"You need to have a song displayed to use this feature." withCaption:@"Unable to open songmeanings page"];
+		[TBUtil showAlert:@"Starting playing a track in iTunes, or do a manual search, then try again." withCaption:@"Unable to open songmeanings page because no song is currently displayed."];
 		return;
 	}
 	[spinner setHidden:NO];
@@ -885,11 +886,12 @@ end_return:
 	
 	NSString *artistURL = [songmeanings getURLForArtist:displayedArtist error:&err];
 	if (!artistURL && err == nil) {
-		[TBUtil showAlert:@"Artist not found on songmeanings!" withCaption:@"Unable to open songmeanings page"];
+		// There really is nothing more to say there as an informative text.
+		[TBUtil showAlert:@"" withCaption:@"Lyricus is unable to open this track's songmeanings page because the artist is not in the database."];
 		goto end_func;
 	}
     else if (!artistURL && err != nil) {
-        [TBUtil showAlert:@"An error occured when trying to open requested page." withCaption:@"Unable to open songmeanings page"];
+        [TBUtil showAlert:@"Make sure that you are connected to the internet." withCaption:@"Lyricus was unable to open this track's songmeanings page due to an error."];
 		goto end_func;
     }
 	
@@ -901,11 +903,12 @@ end_return:
 	
 	NSString *lyricURL = [songmeanings getLyricURLForTrack:myTitle fromArtistURL:artistURL error:&err];
 	if (!lyricURL && err == nil) {
-		[TBUtil showAlert:@"Lyric not found on songmeanings!" withCaption:@"Unable to open songmeanings page"];
+		// Same thing here, I can't think of a useful "informative text" for this message. There's just nothing to do.
+		[TBUtil showAlert:@"" withCaption:@"Lyricus is unable to open this track's songmeanings page because the track is not in the database."];
 		goto end_func;
 	}
     else if (!lyricURL && err != nil) {
-        [TBUtil showAlert:@"An error occured when trying to open requested page." withCaption:@"Unable to open songmeanings page"];
+        [TBUtil showAlert:@"Make sure that you are connected to the internet." withCaption:@"Lyricus was unable to open this track's songmeanings page due to an error."];
         goto end_func;
 
     }
@@ -932,7 +935,7 @@ end_func:
     }
 	
 	while (![helper isiTunesRunning]) {
-		if ([[NSAlert alertWithMessageText:@"The bulk downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Check again" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"retry\". If you don't want to open the bulk downloader now, click \"abort\"."] runModal]
+		if ([[NSAlert alertWithMessageText:@"The bulk downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Check again" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"check again\". If you don't want to open the bulk downloader now, click \"abort\"."] runModal]
 			==
 			NSAlertDefaultReturn) {
 			// User clicked retry, so restart the loop and check for iTunes again

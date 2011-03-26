@@ -26,7 +26,7 @@
     [super windowDidLoad];
     
     if (!trackData) {
-        [[NSAlert alertWithMessageText:@"You need to create a track index." defaultButton:@"Create index now" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This function needs a track index to work. Click \"Create index now\" to start."] runModal];
+        [[NSAlert alertWithMessageText:@"You need to create a track index to continue." defaultButton:@"Create index now" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This function needs a track index to work. Click \"Create index now\" to start."] runModal];
         [self updateTrackIndex:self];
     }
     else {
@@ -109,6 +109,9 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 		return YES;
 	}
 	
+	// This is probably never reached, due to the close button being disabled when
+	// the indexing process is running.
+	
 	if ([[NSAlert alertWithMessageText:@"Do you want to abort the indexing process?" defaultButton:@"Yes, abort" alternateButton:@"No, keep going" otherButton:nil informativeTextWithFormat:@"This process needs to finish before this window is usable."] runModal] 
         == NSAlertDefaultReturn) {
 		// Yes, abort:
@@ -165,7 +168,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 		[[NSUserDefaults standardUserDefaults] setInteger:timestamp forKey:@"Lyricus index update time"];        
     }
     else {
-        [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that %@ is writable.", [@"~/Library/Caches/org.exscape.Lyricus" stringByExpandingTildeInPath]] runModal];
+        [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that the %@ directory is writable.", [@"~/Library/Caches/org.exscape.Lyricus" stringByExpandingTildeInPath]] runModal];
     }
     
 indexing_cancelled:
