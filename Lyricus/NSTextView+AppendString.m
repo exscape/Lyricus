@@ -11,13 +11,10 @@
 -(void)appendString:(NSString *)theString {
 	if (theString == nil || [theString length] < 1)
 		return;
-	BOOL oldEditable = [self isEditable];
-	[self setEditable:YES];
-	NSRange oldSel = [self selectedRange];
-	[self setSelectedRange:NSMakeRange([[self textStorage] length], [[self textStorage] length])];
-	[self insertText:theString];
-	[self setEditable:oldEditable];
-	[self setSelectedRange:oldSel];
+	
+	[[self textStorage] replaceCharactersInRange:NSMakeRange([[self textStorage] length], 0) withAttributedString:
+	 [[NSAttributedString alloc] initWithString:theString]];
+	[self scrollRangeToVisible:NSMakeRange([[self textStorage] length], 0)];
 }
 
 -(void)appendImageNamed:(NSString *)imageName {
