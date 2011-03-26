@@ -90,7 +90,7 @@ static iTunesHelper *sharediTunesHelper = nil;
 					continue;
 				int kind = [pl specialKind];
 				if (kind == iTunesESpKNone || kind == 'kVdN') // This changed between iTunes versions. Uh. Let's support both.
-					[playlistArray addObject:pl];
+					[playlistArray addObject:[pl get]];
 			}
 		}
 		@catch (NSException *e) { return nil; }
@@ -150,8 +150,8 @@ static iTunesHelper *sharediTunesHelper = nil;
 		
 		for (iTunesPlaylist *pl in pls) {
 			if ([[pl name] isEqualToString:thePlaylist]) {
-				for (iTunesTrack *t in [pl tracks]) {
-					[trackList addObject:t];
+				for (iTunesTrack *t in [[pl tracks] get]) {
+					[trackList addObject:[t get]];
 				}
 			}
 		}
@@ -166,7 +166,8 @@ static iTunesHelper *sharediTunesHelper = nil;
 		return nil;
 	
 	@try {
-		return [[[[[iTunes sources] objectAtIndex:0] playlists] objectAtIndex:0] tracks];
+		// Ugh!
+		return [[[[[[iTunes sources] objectAtIndex:0] playlists] objectAtIndex:0] tracks] get];
 	}
 	@catch (NSException *e) { return nil; }
 }
@@ -181,7 +182,7 @@ static iTunesHelper *sharediTunesHelper = nil;
 	@try {
 		iTunesTrack *t = [iTunes currentTrack];
 		if (t != nil && [t exists])
-			return t;
+			return [t get];
 		else
 			return nil;
 	}
@@ -228,7 +229,7 @@ static iTunesHelper *sharediTunesHelper = nil;
 	NSMutableArray *outArray = [NSMutableArray array];
 	
 	@try {
-		SBElementArray *arr = (SBElementArray *)[[self getLibraryPlaylist] searchFor:theTitle only:iTunesESrASongs];
+		SBElementArray *arr = (SBElementArray *)[[[self getLibraryPlaylist] searchFor:theTitle only:iTunesESrASongs] get];
 		// NOTE TO SELF: Don't use [TBUtil string: isEqual...] here, as we DO want diacritics and stuff to matter - but not capitalization
 		for (iTunesTrack *track in arr) {
 			if ([[track artist] compare:theArtist options:NSCaseInsensitiveSearch] == NSOrderedSame) // Make sure that we don't overwrite some other artist's song

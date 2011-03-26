@@ -136,16 +136,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
         [trackData removeAllObjects];
     }
     
-	@try {
-		SBElementArray *pls = [[[[helper iTunesReference] sources] objectAtIndex:0] playlists];
-		iTunesPlaylist *library = [pls objectAtIndex:0];
-        
+	@try {        
+		NSArray *tracks = [helper getTracksForLibraryPlaylist];
+
 		// Set up the progress indicator
-		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[[library tracks] count]] waitUntilDone:YES];
+		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[tracks count]] waitUntilDone:YES];
 		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMinValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 		
-		NSArray *tracks = [library tracks]; // Does this help prevent a crash (possibly from a mutating array)?
 		for (iTunesTrack *t in tracks) {
 			[trackData addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
 			
