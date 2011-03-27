@@ -1480,7 +1480,7 @@
 							<bool key="NSIsBordered">YES</bool>
 							<object class="NSColor" key="NSColor">
 								<int key="NSColorSpace">1</int>
-								<bytes key="NSRGB">MSAxIDEAA</bytes>
+								<bytes key="NSRGB">MCAwIDAAA</bytes>
 							</object>
 						</object>
 						<object class="NSColorWell" id="1031162642">
@@ -1497,7 +1497,7 @@
 							<bool key="NSIsBordered">YES</bool>
 							<object class="NSColor" key="NSColor">
 								<int key="NSColorSpace">1</int>
-								<bytes key="NSRGB">MCAwIDAAA</bytes>
+								<bytes key="NSRGB">MSAxIDEAA</bytes>
 							</object>
 						</object>
 						<object class="NSColorWell" id="586405257">
@@ -2310,66 +2310,6 @@ ZnJlZV9pY29ucw</bytes>
 					<int key="connectionID">886</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.TextColor</string>
-						<reference key="source" ref="297864496"/>
-						<reference key="destination" ref="600444374"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="297864496"/>
-							<reference key="NSDestination" ref="600444374"/>
-							<string key="NSLabel">value: values.TextColor</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.TextColor</string>
-							<dictionary key="NSOptions">
-								<boolean value="YES" key="NSValidatesImmediately"/>
-								<string key="NSValueTransformerName">NSUnarchiveFromData</string>
-							</dictionary>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">898</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.BackgroundColor</string>
-						<reference key="source" ref="1031162642"/>
-						<reference key="destination" ref="600444374"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="1031162642"/>
-							<reference key="NSDestination" ref="600444374"/>
-							<string key="NSLabel">value: values.BackgroundColor</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.BackgroundColor</string>
-							<dictionary key="NSOptions">
-								<boolean value="YES" key="NSValidatesImmediately"/>
-								<string key="NSValueTransformerName">NSUnarchiveFromData</string>
-							</dictionary>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">899</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.EditBackgroundColor</string>
-						<reference key="source" ref="586405257"/>
-						<reference key="destination" ref="600444374"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="586405257"/>
-							<reference key="NSDestination" ref="600444374"/>
-							<string key="NSLabel">value: values.EditBackgroundColor</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.EditBackgroundColor</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSValueTransformerName</string>
-								<string key="NS.object.0">NSUnarchiveFromData</string>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">906</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">saveDisplayedLyricsToCurrentlyPlayingTrack:</string>
 						<reference key="source" ref="932114003"/>
@@ -2440,6 +2380,70 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="destination" ref="1052381847"/>
 					</object>
 					<int key="connectionID">947</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.EditBackgroundColor</string>
+						<reference key="source" ref="586405257"/>
+						<reference key="destination" ref="600444374"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="586405257"/>
+							<reference key="NSDestination" ref="600444374"/>
+							<string key="NSLabel">value: values.EditBackgroundColor</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.EditBackgroundColor</string>
+							<dictionary key="NSOptions">
+								<boolean value="YES" key="NSValidatesImmediately"/>
+								<string key="NSValueTransformerName">NSUnarchiveFromData</string>
+							</dictionary>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">948</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.TextColor</string>
+						<reference key="source" ref="297864496"/>
+						<reference key="destination" ref="600444374"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="297864496"/>
+							<reference key="NSDestination" ref="600444374"/>
+							<string key="NSLabel">value: values.TextColor</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.TextColor</string>
+							<dictionary key="NSOptions">
+								<boolean value="NO" key="NSAllowsEditingMultipleValuesSelection"/>
+								<boolean value="NO" key="NSConditionallySetsEnabled"/>
+								<boolean value="YES" key="NSValidatesImmediately"/>
+								<string key="NSValueTransformerName">NSUnarchiveFromData</string>
+							</dictionary>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">952</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.BackgroundColor</string>
+						<reference key="source" ref="1031162642"/>
+						<reference key="destination" ref="600444374"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1031162642"/>
+							<reference key="NSDestination" ref="600444374"/>
+							<string key="NSLabel">value: values.BackgroundColor</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.BackgroundColor</string>
+							<dictionary key="NSOptions">
+								<boolean value="NO" key="NSAllowsEditingMultipleValuesSelection"/>
+								<boolean value="NO" key="NSConditionallySetsEnabled"/>
+								<boolean value="YES" key="NSValidatesImmediately"/>
+								<string key="NSValueTransformerName">NSUnarchiveFromData</string>
+							</dictionary>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">954</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3696,7 +3700,7 @@ ZnJlZV9pY29ucw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">947</int>
+			<int key="maxID">954</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

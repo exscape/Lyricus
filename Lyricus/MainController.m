@@ -44,9 +44,9 @@
 									   size:[[NSUserDefaults standardUserDefaults] floatForKey:@"FontSize"]]];
 
 	[lyricView bind:@"backgroundColor" toObject:[NSUserDefaultsController sharedUserDefaultsController]
- withKeyPath:@"values.BackgroundColor" options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:@"NSValueTransformerName"]];
+ withKeyPath:@"values.BackgroundColor" options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:NSValueTransformerNameBindingOption]];
 	
-	[lyricView bind:@"textColor" toObject:[NSUserDefaultsController sharedUserDefaultsController] withKeyPath:@"values.TextColor" options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:@"NSValueTransformerName"]];
+	[lyricView bind:@"textColor" toObject:[NSUserDefaultsController sharedUserDefaultsController] withKeyPath:@"values.TextColor" options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:NSValueTransformerNameBindingOption]];
 	
 	lyricController = [[LyricFetcher alloc] init];
 	helper = [iTunesHelper sharediTunesHelper];
@@ -543,6 +543,7 @@
 }
 
 - (IBAction) closePreferencesButton:(id) sender {
+
 	[lyricController updateSiteList];
 	if ([[lyricController sitesByPriority] count] == 0) {
 		// Make sure the user selects at least one site
@@ -550,6 +551,7 @@
 		return;
 	}
 	
+	[[NSColorPanel sharedColorPanel] close];
 	[NSApp endSheet:preferencesWindow];
 }
 
