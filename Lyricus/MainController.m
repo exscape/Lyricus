@@ -936,7 +936,7 @@ end_func:
 			continue;
 		}
 		else {
-			// User clicked abort; don't show the bulk downlader
+			// User clicked abort; don't show the bulk downloader
 			return;
 		}
 	}
@@ -945,6 +945,11 @@ end_func:
 
 	[bulkDownloader showBulkDownloader];
 }
+
+/*-(IBAction)showHelp:(id)sender {
+	NSString *locBookName = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleHelpBookName"];
+	[[NSHelpManager sharedHelpManager] openHelpAnchor:@"main"  inBook:locBookName];
+}*/
 
 -(IBAction)openLyricSearch:(id)sender {
     if (lyricSearch == nil) {

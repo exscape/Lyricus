@@ -357,25 +357,6 @@
 												<reference key="NSMixedImage" ref="1007003020"/>
 												<int key="NSTag">3</int>
 											</object>
-											<object class="NSMenuItem" id="159080638">
-												<reference key="NSMenu" ref="963351320"/>
-												<string key="NSTitle">Use Selection for Find</string>
-												<string key="NSKeyEquiv">e</string>
-												<int key="NSKeyEquivModMask">1048576</int>
-												<int key="NSMnemonicLoc">2147483647</int>
-												<reference key="NSOnImage" ref="347872383"/>
-												<reference key="NSMixedImage" ref="1007003020"/>
-												<int key="NSTag">7</int>
-											</object>
-											<object class="NSMenuItem" id="88285865">
-												<reference key="NSMenu" ref="963351320"/>
-												<string key="NSTitle">Jump to Selection</string>
-												<string key="NSKeyEquiv">j</string>
-												<int key="NSKeyEquivModMask">1048576</int>
-												<int key="NSMnemonicLoc">2147483647</int>
-												<reference key="NSOnImage" ref="347872383"/>
-												<reference key="NSMixedImage" ref="1007003020"/>
-											</object>
 										</array>
 									</object>
 								</object>
@@ -471,7 +452,7 @@
 								<object class="NSMenuItem" id="749049998">
 									<reference key="NSMenu" ref="789758025"/>
 									<string key="NSTitle">Edit mode enabled</string>
-									<string key="NSKeyEquiv">E</string>
+									<string key="NSKeyEquiv">e</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="347872383"/>
@@ -1855,14 +1836,6 @@ ZnJlZV9pY29ucw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">centerSelectionInVisibleArea:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="88285865"/>
-					</object>
-					<int key="connectionID">245</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleSmartInsertDelete:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="605118523"/>
@@ -2279,14 +2252,6 @@ ZnJlZV9pY29ucw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">performFindPanelAction:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="159080638"/>
-					</object>
-					<int key="connectionID">886</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">saveDisplayedLyricsToCurrentlyPlayingTrack:</string>
 						<reference key="source" ref="932114003"/>
 						<reference key="destination" ref="100208925"/>
@@ -2609,8 +2574,6 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="object" ref="963351320"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="270902937"/>
-							<reference ref="88285865"/>
-							<reference ref="159080638"/>
 							<reference ref="326711663"/>
 							<reference ref="447796847"/>
 						</array>
@@ -2619,16 +2582,6 @@ ZnJlZV9pY29ucw</bytes>
 					<object class="IBObjectRecord">
 						<int key="objectID">213</int>
 						<reference key="object" ref="270902937"/>
-						<reference key="parent" ref="963351320"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">210</int>
-						<reference key="object" ref="88285865"/>
-						<reference key="parent" ref="963351320"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">221</int>
-						<reference key="object" ref="159080638"/>
 						<reference key="parent" ref="963351320"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -3465,8 +3418,6 @@ ZnJlZV9pY29ucw</bytes>
 				<integer value="1" key="208.ImportedFromIB2"/>
 				<string key="209.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="209.ImportedFromIB2"/>
-				<string key="210.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<integer value="1" key="210.ImportedFromIB2"/>
 				<string key="211.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="211.ImportedFromIB2"/>
 				<string key="212.IBEditorWindowLastContentRect">{{416, 147}, {167, 43}}</string>
@@ -3485,8 +3436,6 @@ ZnJlZV9pY29ucw</bytes>
 				<string key="220.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="220.ImportedFromIB2"/>
 				<string key="220.editorWindowContentRectSynchronizationRect">{{327, 643}, {241, 103}}</string>
-				<string key="221.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<integer value="1" key="221.ImportedFromIB2"/>
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="23.ImportedFromIB2"/>
 				<string key="236.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
