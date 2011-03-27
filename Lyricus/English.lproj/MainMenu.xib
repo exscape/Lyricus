@@ -1222,6 +1222,7 @@
 							<string key="NSFrame">{{166, 12}, {67, 32}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="391153934">
 								<int key="NSCellFlags">67239424</int>
@@ -1251,7 +1252,7 @@
 											<string key="NSFrameSize">{213, 57}</string>
 											<reference key="NSSuperview" ref="744623873"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="279844268"/>
+											<reference key="NSNextKeyView" ref="672621495"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="656321158">
 												<reference key="NSNextResponder" ref="737090811"/>
@@ -1421,7 +1422,7 @@
 							<string key="NSFrame">{{20, 177}, {215, 75}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="744623873"/>
+							<reference key="NSNextKeyView" ref="279844268"/>
 							<int key="NSsFlags">2</int>
 							<reference key="NSVScroller" ref="279844268"/>
 							<reference key="NSHScroller" ref="551988961"/>
@@ -1661,7 +1662,7 @@
 											<string key="NSFrameSize">{235, 168}</string>
 											<reference key="NSSuperview" ref="952129484"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="794054711"/>
+											<reference key="NSNextKeyView" ref="848929836"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="368161160">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -1723,6 +1724,7 @@ ZnJlZV9pY29ucw</bytes>
 									<string key="NSFrame">{{236, 1}, {15, 89}}</string>
 									<reference key="NSSuperview" ref="671949539"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<bool key="NSEnabled">YES</bool>
 									<reference key="NSTarget" ref="671949539"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1745,7 +1747,7 @@ ZnJlZV9pY29ucw</bytes>
 							<string key="NSFrame">{{25, 20}, {252, 91}}</string>
 							<reference key="NSSuperview" ref="300256411"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="952129484"/>
+							<reference key="NSNextKeyView" ref="794054711"/>
 							<int key="NSsFlags">82</int>
 							<reference key="NSVScroller" ref="848929836"/>
 							<reference key="NSHScroller" ref="794054711"/>
@@ -3614,14 +3616,7 @@ ZnJlZV9pY29ucw</bytes>
 				<string key="872.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="873.IBEditorWindowLastContentRect">{{312, 286}, {265, 23}}</string>
 				<string key="873.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<object class="NSMutableDictionary" key="874.IBAttributePlaceholdersKey">
-					<string key="NS.key.0">ToolTip</string>
-					<object class="IBToolTipAttribute" key="NS.object.0">
-						<string key="name">ToolTip</string>
-						<reference key="object" ref="894435314"/>
-						<string key="toolTip">Opens a web browser containing the song lyrics + comments at songmeanings.net, if available</string>
-					</object>
-				</object>
+				<dictionary class="NSMutableDictionary" key="874.IBAttributePlaceholdersKey"/>
 				<string key="874.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="887.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="888.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3643,25 +3638,11 @@ ZnJlZV9pY29ucw</bytes>
 					</object>
 				</object>
 				<string key="914.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<object class="NSMutableDictionary" key="919.IBAttributePlaceholdersKey">
-					<string key="NS.key.0">ToolTip</string>
-					<object class="IBToolTipAttribute" key="NS.object.0">
-						<string key="name">ToolTip</string>
-						<reference key="object" ref="381776125"/>
-						<string key="toolTip">Opens a web browser containing the song lyrics + comments at songmeanings.net, if available</string>
-					</object>
-				</object>
+				<dictionary class="NSMutableDictionary" key="919.IBAttributePlaceholdersKey"/>
 				<string key="919.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="92.ImportedFromIB2"/>
-				<object class="NSMutableDictionary" key="922.IBAttributePlaceholdersKey">
-					<string key="NS.key.0">ToolTip</string>
-					<object class="IBToolTipAttribute" key="NS.object.0">
-						<string key="name">ToolTip</string>
-						<reference key="object" ref="377260755"/>
-						<string key="toolTip">Opens a web browser containing the song lyrics + comments at songmeanings.net, if available</string>
-					</object>
-				</object>
+				<dictionary class="NSMutableDictionary" key="922.IBAttributePlaceholdersKey"/>
 				<string key="922.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="925.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="925.ImportedFromIB2"/>

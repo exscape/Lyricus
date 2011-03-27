@@ -194,14 +194,15 @@
 		NSString *lyrics = [lyricController fetchLyricsForTrack:[track name] byArtist:[track artist] error:&err];
 		if (lyrics) {
 			@try { // Scripting bridge seems to be a bit unstable
-				errors_in_a_row = 0;
-				set_lyrics++;
 				[track setLyrics:lyrics];
 	
 				[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
 
 			} 
-			@catch (NSException *e) { set_lyrics--; }
+			@catch (NSException *e) { continue; }
+			
+			set_lyrics++;
+			errors_in_a_row = 0;
 		}
 		else if (err == nil) {
 			lyrics_not_found++;
@@ -215,6 +216,7 @@
 			[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
 
 		}
+		
 		if (errors_in_a_row >= 10) {
 			[thread cancel];
 			[[NSAlert alertWithMessageText:@"The bulk downloader aborted due to encountering too many errors." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that your internet connection is active. If possible, try enabling multiple sites in the Lyricus preferences."] runModal];
