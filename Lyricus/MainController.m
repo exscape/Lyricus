@@ -187,7 +187,7 @@
 	 @"\n"
 	 @"Thanks to:\n"
 	 @"John Engelhart\n"
-	 @"  http://regexkit.sourceforge.net\n"];
+	 @"  http://regexkit.sourceforge.net"];
 }
 
 -(IBAction) followiTunesCheckboxClicked:(id) sender {
