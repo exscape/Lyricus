@@ -29,7 +29,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
     }
     return sharedLyricFetcher;
 }
-2
+
 - (id)copyWithZone:(NSZone *)zone { 
 	return self; 
 } 

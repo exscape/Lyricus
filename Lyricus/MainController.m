@@ -568,20 +568,12 @@
 	[[lyricView textStorage] replaceCharactersInRange:NSMakeRange([[lyricView textStorage] length] - position - 1, 1) withAttributedString:attributedString];
 }
 
-
 -(void) updateStatus:(NSNotification *)note {
 	//
 	// Called when we receive a notification about the download progress.
-	// The checking whether the user wants these or not are on the *sending* site:
-	// In other words: if we get here, the user has requested them, so just display them:
+	// The check whether to send or not is on the *sending* side, so if we get here, just display them.
 	//
 	
-	// Don't show messages if the bulk downloader is asking for lyrics
-	/*
-	 // This is moved to be checked on the sending side.
-	if (bulkDownloader != nil && [bulkDownloader bulkDownloaderIsWorking])
-		return;
-	*/
 	NSDictionary *info = [note userInfo];
 	if (info == nil)
 		return;
@@ -595,17 +587,17 @@
 	}
 	else if (type == LyricusNoteStartedWorking) {
 		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:@"\t" waitUntilDone:YES];
-		[lyricView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.tif" waitUntilDone:YES];
+		[lyricView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.png" waitUntilDone:YES];
 		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:@" " waitUntilDone:YES];
 		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:text waitUntilDone:YES];
 		return;
 	}
 	else if (type == LyricusNoteSuccess) {
-		NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[text length]+ 1], @"position", @"icon_found.tif", @"imageName", nil];
+		NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[text length]+ 1], @"position", @"icon_found.png", @"imageName", nil];
 		[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
 	}
 	else if (type == LyricusNoteFailure) {
-		NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[text length] + 1], @"position", @"icon_notfound.tif", @"imageName", nil];
+		NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[text length] + 1], @"position", @"icon_notfound.png", @"imageName", nil];
 		[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
 	}
 	else {

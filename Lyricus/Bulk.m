@@ -46,20 +46,20 @@
 		
 	if (type == LyricusStartingWorkType) {
 		if (bulkDownloaderIsWorking) {
-			[resultView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.tif" waitUntilDone:YES];
+			[resultView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.png" waitUntilDone:YES];
 			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
 		}
 	}
 	
 	else if (type == LyricusFoundType) {		
 		if (bulkDownloaderIsWorking) {
-			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_found.tif", @"imageName", nil];
+			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_found.png", @"imageName", nil];
 			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
 		}
 	}
 	else if (type == LyricusNotFoundType) {
 		if (bulkDownloaderIsWorking) {
-			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_notfound.tif", @"imageName", nil];
+			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_notfound.png", @"imageName", nil];
 			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
 		}
 	}
