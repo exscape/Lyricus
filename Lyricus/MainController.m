@@ -46,6 +46,8 @@
 	[lyricView bind:@"backgroundColor" toObject:[NSUserDefaultsController sharedUserDefaultsController]
  withKeyPath:@"values.BackgroundColor" options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:@"NSValueTransformerName"]];
 	
+	[lyricView bind:@"textColor" toObject:[NSUserDefaultsController sharedUserDefaultsController] withKeyPath:@"values.TextColor" options:[NSDictionary dictionaryWithObject:NSUnarchiveFromDataTransformerName forKey:@"NSValueTransformerName"]];
+	
 	lyricController = [[LyricFetcher alloc] init];
 	helper = [iTunesHelper sharediTunesHelper];
 	
@@ -433,7 +435,7 @@
 	
 	NSString *lyricStr;
 
-	// This is done in a superclass in the lyric classes
+	// This is done in a superclass in the lyric classes, so we need to duplicate the code for this one instance
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateStatusNotification" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:LyricusNoteHeader], @"type", @"Trying iTunes...", @"Text", nil]];
 	
     NSError *err = nil;
@@ -575,16 +577,16 @@
 	//
 	
 	// Don't show messages if the bulk downloader is asking for lyrics
+	/*
+	 // This is moved to be checked on the sending side.
 	if (bulkDownloader != nil && [bulkDownloader bulkDownloaderIsWorking])
 		return;
-	
+	*/
 	NSDictionary *info = [note userInfo];
 	if (info == nil)
 		return;
 	NSString *text = [info objectForKey:@"Text"];
 	int type = [[info objectForKey:@"type"] intValue];
-	
-	 
 	
 	text = [text stringByAppendingString:@"\n"];
 
@@ -751,6 +753,7 @@
 		}
 	}
 }
+
 -(void) startTimerThread {
 	NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
 	notificationTimer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target: self selector: @selector(trackUpdated) userInfo: nil repeats: NO];

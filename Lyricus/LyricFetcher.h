@@ -12,9 +12,11 @@
 
 @interface LyricFetcher : NSObject {
 	NSMutableArray *sitesByPriority;
+	BOOL bulk;
 }
 
 @property (readonly) NSMutableArray *sitesByPriority;
+@property BOOL bulk;
 
 // Our face outwards
 -(NSString *)fetchLyricsForTrack:(NSString *)theTrack byArtist:(NSString *)theArtist error:(NSError **)error;

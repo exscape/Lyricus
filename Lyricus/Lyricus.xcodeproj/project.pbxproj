@@ -95,7 +95,7 @@
 		10DB27F10DACB28500BF57D3 /* Bulk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bulk.m; sourceTree = "<group>"; };
 		10DB28190DACB3AB00BF57D3 /* Bulk.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Bulk.xib; sourceTree = "<group>"; };
 		10E205AB0DABCF1B00F85A9F /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
-		10E207190DABE7CB00F85A9F /* LyricFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricFetcher.h; sourceTree = "<group>"; };
+		10E207190DABE7CB00F85A9F /* LyricFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; path = LyricFetcher.h; sourceTree = "<group>"; };
 		10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricFetcher.m; sourceTree = "<group>"; };
 		10E2076E0DABED8400F85A9F /* NSTextView+AppendString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+AppendString.h"; sourceTree = "<group>"; };
 		10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+AppendString.m"; sourceTree = "<group>"; };

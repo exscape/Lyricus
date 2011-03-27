@@ -12,8 +12,20 @@
 	if (theString == nil || [theString length] < 1)
 		return;
 	
-	[[self textStorage] replaceCharactersInRange:NSMakeRange([[self textStorage] length], 0) withAttributedString:
-	 [[NSAttributedString alloc] initWithString:theString]];
+	NSMutableAttributedString *attributedString = [[[NSAttributedString alloc] initWithString:theString] mutableCopy];
+	
+	NSColor *foreColor = [self textColor];
+	NSColor *backColor = [self backgroundColor];
+	if (foreColor == nil)
+		foreColor = [NSColor blackColor];
+	if (backColor == nil)
+		backColor = [NSColor whiteColor];
+	
+	[attributedString addAttribute:NSBackgroundColorAttributeName value:backColor range:NSMakeRange(0, [attributedString length])];
+	[attributedString addAttribute:NSForegroundColorAttributeName value:foreColor range:NSMakeRange(0, [attributedString length])];
+	
+	[[self textStorage] replaceCharactersInRange:NSMakeRange([[self textStorage] length], 0) withAttributedString:attributedString];
+
 	[self scrollRangeToVisible:NSMakeRange([[self textStorage] length], 0)];
 }
 
@@ -22,7 +34,18 @@
 	NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
 	NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
 	[attachment setAttachmentCell:attachmentCell];
-	NSAttributedString *attributedString = [NSAttributedString attributedStringWithAttachment:attachment];
+	NSMutableAttributedString *attributedString = [[NSAttributedString attributedStringWithAttachment:attachment] mutableCopy];
+	
+	NSColor *foreColor = [self textColor];
+	NSColor *backColor = [self backgroundColor];
+	if (foreColor == nil)
+		foreColor = [NSColor blackColor];
+	if (backColor == nil)
+		backColor = [NSColor whiteColor];
+
+	[attributedString addAttribute:NSBackgroundColorAttributeName value:backColor range:NSMakeRange(0, [attributedString length])];
+	[attributedString addAttribute:NSForegroundColorAttributeName value:foreColor range:NSMakeRange(0, [attributedString length])];
+	
 	[[self textStorage] appendAttributedString:attributedString];
 }
 

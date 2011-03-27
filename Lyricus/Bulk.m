@@ -73,6 +73,7 @@
 	if (self) {
 		playlists = [[NSMutableArray alloc] init];
 		lyricController = [[LyricFetcher alloc] init];
+		[lyricController setBulk:YES];
 		helper = [iTunesHelper sharediTunesHelper];
 		[self setBulkDownloaderIsWorking:NO];
 		

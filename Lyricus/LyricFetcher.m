@@ -8,7 +8,7 @@
 #import "RegexKitLite.h"
 
 @implementation LyricFetcher
-
+/*
 static LyricFetcher *sharedLyricFetcher = nil;
 
 +(LyricFetcher *)sharedLyricFetcher {
@@ -29,15 +29,16 @@ static LyricFetcher *sharedLyricFetcher = nil;
     }
     return sharedLyricFetcher;
 }
-
+2
 - (id)copyWithZone:(NSZone *)zone { 
 	return self; 
 } 
-
+*/
 -(LyricFetcher *)init {
     self = [super init];
 	if (self) {
 		[self updateSiteList];
+		[self setBulk:NO];
 	}
 	
 	return self;
@@ -47,6 +48,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
 #pragma mark Public
 
 @synthesize sitesByPriority;
+@synthesize bulk;
 
 -(NSString *)fetchLyricsForTrack:(NSString *)theTrack byArtist:(NSString *)theArtist error:(NSError **)error {
 	
@@ -67,7 +69,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
     NSString *lyrics = nil;
 
 	for (id site in sitesByPriority) {
-		lyrics = [site fetchLyricsForTrack:theTrack byArtist:theArtist error:error];
+		lyrics = [site fetchLyricsForTrack:theTrack byArtist:theArtist withBulk:bulk error:error];
 		if (lyrics != nil)
 			return lyrics;
     }
