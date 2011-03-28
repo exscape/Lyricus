@@ -16,6 +16,10 @@
 		105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A37930DA6AFA0007DEFF5 /* SitePriorities.m */; };
 		105ED1D9133E326D00A1D988 /* TBLyricSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 105ED1D8133E326D00A1D988 /* TBLyricSite.m */; };
 		107CD7350DAE4833003E0D32 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 107CD7340DAE4833003E0D32 /* icon.icns */; };
+		107D5DCF1340812B00195ABF /* NPReceiptVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 107D5DCE1340812B00195ABF /* NPReceiptVerification.m */; };
+		107D5DD11340819E00195ABF /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD01340819E00195ABF /* libcrypto.dylib */; };
+		107D5DD3134081A500195ABF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD2134081A500195ABF /* IOKit.framework */; };
+		107D5DD5134081AD00195ABF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD4134081AD00195ABF /* Security.framework */; };
 		109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109531F90DA12D9A001706FF /* TBDarklyrics.m */; };
 		109532100DA12EEB001706FF /* TBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1095320F0DA12EEB001706FF /* TBUtil.m */; };
 		1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */ = {isa = PBXBuildFile; fileRef = 109532690DA1325E001706FF /* TBSongmeanings.m */; };
@@ -77,6 +81,11 @@
 		105ED1D7133E326D00A1D988 /* TBLyricSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLyricSite.h; sourceTree = "<group>"; };
 		105ED1D8133E326D00A1D988 /* TBLyricSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLyricSite.m; sourceTree = "<group>"; };
 		107CD7340DAE4833003E0D32 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		107D5DCD1340812B00195ABF /* NPReceiptVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPReceiptVerification.h; sourceTree = "<group>"; };
+		107D5DCE1340812B00195ABF /* NPReceiptVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPReceiptVerification.m; sourceTree = "<group>"; };
+		107D5DD01340819E00195ABF /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		107D5DD2134081A500195ABF /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		107D5DD4134081AD00195ABF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		109531F80DA12D9A001706FF /* TBDarklyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDarklyrics.h; sourceTree = "<group>"; };
 		109531F90DA12D9A001706FF /* TBDarklyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBDarklyrics.m; sourceTree = "<group>"; };
 		1095320E0DA12EEB001706FF /* TBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBUtil.h; sourceTree = "<group>"; };
@@ -119,6 +128,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				107D5DD5134081AD00195ABF /* Security.framework in Frameworks */,
+				107D5DD3134081A500195ABF /* IOKit.framework in Frameworks */,
+				107D5DD11340819E00195ABF /* libcrypto.dylib in Frameworks */,
 				10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */,
@@ -211,6 +223,9 @@
 		29B97314FDCFA39411CA2CEA /* Lyricreader */ = {
 			isa = PBXGroup;
 			children = (
+				107D5DD4134081AD00195ABF /* Security.framework */,
+				107D5DD2134081A500195ABF /* IOKit.framework */,
+				107D5DD01340819E00195ABF /* libcrypto.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -244,6 +259,8 @@
 				107CD7340DAE4833003E0D32 /* icon.icns */,
 				10DB28190DACB3AB00BF57D3 /* Bulk.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				107D5DCD1340812B00195ABF /* NPReceiptVerification.h */,
+				107D5DCE1340812B00195ABF /* NPReceiptVerification.m */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 			);
 			name = Resources;
@@ -347,6 +364,7 @@
 				1041B7CA1333B4CA003F4429 /* LyricSearchController.m in Sources */,
 				109B44C813360BF100CD4A43 /* TBAZLyrics.m in Sources */,
 				105ED1D9133E326D00A1D988 /* TBLyricSite.m in Sources */,
+				107D5DCF1340812B00195ABF /* NPReceiptVerification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +410,9 @@
 		10F664C60DA7A94100D3881C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Thomas Backman";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -418,7 +438,9 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Thomas Backman";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
