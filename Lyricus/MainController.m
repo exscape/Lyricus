@@ -836,8 +836,6 @@
 	
 end_return:
 	lyricsDisplayed = YES; // To make sure edit mode isn't bugged when adding new lyrics to a track
-	
-	
 	[self disableEditMode];
 
 	return ret;
@@ -945,11 +943,6 @@ end_func:
 
 	[bulkDownloader showBulkDownloader];
 }
-
-/*-(IBAction)showHelp:(id)sender {
-	NSString *locBookName = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleHelpBookName"];
-	[[NSHelpManager sharedHelpManager] openHelpAnchor:@"main"  inBook:locBookName];
-}*/
 
 -(IBAction)openLyricSearch:(id)sender {
     if (lyricSearch == nil) {

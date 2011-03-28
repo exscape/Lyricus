@@ -116,6 +116,7 @@
 	[playlists addObject:@"[Entire library]"];
 	[playlists addObject:@"[Selected tracks]"];
 
+	//	 TODO: Show folders; differ between smart and regular playlists
 	for (iTunesPlaylist *pl in [helper getAllPlaylists]) {
 		[playlists addObject:[pl name]];
 	}
@@ -159,7 +160,7 @@
 	
 	for (iTunesTrack *track in theTracks) {
 		count++;
-		[statusLabel setStringValue:[NSString stringWithFormat:@"Working... %d/%u", count, numberOfTracks]];
+		[statusLabel setStringValue:[NSString stringWithFormat:@"Processing... %d/%u", count, numberOfTracks]];
 		
 		if ([thread isCancelled]) {
 			goto restore_settings; 	// We can't just break as that would display the window with stats, etc. The user *closed* the window,
@@ -317,7 +318,12 @@ restore_settings:
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
-	return [playlists objectAtIndex:rowIndex];
+	//	NSLog(@"%@:%d", [aTableColumn identifier], rowIndex);
+	if ([[aTableColumn identifier] isEqualToString:@"PlaylistIcon"])
+#warning FIXME, other icon types
+		return [NSImage imageNamed:@"iTunes-playlist.png"];
+	else if ([[aTableColumn identifier] isEqualToString:@"PlaylistName"])
+		return [playlists objectAtIndex:rowIndex];
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {

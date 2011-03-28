@@ -20,6 +20,9 @@
 		107D5DD11340819E00195ABF /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD01340819E00195ABF /* libcrypto.dylib */; };
 		107D5DD3134081A500195ABF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD2134081A500195ABF /* IOKit.framework */; };
 		107D5DD5134081AD00195ABF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD4134081AD00195ABF /* Security.framework */; };
+		1093C0481340D4AE00F5BC98 /* iTunes-folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0451340D4AE00F5BC98 /* iTunes-folder.png */; };
+		1093C0491340D4AE00F5BC98 /* iTunes-playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */; };
+		1093C04A1340D4AE00F5BC98 /* iTunes-smart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0471340D4AE00F5BC98 /* iTunes-smart.png */; };
 		109531FA0DA12D9A001706FF /* TBDarklyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109531F90DA12D9A001706FF /* TBDarklyrics.m */; };
 		109532100DA12EEB001706FF /* TBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1095320F0DA12EEB001706FF /* TBUtil.m */; };
 		1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */ = {isa = PBXBuildFile; fileRef = 109532690DA1325E001706FF /* TBSongmeanings.m */; };
@@ -86,6 +89,9 @@
 		107D5DD01340819E00195ABF /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		107D5DD2134081A500195ABF /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		107D5DD4134081AD00195ABF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1093C0451340D4AE00F5BC98 /* iTunes-folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-folder.png"; sourceTree = "<group>"; };
+		1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-playlist.png"; sourceTree = "<group>"; };
+		1093C0471340D4AE00F5BC98 /* iTunes-smart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-smart.png"; sourceTree = "<group>"; };
 		109531F80DA12D9A001706FF /* TBDarklyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDarklyrics.h; sourceTree = "<group>"; };
 		109531F90DA12D9A001706FF /* TBDarklyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBDarklyrics.m; sourceTree = "<group>"; };
 		1095320E0DA12EEB001706FF /* TBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBUtil.h; sourceTree = "<group>"; };
@@ -250,6 +256,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1093C0451340D4AE00F5BC98 /* iTunes-folder.png */,
+				1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */,
+				1093C0471340D4AE00F5BC98 /* iTunes-smart.png */,
 				10CB744C133F68CA00D9FB98 /* help */,
 				10CB7448133F389200D9FB98 /* icon_found.png */,
 				10CB7449133F389200D9FB98 /* icon_notfound.png */,
@@ -337,6 +346,9 @@
 				10CB744A133F389200D9FB98 /* icon_found.png in Resources */,
 				10CB744B133F389200D9FB98 /* icon_notfound.png in Resources */,
 				10CB744D133F68CA00D9FB98 /* help in Resources */,
+				1093C0481340D4AE00F5BC98 /* iTunes-folder.png in Resources */,
+				1093C0491340D4AE00F5BC98 /* iTunes-playlist.png in Resources */,
+				1093C04A1340D4AE00F5BC98 /* iTunes-smart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
