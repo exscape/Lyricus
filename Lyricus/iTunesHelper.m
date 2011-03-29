@@ -89,7 +89,8 @@ static iTunesHelper *sharediTunesHelper = nil;
 				if (!pl)
 					continue;
 				int kind = [pl specialKind];
-				if (kind == iTunesESpKNone || kind == 'kVdN' || kind == iTunesESpKFolder) // This changed between iTunes versions. Uh. Let's support both.
+				if (kind == iTunesESpKNone || kind == iTunesESpKFolder || kind == iTunesESpKLibrary || kind == iTunesESpKPartyShuffle)
+				//				if (kind == iTunesESpKNone || kind == 'kVdN' || kind == iTunesESpKFolder || kind == iTunesESpKMusic) // This changed between iTunes versions. Uh. Let's support both.
 					[playlistArray addObject:[pl get]];
 			}
 		}

@@ -124,10 +124,15 @@
 	NSImage *image;
     if ([[tableColumn identifier] isEqualToString: @"PlaylistName"]) 
 	{
-		if ([[item playlist] specialKind] == iTunesESpKFolder)
+		iTunesESpK kind = [[item playlist] specialKind];
+		if (kind == iTunesESpKFolder)
 			image = [NSImage imageNamed:@"iTunes-folder.png"];
+		else if (kind == iTunesESpKPartyShuffle)
+			image = [NSImage imageNamed:@"iTunes-DJ.png"];
+		else if (kind == iTunesESpKLibrary)
+			image = [NSImage imageNamed:@"iTunes-library.png"];
 		else {
-			// This is a playlist
+			// This a playlist, smart or regular
 			if ([[item playlist] respondsToSelector:@selector(smart)] &&
 				[[item playlist] performSelector:@selector(smart)]) {
 				image = [NSImage imageNamed:@"iTunes-smart.png"];
@@ -140,8 +145,8 @@
 }
 
 -(void)outlineViewSelectionDidChange:(NSNotification *)notification {
-		if ([playlistView selectedRow] >= 0)
-			[goButton setEnabled:YES];
+	if ([playlistView selectedRow] >= 0)
+		[goButton setEnabled:YES];
 }
 
 

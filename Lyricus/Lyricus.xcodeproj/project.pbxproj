@@ -12,6 +12,8 @@
 		101BC6EA133293A20055D720 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 101BC6E9133293A20055D720 /* RegexKitLite.m */; };
 		101CEE801342176900C9A426 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 101CEE7D1342176900C9A426 /* ImageAndTextCell.m */; };
 		101CEE811342176900C9A426 /* PlaylistObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 101CEE7F1342176900C9A426 /* PlaylistObject.m */; };
+		101CEE83134221F700C9A426 /* iTunes-DJ.png in Resources */ = {isa = PBXBuildFile; fileRef = 101CEE82134221F700C9A426 /* iTunes-DJ.png */; };
+		101CEE85134222AF00C9A426 /* iTunes-library.png in Resources */ = {isa = PBXBuildFile; fileRef = 101CEE84134222AF00C9A426 /* iTunes-library.png */; };
 		1027289F0DB2A81900E644E1 /* iTunesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1027289E0DB2A81900E644E1 /* iTunesHelper.m */; };
 		1041B7C71333B49F003F4429 /* LyricSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1041B7C61333B49F003F4429 /* LyricSearch.xib */; };
 		1041B7CA1333B4CA003F4429 /* LyricSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1041B7C91333B4CA003F4429 /* LyricSearchController.m */; };
@@ -79,6 +81,8 @@
 		101CEE7D1342176900C9A426 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
 		101CEE7E1342176900C9A426 /* PlaylistObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistObject.h; sourceTree = "<group>"; };
 		101CEE7F1342176900C9A426 /* PlaylistObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistObject.m; sourceTree = "<group>"; };
+		101CEE82134221F700C9A426 /* iTunes-DJ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-DJ.png"; sourceTree = "<group>"; };
+		101CEE84134222AF00C9A426 /* iTunes-library.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-library.png"; sourceTree = "<group>"; };
 		1027289D0DB2A81900E644E1 /* iTunesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesHelper.h; sourceTree = "<group>"; };
 		1027289E0DB2A81900E644E1 /* iTunesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesHelper.m; sourceTree = "<group>"; };
 		1041B7C61333B49F003F4429 /* LyricSearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LyricSearch.xib; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				101CEE84134222AF00C9A426 /* iTunes-library.png */,
+				101CEE82134221F700C9A426 /* iTunes-DJ.png */,
 				1093C0451340D4AE00F5BC98 /* iTunes-folder.png */,
 				1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */,
 				1093C0471340D4AE00F5BC98 /* iTunes-smart.png */,
@@ -359,6 +365,8 @@
 				1093C0481340D4AE00F5BC98 /* iTunes-folder.png in Resources */,
 				1093C0491340D4AE00F5BC98 /* iTunes-playlist.png in Resources */,
 				1093C04A1340D4AE00F5BC98 /* iTunes-smart.png in Resources */,
+				101CEE83134221F700C9A426 /* iTunes-DJ.png in Resources */,
+				101CEE85134222AF00C9A426 /* iTunes-library.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
