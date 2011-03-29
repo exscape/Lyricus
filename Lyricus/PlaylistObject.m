@@ -43,10 +43,6 @@
 	[children addObject:pl];
 }
 
--(BOOL) isRootItem {
-	return ([playlist parent] == nil);
-}
-
 -(NSString *)description {
 	return [playlist name];
 }

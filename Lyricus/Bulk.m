@@ -8,6 +8,7 @@
 #import "NSTextView+AppendString.h"
 #import "NSProgressIndicator+ThreadSafeUpdating.h"
 #import "PlaylistObject.h"
+#import "TrackObject.h"
 #import "ImageAndTextCell.h"
 
 #define LyricusStartingWorkType 1
@@ -17,55 +18,6 @@
 @implementation Bulk
 
 @synthesize bulkDownloaderIsWorking;
-
--(NSString *)stringByTruncatingToMaxWidth:(NSString *)string {
-	// Truncate the string, if necessary, to fit on a single line
-	NSSize size = [string sizeWithAttributes: [NSDictionary dictionaryWithObject: [resultView font] forKey: NSFontAttributeName]];
-	NSString *outString = [string copy];
-	while (size.width > 340) {
-		outString = [outString substringWithRange:NSMakeRange(0, [outString length]-6)];
-		outString = [outString stringByAppendingString:@"..."];
-		size = [outString sizeWithAttributes: [NSDictionary dictionaryWithObject: [resultView font] forKey: NSFontAttributeName]];
-	}
-	
-	return [outString stringByAppendingString:@"\n"];
-}
-
--(void)doReplace:(NSDictionary *)dict {
-	NSImage *image = [NSImage imageNamed:[dict objectForKey:@"imageName"]];
-	NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
-	NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-	[attachment setAttachmentCell:attachmentCell];
-	NSAttributedString *attributedString = [NSAttributedString attributedStringWithAttachment:attachment];
-	
-	int position = [[dict objectForKey:@"position"] intValue];
-	[[resultView textStorage] replaceCharactersInRange:NSMakeRange([[resultView textStorage] length] - position - 1, 1) withAttributedString:attributedString];
-}
-
--(void)progressUpdateWithType:(int) type andString: (NSString *)string {
-	
-	string = [self stringByTruncatingToMaxWidth:string];
-	
-	if (type == LyricusStartingWorkType) {
-		if (bulkDownloaderIsWorking) {
-			[resultView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.png" waitUntilDone:YES];
-			[resultView performSelectorOnMainThread:@selector(appendString:) withObject:string waitUntilDone:YES];
-		}
-	}
-	
-	else if (type == LyricusFoundType) {		
-		if (bulkDownloaderIsWorking) {
-			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_found.png", @"imageName", nil];
-			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
-		}
-	}
-	else if (type == LyricusNotFoundType) {
-		if (bulkDownloaderIsWorking) {
-			NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[string length]], @"position", @"icon_notfound.png", @"imageName", nil];
-			[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
-		}
-	}
-}
 
 #pragma mark -
 #pragma mark Init stuff
@@ -78,15 +30,8 @@
 	return nil;
 }
 
-
 #pragma mark -
 #pragma mark NSOutlineView methods
-/*
-- (CGFloat)outlineView:(NSOutlineView *)outlineView heightOfRowByItem:(id)item
-{
-	return 30;
-}
-*/
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
 	if (item == nil) {
@@ -148,10 +93,11 @@
 
 }
 
-
 -(void)outlineViewSelectionDidChange:(NSNotification *)notification {
-	if ([playlistView selectedRow] >= 0)
+	if ([playlistView selectedRow] >= 0) {
 		[goButton setEnabled:YES];
+		[self loadTracks];
+	}
 }
 
 
@@ -163,11 +109,15 @@
 	return nil;
 }
 
+#pragma mark -
+#pragma Misc.
+
 -(id) initWithWindowNibName:(NSString *)windowNibName {
     self = [super initWithWindowNibName:windowNibName];
 	if (self) {
 		playlists = [[NSMutableArray alloc] init];
 		rootObjects = [[NSMutableArray alloc] init];
+		tracks = [[NSMutableArray alloc] init];
 		lyricController = [[LyricFetcher alloc] init];
 		[lyricController setBulk:YES];
 		helper = [iTunesHelper sharediTunesHelper];
@@ -197,6 +147,7 @@
 		return NO;
 	}
 }
+
 -(void)repopulatePlaylistView {
 	[playlists removeAllObjects];
 	[rootObjects removeAllObjects];
@@ -225,7 +176,6 @@
 }
 
 -(void) windowDidLoad {
-	[resultView setString:@"Select a playlist from the list on the left and click \"Go\" to fetch lyrics for the tracks in the playlist."];
 	
 	NSTableColumn *tableColumn = nil;
 	ImageAndTextCell *imageAndTextCell = nil;
@@ -240,9 +190,54 @@
 
 	[self repopulatePlaylistView];
 	
-		[self showBulkDownloader];
+	[self showBulkDownloader];
 	[playlistView setIndentationPerLevel:16.0];
 	[playlistView setIndentationMarkerFollowsCell:YES];
+	
+	///
+	// FIXME
+	///
+	[self loadTracks];
+}
+
+-(void) loadTracks {
+	[tracks removeAllObjects];
+
+	//
+	// FIXME
+	//
+	PlaylistObject *playlist = [playlists objectAtIndex:0];
+	
+	SBElementArray *tmpTracks = [[playlist playlist] tracks]; // no [get]
+	NSArray *tmpArtists = [tmpTracks arrayByApplyingSelector:@selector(artist)];
+	NSArray *tmpNames = [tmpTracks arrayByApplyingSelector:@selector(name)];
+	for (int i=0; i < [tmpArtists count]; i++) {
+		[tracks addObject:
+		 [[TrackObject alloc] initWithTrack: [tmpTracks objectAtIndex: i] Artist:[tmpArtists objectAtIndex: i] Name: [tmpNames objectAtIndex: i]]
+		 ];
+	}
+	
+	[trackView reloadData];
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
+	return [tracks count];
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
+{
+	if ([[aTableColumn identifier] isEqualToString:@"Checkbox"]) {
+		//		return [[tracks objectAtIndex:rowIndex] processed];
+		return [NSNumber numberWithBool:YES];
+	}
+	else if ([[aTableColumn identifier] isEqualToString:@"Artist"]) {
+		return [[tracks objectAtIndex:rowIndex] artist];
+	}
+	else if ([[aTableColumn identifier] isEqualToString:@"Name"]) {
+		return [[tracks objectAtIndex:rowIndex] name];
+	}
+	else
+		return nil;
 }
 
 -(void)windowDidBecomeMain:(NSNotification *)notification {
@@ -268,10 +263,14 @@
     [self.window makeKeyAndOrderFront:self];
 }
 
+/*-(void)setCheckMarkForTrack:(TrackObject *)track toState:(BOOL)state {
+	[trackView setNeedsDisplayInRect:[trackView rectOfRow:[tracks indexOfObject:track]]];
+}*/
+
 #pragma mark -
 #pragma mark Worker and main methods
-
--(void)dirtyWorker:(NSMutableArray *)theTracks {
+/*
+-(void)dirtyWorker:(id)unused {
 	NSString *trackTitle;
 	int count = 0;
 	
@@ -318,10 +317,10 @@
 		@try {
 			trackTitle = [NSString stringWithFormat:@" %@ - %@", [track artist], [track name]];
 			
-			[self progressUpdateWithType:LyricusStartingWorkType andString:trackTitle];
+			//	[self progressUpdateWithType:LyricusStartingWorkType andString:trackTitle];
 			
 			if ([[track lyrics] length] > 8) { 
-				[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
+				//		[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
 				had_lyrics++;
 				// DON'T update errors_in_a_row since we don't know if searching would have worked or not
 				continue;
@@ -334,7 +333,7 @@
 			@try { // Scripting bridge seems to be a bit unstable
 				[track setLyrics:lyrics];
 				
-				[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
+				//		[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
 				
 			} 
 			@catch (NSException *e) { continue; }
@@ -346,12 +345,12 @@
 			lyrics_not_found++;
 			errors_in_a_row = 0;
 			
-			[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
+			//		[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
 		}
         else {
 			errors_in_a_row++;
 			lyrics_not_found++;
-			[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
+			//		[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
 			
 		}
 		
@@ -363,9 +362,9 @@
 		
 	}
 	
-	trackTitle = [NSString stringWithFormat:@"\nFound and set lyrics for %d tracks\n%d tracks already had lyrics\nCouldn't find lyrics for %d tracks\n",
-				  set_lyrics, had_lyrics, lyrics_not_found];
-	[resultView performSelectorOnMainThread:@selector(appendString:) withObject:trackTitle waitUntilDone:YES];
+	//	trackTitle = [NSString stringWithFormat:@"\nFound and set lyrics for %d tracks\n%d tracks already had lyrics\nCouldn't find lyrics for %d tracks\n",
+	//				  set_lyrics, had_lyrics, lyrics_not_found];
+	//[resultView performSelectorOnMainThread:@selector(appendString:) withObject:trackTitle waitUntilDone:YES];
 	
 	[self showBulkDownloader];
 	[[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.", count]
@@ -380,7 +379,7 @@ restore_settings:
 	
 	// NO more code goes here!
 }
-
+*/
 -(IBAction)goButtonClicked:(id)sender {
 	//
 	// The user clicked "go"
@@ -400,9 +399,9 @@ restore_settings:
 	
 	[lyricController updateSiteList];
 	
-	NSString *plName = [[playlistView itemAtRow:[playlistView selectedRow]] name];
+	//NSString *plName = [[playlistView itemAtRow:[playlistView selectedRow]] name];
 
-	NSArray *tracks;	
+/*	NSArray *tracks;	
 	
 	if ([plName isEqualToString:@"[Selected tracks]"]) {
 		tracks = [helper getSelectedTracks];
@@ -433,13 +432,14 @@ restore_settings:
 	}
 	
 	// Clear the view, in case this isn't the first run
-	[resultView setString:@""];
-	[resultView appendString:[NSString stringWithFormat:@"Starting lyric download for %d tracks\n\n", [tracks count]]];	
+	//	[resultView setString:@""];
+	//  [resultView appendString:[NSString stringWithFormat:@"Starting lyric download for %d tracks\n\n", [tracks count]]];	
 	
 	[self setBulkDownloaderIsWorking:YES];
 	// Start the worker thread
 	thread = [[NSThread alloc] initWithTarget:self selector:@selector(dirtyWorker:) object:tracks];
 	[thread start];
+*/
 }
 
 @end
