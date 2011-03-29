@@ -225,7 +225,7 @@
 }
 
 -(void) windowDidLoad {
-	[resultView setString:@"Select a playlist from the list on the left and click \"Go\" to fetch lyrics for the playlist."];
+	[resultView setString:@"Select a playlist from the list on the left and click \"Go\" to fetch lyrics for the tracks in the playlist."];
 	
 	NSTableColumn *tableColumn = nil;
 	ImageAndTextCell *imageAndTextCell = nil;
