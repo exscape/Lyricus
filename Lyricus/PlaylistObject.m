@@ -13,22 +13,27 @@
 
 @synthesize playlist;
 @synthesize children;
+@synthesize name;
+@synthesize smart;
+@synthesize specialKind;
 
 - (id)init {
-    self = [super init];
-    if (self) {
-		self.playlist = nil;
-		children = [[NSMutableArray alloc] init];
-    }
-    
-    return self;
+	return nil;
 }
 
 - (id)initWithPlaylist:(iTunesPlaylist *)pl {
 	self = [super init];
 	if (self) {
-		self.playlist = pl;
+		playlist = pl;
 		children = [[NSMutableArray alloc] init];
+		name = [[pl name] copy];
+		specialKind = [pl specialKind];
+		if ([pl respondsToSelector:@selector(smart)] &&
+			[pl performSelector:@selector(smart)]) {
+			smart = YES;
+		}
+		else
+			smart = NO;
 	}
 	
 	return self;

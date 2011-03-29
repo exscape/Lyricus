@@ -8,7 +8,6 @@
 #import "TBLyricSite.h"
 
 @interface TBSongmeanings : TBLyricSite {
-	TBUtil *util;
 }
 
 //

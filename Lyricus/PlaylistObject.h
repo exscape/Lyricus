@@ -13,12 +13,19 @@
 @private
 	iTunesPlaylist *playlist;
 	NSMutableArray *children;
+	NSString *name;
+	BOOL smart;
+	iTunesESpK specialKind;
     
 }
 - (id)initWithPlaylist:(iTunesPlaylist *)pl;
 -(void) addChild:(PlaylistObject *)pl;
 
-@property (retain) iTunesPlaylist *playlist;
+@property (retain, readonly) iTunesPlaylist *playlist;
 @property (retain, readonly) NSMutableArray *children;
+@property (retain, readonly) NSString *name;
+@property (readonly) BOOL smart;
+@property (readonly) iTunesESpK specialKind;
+
 
 @end

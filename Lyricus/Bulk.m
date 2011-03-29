@@ -72,7 +72,7 @@
 
 -(PlaylistObject *)getPlaylistObjectForName:(NSString *)name {
 	for (PlaylistObject *plo in playlists) {
-		if ([[[plo playlist] name] isEqualToString:name])
+		if ([[plo name] isEqualToString:name])
 			return plo;
 	}
 	return nil;
@@ -112,7 +112,7 @@
 }
 
 -(BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
-	return ([[item playlist] specialKind] != iTunesESpKFolder);
+	return ([item specialKind] != iTunesESpKFolder);
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
@@ -124,7 +124,7 @@
 	NSImage *image;
     if ([[tableColumn identifier] isEqualToString: @"PlaylistName"]) 
 	{
-		iTunesESpK kind = [[item playlist] specialKind];
+		iTunesESpK kind = [item specialKind];
 		if (kind == iTunesESpKFolder)
 			image = [NSImage imageNamed:@"iTunes-folder.png"];
 		else if (kind == iTunesESpKPartyShuffle)
@@ -133,8 +133,7 @@
 			image = [NSImage imageNamed:@"iTunes-library.png"];
 		else {
 			// This a playlist, smart or regular
-			if ([[item playlist] respondsToSelector:@selector(smart)] &&
-				[[item playlist] performSelector:@selector(smart)]) {
+			if ([item smart]) {
 				image = [NSImage imageNamed:@"iTunes-smart.png"];
 			}
 			else
@@ -144,6 +143,7 @@
 	}
 }
 
+
 -(void)outlineViewSelectionDidChange:(NSNotification *)notification {
 	if ([playlistView selectedRow] >= 0)
 		[goButton setEnabled:YES];
@@ -152,7 +152,7 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
 	if ([[tableColumn identifier] isEqualToString:@"PlaylistName"]) {
-		return [[item playlist] name];
+		return [item name];
 	}
 	
 	return nil;
@@ -192,24 +192,9 @@
 		return NO;
 	}
 }
-
--(void) windowDidLoad {
-	[resultView setString:@"Select a playlist from the list on the left and click \"Go\" to fetch lyrics for the playlist."];
-	
-	NSTableColumn *tableColumn = nil;
-	ImageAndTextCell *imageAndTextCell = nil;
-	
-	tableColumn = [playlistView tableColumnWithIdentifier: @"PlaylistName"];
-	imageAndTextCell = [[[ImageAndTextCell alloc] init] autorelease];
-	[imageAndTextCell setEditable:YES];
-	[tableColumn setDataCell:imageAndTextCell];
-	
-	
-	//	playlists = [[NSMutableArray alloc] init];
-	//	rootObjects = [[NSMutableArray alloc] init];
-	[playlistView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleSourceList];
-	helper = [iTunesHelper sharediTunesHelper];
-	
+-(void)repopulatePlaylistView {
+	[playlists removeAllObjects];
+	[rootObjects removeAllObjects];
 	for (iTunesPlaylist* currentPlaylist in [helper getAllPlaylistsAndFolders]) {
 		PlaylistObject *o = [[PlaylistObject alloc] initWithPlaylist: currentPlaylist];
 		
@@ -232,11 +217,28 @@
 	}
 	
 	[playlistView reloadData];
+}
+
+-(void) windowDidLoad {
+	[resultView setString:@"Select a playlist from the list on the left and click \"Go\" to fetch lyrics for the playlist."];
+	
+	NSTableColumn *tableColumn = nil;
+	ImageAndTextCell *imageAndTextCell = nil;
+	
+	tableColumn = [playlistView tableColumnWithIdentifier: @"PlaylistName"];
+	imageAndTextCell = [[[ImageAndTextCell alloc] init] autorelease];
+	[imageAndTextCell setEditable:YES];
+	[tableColumn setDataCell:imageAndTextCell];
+	
+	[playlistView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleSourceList];
+	helper = [iTunesHelper sharediTunesHelper];
+
+	[self repopulatePlaylistView];
 	//[playlistView expandItem:nil expandChildren:YES];
-	[playlistView setIndentationPerLevel:16.0];
-	[playlistView setIndentationMarkerFollowsCell:YES];
 	
 	[self showBulkDownloader];
+	[playlistView setIndentationPerLevel:16.0];
+	[playlistView setIndentationMarkerFollowsCell:YES];
 }
 
 -(void)showBulkDownloader {
@@ -244,12 +246,12 @@
 	// Initialize and fetch the list of playlists
 	//
 	/*	[playlists removeAllObjects];
-	 
-	 [playlists addObject:@"[Entire library]"];
-	 [playlists addObject:@"[Selected tracks]"];*/
+	 */
+	// [playlists addObject:@"[Selected tracks]"];
+	//	[self repopulatePlaylistView];
 	
 	
-    [playlistView reloadData];
+    //[playlistView reloadData];
 	
 	[statusLabel setStringValue:@"Idle"];	
 	[self setBulkDownloaderIsWorking:NO];
@@ -389,16 +391,12 @@ restore_settings:
 	
 	[lyricController updateSiteList];
 	
-	NSInteger row = [playlistView selectedRow];
-	
-	NSString *plName = [[[playlists objectAtIndex:row] playlist] name];
+	NSString *plName = [[playlistView itemAtRow:[playlistView selectedRow]] name];
+
 	NSArray *tracks;	
 	
 	if ([plName isEqualToString:@"[Selected tracks]"]) {
 		tracks = [helper getSelectedTracks];
-	}
-	else if ([plName isEqualToString:@"[Entire library]"]) {
-		tracks = [helper getTracksForLibraryPlaylist];
 	}
 	else
 		tracks = [helper getTracksForPlaylist:plName];
@@ -427,7 +425,6 @@ restore_settings:
 	
 	// Clear the view, in case this isn't the first run
 	[resultView setString:@""];
-	
 	[resultView appendString:[NSString stringWithFormat:@"Starting lyric download for %d tracks\n\n", [tracks count]]];	
 	
 	[self setBulkDownloaderIsWorking:YES];
