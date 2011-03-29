@@ -234,11 +234,18 @@
 	helper = [iTunesHelper sharediTunesHelper];
 
 	[self repopulatePlaylistView];
-	//[playlistView expandItem:nil expandChildren:YES];
 	
-	[self showBulkDownloader];
+		[self showBulkDownloader];
 	[playlistView setIndentationPerLevel:16.0];
 	[playlistView setIndentationMarkerFollowsCell:YES];
+}
+
+-(void)windowDidBecomeMain:(NSNotification *)notification {
+	[self repopulatePlaylistView];
+	[playlistView reloadData];
+	
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Auto-expand playlist view"])
+		[playlistView expandItem:nil expandChildren:YES];
 }
 
 -(void)showBulkDownloader {
@@ -248,10 +255,7 @@
 	/*	[playlists removeAllObjects];
 	 */
 	// [playlists addObject:@"[Selected tracks]"];
-	//	[self repopulatePlaylistView];
-	
-	
-    //[playlistView reloadData];
+	//[self repopulatePlaylistView];
 	
 	[statusLabel setStringValue:@"Idle"];	
 	[self setBulkDownloaderIsWorking:NO];

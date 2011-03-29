@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">10J3250</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1305</string>
+			<string key="NS.object.0">1306</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSTableColumn</string>
@@ -1154,7 +1154,7 @@
 			<object class="NSWindowTemplate" id="97880315">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 182}, {247, 272}}</string>
+				<string key="NSWindowRect">{{196, 182}, {247, 292}}</string>
 				<int key="NSWTFlags">603979776</int>
 				<string key="NSWindowTitle">Preferences</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1166,7 +1166,7 @@
 						<object class="NSButton" id="672621495">
 							<reference key="NSNextResponder" ref="217934024"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{18, 153}, {209, 18}}</string>
+							<string key="NSFrame">{{18, 173}, {209, 18}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="748936176"/>
@@ -1195,10 +1195,10 @@
 						<object class="NSButton" id="748936176">
 							<reference key="NSNextResponder" ref="217934024"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{18, 133}, {209, 18}}</string>
+							<string key="NSFrame">{{18, 153}, {209, 18}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="137600271"/>
+							<reference key="NSNextKeyView" ref="20720961"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="683531882">
 								<int key="NSCellFlags">-2080244224</int>
@@ -1206,6 +1206,30 @@
 								<string key="NSContents">Don't warn about index age</string>
 								<reference key="NSSupport" ref="815574472"/>
 								<reference key="NSControlView" ref="748936176"/>
+								<int key="NSButtonFlags">1211912703</int>
+								<int key="NSButtonFlags2">2</int>
+								<reference key="NSNormalImage" ref="883109080"/>
+								<reference key="NSAlternateImage" ref="778083653"/>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
+						<object class="NSButton" id="20720961">
+							<reference key="NSNextResponder" ref="217934024"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{18, 133}, {209, 18}}</string>
+							<reference key="NSSuperview" ref="217934024"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="137600271"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="486030124">
+								<int key="NSCellFlags">-2080244224</int>
+								<int key="NSCellFlags2">0</int>
+								<string key="NSContents">Auto-expand playlist list</string>
+								<reference key="NSSupport" ref="815574472"/>
+								<reference key="NSControlView" ref="20720961"/>
 								<int key="NSButtonFlags">1211912703</int>
 								<int key="NSButtonFlags2">2</int>
 								<reference key="NSNormalImage" ref="883109080"/>
@@ -1419,7 +1443,7 @@
 								</object>
 								<reference ref="992430093"/>
 							</array>
-							<string key="NSFrame">{{20, 177}, {215, 75}}</string>
+							<string key="NSFrame">{{20, 197}, {215, 75}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="279844268"/>
@@ -1559,7 +1583,7 @@
 							</object>
 						</object>
 					</array>
-					<string key="NSFrame">{{7, 11}, {247, 272}}</string>
+					<string key="NSFrame">{{7, 11}, {247, 292}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="860944783"/>
@@ -2421,6 +2445,30 @@ ZnJlZV9pY29ucw</bytes>
 					</object>
 					<int key="connectionID">959</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">alwaysOnTopClicked:</string>
+						<reference key="source" ref="932114003"/>
+						<reference key="destination" ref="20720961"/>
+					</object>
+					<int key="connectionID">967</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.Auto-expand playlist view</string>
+						<reference key="source" ref="20720961"/>
+						<reference key="destination" ref="600444374"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="20720961"/>
+							<reference key="NSDestination" ref="600444374"/>
+							<string key="NSLabel">value: values.Auto-expand playlist view</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.Auto-expand playlist view</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">968</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -2971,6 +3019,7 @@ ZnJlZV9pY29ucw</bytes>
 							<reference ref="860944783"/>
 							<reference ref="672621495"/>
 							<reference ref="748936176"/>
+							<reference ref="20720961"/>
 							<reference ref="923422590"/>
 							<reference ref="995885636"/>
 							<reference ref="297864496"/>
@@ -3373,6 +3422,19 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="object" ref="683531882"/>
 						<reference key="parent" ref="748936176"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">964</int>
+						<reference key="object" ref="20720961"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="486030124"/>
+						</array>
+						<reference key="parent" ref="217934024"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">965</int>
+						<reference key="object" ref="486030124"/>
+						<reference key="parent" ref="20720961"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3658,12 +3720,22 @@ ZnJlZV9pY29ucw</bytes>
 				</object>
 				<string key="955.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="956.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSMutableDictionary" key="964.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">ToolTip</string>
+					<object class="IBToolTipAttribute" key="NS.object.0">
+						<string key="name">ToolTip</string>
+						<reference key="object" ref="20720961"/>
+						<string key="toolTip">If enabled, the warning about the reverse lyric index being out-of-date will not be shown.</string>
+					</object>
+				</object>
+				<string key="964.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="965.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">959</int>
+			<int key="maxID">968</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
