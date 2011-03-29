@@ -206,7 +206,8 @@
 	//
 	// FIXME
 	//
-	PlaylistObject *playlist = [playlists objectAtIndex:0];
+	PlaylistObject *playlist = [playlistView itemAtRow:[playlistView selectedRow]];
+	//	PlaylistObject *playlist = [playlists objectAtIndex:0];
 	
 	SBElementArray *tmpTracks = [[playlist playlist] tracks]; // no [get]
 	NSArray *tmpArtists = [tmpTracks arrayByApplyingSelector:@selector(artist)];
@@ -227,8 +228,7 @@
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
 	if ([[aTableColumn identifier] isEqualToString:@"Checkbox"]) {
-		//		return [[tracks objectAtIndex:rowIndex] processed];
-		return [NSNumber numberWithBool:YES];
+		return [NSNumber numberWithBool:[[tracks objectAtIndex:rowIndex] processed]];
 	}
 	else if ([[aTableColumn identifier] isEqualToString:@"Artist"]) {
 		return [[tracks objectAtIndex:rowIndex] artist];
@@ -263,14 +263,21 @@
     [self.window makeKeyAndOrderFront:self];
 }
 
-/*-(void)setCheckMarkForTrack:(TrackObject *)track toState:(BOOL)state {
+-(void)setCheckMarkForTrack:(TrackObject *)track {
+	[track setProcessed:YES];
 	[trackView setNeedsDisplayInRect:[trackView rectOfRow:[tracks indexOfObject:track]]];
-}*/
+	[trackView scrollRowToVisible:[tracks indexOfObject:track]];
+}
 
 #pragma mark -
 #pragma mark Worker and main methods
-/*
+
 -(void)dirtyWorker:(id)unused {
+	for (TrackObject *track in tracks) {
+		[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:track waitUntilDone:YES];
+		sleep(1);
+	}
+/*
 	NSString *trackTitle;
 	int count = 0;
 	
@@ -376,10 +383,11 @@ restore_settings:
 	
 	//	[goButton setEnabled:YES];
 	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
-	
+
+ */
 	// NO more code goes here!
 }
-*/
+
 -(IBAction)goButtonClicked:(id)sender {
 	//
 	// The user clicked "go"
@@ -398,6 +406,7 @@ restore_settings:
 	[statusLabel setStringValue:@"Working..."];
 	
 	[lyricController updateSiteList];
+	
 	
 	//NSString *plName = [[playlistView itemAtRow:[playlistView selectedRow]] name];
 
@@ -437,9 +446,10 @@ restore_settings:
 	
 	[self setBulkDownloaderIsWorking:YES];
 	// Start the worker thread
+ */
 	thread = [[NSThread alloc] initWithTarget:self selector:@selector(dirtyWorker:) object:tracks];
 	[thread start];
-*/
+
 }
 
 @end
