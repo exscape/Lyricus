@@ -76,7 +76,7 @@ static iTunesHelper *sharediTunesHelper = nil;
 #pragma mark -
 #pragma mark Playlist stuff
 
--(NSArray *)getAllPlaylists {
+-(NSArray *)getAllPlaylistsAndFolders {
 		NSMutableArray *playlistArray = [[NSMutableArray alloc] init];
 		
 		if (![self initiTunes])
@@ -89,7 +89,7 @@ static iTunesHelper *sharediTunesHelper = nil;
 				if (!pl)
 					continue;
 				int kind = [pl specialKind];
-				if (kind == iTunesESpKNone || kind == 'kVdN') // This changed between iTunes versions. Uh. Let's support both.
+				if (kind == iTunesESpKNone || kind == 'kVdN' || kind == iTunesESpKFolder) // This changed between iTunes versions. Uh. Let's support both.
 					[playlistArray addObject:[pl get]];
 			}
 		}

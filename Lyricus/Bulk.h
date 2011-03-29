@@ -8,19 +8,21 @@
 #import "LyricFetcher.h"
 #import "iTunesHelper.h"
 
-@interface Bulk : NSWindowController <NSWindowDelegate, NSTableViewDelegate> {
+@interface Bulk : NSWindowController <NSWindowDelegate, NSOutlineViewDelegate, NSOutlineViewDataSource> {
 	NSMutableArray *playlists;
 	LyricFetcher *lyricController;
 	iTunesHelper *helper;
 	NSThread *thread;
 	
-	IBOutlet NSTableView *playlistView;
 	IBOutlet NSTextView *resultView;
 	IBOutlet NSProgressIndicator *progressIndicator;
 	IBOutlet NSButton *goButton;
 	IBOutlet NSTextField *statusLabel;
 	
 	BOOL bulkDownloaderIsWorking;
+	
+	IBOutlet NSOutlineView *playlistView;
+	NSMutableArray *rootObjects;
 }
 
 -(IBAction) goButtonClicked:(id)sender;

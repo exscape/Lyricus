@@ -11,7 +11,7 @@
 }
 
 -(BOOL) initiTunes;
--(NSArray *)getAllPlaylists;
+-(NSArray *)getAllPlaylistsAndFolders;
 -(NSArray *)getSelectedTracks;
 -(NSArray *)getAllTracksForTitle:(NSString *)theTitle byArtist:(NSString *)theArtist;
 -(NSArray *)getTracksForPlaylist:(NSString *)thePlaylist;

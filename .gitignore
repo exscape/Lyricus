@@ -12,3 +12,4 @@ build/*
 .svn
 .DS_Store
 profile
+NPReceipt*
