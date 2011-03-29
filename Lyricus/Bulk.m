@@ -81,11 +81,12 @@
 
 #pragma mark -
 #pragma mark NSOutlineView methods
-
-//- (CGFloat)outlineView:(NSOutlineView *)outlineView heightOfRowByItem:(id)item
-//{
-//return 19;
-//}
+/*
+- (CGFloat)outlineView:(NSOutlineView *)outlineView heightOfRowByItem:(id)item
+{
+	return 30;
+}
+*/
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
 	if (item == nil) {
@@ -141,6 +142,10 @@
 		}
 		[(ImageAndTextCell*)cell setImage:image];
 	}
+	
+	[cell setWraps:NO];
+	[cell setLineBreakMode:NSLineBreakByTruncatingTail];
+
 }
 
 
