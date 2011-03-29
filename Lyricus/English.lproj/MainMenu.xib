@@ -1198,7 +1198,7 @@
 							<string key="NSFrame">{{18, 153}, {209, 18}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="20720961"/>
+							<reference key="NSNextKeyView" ref="891737213"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="683531882">
 								<int key="NSCellFlags">-2080244224</int>
@@ -1216,7 +1216,7 @@
 								<int key="NSPeriodicInterval">25</int>
 							</object>
 						</object>
-						<object class="NSButton" id="20720961">
+						<object class="NSButton" id="891737213">
 							<reference key="NSNextResponder" ref="217934024"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{18, 133}, {209, 18}}</string>
@@ -1224,12 +1224,12 @@
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="137600271"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="486030124">
+							<object class="NSButtonCell" key="NSCell" id="871910538">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Auto-expand playlist list</string>
+								<string key="NSContents">Auto-expand playlist folders</string>
 								<reference key="NSSupport" ref="815574472"/>
-								<reference key="NSControlView" ref="20720961"/>
+								<reference key="NSControlView" ref="891737213"/>
 								<int key="NSButtonFlags">1211912703</int>
 								<int key="NSButtonFlags2">2</int>
 								<reference key="NSNormalImage" ref="883109080"/>
@@ -2449,17 +2449,17 @@ ZnJlZV9pY29ucw</bytes>
 					<object class="IBActionConnection" key="connection">
 						<string key="label">alwaysOnTopClicked:</string>
 						<reference key="source" ref="932114003"/>
-						<reference key="destination" ref="20720961"/>
+						<reference key="destination" ref="891737213"/>
 					</object>
 					<int key="connectionID">967</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: values.Auto-expand playlist view</string>
-						<reference key="source" ref="20720961"/>
+						<reference key="source" ref="891737213"/>
 						<reference key="destination" ref="600444374"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="20720961"/>
+							<reference key="NSSource" ref="891737213"/>
 							<reference key="NSDestination" ref="600444374"/>
 							<string key="NSLabel">value: values.Auto-expand playlist view</string>
 							<string key="NSBinding">value</string>
@@ -3019,7 +3019,7 @@ ZnJlZV9pY29ucw</bytes>
 							<reference ref="860944783"/>
 							<reference ref="672621495"/>
 							<reference ref="748936176"/>
-							<reference ref="20720961"/>
+							<reference ref="891737213"/>
 							<reference ref="923422590"/>
 							<reference ref="995885636"/>
 							<reference ref="297864496"/>
@@ -3424,16 +3424,16 @@ ZnJlZV9pY29ucw</bytes>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">964</int>
-						<reference key="object" ref="20720961"/>
+						<reference key="object" ref="891737213"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="486030124"/>
+							<reference ref="871910538"/>
 						</array>
 						<reference key="parent" ref="217934024"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">965</int>
-						<reference key="object" ref="486030124"/>
-						<reference key="parent" ref="20720961"/>
+						<reference key="object" ref="871910538"/>
+						<reference key="parent" ref="891737213"/>
 					</object>
 				</array>
 			</object>
@@ -3724,8 +3724,8 @@ ZnJlZV9pY29ucw</bytes>
 					<string key="NS.key.0">ToolTip</string>
 					<object class="IBToolTipAttribute" key="NS.object.0">
 						<string key="name">ToolTip</string>
-						<reference key="object" ref="20720961"/>
-						<string key="toolTip">If enabled, the warning about the reverse lyric index being out-of-date will not be shown.</string>
+						<reference key="object" ref="891737213"/>
+						<string key="toolTip">If enabled, the playlist view in the bulk downloader will expand all playlist folders on opening.</string>
 					</object>
 				</object>
 				<string key="964.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
