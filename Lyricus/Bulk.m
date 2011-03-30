@@ -308,24 +308,6 @@
 	
 }
 -(void)workerThread:(id)unused {
-	
-	/*
-	 for (TrackObject *track in tracks) {
-	 if ([thread isCancelled])
-	 break;
-	 
-	 [self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
-	 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSMixedState], @"state", track, @"track", nil]
-	 waitUntilDone:YES];
-	 sleep(1);
-	 }
-	 */
-	
-	//
-	// FIXME:
-	// Hoppa över alla låtar som redan har processed = YES!
-	//
-	
 	int count = 0;
 	
 	if ([tracks count] == 0) {
@@ -360,6 +342,9 @@
 		
 		[progressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
 
+		// Skip all tracks that have already been processed since loading
+		// Note that progress is NOT saved, which is probably closer to a feature than a bug.
+		// (How would the user reset and re-allow a track to be re-downloaded?)
 		if ([track processed])
 			continue;
 		
@@ -398,16 +383,13 @@
 		if (lyrics) {
 			@try { // Scripting bridge seems to be a bit unstable
 				[[track track] setLyrics:lyrics];
-				
-				//		[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
-				
 			} 
 			@catch (NSException *e) { continue; }
 			
 			set_lyrics++;
 			errors_in_a_row = 0;
 			
-			// Success!
+			// Success
 			[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
 			 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSOnState], @"state", track, @"track", nil]
 								waitUntilDone:YES];
