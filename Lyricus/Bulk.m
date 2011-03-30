@@ -129,6 +129,11 @@
 	return nil;
 } 
 
+- (void) doubleClick:(id) sender {
+	TrackObject *track = [tracks objectAtIndex:[trackView clickedRow]];
+	[[track track] playOnce:NO];
+}
+
 - (BOOL)windowShouldClose:(id)sender {
 	// No need to confirm if nothing is running
 	if (![thread isExecuting]) {
@@ -192,6 +197,9 @@
 	
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Auto-expand playlist view"])
 		[playlistView expandItem:nil expandChildren:YES];
+	
+	[trackView setTarget:self];
+	[trackView setDoubleAction:@selector(doubleClick:)];
 }
 
 -(void) showWindow:(id)sender {

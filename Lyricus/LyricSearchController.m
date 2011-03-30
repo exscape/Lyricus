@@ -45,7 +45,16 @@
             }
         }
     }
-    
+	
+	[trackTableView setTarget:self];
+	[trackTableView setDoubleAction:@selector(doubleClick:)];
+}
+-(void) doubleClick:(id)sender {
+	NSString *artist = [[matches objectAtIndex:[trackTableView clickedRow]] objectForKey:@"artist"];
+	NSString *name = [[matches objectAtIndex:[trackTableView clickedRow]] objectForKey:@"name"];
+
+	iTunesTrack *track = [helper getTrackForTitle:name byArtist:artist];
+	[track playOnce:NO];
 }
 
 - (void)trackSelected:(NSNotification *)note { 
