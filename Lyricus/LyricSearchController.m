@@ -127,12 +127,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 	if (![helper initiTunes])
 		return;
 
-    if (trackData == nil) {
-        trackData = [[NSMutableArray alloc] init];
-    }
-    else {
-        [trackData removeAllObjects];
-    }
+	NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
     
 	@try {        
 		NSArray *tracks = [helper getTracksForLibraryPlaylist];
@@ -143,7 +138,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 		
 		for (iTunesTrack *t in tracks) {
-			[trackData addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
+			[tmpArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
 			
 			[indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
 			
@@ -159,13 +154,16 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
     [fm createDirectoryAtPath:[@"~/Library/Caches/org.exscape.Lyricus" stringByExpandingTildeInPath] withIntermediateDirectories:YES attributes:nil error:nil];
     [fm removeItemAtPath:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] error:nil];
     
-    if ([trackData writeToFile:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES]) {
+    if ([tmpArray writeToFile:[@"~/Library/Caches/org.exscape.Lyricus/lyricsearch.cache" stringByExpandingTildeInPath] atomically:YES]) {
 		NSInteger timestamp = [[NSDate date] timeIntervalSince1970];
 		[[NSUserDefaults standardUserDefaults] setInteger:timestamp forKey:@"Lyricus index update time"];        
     }
     else {
         [[NSAlert alertWithMessageText:@"Unable to create index!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@" Make sure that the %@ directory is writable.", [@"~/Library/Caches/org.exscape.Lyricus" stringByExpandingTildeInPath]] runModal];
     }
+	
+	// If successful, replace the current index.
+	trackData = [tmpArray copy];
     
 indexing_cancelled:
     
