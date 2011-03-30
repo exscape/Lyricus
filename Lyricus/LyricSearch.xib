@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">10J3250</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1305</string>
+			<string key="NS.object.0">1306</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -231,7 +231,7 @@
 											<string key="NSFrameSize">{324, 14}</string>
 											<reference key="NSSuperview" ref="693618263"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="288397125"/>
+											<reference key="NSNextKeyView" ref="91705455"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="401382341">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -327,7 +327,6 @@
 									<string key="NSFrame">{{325, 1}, {15, 340}}</string>
 									<reference key="NSSuperview" ref="646588990"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<reference key="NSTarget" ref="646588990"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSCurValue">1</double>
@@ -350,7 +349,7 @@
 							<string key="NSFrame">{{20, 20}, {341, 342}}</string>
 							<reference key="NSSuperview" ref="1036285004"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="91705455"/>
+							<reference key="NSNextKeyView" ref="693618263"/>
 							<int key="NSsFlags">18</int>
 							<reference key="NSVScroller" ref="288397125"/>
 							<reference key="NSHScroller" ref="91705455"/>
@@ -427,7 +426,6 @@
 					<string key="NSFrame">{{7, 11}, {381, 484}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
@@ -462,7 +460,6 @@
 							<string key="NSFrame">{{265, 12}, {76, 32}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="7655529">
 								<int key="NSCellFlags">67239424</int>
