@@ -18,7 +18,7 @@
 		track = tr;
 		name = inName;
 		artist = inArtist;
-		processed = NO;
+		processed = 0; /* allows mixed state, (-1, 0 or 1) */
 	}
 	
 	return self;

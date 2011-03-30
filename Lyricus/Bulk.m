@@ -90,7 +90,7 @@
 	
 	[cell setWraps:NO];
 	[cell setLineBreakMode:NSLineBreakByTruncatingTail];
-
+	
 }
 
 -(void)outlineViewSelectionDidChange:(NSNotification *)notification {
@@ -187,7 +187,7 @@
 	
 	[playlistView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleSourceList];
 	helper = [iTunesHelper sharediTunesHelper];
-
+	
 	[self repopulatePlaylistView];
 	
 	[self showBulkDownloader];
@@ -197,7 +197,7 @@
 
 -(void) loadTracks {
 	[tracks removeAllObjects];
-
+	
 	PlaylistObject *playlist = [playlistView itemAtRow:[playlistView selectedRow]];
 	
 	SBElementArray *tmpTracks = [[playlist playlist] tracks]; // no [get]
@@ -219,7 +219,7 @@
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
 	if ([[aTableColumn identifier] isEqualToString:@"Checkbox"]) {
-		return [NSNumber numberWithBool:[[tracks objectAtIndex:rowIndex] processed]];
+		return [NSNumber numberWithInteger:[[tracks objectAtIndex:rowIndex] processed]];
 	}
 	else if ([[aTableColumn identifier] isEqualToString:@"Artist"]) {
 		return [[tracks objectAtIndex:rowIndex] artist];
@@ -239,23 +239,18 @@
 		[playlistView expandItem:nil expandChildren:YES];
 }
 
--(void)showBulkDownloader {
-	//
-	// Initialize and fetch the list of playlists
-	//
-	/*	[playlists removeAllObjects];
-	 */
-	// [playlists addObject:@"[Selected tracks]"];
-	//[self repopulatePlaylistView];
-	
+-(void)showBulkDownloader {	
 	[statusLabel setStringValue:@"Idle"];	
 	[self setBulkDownloaderIsWorking:NO];
 	[self showWindow:self];
     [self.window makeKeyAndOrderFront:self];
 }
 
--(void)setCheckMarkForTrack:(TrackObject *)track {
-	[track setProcessed:YES];
+-(void)setCheckMarkForTrack:(NSDictionary *)data {
+	NSInteger state = [[data objectForKey:@"state"] integerValue];
+	TrackObject *track = [data objectForKey:@"track"];
+	
+	[track setProcessed:state];
 	[trackView setNeedsDisplayInRect:[trackView rectOfRow:[tracks indexOfObject:track]]];
 	[trackView scrollRowToVisible:[tracks indexOfObject:track]];
 }
@@ -307,127 +302,161 @@
 	}
 	
 	[self setBulkDownloaderIsWorking:YES];
-
+	
 	thread = [[NSThread alloc] initWithTarget:self selector:@selector(workerThread:) object:nil];
 	[thread start];
-
+	
 }
 -(void)workerThread:(id)unused {
 	
-	for (TrackObject *track in tracks) {
-		[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:track waitUntilDone:YES];
-		sleep(1);
+	/*
+	 for (TrackObject *track in tracks) {
+	 if ([thread isCancelled])
+	 break;
+	 
+	 [self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
+	 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSMixedState], @"state", track, @"track", nil]
+	 waitUntilDone:YES];
+	 sleep(1);
+	 }
+	 */
+	
+	//
+	// FIXME:
+	// Hoppa över alla låtar som redan har processed = YES!
+	//
+	
+	int count = 0;
+	
+	if ([tracks count] == 0) {
+		[[NSAlert alertWithMessageText:@"The bulk downloader cannot start because the selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
+		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
+		[statusLabel setStringValue:@"Idle"];
+		[goButton setTitle:@"Go"];
+		return;
 	}
 	
-	/*
-	 NSString *trackTitle;
-	 int count = 0;
-	 
-	 if ([theTracks count] == 0) {
-	 [[NSAlert alertWithMessageText:@"The bulk downloader cannot start because the selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
-	 @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
-	 [statusLabel setStringValue:@"Idle"];
-	 [goButton setTitle:@"Go"];
-	 return;
-	 }
-	 NSUInteger numberOfTracks = [theTracks count];
-	 
-	 // Set up the progress indicator
-	 [progressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[theTracks count]] waitUntilDone:YES];
-	 [progressIndicator performSelectorOnMainThread:@selector(thrSetMinValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
-	 [progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
-	 
-	 // Used to track some stats
-	 int set_lyrics = 0;
-	 int had_lyrics = 0;
-	 int lyrics_not_found = 0;
-	 int errors_in_a_row = 0; // Used to abort when things appear to be going wrong
-	 
-	 for (iTunesTrack *track in theTracks) {
-	 count++;
-	 [statusLabel setStringValue:[NSString stringWithFormat:@"Processing... %d/%u", count, numberOfTracks]];
-	 
-	 if ([thread isCancelled]) {
-	 goto restore_settings; 	// We can't just break as that would display the window with stats, etc. The user *closed* the window,
-	 // it shouldn't just pop open again.
-	 }
-	 
-	 [progressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
-	 
-	 // Ugly check to make sure things won't crash soon...
-	 @try { 
-	 if (!track || ![track exists])
-	 continue;
-	 
-	 [track lyrics]; [track name]; [track artist];
-	 } 
-	 @catch (NSException *e) { continue; }
-	 
-	 @try {
-	 trackTitle = [NSString stringWithFormat:@" %@ - %@", [track artist], [track name]];
-	 
-	 //	[self progressUpdateWithType:LyricusStartingWorkType andString:trackTitle];
-	 
-	 if ([[track lyrics] length] > 8) { 
-	 //		[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
-	 had_lyrics++;
-	 // DON'T update errors_in_a_row since we don't know if searching would have worked or not
-	 continue;
-	 }
-	 } @catch (NSException *e) { continue; }
-	 
-	 NSError *err = nil; // Ignored
-	 NSString *lyrics = [lyricController fetchLyricsForTrack:[track name] byArtist:[track artist] error:&err];
-	 if (lyrics) {
-	 @try { // Scripting bridge seems to be a bit unstable
-	 [track setLyrics:lyrics];
-	 
-	 //		[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
-	 
-	 } 
-	 @catch (NSException *e) { continue; }
-	 
-	 set_lyrics++;
-	 errors_in_a_row = 0;
-	 }
-	 else if (err == nil) {
-	 lyrics_not_found++;
-	 errors_in_a_row = 0;
-	 
-	 //		[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
-	 }
-	 else {
-	 errors_in_a_row++;
-	 lyrics_not_found++;
-	 //		[self progressUpdateWithType:LyricusNotFoundType andString:trackTitle];
-	 
-	 }
-	 
-	 if (errors_in_a_row >= 10) {
-	 [thread cancel];
-	 [[NSAlert alertWithMessageText:@"The bulk downloader aborted due to encountering too many errors." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that your internet connection is active. If possible, try enabling multiple sites in the Lyricus preferences."] runModal];
-	 goto restore_settings;
-	 }
-	 
-	 }
-	 
-	 //	trackTitle = [NSString stringWithFormat:@"\nFound and set lyrics for %d tracks\n%d tracks already had lyrics\nCouldn't find lyrics for %d tracks\n",
-	 //				  set_lyrics, had_lyrics, lyrics_not_found];
-	 //[resultView performSelectorOnMainThread:@selector(appendString:) withObject:trackTitle waitUntilDone:YES];
-	 
-	 [self showBulkDownloader];
-	 [[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.", count]
+	NSUInteger numberOfTracks = [tracks count];
+	
+	// Set up the progress indicator
+	[progressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:numberOfTracks] waitUntilDone:YES];
+	[progressIndicator performSelectorOnMainThread:@selector(thrSetMinValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
+	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
+	
+	// Used to track some stats
+	int set_lyrics = 0;
+	int had_lyrics = 0;
+	int lyrics_not_found = 0;
+	int errors_in_a_row = 0; // Used to abort when things appear to be going wrong
+	
+	for (TrackObject *track in tracks) {
+		count++;
+		[statusLabel setStringValue:[NSString stringWithFormat:@"Processing... %d/%u", count, numberOfTracks]];
+		
+		if ([thread isCancelled]) {
+			goto restore_settings; 	// We can't just break as that would display the window with stats, etc. The user *closed* the window,
+									// it shouldn't just pop open again.
+		}
+		
+		[progressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
+
+		if ([track processed])
+			continue;
+		
+		NSString *lyrics = nil;
+		@try { 
+			if (![[track track] get] || ![[[track track] get] exists])
+				continue;
+			
+			lyrics = [[track track] lyrics];
+		} 
+		@catch (NSException *e) { continue; }
+		
+		@try {
+			
+			// Set mixed state when we start working
+			[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
+			 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSMixedState], @"state", track, @"track", nil]
+								waitUntilDone:YES];
+			
+			if ([[[track track] lyrics] length] > 8) { 
+				
+				had_lyrics++;
+				// DON'T update errors_in_a_row since we don't know if searching would have worked or not
+				
+				// Success
+				[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
+				 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSOnState], @"state", track, @"track", nil]
+									waitUntilDone:YES];
+				
+				continue;
+			}
+		} @catch (NSException *e) { continue; }
+		
+		NSError *err = nil; // Ignored
+		lyrics = [lyricController fetchLyricsForTrack:[track name] byArtist:[track artist] error:&err];
+		if (lyrics) {
+			@try { // Scripting bridge seems to be a bit unstable
+				[[track track] setLyrics:lyrics];
+				
+				//		[self progressUpdateWithType:LyricusFoundType andString:trackTitle];
+				
+			} 
+			@catch (NSException *e) { continue; }
+			
+			set_lyrics++;
+			errors_in_a_row = 0;
+			
+			// Success!
+			[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
+			 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSOnState], @"state", track, @"track", nil]
+								waitUntilDone:YES];
+			
+		}
+		else if (err == nil) {
+			lyrics_not_found++;
+			errors_in_a_row = 0;
+			
+			// Nothing found
+			[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
+			 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSOffState], @"state", track, @"track", nil]
+								waitUntilDone:YES];
+		}
+		else {
+			errors_in_a_row++;
+			lyrics_not_found++;
+			
+			// Error = no checkmark
+			[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
+			 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSOffState], @"state", track, @"track", nil]
+								waitUntilDone:YES];
+			
+		}
+		
+		if (errors_in_a_row >= 10) {
+			[thread cancel];
+			[[NSAlert alertWithMessageText:@"The bulk downloader aborted due to encountering too many errors." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that your internet connection is active. If possible, try enabling multiple sites in the Lyricus preferences."] runModal];
+			goto restore_settings;
+		}
+		
+	}
+	
+	//
+	// FIXME:
+	//	set_lyrics, had_lyrics, lyrics_not_found
+	//
+	
+	[self showBulkDownloader];
+	[[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.", count]
 	 runModal];
-	 
-	 restore_settings:
-	 [goButton setTitle:@"Go"];
-	 [statusLabel setStringValue:@"Idle"];
-	 
-	 //	[goButton setEnabled:YES];
-	 [progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
-	 
-	 */
-	// NO more code goes here!
+	
+restore_settings:
+	[goButton setTitle:@"Go"];
+	[statusLabel setStringValue:@"Idle"];
+	
+	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
+	
+	// NO more code after this!
 }
 
 
