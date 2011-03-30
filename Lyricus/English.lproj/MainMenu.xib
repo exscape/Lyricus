@@ -549,6 +549,17 @@
 									<reference key="NSOnImage" ref="347872383"/>
 									<reference key="NSMixedImage" ref="1007003020"/>
 								</object>
+								<object class="NSMenuItem" id="651370472">
+									<reference key="NSMenu" ref="960709101"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="347872383"/>
+									<reference key="NSMixedImage" ref="1007003020"/>
+								</object>
 								<object class="NSMenuItem" id="381776125">
 									<reference key="NSMenu" ref="960709101"/>
 									<string key="NSTitle">Reverse lyric search...</string>
@@ -3293,6 +3304,7 @@ ZnJlZV9pY29ucw</bytes>
 							<reference ref="377260755"/>
 							<reference ref="352854850"/>
 							<reference ref="793353531"/>
+							<reference ref="651370472"/>
 						</array>
 						<reference key="parent" ref="438900527"/>
 					</object>
@@ -3441,6 +3453,11 @@ ZnJlZV9pY29ucw</bytes>
 						<int key="objectID">965</int>
 						<reference key="object" ref="871910538"/>
 						<reference key="parent" ref="891737213"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">969</int>
+						<reference key="object" ref="651370472"/>
+						<reference key="parent" ref="960709101"/>
 					</object>
 				</array>
 			</object>
@@ -3737,12 +3754,14 @@ ZnJlZV9pY29ucw</bytes>
 				</object>
 				<string key="964.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="965.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="969.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<integer value="1" key="969.ImportedFromIB2"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">968</int>
+			<int key="maxID">969</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
