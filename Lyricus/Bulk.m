@@ -291,7 +291,7 @@
 	// FIXME: TEST THIS
 	//
 	if (tracks == nil) {
-		// Appears to happen only when iTunes is not running
+		// Appears to happen only when iTunes is not running, possibly when the selected playlist has been deleted
 		[[NSAlert alertWithMessageText:@"The bulk downloader cannot start because no tracks were found." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running and that there are tracks in the chosen playlist."] runModal];
 		[self setBulkDownloaderIsWorking:NO];
 		[goButton setTitle:@"Go"];
@@ -324,6 +324,7 @@
 		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
 		[statusLabel setStringValue:@"Idle"];
 		[goButton setTitle:@"Go"];
+		[self setBulkDownloaderIsWorking:NO];
 		return;
 	}
 	
@@ -443,6 +444,7 @@
 restore_settings:
 	[goButton setTitle:@"Go"];
 	[statusLabel setStringValue:@"Idle"];
+	[self setBulkDownloaderIsWorking:NO];
 	
 	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 	
