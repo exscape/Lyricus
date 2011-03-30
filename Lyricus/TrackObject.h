@@ -13,7 +13,8 @@
 	iTunesTrack *track;
 	NSString *artist;
 	NSString *name;
-	NSInteger processed;
+	NSInteger state;
+	BOOL processed;
     
 }
 - (id)initWithTrack:(iTunesTrack*)tr Artist:(NSString *)inArtist Name:(NSString *)inName;
@@ -21,6 +22,7 @@
 @property (retain, readonly) iTunesTrack *track;
 @property (retain, readonly) NSString *artist;
 @property (retain, readonly) NSString *name;
-@property NSInteger processed;
+@property NSInteger state;
+@property BOOL processed;
 
 @end

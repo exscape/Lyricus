@@ -6,7 +6,21 @@
 @synthesize track;
 @synthesize artist;
 @synthesize name;
+@synthesize state;
 @synthesize processed;
+
+-(void)setState:(NSInteger)inState {
+	
+	// If the state is CHANGED to either of these two values,
+	// the bulk downloader has tried to fetch lyrics,
+	// and either succeeded or failed.
+	// If the state is NSMixedState, it's still in progress,
+	// so don't update the processed property.
+	if (inState == NSOnState || inState == NSOffState)
+		processed = YES;
+	
+	state = inState;
+}
 
 - (id)init {
 	return nil;
@@ -18,7 +32,8 @@
 		track = tr;
 		name = inName;
 		artist = inArtist;
-		processed = 0; /* allows mixed state, (-1, 0 or 1) */
+		state = 0; /* allows mixed state, (-1, 0 or 1) */
+		processed = NO; /* has this track been processed? */
 	}
 	
 	return self;

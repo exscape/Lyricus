@@ -219,7 +219,7 @@
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
 	if ([[aTableColumn identifier] isEqualToString:@"Checkbox"]) {
-		return [NSNumber numberWithInteger:[[tracks objectAtIndex:rowIndex] processed]];
+		return [NSNumber numberWithInteger:[[tracks objectAtIndex:rowIndex] state]];
 	}
 	else if ([[aTableColumn identifier] isEqualToString:@"Artist"]) {
 		return [[tracks objectAtIndex:rowIndex] artist];
@@ -250,7 +250,7 @@
 	NSInteger state = [[data objectForKey:@"state"] integerValue];
 	TrackObject *track = [data objectForKey:@"track"];
 	
-	[track setProcessed:state];
+	[track setState:state];
 	[trackView setNeedsDisplayInRect:[trackView rectOfRow:[tracks indexOfObject:track]]];
 	[trackView scrollRowToVisible:[tracks indexOfObject:track]];
 }
@@ -423,13 +423,12 @@
 		
 	}
 	
-	//
-	// FIXME:
-	//	set_lyrics, had_lyrics, lyrics_not_found
-	//
-	
 	[self showBulkDownloader];
-	[[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.", count]
+	[[NSAlert alertWithMessageText:@"Bulk download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.\n\nStatistics:\n"
+	  @"Downloaded lyrics for %d tracks\n"
+	  @"%d tracks already had lyrics set\n"
+	  @"Couldn't find lyrics for %d tracks",
+	  count, set_lyrics, had_lyrics, lyrics_not_found]
 	 runModal];
 	
 restore_settings:
