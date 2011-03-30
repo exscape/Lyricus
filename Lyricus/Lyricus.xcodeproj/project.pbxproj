@@ -34,9 +34,6 @@
 		109B44C813360BF100CD4A43 /* TBAZLyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109B44C713360BF000CD4A43 /* TBAZLyrics.m */; };
 		10AEFB170D9FEDCA0088ECDC /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AEFB160D9FEDCA0088ECDC /* MainController.m */; };
 		10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */; };
-		10CB7447133F361B00D9FB98 /* icon_working.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CB7446133F361B00D9FB98 /* icon_working.png */; };
-		10CB744A133F389200D9FB98 /* icon_found.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CB7448133F389200D9FB98 /* icon_found.png */; };
-		10CB744B133F389200D9FB98 /* icon_notfound.png in Resources */ = {isa = PBXBuildFile; fileRef = 10CB7449133F389200D9FB98 /* icon_notfound.png */; };
 		10CB744D133F68CA00D9FB98 /* help in Resources */ = {isa = PBXBuildFile; fileRef = 10CB744C133F68CA00D9FB98 /* help */; };
 		10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D5093313337A70006C0FC7 /* libicucore.dylib */; };
 		10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DB27F10DACB28500BF57D3 /* Bulk.m */; };
@@ -116,9 +113,6 @@
 		10AEFB150D9FEDCA0088ECDC /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		10AEFB160D9FEDCA0088ECDC /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
-		10CB7446133F361B00D9FB98 /* icon_working.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_working.png; sourceTree = "<group>"; };
-		10CB7448133F389200D9FB98 /* icon_found.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_found.png; sourceTree = "<group>"; };
-		10CB7449133F389200D9FB98 /* icon_notfound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_notfound.png; sourceTree = "<group>"; };
 		10CB744C133F68CA00D9FB98 /* help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = help; sourceTree = "<group>"; };
 		10D5093313337A70006C0FC7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = SDKs/MacOSX10.6.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		10DB27F00DACB28500BF57D3 /* Bulk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bulk.h; sourceTree = "<group>"; };
@@ -281,9 +275,6 @@
 				1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */,
 				1093C0471340D4AE00F5BC98 /* iTunes-smart.png */,
 				10CB744C133F68CA00D9FB98 /* help */,
-				10CB7448133F389200D9FB98 /* icon_found.png */,
-				10CB7449133F389200D9FB98 /* icon_notfound.png */,
-				10CB7446133F361B00D9FB98 /* icon_working.png */,
 				100E13A80F5E803D001E1347 /* MainMenu.xib */,
 				1041B7C61333B49F003F4429 /* LyricSearch.xib */,
 				107CD7340DAE4833003E0D32 /* icon.icns */,
@@ -363,9 +354,6 @@
 				107CD7350DAE4833003E0D32 /* icon.icns in Resources */,
 				100E13AA0F5E803D001E1347 /* MainMenu.xib in Resources */,
 				1041B7C71333B49F003F4429 /* LyricSearch.xib in Resources */,
-				10CB7447133F361B00D9FB98 /* icon_working.png in Resources */,
-				10CB744A133F389200D9FB98 /* icon_found.png in Resources */,
-				10CB744B133F389200D9FB98 /* icon_notfound.png in Resources */,
 				10CB744D133F68CA00D9FB98 /* help in Resources */,
 				1093C0481340D4AE00F5BC98 /* iTunes-folder.png in Resources */,
 				1093C0491340D4AE00F5BC98 /* iTunes-playlist.png in Resources */,

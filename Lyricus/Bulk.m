@@ -34,6 +34,9 @@
 #pragma mark NSOutlineView methods
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
+	if (rootObjects == nil)
+		return 0;
+	
 	if (item == nil) {
 		// Return the number of root objects
 		return [rootObjects count];
@@ -47,7 +50,10 @@
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
 	if (item == nil) {
 		return [rootObjects objectAtIndex:index];
-		//		[[[playlists filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isRootItem = TRUE"]]
+		//
+		// FIXME
+		//
+		// return [[[playlists filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isRootItem = TRUE"]] objectAtIndex:index];
 	}
 	
 	if ([[item children] count] > 0) {
@@ -100,7 +106,6 @@
 	}
 }
 
-
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
 	if ([[tableColumn identifier] isEqualToString:@"PlaylistName"]) {
 		return [item name];
@@ -122,6 +127,7 @@
 		[lyricController setBulk:YES];
 		helper = [iTunesHelper sharediTunesHelper];
 		[self setBulkDownloaderIsWorking:NO];
+		firstLoad = YES;
 		
 		return self;
 	}
@@ -148,7 +154,7 @@
 	}
 }
 
--(void)repopulatePlaylistView {
+-(void)repopulatePlaylistView {	
 	[playlists removeAllObjects];
 	[rootObjects removeAllObjects];
 	for (iTunesPlaylist* currentPlaylist in [helper getAllPlaylistsAndFolders]) {
@@ -187,12 +193,23 @@
 	
 	[playlistView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleSourceList];
 	helper = [iTunesHelper sharediTunesHelper];
-	
+
 	[self repopulatePlaylistView];
 	
 	[self showBulkDownloader];
 	[playlistView setIndentationPerLevel:16.0];
 	[playlistView setIndentationMarkerFollowsCell:YES];
+	
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Auto-expand playlist view"])
+		[playlistView expandItem:nil expandChildren:YES];
+}
+
+-(void) showWindow:(id)sender {
+	if (firstLoad == NO) {
+		[self repopulatePlaylistView];
+	}
+	firstLoad = NO;
+	[super showWindow:sender];
 }
 
 -(void) loadTracks {
@@ -229,14 +246,6 @@
 	}
 	else
 		return nil;
-}
-
--(void)windowDidBecomeMain:(NSNotification *)notification {
-	[self repopulatePlaylistView];
-	[playlistView reloadData];
-	
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Auto-expand playlist view"])
-		[playlistView expandItem:nil expandChildren:YES];
 }
 
 -(void)showBulkDownloader {	

@@ -25,12 +25,13 @@
 	NSMutableArray *rootObjects;
 	
 	IBOutlet NSTableView *trackView;
+
+	BOOL firstLoad;
 }
 
 -(IBAction) goButtonClicked:(id)sender;
 -(void)showBulkDownloader;
 -(void)loadTracks;
-//-(void)progressUpdateWithType:(int) type andString: (NSString *)string;
 
 @property BOOL bulkDownloaderIsWorking;
 

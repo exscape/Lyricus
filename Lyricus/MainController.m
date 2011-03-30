@@ -25,9 +25,6 @@
 	// Set up the default settings
 	//
 	
-	// TODO: NSNUmber isn't necessary ([NSUserDefaults setBool:forKey], etc.).
-	// However, it will have to be removed both here and in the rest of the application,
-	// and will likely break backwards compatibilty with old settings.
 	[[NSUserDefaults standardUserDefaults] registerDefaults: 
 	 [NSDictionary dictionaryWithObjectsAndKeys:
 	  [NSNumber numberWithInt:0], 	@"Always on top",			// Off
