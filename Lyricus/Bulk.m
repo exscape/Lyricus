@@ -34,12 +34,12 @@
 #pragma mark NSOutlineView methods
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
-	if (rootObjects == nil)
+	if (playlists == nil)
 		return 0;
 	
 	if (item == nil) {
 		// Return the number of root objects
-		return [rootObjects count];
+		return [[playlists filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isRootItem = TRUE"]] count];
 	}
 	else {
 		// Return the number of children for this folder
@@ -49,11 +49,7 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item {
 	if (item == nil) {
-		return [rootObjects objectAtIndex:index];
-		//
-		// FIXME
-		//
-		// return [[[playlists filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isRootItem = TRUE"]] objectAtIndex:index];
+		return [[playlists filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isRootItem = TRUE"]] objectAtIndex:index];
 	}
 	
 	if ([[item children] count] > 0) {
@@ -121,7 +117,6 @@
     self = [super initWithWindowNibName:windowNibName];
 	if (self) {
 		playlists = [[NSMutableArray alloc] init];
-		rootObjects = [[NSMutableArray alloc] init];
 		tracks = [[NSMutableArray alloc] init];
 		lyricController = [[LyricFetcher alloc] init];
 		[lyricController setBulk:YES];
@@ -156,7 +151,6 @@
 
 -(void)repopulatePlaylistView {	
 	[playlists removeAllObjects];
-	[rootObjects removeAllObjects];
 	for (iTunesPlaylist* currentPlaylist in [helper getAllPlaylistsAndFolders]) {
 		PlaylistObject *o = [[PlaylistObject alloc] initWithPlaylist: currentPlaylist];
 		
@@ -170,10 +164,6 @@
 				[parentPlaylistObject addChild:o];
 			}
 		}	
-		else {
-			// parent == nil, so this is a root object
-			[rootObjects addObject:o];
-		}
 		
 		[playlists addObject:o];
 	}
@@ -287,11 +277,8 @@
 	
 	[lyricController updateSiteList];
 	
-	//
-	// FIXME: TEST THIS
-	//
-	if (tracks == nil) {
-		// Appears to happen only when iTunes is not running, possibly when the selected playlist has been deleted
+	if (tracks == nil || [tracks count] == 0) {
+		// Appears to happen only when iTunes is not running, or when the selected playlist has been deleted
 		[[NSAlert alertWithMessageText:@"The bulk downloader cannot start because no tracks were found." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running and that there are tracks in the chosen playlist."] runModal];
 		[self setBulkDownloaderIsWorking:NO];
 		[goButton setTitle:@"Go"];

@@ -38,6 +38,9 @@
 	
 	return self;
 }
+-(BOOL) isRootItem {
+	return ([[playlist parent] get] == nil);
+}
 
 -(void) addChild:(PlaylistObject *)pl {
 	[children addObject:pl];

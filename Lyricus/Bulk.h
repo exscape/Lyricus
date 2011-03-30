@@ -22,7 +22,6 @@
 	BOOL bulkDownloaderIsWorking;
 	
 	IBOutlet NSOutlineView *playlistView;
-	NSMutableArray *rootObjects;
 	
 	IBOutlet NSTableView *trackView;
 
