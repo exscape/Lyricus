@@ -760,7 +760,7 @@
 #pragma mark Misc.
 
 -(void)disableEditMode {
-	[editModeMenuItem setState:0];
+	[editModeMenuItem setTitle:@"Enter edit mode"];
 	[lyricView setEditable:NO];
 	[mainWindow setTitle:[NSString stringWithFormat:@"%@ - %@", displayedArtist, displayedTitle, nil]];
 	[lyricView setBackgroundColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:@"BackgroundColor"]]];
@@ -775,7 +775,7 @@
 	if (!displayedArtist || !displayedTitle)
 		return;
 	
-	if ([editModeMenuItem state] == 1) {
+	if ([[editModeMenuItem title] isEqualToString:@"Leave edit mode"]) {
 		[self disableEditMode];
 	}
 	else {
@@ -792,7 +792,7 @@
 			[lyricView setString:@""];
 		}
 
-		[editModeMenuItem setState:1];
+		[editModeMenuItem setTitle:@"Leave edit mode"];
 		[lyricView setEditable:YES];		
 
 		[lyricView setBackgroundColor: (NSColor *)[NSUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"EditBackgroundColor"]]];
