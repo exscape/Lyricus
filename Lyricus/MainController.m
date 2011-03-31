@@ -116,7 +116,7 @@
 	// NO CODE goes after this!
 }
 
--(void) userDidCloseWindowWithDontShowAgain:(BOOL)state {
+-(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {
 	if (state == YES) {
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Hide main welcome screen"];
 	}

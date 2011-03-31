@@ -62,7 +62,7 @@
 
 -(IBAction)closeButtonClicked:(id)sender {
 	if ([delegate respondsToSelector:@selector(userDidCloseWindowWithDontShowAgain:)]) {
-		[delegate userDidCloseWindowWithDontShowAgain:(BOOL)[dontShowAgain state]];
+		[delegate userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)[dontShowAgain state]];
 	}
 	
 	[self.window close];

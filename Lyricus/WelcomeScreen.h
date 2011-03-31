@@ -23,5 +23,5 @@
 //
 
 @interface NSObject (WelcomeScreen)
--(void)userDidCloseWindowWithDontShowAgain:(BOOL)state;
+-(void)userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state;
 @end
