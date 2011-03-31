@@ -150,15 +150,21 @@
 		width = 200;
 	if (height < 300)
 		height = 300;
+
+	NSRect rect = [mainWindow frame];
 	
 	// Don't resize the window so that the resize strip (bottom right) is outside the screen
 	CGFloat screenWidth = [[NSScreen mainScreen] frame].size.width;
 	if (width > screenWidth)
 		width = screenWidth;
+	
+	// If the window would be displayed partly outside the screen (too much to the right), fix that
+	if (width + rect.origin.x >= screenWidth) {
+		rect.origin.x = screenWidth - width;
+	}
 
 	// Resize the window
-	NSRect curRect = [mainWindow frame];
-	[mainWindow setFrame: NSMakeRect(curRect.origin.x, curRect.origin.y, width, height) display:NO animate:YES];	
+	[mainWindow setFrame: NSMakeRect(rect.origin.x, rect.origin.y, width, height) display:NO animate:YES];	
 }
 
 #pragma mark -
@@ -583,7 +589,7 @@
 	// The check whether to send or not is on the *sending* side, so if we get here, just display them.
 	//
 	
-	return;
+	//return;
 	
 	NSDictionary *info = [note userInfo];
 	if (info == nil)
