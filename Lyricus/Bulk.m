@@ -130,6 +130,8 @@
 } 
 
 - (void) doubleClick:(id) sender {
+	if (tracks == nil || [trackView clickedRow] >= [tracks count])
+		return;
 	TrackObject *track = [tracks objectAtIndex:[trackView clickedRow]];
 	[[track track] playOnce:NO];
 }

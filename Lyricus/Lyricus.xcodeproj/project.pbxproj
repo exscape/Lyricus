@@ -187,6 +187,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				107D5DD4134081AD00195ABF /* Security.framework */,
+				107D5DD2134081A500195ABF /* IOKit.framework */,
 				10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -248,9 +250,6 @@
 				101CEE7D1342176900C9A426 /* ImageAndTextCell.m */,
 				101CEE7E1342176900C9A426 /* PlaylistObject.h */,
 				101CEE7F1342176900C9A426 /* PlaylistObject.m */,
-				107D5DD4134081AD00195ABF /* Security.framework */,
-				107D5DD2134081A500195ABF /* IOKit.framework */,
-				107D5DD01340819E00195ABF /* libcrypto.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -299,6 +298,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				107D5DD01340819E00195ABF /* libcrypto.dylib */,
 				10D5093313337A70006C0FC7 /* libicucore.dylib */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,

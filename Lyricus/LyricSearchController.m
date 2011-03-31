@@ -50,6 +50,9 @@
 	[trackTableView setDoubleAction:@selector(doubleClick:)];
 }
 -(void) doubleClick:(id)sender {
+	if (matches == nil || [trackTableView clickedRow] >= [matches count])
+		return;
+
 	NSString *artist = [[matches objectAtIndex:[trackTableView clickedRow]] objectForKey:@"artist"];
 	NSString *name = [[matches objectAtIndex:[trackTableView clickedRow]] objectForKey:@"name"];
 

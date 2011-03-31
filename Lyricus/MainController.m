@@ -177,6 +177,14 @@
 	[iconView setImage:[NSApp applicationIconImage]];
 	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 	[aboutVersion setStringValue:[@"v" stringByAppendingString:version]];
+	
+	/* Center the version text */
+	[aboutVersion sizeToFit];
+	NSRect superFrame = [[aboutVersion superview] frame];
+	NSRect versionFrame = [aboutVersion frame];
+	versionFrame.origin.x = (superFrame.size.width - versionFrame.size.width) / 2;
+	[aboutVersion setFrame:versionFrame];
+	
 	[aboutWindow makeKeyAndOrderFront:self];
 	[aboutTextView setString:
 	 @"Everything Lyricus:\n"
@@ -501,6 +509,7 @@
 	[spinner stopAnimation:nil];
 	[spinner setHidden:YES];
 	[goButton setEnabled:YES];
+
 	
 	// If the track changed while loading, go get the NEW lyrics instead. Do NOT do this with manual searches, or the current track
 	// would be displayed no matter what.
@@ -532,7 +541,7 @@
 		if ( ! ([displayedArtist isEqualToString:currentArtist] && [displayedTitle isEqualToString:currentTitle]) ) {
 				[self updateTextFieldsFromiTunes];
 				[self fetchAndDisplayLyrics:NO];
-			}
+		}
 	}
 }	
 
@@ -574,6 +583,8 @@
 	// The check whether to send or not is on the *sending* side, so if we get here, just display them.
 	//
 	
+	return;
+	
 	NSDictionary *info = [note userInfo];
 	if (info == nil)
 		return;
@@ -590,7 +601,6 @@
 		[lyricView performSelectorOnMainThread:@selector(appendImageNamed:) withObject:@"icon_working.png" waitUntilDone:YES];
 		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:@" " waitUntilDone:YES];
 		[lyricView performSelectorOnMainThread:@selector(appendString:) withObject:text waitUntilDone:YES];
-		return;
 	}
 	else if (type == LyricusNoteSuccess) {
 		NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[text length]+ 1], @"position", @"icon_found.png", @"imageName", nil];
@@ -599,9 +609,6 @@
 	else if (type == LyricusNoteFailure) {
 		NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:[text length] + 1], @"position", @"icon_notfound.png", @"imageName", nil];
 		[self performSelectorOnMainThread:@selector(doReplace:) withObject:data waitUntilDone:YES];
-	}
-	else {
-		NSLog(@"STOP!");
 	}
 }
 
