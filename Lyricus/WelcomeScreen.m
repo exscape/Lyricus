@@ -16,9 +16,13 @@
 	return self;
 }
 
+-(void)awakeFromNib {
+	// Both init and show are called before awakeFromNib. Not pretty.
+	[textLabel setStringValue:text];
+}
+
 -(void)setText:(NSString *)inText {
 	text = [inText copy];
-	[textLabel setStringValue:text];
 }
 
 -(void)setDelegate:(id)inDelegate {
@@ -29,6 +33,7 @@
 	[super showWindow:sender];
 	[self.window makeKeyAndOrderFront:sender];
 }
+
 -(void)setOwningWindow:(NSWindow *)inOwner {
 	owner = inOwner;
 }

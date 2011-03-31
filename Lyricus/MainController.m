@@ -5,6 +5,7 @@
 //
 
 #import "MainController.h"
+#import "WelcomeScreen.h"
 
 @implementation MainController
 
@@ -105,15 +106,30 @@
 	[zoomButton setEnabled: YES];
 	[zoomButton setTarget: self];
 	[zoomButton setAction: @selector(zoomButtonClicked:)];
-
 	
 	[self updateTextFieldsFromiTunes];
 	[self fetchAndDisplayLyrics:NO];
-		    
+	
 	// Update the site list
 	// Is this really needed? [LyricController init] does this already.
 	[lyricController updateSiteList];
 	// NO CODE goes after this!
+}
+
+-(void) userDidCloseWindowWithDontShowAgain:(BOOL)state {
+	if (state == YES) {
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Hide main welcome screen"];
+	}
+}
+
+-(void)applicationDidFinishLaunching:(NSNotification*)note {
+	if ( ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide main welcome screen"] ) {
+		WelcomeScreen *welcomeScreen = [[WelcomeScreen alloc] init];
+		[welcomeScreen setDelegate:self];
+		[welcomeScreen setText:@"Yo"];
+		[welcomeScreen setOwningWindow:mainWindow];
+		[welcomeScreen show];
+	}
 }
 
 -(void) zoomButtonClicked:(id)param {

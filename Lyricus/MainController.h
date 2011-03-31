@@ -14,7 +14,7 @@
 #import "LyricSearchController.h"
 
 
-@interface MainController : NSObject <NSWindowDelegate, NSTextViewDelegate> {
+@interface MainController : NSObject <NSWindowDelegate, NSTextViewDelegate, NSApplicationDelegate> {
 	// Main window
 	IBOutlet NSWindow *mainWindow;
 	IBOutlet NSTextView *lyricView;

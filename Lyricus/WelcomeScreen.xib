@@ -97,7 +97,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{322, 9}, {75, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="644716897">
 								<int key="NSCellFlags">67239424</int>
@@ -155,14 +154,6 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">textLabel</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="605855996"/>
-					</object>
-					<int key="connectionID">5</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">dontShowAgain</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="377414669"/>
@@ -192,6 +183,14 @@
 						<reference key="destination" ref="1005"/>
 					</object>
 					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">textLabel</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="605855996"/>
+					</object>
+					<int key="connectionID">17</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -336,7 +335,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">16</int>
+			<int key="maxID">17</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
