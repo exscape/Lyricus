@@ -37,6 +37,8 @@
 		109B44C813360BF100CD4A43 /* TBAZLyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109B44C713360BF000CD4A43 /* TBAZLyrics.m */; };
 		10AEFB170D9FEDCA0088ECDC /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AEFB160D9FEDCA0088ECDC /* MainController.m */; };
 		10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */; };
+		10CA22391344F38000E652B6 /* WelcomeScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA22381344F38000E652B6 /* WelcomeScreen.m */; };
+		10CA223B1344FC6F00E652B6 /* WelcomeScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10CA223A1344FC6F00E652B6 /* WelcomeScreen.xib */; };
 		10CB744D133F68CA00D9FB98 /* help in Resources */ = {isa = PBXBuildFile; fileRef = 10CB744C133F68CA00D9FB98 /* help */; };
 		10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D5093313337A70006C0FC7 /* libicucore.dylib */; };
 		10DB27F20DACB28500BF57D3 /* Bulk.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DB27F10DACB28500BF57D3 /* Bulk.m */; };
@@ -119,6 +121,9 @@
 		10AEFB150D9FEDCA0088ECDC /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
 		10AEFB160D9FEDCA0088ECDC /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
+		10CA22371344F38000E652B6 /* WelcomeScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeScreen.h; sourceTree = "<group>"; };
+		10CA22381344F38000E652B6 /* WelcomeScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeScreen.m; sourceTree = "<group>"; };
+		10CA223A1344FC6F00E652B6 /* WelcomeScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeScreen.xib; sourceTree = "<group>"; };
 		10CB744C133F68CA00D9FB98 /* help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = help; sourceTree = "<group>"; };
 		10D5093313337A70006C0FC7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = SDKs/MacOSX10.6.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		10DB27F00DACB28500BF57D3 /* Bulk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bulk.h; sourceTree = "<group>"; };
@@ -168,6 +173,9 @@
 				1027289E0DB2A81900E644E1 /* iTunesHelper.m */,
 				10DB27F00DACB28500BF57D3 /* Bulk.h */,
 				10DB27F10DACB28500BF57D3 /* Bulk.m */,
+				10CA22371344F38000E652B6 /* WelcomeScreen.h */,
+				10CA22381344F38000E652B6 /* WelcomeScreen.m */,
+				10CA223A1344FC6F00E652B6 /* WelcomeScreen.xib */,
 				101CEE8E1342634500C9A426 /* TrackObject.h */,
 				101CEE8F1342634500C9A426 /* TrackObject.m */,
 				1086B26C0DACAFBC007B2EC1 /* Categories */,
@@ -372,6 +380,7 @@
 				102E8EF61343AFDB001EE08F /* icon_found.png in Resources */,
 				102E8EF71343AFDB001EE08F /* icon_notfound.png in Resources */,
 				102E8EF81343AFDB001EE08F /* icon_working.png in Resources */,
+				10CA223B1344FC6F00E652B6 /* WelcomeScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +412,7 @@
 				101CEE801342176900C9A426 /* ImageAndTextCell.m in Sources */,
 				101CEE811342176900C9A426 /* PlaylistObject.m in Sources */,
 				101CEE901342634500C9A426 /* TrackObject.m in Sources */,
+				10CA22391344F38000E652B6 /* WelcomeScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
