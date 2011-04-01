@@ -33,10 +33,10 @@
 	[[NSUserDefaults standardUserDefaults] registerDefaults: 
 	 [NSDictionary dictionaryWithObjectsAndKeys:
 	  [NSNumber numberWithInt:0], 	@"Always on top",			// Off
-	  [NSNumber numberWithInt:1], 	@"Save lyrics to iTunes",	// On
+	  [NSNumber numberWithBool:NO], @"Disable cache warning", // Off
+	  [NSNumber numberWithBool:NO], @"Auto-expand playlist view", // Off
 	  @"Helvetica",					@"FontName",
 	  [NSNumber numberWithFloat:13.0], @"FontSize",
-	  [NSNumber numberWithBool:NO], @"Auto-expand playlist view", // Off
 	  [NSArchiver archivedDataWithRootObject:[NSColor whiteColor]], @"BackgroundColor",
 	  [NSArchiver archivedDataWithRootObject:[NSColor blackColor]], @"TextColor",
 	  [NSArchiver archivedDataWithRootObject:[NSColor colorWithDeviceRed:1.0 green:1.0 blue:0.8 alpha:1.0]], @"EditBackgroundColor",
