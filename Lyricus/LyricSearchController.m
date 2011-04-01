@@ -235,6 +235,7 @@ indexing_cancelled:
 }
 
 -(void) showLyricSearch:(id) sender {
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
     [self.window makeKeyAndOrderFront:sender];
 	if (! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide reverse lyric search welcome screen"]) {
 		[welcomeScreen showWindow:self];
