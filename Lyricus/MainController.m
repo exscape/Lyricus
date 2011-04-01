@@ -376,7 +376,7 @@
         return;
 	}
 	
-	if ([editModeMenuItem state] == 1) {
+	if ([[editModeMenuItem title] isEqualToString:@"Leave edit mode"]) {
 		// Edit mode is active
 		trackChangedWhileInEditMode = YES;
 		// Don't change the displayed lyrics while editing
