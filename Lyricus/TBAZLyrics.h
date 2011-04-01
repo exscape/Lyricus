@@ -14,7 +14,7 @@
 //
 // Sorted by calling order
 //
--(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist withBulk:(BOOL)bulk error:(NSError **)error;
+-(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist withBatch:(BOOL)batch error:(NSError **)error;
 -(NSString *) getURLForArtist:(NSString *) artist error:(NSError **)error;
 -(NSString *) getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)artistURL error:(NSError **)error;
 -(NSString *) extractLyricsFromURL:(NSString *)url forTrack:(NSString *)trackName error:(NSError **)error;

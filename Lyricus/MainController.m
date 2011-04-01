@@ -302,9 +302,9 @@
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-	if (bulkDownloader != nil && [bulkDownloader bulkDownloaderIsWorking]) {
-		// The bulk downloader is downloading tracks. Ask the user whether we still should quit.
-		if ([[NSAlert alertWithMessageText:@"The bulk downloader is currently working. Do you still want to quit?" defaultButton:@"Don't quit" alternateButton:@"Quit" otherButton:nil informativeTextWithFormat:@"Lyrics that have been downloaded until now will be saved."] runModal]
+	if (batchDownloader != nil && [batchDownloader batchDownloaderIsWorking]) {
+		// The batch downloader is downloading tracks. Ask the user whether we still should quit.
+		if ([[NSAlert alertWithMessageText:@"The batch downloader is currently working. Do you still want to quit?" defaultButton:@"Don't quit" alternateButton:@"Quit" otherButton:nil informativeTextWithFormat:@"Lyrics that have been downloaded until now will be saved."] runModal]
 			==
 			NSAlertDefaultReturn) {
 			// Don't quit
@@ -950,27 +950,27 @@ end_func:
     [lyricSearch updateTrackIndex:sender];
 }
 
--(IBAction)openBulkDownloader:(id)sender {
-    if (bulkDownloader == nil) {
-        bulkDownloader = [[Bulk alloc] initWithWindowNibName:@"Bulk"];
+-(IBAction)openBatchDownloader:(id)sender {
+    if (batchDownloader == nil) {
+        batchDownloader = [[Batch alloc] initWithWindowNibName:@"Batch"];
     }
 	
 	while (![helper isiTunesRunning]) {
-		if ([[NSAlert alertWithMessageText:@"The bulk downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Check again" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"check again\". If you don't want to open the bulk downloader now, click \"abort\"."] runModal]
+		if ([[NSAlert alertWithMessageText:@"The batch downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Check again" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"check again\". If you don't want to open the batch downloader now, click \"abort\"."] runModal]
 			==
 			NSAlertDefaultReturn) {
 			// User clicked retry, so restart the loop and check for iTunes again
 			continue;
 		}
 		else {
-			// User clicked abort; don't show the bulk downloader
+			// User clicked abort; don't show the batch downloader
 			return;
 		}
 	}
 	
 	// This point is only reached if iTunes is running.
 
-	[bulkDownloader showBulkDownloader];
+	[batchDownloader showBatchDownloader];
 }
 
 -(IBAction)openLyricSearch:(id)sender {

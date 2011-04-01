@@ -38,7 +38,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
     self = [super init];
 	if (self) {
 		[self updateSiteList];
-		[self setBulk:NO];
+		[self setBatch:NO];
 	}
 	
 	return self;
@@ -48,7 +48,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
 #pragma mark Public
 
 @synthesize sitesByPriority;
-@synthesize bulk;
+@synthesize batch;
 
 -(NSString *)fetchLyricsForTrack:(NSString *)theTrack byArtist:(NSString *)theArtist error:(NSError **)error {
 	
@@ -69,7 +69,7 @@ static LyricFetcher *sharedLyricFetcher = nil;
     NSString *lyrics = nil;
 
 	for (id site in sitesByPriority) {
-		lyrics = [site fetchLyricsForTrack:theTrack byArtist:theArtist withBulk:bulk error:error];
+		lyrics = [site fetchLyricsForTrack:theTrack byArtist:theArtist withBatch:batch error:error];
 		if (lyrics != nil)
 			return lyrics;
     }

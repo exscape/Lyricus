@@ -1253,7 +1253,7 @@ exitNow:
 //  IMPORTANT!   Should only be called from rkl_performRegexOp() or rkl_performEnumerationUsingBlock().
 //  ----------
 
-#pragma mark Used to perform multiple searches at once and return the NSRange results in bulk
+#pragma mark Used to perform multiple searches at once and return the NSRange results in batch
 
 static BOOL rkl_findRanges(RKLCachedRegex *cachedRegex, RKLRegexOp regexOp, RKLFindAll *findAll, id *exception, int32_t *status) {
   BOOL returnWithError = YES;
@@ -1355,7 +1355,7 @@ exitNow:
 //  IMPORTANT!   Should only be called from rkl_performRegexOp().
 //  ----------
 
-#pragma mark Convert bulk results from rkl_findRanges in to various NSArray types
+#pragma mark Convert batch results from rkl_findRanges in to various NSArray types
 
 static NSArray *rkl_makeArray(RKLCachedRegex *cachedRegex, RKLRegexOp regexOp, RKLFindAll *findAll, id *exception RKL_UNUSED_ASSERTION_ARG) {
   NSUInteger  createdStringsCount = 0UL,   createdArraysCount = 0UL,  transferredStringsCount = 0UL;
@@ -1427,7 +1427,7 @@ exitNow:
 //  IMPORTANT!   Should only be called from rkl_performRegexOp().
 //  ----------
 
-#pragma mark Convert bulk results from rkl_findRanges in to various NSDictionary types
+#pragma mark Convert batch results from rkl_findRanges in to various NSDictionary types
 
 static id rkl_makeDictionary(RKLCachedRegex *cachedRegex, RKLRegexOp regexOp, RKLFindAll *findAll, NSUInteger captureKeysCount, id captureKeys[captureKeysCount], const int captureKeyIndexes[captureKeysCount], id *exception RKL_UNUSED_ASSERTION_ARG) {
   NSUInteger                      matchedStringIndex  = 0UL, createdStringsCount = 0UL, createdDictionariesCount = 0UL, matchedDictionariesCount = (findAll->found / (cachedRegex->captureCount + 1UL)), transferredDictionariesCount = 0UL;

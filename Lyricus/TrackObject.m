@@ -1,5 +1,10 @@
-#import "TrackObject.h"
+//
+// This file is part of Lyricus.
+// Copyright (c) 2008-2011, Thomas Backman <serenity@exscape.org>
+// This software is distributed under the terms of the MIT license. For details, see license.txt.
+//
 
+#import "TrackObject.h"
 
 @implementation TrackObject
 
@@ -12,7 +17,7 @@
 -(void)setState:(NSInteger)inState {
 	
 	// If the state is CHANGED to either of these two values,
-	// the bulk downloader has tried to fetch lyrics,
+	// the batch downloader has tried to fetch lyrics,
 	// and either succeeded or failed.
 	// If the state is NSMixedState, it's still in progress,
 	// so don't update the processed property.

@@ -13,7 +13,7 @@
 //
 // Sorted by order of invocation
 //
--(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist withBulk:(BOOL)bulk error:(NSError **)error;
+-(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist withBatch:(BOOL)batch error:(NSError **)error;
 
 // Private methods
 -(NSString *)getURLForArtist:(NSString *) artist error:(NSError **)error;

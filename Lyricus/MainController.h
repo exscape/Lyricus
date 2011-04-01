@@ -10,7 +10,7 @@
 #import "NSTextView+ExscapeFontFix.h"
 #import "SitePriorities.h"
 #import "LyricFetcher.h"
-#import "Bulk.h"
+#import "Batch.h"
 #import "LyricSearchController.h"
 
 
@@ -54,7 +54,7 @@
 	bool loadingLyrics;
 	bool manualSearch;
 	
-	Bulk *bulkDownloader;
+	Batch *batchDownloader;
     LyricSearchController *lyricSearch;
 	
 	BOOL documentEdited;
@@ -91,7 +91,7 @@
 -(BOOL)saveLyricsToNamedTrack;
 -(IBAction)saveDisplayedLyricsToCurrentlyPlayingTrack:(id) sender;
 -(IBAction) showAboutWindow:(id) sender;
--(IBAction)openBulkDownloader:(id)sender;
+-(IBAction)openBatchDownloader:(id)sender;
 -(IBAction)openFontPanel:(id)sender;
 -(IBAction)openSongMeaningsPage:(id)sender;
 -(void)openSongmeaningsThread:(NSArray *)data;

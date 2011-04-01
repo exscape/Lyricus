@@ -6,6 +6,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "iTunesHelper.h"
+#import "WelcomeScreen.h"
 
 @interface LyricSearchController : NSWindowController {
     IBOutlet NSTextField *searchTextField;
@@ -18,6 +19,8 @@
     iTunesHelper *helper;
     NSMutableArray *trackData;
     NSMutableArray *matches;
+	
+	WelcomeScreen *welcomeScreen;
 }
 
 -(void) showLyricSearch:(id) sender;

@@ -20,40 +20,40 @@
 #pragma mark -
 #pragma mark Public
 
--(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist withBulk:(BOOL)bulk error:(NSError **)error {
+-(NSString *) fetchLyricsForTrack:(NSString *)title byArtist:(NSString *)artist withBatch:(BOOL)batch error:(NSError **)error {
 	//
 	// The only method called from the outside.
 	//
 
-	if (!bulk) [self sendStatusUpdate:@"Trying songmeanings..." ofType:LyricusNoteHeader];
+	if (!batch) [self sendStatusUpdate:@"Trying songmeanings..." ofType:LyricusNoteHeader];
 	
-	if (!bulk) [self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteStartedWorking];
+	if (!batch) [self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteStartedWorking];
 	
 	NSString *artistURL = [self getURLForArtist:artist error:error];
 	if (artistURL == nil) {
-		if (!bulk) [self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteFailure];
+		if (!batch) [self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteFailure];
 		return nil;
 	}
 	else
-		if (!bulk) [self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteSuccess];
+		if (!batch) [self sendStatusUpdate:@"Searching for artist page..." ofType:LyricusNoteSuccess];
 	
-	if (!bulk) [self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteStartedWorking];
+	if (!batch) [self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteStartedWorking];
 	NSString *trackURL = [self getLyricURLForTrack:title fromArtistURL:artistURL error:error];
 	if (trackURL == nil) {
-		if (!bulk) [self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteFailure];
+		if (!batch) [self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteFailure];
 		return nil;
 	}
 	else
-		if (!bulk) [self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteSuccess];
+		if (!batch) [self sendStatusUpdate:@"Searching for lyric page..." ofType:LyricusNoteSuccess];
 	
-	if (!bulk) [self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteStartedWorking];
+	if (!batch) [self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteStartedWorking];
 	NSString *lyrics = [self extractLyricsFromURL:trackURL error:error];
 	if (lyrics == nil) {
-		if (!bulk) [self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteFailure];
+		if (!batch) [self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteFailure];
 		return nil;
 	}
 	else {
-		if (!bulk) [self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteSuccess];
+		if (!batch) [self sendStatusUpdate:@"Downloading lyrics..." ofType:LyricusNoteSuccess];
 		return lyrics;
 	}
 }

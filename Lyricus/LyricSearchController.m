@@ -10,6 +10,9 @@
 
 @implementation LyricSearchController
 
+//#define kReverseWelcomeText @"text text text text text text text text snart text end"
+#define kReverseWelcomeText @"U Y NO WORK?! Damnit."
+
 - (id)initWithWindow:(NSWindow *)inWindow {
     self = [super initWithWindow:inWindow];
     if (self) {
@@ -48,7 +51,18 @@
 	
 	[trackTableView setTarget:self];
 	[trackTableView setDoubleAction:@selector(doubleClick:)];
+	
+	welcomeScreen = [[WelcomeScreen alloc] initWithText:kReverseWelcomeText owningWindow:self.window delegate:self];
+	[welcomeScreen showWindow:self];
+	
 }
+
+-(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {
+	if (state == YES) {
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Hide batch welcome screen"];
+	}
+}
+
 -(void) doubleClick:(id)sender {
 	if (matches == nil || [trackTableView clickedRow] >= [matches count])
 		return;
@@ -214,6 +228,8 @@ indexing_cancelled:
 
 -(void) showLyricSearch:(id) sender {
     [self.window makeKeyAndOrderFront:sender];
+	[welcomeScreen showWindow:self];
+
 }
 
 - (void)dealloc {

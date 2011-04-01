@@ -1,3 +1,9 @@
+//
+// This file is part of Lyricus.
+// Copyright (c) 2008-2011, Thomas Backman <serenity@exscape.org>
+// This software is distributed under the terms of the MIT license. For details, see license.txt.
+//
+
 #import "WelcomeScreen.h"
 
 @implementation WelcomeScreen
@@ -64,8 +70,8 @@
 		// These need to be set in the correct order, or the textLabel will be positioned incorrectly
 		[self.window setFrame:windowFrame display:NO animate:NO];		
 		[textLabel setFrame:textFrame];
-		[textLabel setDrawsBackground:YES];
-		[textLabel setBackgroundColor:[NSColor yellowColor]];
+		//		[textLabel setDrawsBackground:YES];
+		//		[textLabel setBackgroundColor:[NSColor yellowColor]];
 	}
 }
 
