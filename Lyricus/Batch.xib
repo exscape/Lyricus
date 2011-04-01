@@ -32,7 +32,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.Metadata"/>
 		<array class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<object class="NSCustomObject" id="1001">
-				<string key="NSClassName">Bulk</string>
+				<string key="NSClassName">Batch</string>
 			</object>
 			<object class="NSCustomObject" id="1003">
 				<string key="NSClassName">FirstResponder</string>
@@ -59,7 +59,6 @@
 							<string key="NSFrame">{{666, 12}, {70, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="427962198">
 								<int key="NSCellFlags">604110336</int>
@@ -279,7 +278,7 @@
 											<string key="NSFrameSize">{560, 391}</string>
 											<reference key="NSSuperview" ref="564580383"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="870752240"/>
+											<reference key="NSNextKeyView" ref="1012681115"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="718668684">
 												<reference key="NSNextResponder" ref="1012681115"/>
@@ -433,7 +432,7 @@
 											<int key="NSTvFlags">1405091840</int>
 											<reference key="NSDelegate"/>
 											<reference key="NSDataSource"/>
-											<string key="NSAutosaveName">BulkTableView</string>
+											<string key="NSAutosaveName">BatchTableView</string>
 											<int key="NSColumnAutoresizingStyle">4</int>
 											<int key="NSDraggingSourceMaskForLocal">15</int>
 											<int key="NSDraggingSourceMaskForNonLocal">0</int>
@@ -492,7 +491,7 @@
 							<string key="NSFrame">{{189, 71}, {562, 409}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="1012681115"/>
+							<reference key="NSNextKeyView" ref="564580383"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="870752240"/>
 							<reference key="NSHScroller" ref="931006258"/>
@@ -845,6 +844,54 @@
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">Batch</string>
+					<string key="superclassName">NSWindowController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">goButtonClicked:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">goButtonClicked:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">goButtonClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="playlistView">NSOutlineView</string>
+						<string key="progressIndicator">NSProgressIndicator</string>
+						<string key="startButton">NSButton</string>
+						<string key="statusLabel">NSTextField</string>
+						<string key="trackView">NSTableView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="playlistView">
+							<string key="name">playlistView</string>
+							<string key="candidateClassName">NSOutlineView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="progressIndicator">
+							<string key="name">progressIndicator</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="startButton">
+							<string key="name">startButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="statusLabel">
+							<string key="name">statusLabel</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="trackView">
+							<string key="name">trackView</string>
+							<string key="candidateClassName">NSTableView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/Batch.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">ImageAndTextCell</string>
 					<string key="superclassName">NSTextFieldCell</string>

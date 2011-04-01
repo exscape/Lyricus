@@ -19,7 +19,7 @@
 
 @synthesize batchDownloaderIsWorking;
 
-#define kBatchWelcomeScreenText @"Fixa radbrytningen!\nWelcome to the Lyricus batch downloader. This window allows you to batch download lyrics for your iTunes playlists.\n" \
+#define kBatchWelcomeScreenText @"This window allows you to batch download lyrics for your iTunes playlists.\n" \
 	@"To get started, select a playlist in the list to the left, then click \"Start\"."
 
 #pragma mark -
