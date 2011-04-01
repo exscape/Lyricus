@@ -11,10 +11,7 @@
 	NSWindow *owner;
 }
 
--(void)setText:(NSString *)inText;
--(void)setDelegate:(id)inDelegate;
--(void)setOwningWindow:(NSWindow *)inOwner;
--(void)show;
+-(id)initWithText:(NSString *)inText owningWindow:(NSWindow *)inOwner delegate:(id)inDelegate;
 
 @end
 

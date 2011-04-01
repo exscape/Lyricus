@@ -3,7 +3,7 @@
 @implementation WelcomeScreen
 
 -(id)init {
-	return [self initWithWindowNibName:@"WelcomeScreen"];
+	return nil;
 }
 
 -(id)initWithWindowNibName:(NSString *)windowNibName {
@@ -16,17 +16,53 @@
 	return self;
 }
 
+-(id)initWithText:(NSString *)inText owningWindow:(NSWindow *)inOwner delegate:(id)inDelegate {
+	self = [self initWithWindowNibName:@"WelcomeScreen"];
+	if (self) {
+		text = [inText copy];
+		owner = inOwner;
+		delegate = inDelegate;
+	}
+	return self;
+}
+
 -(void)awakeFromNib {
 	// Both init and show are called before awakeFromNib. Not pretty.
 	[textLabel setStringValue:text];
-}
+	
+	if (owner != nil) {
+		NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject: [textLabel font] forKey: NSFontAttributeName];
+		
+		NSRect textFrame = [text boundingRectWithSize:NSMakeSize([[owner contentView] frame].size.width, (unsigned int)-1) 
+											  options:(NSStringDrawingUsesDeviceMetrics | NSStringDrawingUsesLineFragmentOrigin )
+										   attributes:stringAttributes];
+		NSRect windowFrame = [self.window frame];
 
--(void)setText:(NSString *)inText {
-	text = [inText copy];
-}
+		// Set the label's origin coordinates as measured in Xcode
+		textFrame.origin.x = 20;
+		textFrame.origin.y = 57;
 
--(void)setDelegate:(id)inDelegate {
-	delegate = inDelegate;
+		// Calculate the window height (textLabel + padding above + padding below + some magic value)
+
+		NSRect ownerFrame = [owner frame];
+		NSRect screenFrame = [[NSScreen mainScreen] frame];
+
+		// Center the window on the owner window
+		windowFrame.origin.x = (ownerFrame.origin.x + (ownerFrame.size.width / 2)) - (windowFrame.size.width / 2);
+		windowFrame.origin.y = (ownerFrame.origin.y + (ownerFrame.size.height / 2)) - (windowFrame.size.height / 2);
+		
+		// If the above position has part of the window off screen, move it back.
+		if (windowFrame.origin.x + windowFrame.size.width > screenFrame.size.width)
+			windowFrame.origin.x = screenFrame.size.width - windowFrame.size.width;
+		if (windowFrame.origin.y + windowFrame.size.height > screenFrame.size.height)
+			windowFrame.origin.y = screenFrame.size.height - windowFrame.size.height;
+
+		// These need to be set in the correct order, or the textLabel will be positioned incorrectly
+		[self.window setFrame:windowFrame display:NO animate:NO];		
+		[textLabel setFrame:textFrame];
+	}
+	
+	[self showWindow:self];
 }
 
 -(void)showWindow:(id)sender {
@@ -34,34 +70,8 @@
 	[self.window makeKeyAndOrderFront:sender];
 }
 
--(void)setOwningWindow:(NSWindow *)inOwner {
-	owner = inOwner;
-}
-
--(void)show {
-	// Attempt to center the window on the owner
-	if (owner != nil) {
-		NSRect frame = [self.window frame];
-		NSRect ownerFrame = [owner frame];
-		NSRect screenFrame = [[NSScreen mainScreen] frame];
-		
-		frame.origin.x = (ownerFrame.origin.x + (ownerFrame.size.width / 2)) - (frame.size.width / 2);
-		frame.origin.y = (ownerFrame.origin.y + (ownerFrame.size.height / 2)) - (frame.size.height / 2);
-		
-		// If the above position has part of the window off screen, move it back.
-		if (frame.origin.x + frame.size.width > screenFrame.size.width)
-			frame.origin.x = screenFrame.size.width - frame.size.width;
-		if (frame.origin.y + frame.size.height > screenFrame.size.height)
-			frame.origin.y = screenFrame.size.height - frame.size.height;
-		
-		[self.window setFrame:frame display:NO animate:NO];		
-	}
-	
-	[self showWindow:self];
-}
-
 -(IBAction)closeButtonClicked:(id)sender {
-	if ([delegate respondsToSelector:@selector(userDidCloseWindowWithDontShowAgain:)]) {
+	if ([delegate respondsToSelector:@selector(userDidCloseWelcomeScreenWithDontShowAgain:)]) {
 		[delegate userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)[dontShowAgain state]];
 	}
 	

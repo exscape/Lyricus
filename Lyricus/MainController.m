@@ -21,6 +21,17 @@
 @synthesize currentNotification;
 @synthesize notificationTimer;
 
+/*#define kMainWelcomeScreenText \
+	@"Welcome to Lyricus!\n" \
+	@"To get started reading lyrics, simply play your music in iTunes.\n" \
+	@"For a general overview, see the Help menu." \
+*/
+/*
+#define kMainWelcomeScreenText @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus diam et odio commodo vehicula. Maecenas mauris justo, pulvinar ac gravida ac, facilisis ac erat. Maecenas malesuada convallis ligula nec faucibus."
+ */
+#define kMainWelcomeScreenText @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus diam et odio commodo vehicula. Maecenas mauris justo, pulvinar ac gravida ac, facilisis ac erat. Maecenas malesuada convallis ligula nec faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus diam et odio commodo vehicula. Maecenas mauris justo, pulvinar ac gravida ac, facilisis ac erat. Maecenas malesuada convallis ligula nec faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus diam et odio commodo vehicula. Maecenas mauris justo, pulvinar ac gravida ac, facilisis ac erat. Maecenas malesuada convallis ligula nec faucibus."
+
+
 -(void) awakeFromNib {
 	//
 	// Set up the default settings
@@ -123,13 +134,11 @@
 }
 
 -(void)applicationDidFinishLaunching:(NSNotification*)note {
-	if ( ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide main welcome screen"] ) {
-		WelcomeScreen *welcomeScreen = [[WelcomeScreen alloc] init];
-		[welcomeScreen setDelegate:self];
-		[welcomeScreen setText:@"Yo"];
-		[welcomeScreen setOwningWindow:mainWindow];
-		[welcomeScreen show];
-	}
+	//	if ( ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide main welcome screen"] ) {
+		WelcomeScreen *welcomeScreen = [[WelcomeScreen alloc] initWithText:kMainWelcomeScreenText owningWindow:mainWindow delegate:self];
+		[welcomeScreen showWindow:self];
+		//		[welcomeScreen show];
+		//	}
 }
 
 -(void) zoomButtonClicked:(id)param {
