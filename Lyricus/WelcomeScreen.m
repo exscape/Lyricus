@@ -43,7 +43,6 @@
 		textFrame.origin.y = 57;
 
 		// Calculate the window height (textLabel + padding above + padding below + some magic value)
-
 		NSRect ownerFrame = [owner frame];
 		NSRect screenFrame = [[NSScreen mainScreen] frame];
 
