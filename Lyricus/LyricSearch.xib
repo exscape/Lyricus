@@ -453,7 +453,7 @@
 							<string key="NSFrame">{{18, 92}, {339, 20}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="704470700"/>
+							<reference key="NSNextKeyView" ref="1008484395"/>
 							<int key="NSpiFlags">16392</int>
 							<double key="NSMaxValue">100</double>
 						</object>
@@ -493,7 +493,7 @@
 								<string key="NSContents">Updating lyric index...</string>
 								<reference key="NSSupport" ref="102061716"/>
 								<reference key="NSControlView" ref="872859683"/>
-								<object class="NSColor" key="NSBackgroundColor" id="514930709">
+								<object class="NSColor" key="NSBackgroundColor" id="556788526">
 									<int key="NSColorSpace">6</int>
 									<string key="NSCatalogName">System</string>
 									<string key="NSColorName">controlColor</string>
@@ -502,7 +502,7 @@
 								<reference key="NSTextColor" ref="867504807"/>
 							</object>
 						</object>
-						<object class="NSTextField" id="704470700">
+						<object class="NSTextField" id="1008484395">
 							<reference key="NSNextResponder" ref="300709705"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 60}, {341, 28}}</string>
@@ -510,13 +510,13 @@
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="199010075"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="36223379">
+							<object class="NSTextFieldCell" key="NSCell" id="374410855">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">272760832</int>
 								<string key="NSContents">Lyricus needs an up-to-date index to be able to search lyrics. The indexing process can take a few minutes.</string>
 								<reference key="NSSupport" ref="26"/>
-								<reference key="NSControlView" ref="704470700"/>
-								<reference key="NSBackgroundColor" ref="514930709"/>
+								<reference key="NSControlView" ref="1008484395"/>
+								<reference key="NSBackgroundColor" ref="556788526"/>
 								<object class="NSColor" key="NSTextColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xNjg0NzgyNjA5IDAuMTY4NDc4MjYwOSAwLjE2ODQ3ODI2MDkAA</bytes>
@@ -758,7 +758,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="872859683"/>
 							<reference ref="169595748"/>
-							<reference ref="704470700"/>
+							<reference ref="1008484395"/>
 							<reference ref="199010075"/>
 						</object>
 						<reference key="parent" ref="740746720"/>
@@ -812,17 +812,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">141</int>
-						<reference key="object" ref="704470700"/>
+						<reference key="object" ref="1008484395"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="36223379"/>
+							<reference ref="374410855"/>
 						</object>
 						<reference key="parent" ref="300709705"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">142</int>
-						<reference key="object" ref="36223379"/>
-						<reference key="parent" ref="704470700"/>
+						<reference key="object" ref="374410855"/>
+						<reference key="parent" ref="1008484395"/>
 					</object>
 				</object>
 			</object>
