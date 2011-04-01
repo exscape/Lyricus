@@ -236,6 +236,7 @@
 }
 
 -(IBAction) openSearchWindow:(id) sender {
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 	[NSApp beginSheet:searchWindow modalForWindow:mainWindow modalDelegate:self 
 	   didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 	

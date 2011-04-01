@@ -1821,6 +1821,14 @@ ZnJlZV9pY29ucw</bytes>
 			<object class="NSMenu" id="97540560">
 				<string key="NSTitle"/>
 				<array class="NSMutableArray" key="NSMenuItems">
+					<object class="NSMenuItem" id="534705106">
+						<reference key="NSMenu" ref="97540560"/>
+						<string key="NSTitle">Search...</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="347872383"/>
+						<reference key="NSMixedImage" ref="1007003020"/>
+					</object>
 					<object class="NSMenuItem" id="647990376">
 						<reference key="NSMenu" ref="97540560"/>
 						<string key="NSTitle">Batch downloader...</string>
@@ -2553,6 +2561,14 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="destination" ref="97540560"/>
 					</object>
 					<int key="connectionID">981</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openSearchWindow:</string>
+						<reference key="source" ref="932114003"/>
+						<reference key="destination" ref="534705106"/>
+					</object>
+					<int key="connectionID">984</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3540,6 +3556,7 @@ ZnJlZV9pY29ucw</bytes>
 						<array class="NSMutableArray" key="children">
 							<reference ref="647990376"/>
 							<reference ref="949421769"/>
+							<reference ref="534705106"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -3551,6 +3568,11 @@ ZnJlZV9pY29ucw</bytes>
 					<object class="IBObjectRecord">
 						<int key="objectID">976</int>
 						<reference key="object" ref="647990376"/>
+						<reference key="parent" ref="97540560"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">982</int>
+						<reference key="object" ref="534705106"/>
 						<reference key="parent" ref="97540560"/>
 					</object>
 				</array>
@@ -3853,12 +3875,13 @@ ZnJlZV9pY29ucw</bytes>
 				<string key="975.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="976.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="977.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="982.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">981</int>
+			<int key="maxID">984</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
