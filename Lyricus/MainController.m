@@ -236,15 +236,6 @@
 	 
 }
 
--(IBAction) followiTunesCheckboxClicked:(id) sender {
-	if ([followiTunesCheckbox state] == NSOnState) {
-		if ([helper isiTunesRunning]) {
-			[self updateTextFieldsFromiTunes];
-			[self fetchAndDisplayLyrics:NO];
-		}
-	}
-}
-
 -(IBAction) openSearchWindow:(id) sender {
 	[NSApp beginSheet:searchWindow modalForWindow:mainWindow modalDelegate:self 
 	   didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
