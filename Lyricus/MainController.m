@@ -21,16 +21,10 @@
 @synthesize currentNotification;
 @synthesize notificationTimer;
 
-/*#define kMainWelcomeScreenText \
+#define kMainWelcomeScreenText \
 	@"Welcome to Lyricus!\n" \
-	@"To get started reading lyrics, simply play your music in iTunes.\n" \
-	@"For a general overview, see the Help menu." \
-*/
-/*
-#define kMainWelcomeScreenText @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus diam et odio commodo vehicula. Maecenas mauris justo, pulvinar ac gravida ac, facilisis ac erat. Maecenas malesuada convallis ligula nec faucibus."
- */
-#define kMainWelcomeScreenText @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus diam et odio commodo vehicula. Maecenas mauris justo, pulvinar ac gravida ac, facilisis ac erat. Maecenas malesuada convallis ligula nec faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus diam et odio commodo vehicula. Maecenas mauris justo, pulvinar ac gravida ac, facilisis ac erat. Maecenas malesuada convallis ligula nec faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus diam et odio commodo vehicula. Maecenas mauris justo, pulvinar ac gravida ac, facilisis ac erat. Maecenas malesuada convallis ligula nec faucibus."
-
+	@"To get started, simply play your music in iTunes.\n" \
+	@"For a general overview of Lyricus, see the Help menu."
 
 -(void) awakeFromNib {
 	//

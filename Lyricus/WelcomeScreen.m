@@ -34,13 +34,16 @@
 		NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject: [textLabel font] forKey: NSFontAttributeName];
 		
 		NSRect textFrame = [text boundingRectWithSize:NSMakeSize(textLabel.frame.size.width, (unsigned int)-1) 
-											  options:(NSStringDrawingUsesDeviceMetrics | NSStringDrawingUsesLineFragmentOrigin )
+											  options:(NSStringDrawingDisableScreenFontSubstitution | NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading )
 										   attributes:stringAttributes];
 		NSRect windowFrame = [self.window frame];
 
 		// Set the label's origin coordinates as measured in Xcode
 		textFrame.origin.x = 20;
 		textFrame.origin.y = 57;
+		
+		// FIXME: Ugh! WHY is this needed to not clip?!
+		textFrame.size.width += 5;
 		
 		// Calculate the window height (textLabel + padding above + padding below + some magic value)
 		windowFrame.size.height = textFrame.size.height + 20 + 65 + 10;
@@ -61,6 +64,8 @@
 		// These need to be set in the correct order, or the textLabel will be positioned incorrectly
 		[self.window setFrame:windowFrame display:NO animate:NO];		
 		[textLabel setFrame:textFrame];
+		[textLabel setDrawsBackground:YES];
+		[textLabel setBackgroundColor:[NSColor yellowColor]];
 	}
 }
 

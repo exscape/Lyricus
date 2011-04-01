@@ -253,12 +253,6 @@
 		return nil;
 }
 
--(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {
-	if (state == YES) {
-		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Hide bulk welcome screen"];
-	}
-}
-
 -(void)showBulkDownloader {	
 	[statusLabel setStringValue:@"Idle"];	
 	[self setBulkDownloaderIsWorking:NO];
