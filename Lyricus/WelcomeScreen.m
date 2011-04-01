@@ -33,7 +33,7 @@
 	if (owner != nil) {
 		NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject: [textLabel font] forKey: NSFontAttributeName];
 		
-		NSRect textFrame = [text boundingRectWithSize:NSMakeSize([[owner contentView] frame].size.width, (unsigned int)-1) 
+		NSRect textFrame = [text boundingRectWithSize:NSMakeSize(textLabel.frame.size.width, (unsigned int)-1) 
 											  options:(NSStringDrawingUsesDeviceMetrics | NSStringDrawingUsesLineFragmentOrigin )
 										   attributes:stringAttributes];
 		NSRect windowFrame = [self.window frame];
@@ -41,27 +41,27 @@
 		// Set the label's origin coordinates as measured in Xcode
 		textFrame.origin.x = 20;
 		textFrame.origin.y = 57;
-
+		
 		// Calculate the window height (textLabel + padding above + padding below + some magic value)
-		NSRect ownerFrame = [owner frame];
-		NSRect screenFrame = [[NSScreen mainScreen] frame];
+		windowFrame.size.height = textFrame.size.height + 20 + 65 + 10;
 
 		// Center the window on the owner window
+		NSRect ownerFrame = [owner frame];
 		windowFrame.origin.x = (ownerFrame.origin.x + (ownerFrame.size.width / 2)) - (windowFrame.size.width / 2);
 		windowFrame.origin.y = (ownerFrame.origin.y + (ownerFrame.size.height / 2)) - (windowFrame.size.height / 2);
 		
 		// If the above position has part of the window off screen, move it back.
+		NSRect screenFrame = [[NSScreen mainScreen] frame];
 		if (windowFrame.origin.x + windowFrame.size.width > screenFrame.size.width)
 			windowFrame.origin.x = screenFrame.size.width - windowFrame.size.width;
 		if (windowFrame.origin.y + windowFrame.size.height > screenFrame.size.height)
 			windowFrame.origin.y = screenFrame.size.height - windowFrame.size.height;
 
+		[self setShouldCascadeWindows:NO];
 		// These need to be set in the correct order, or the textLabel will be positioned incorrectly
 		[self.window setFrame:windowFrame display:NO animate:NO];		
 		[textLabel setFrame:textFrame];
 	}
-	
-	[self showWindow:self];
 }
 
 -(void)showWindow:(id)sender {
