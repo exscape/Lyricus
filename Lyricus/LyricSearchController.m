@@ -39,7 +39,8 @@
     
     if (!trackData) {
 		[self updateTrackIndex:self];
-		if (welcomeScreen != nil) {
+		if (welcomeScreen != nil && ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide reverse lyric search welcome screen"])
+		{
 			[welcomeScreen showWindow:self];
 		}
     }
@@ -235,7 +236,9 @@ indexing_cancelled:
 
 -(void) showLyricSearch:(id) sender {
     [self.window makeKeyAndOrderFront:sender];
-	[welcomeScreen showWindow:self];
+	if (! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide reverse lyric search welcome screen"]) {
+		[welcomeScreen showWindow:self];
+	}
 
 }
 

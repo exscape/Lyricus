@@ -316,7 +316,7 @@
 	}
 	
 	if ([tracks count] > 40) {
-		if ([[NSAlert alertWithMessageText:[NSString stringWithFormat:@"There are %d tracks to process. Do you want to continue?", [tracks count]] defaultButton:@"Continue" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"This action may tike some time."] runModal] 
+		if ([[NSAlert alertWithMessageText:[NSString stringWithFormat:@"There are %d tracks to process. Do you want to continue?", [tracks count]] defaultButton:@"Continue" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"This action may take some time."] runModal] 
 			== NSAlertAlternateReturn) {
 			[self setBatchDownloaderIsWorking:NO];
 			[statusLabel setStringValue:@"Idle"];
