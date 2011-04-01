@@ -56,14 +56,15 @@
 	[trackTableView setTarget:self];
 	[trackTableView setDoubleAction:@selector(doubleClick:)];
 	
-	welcomeScreen = [[WelcomeScreen alloc] initWithText:kReverseWelcomeText owningWindow:self.window delegate:self];
-	[welcomeScreen showWindow:self];
-	
+	if (! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide reverse lyric search welcome screen"]) {
+		welcomeScreen = [[WelcomeScreen alloc] initWithText:kReverseWelcomeText owningWindow:self.window delegate:self];
+		[welcomeScreen showWindow:self];
+	}
 }
 
 -(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {
 	if (state == YES) {
-		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Hide batch welcome screen"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Hide reverse lyric search welcome screen"];
 	}
 }
 

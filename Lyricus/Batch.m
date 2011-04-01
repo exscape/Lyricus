@@ -205,10 +205,17 @@
 	
 	[trackView setTarget:self];
 	[trackView setDoubleAction:@selector(doubleClick:)];
-	
-	welcomeScreen = [[WelcomeScreen alloc] initWithText:kBatchWelcomeScreenText owningWindow:self.window delegate:self];
-	[welcomeScreen showWindow:self];
+	if ( ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide batch welcome screen"] ) {
+		welcomeScreen = [[WelcomeScreen alloc] initWithText:kBatchWelcomeScreenText owningWindow:self.window delegate:self];
+		[welcomeScreen showWindow:self];
+	}
 }
+-(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {
+	if (state == YES) {
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Hide batch welcome screen"];
+	}
+}
+
 
 -(void) showWindow:(id)sender {
 	if (firstLoad == NO) {
@@ -259,7 +266,9 @@
 	[self setBatchDownloaderIsWorking:NO];
 	[self showWindow:self];
     [self.window makeKeyAndOrderFront:self];
-	[welcomeScreen showWindow:self];
+	if (welcomeScreen != nil) {
+		[welcomeScreen showWindow:self];
+	}
 }
 
 -(void)setCheckMarkForTrack:(NSDictionary *)data {
