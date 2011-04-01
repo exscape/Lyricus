@@ -137,8 +137,7 @@
 	//	if ( ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide main welcome screen"] ) {
 		WelcomeScreen *welcomeScreen = [[WelcomeScreen alloc] initWithText:kMainWelcomeScreenText owningWindow:mainWindow delegate:self];
 		[welcomeScreen showWindow:self];
-		//		[welcomeScreen show];
-		//	}
+	// }
 }
 
 -(void) zoomButtonClicked:(id)param {

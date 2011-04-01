@@ -19,6 +19,8 @@
 
 @synthesize bulkDownloaderIsWorking;
 
+#define kBulkWelcomeScreenText @"Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores."
+
 #pragma mark -
 #pragma mark Init stuff
 
@@ -202,6 +204,9 @@
 	
 	[trackView setTarget:self];
 	[trackView setDoubleAction:@selector(doubleClick:)];
+	
+	welcomeScreen = [[WelcomeScreen alloc] initWithText:kBulkWelcomeScreenText owningWindow:self.window delegate:self];
+	[welcomeScreen showWindow:self];
 }
 
 -(void) showWindow:(id)sender {
@@ -248,11 +253,18 @@
 		return nil;
 }
 
+-(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {
+	if (state == YES) {
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"Hide bulk welcome screen"];
+	}
+}
+
 -(void)showBulkDownloader {	
 	[statusLabel setStringValue:@"Idle"];	
 	[self setBulkDownloaderIsWorking:NO];
 	[self showWindow:self];
     [self.window makeKeyAndOrderFront:self];
+	[welcomeScreen showWindow:self];
 }
 
 -(void)setCheckMarkForTrack:(NSDictionary *)data {

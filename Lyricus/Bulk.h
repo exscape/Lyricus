@@ -7,6 +7,7 @@
 #import <Cocoa/Cocoa.h>
 #import "LyricFetcher.h"
 #import "iTunesHelper.h"
+#import "WelcomeScreen.h"
 
 @interface Bulk : NSWindowController <NSWindowDelegate, NSOutlineViewDelegate, NSOutlineViewDataSource, NSTableViewDelegate, NSTableViewDataSource> {
 	NSMutableArray *playlists;
@@ -26,6 +27,8 @@
 	IBOutlet NSTableView *trackView;
 
 	BOOL firstLoad;
+	
+	WelcomeScreen *welcomeScreen;
 }
 
 -(IBAction) goButtonClicked:(id)sender;
