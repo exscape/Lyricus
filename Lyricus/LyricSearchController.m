@@ -11,8 +11,8 @@
 @implementation LyricSearchController
 
 //#define kReverseWelcomeText @"text text text text text text text text snart text end"
-#define kReverseWelcomeText @"This window allows you to search for words in a song text, and find a list of songs that contain them.\n" \
-	@"There are three parts to this window.\n\n" \
+#define kReverseWelcomeText @"This window allows you to search for words in a song text, and find a list of songs that contain them.\n\n" \
+	@"There are three parts to this window.\n" \
 	@"The top field is the search field, where you enter lyrics to search for. Results appear as you type.\n" \
 	@"The middle control is the results list; song titles that match the lyric in the above field will show up here.\n" \
 	@"The large text area displays the entire lyrics to the song selected in the above list, and automatically highlights your search terms."
@@ -31,10 +31,17 @@
 
 -(void) windowDidLoad {
     [super windowDidLoad];
+
+	if (! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide reverse lyric search welcome screen"]) {
+		welcomeScreen = [[WelcomeScreen alloc] initWithText:kReverseWelcomeText owningWindow:self.window delegate:self];
+		[welcomeScreen showWindow:self];
+	}
     
     if (!trackData) {
-        [[NSAlert alertWithMessageText:@"You need to create a track index to continue." defaultButton:@"Create index now" alternateButton:nil otherButton:nil informativeTextWithFormat:@"This function needs a track index to work. Click \"Create index now\" to start."] runModal];
-        [self updateTrackIndex:self];
+		[self updateTrackIndex:self];
+		if (welcomeScreen != nil) {
+			[welcomeScreen showWindow:self];
+		}
     }
     else {
         // Check index age
@@ -55,11 +62,6 @@
 	
 	[trackTableView setTarget:self];
 	[trackTableView setDoubleAction:@selector(doubleClick:)];
-	
-	if (! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide reverse lyric search welcome screen"]) {
-		welcomeScreen = [[WelcomeScreen alloc] initWithText:kReverseWelcomeText owningWindow:self.window delegate:self];
-		[welcomeScreen showWindow:self];
-	}
 }
 
 -(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {

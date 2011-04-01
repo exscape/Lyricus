@@ -96,7 +96,7 @@
 														<int key="NSCellFlags">75628096</int>
 														<int key="NSCellFlags2">2048</int>
 														<string key="NSContents"/>
-														<object class="NSFont" key="NSSupport">
+														<object class="NSFont" key="NSSupport" id="26">
 															<string key="NSName">LucidaGrande</string>
 															<double key="NSSize">11</double>
 															<int key="NSfFlags">3100</int>
@@ -231,7 +231,7 @@
 											<string key="NSFrameSize">{324, 14}</string>
 											<reference key="NSSuperview" ref="693618263"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="91705455"/>
+											<reference key="NSNextKeyView" ref="288397125"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="401382341">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -327,6 +327,7 @@
 									<string key="NSFrame">{{325, 1}, {15, 340}}</string>
 									<reference key="NSSuperview" ref="646588990"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<reference key="NSTarget" ref="646588990"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSCurValue">1</double>
@@ -349,7 +350,7 @@
 							<string key="NSFrame">{{20, 20}, {341, 342}}</string>
 							<reference key="NSSuperview" ref="1036285004"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="693618263"/>
+							<reference key="NSNextKeyView" ref="91705455"/>
 							<int key="NSsFlags">18</int>
 							<reference key="NSVScroller" ref="288397125"/>
 							<reference key="NSHScroller" ref="91705455"/>
@@ -361,6 +362,7 @@
 							<string key="NSFrame">{{20, 456}, {341, 22}}</string>
 							<reference key="NSSuperview" ref="1036285004"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="145175523"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSearchFieldCell" key="NSCell" id="117327003">
 								<int key="NSCellFlags">343014976</int>
@@ -426,6 +428,7 @@
 					<string key="NSFrame">{{7, 11}, {381, 484}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView" ref="591572090"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
@@ -433,7 +436,7 @@
 			<object class="NSWindowTemplate" id="740746720">
 				<int key="NSWindowStyleMask">1</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{245, 301}, {355, 110}}</string>
+				<string key="NSWindowRect">{{245, 301}, {385, 157}}</string>
 				<int key="NSWTFlags">611844096</int>
 				<string key="NSWindowTitle">Indexing...</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -447,19 +450,20 @@
 							<reference key="NSNextResponder" ref="300709705"/>
 							<int key="NSvFlags">1292</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
-							<string key="NSFrame">{{18, 45}, {319, 20}}</string>
+							<string key="NSFrame">{{18, 92}, {339, 20}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="199010075"/>
+							<reference key="NSNextKeyView" ref="704470700"/>
 							<int key="NSpiFlags">16392</int>
 							<double key="NSMaxValue">100</double>
 						</object>
 						<object class="NSButton" id="199010075">
 							<reference key="NSNextResponder" ref="300709705"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{265, 12}, {76, 32}}</string>
+							<string key="NSFrame">{{285, 12}, {76, 32}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="7655529">
 								<int key="NSCellFlags">67239424</int>
@@ -478,7 +482,7 @@
 						<object class="NSTextField" id="872859683">
 							<reference key="NSNextResponder" ref="300709705"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 73}, {321, 17}}</string>
+							<string key="NSFrame">{{17, 120}, {321, 17}}</string>
 							<reference key="NSSuperview" ref="300709705"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="169595748"/>
@@ -489,7 +493,7 @@
 								<string key="NSContents">Updating lyric index...</string>
 								<reference key="NSSupport" ref="102061716"/>
 								<reference key="NSControlView" ref="872859683"/>
-								<object class="NSColor" key="NSBackgroundColor">
+								<object class="NSColor" key="NSBackgroundColor" id="514930709">
 									<int key="NSColorSpace">6</int>
 									<string key="NSCatalogName">System</string>
 									<string key="NSColorName">controlColor</string>
@@ -498,8 +502,29 @@
 								<reference key="NSTextColor" ref="867504807"/>
 							</object>
 						</object>
+						<object class="NSTextField" id="704470700">
+							<reference key="NSNextResponder" ref="300709705"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{17, 60}, {341, 28}}</string>
+							<reference key="NSSuperview" ref="300709705"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="199010075"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSTextFieldCell" key="NSCell" id="36223379">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">272760832</int>
+								<string key="NSContents">Lyricus needs an up-to-date index to be able to search lyrics. The indexing process can take a few minutes.</string>
+								<reference key="NSSupport" ref="26"/>
+								<reference key="NSControlView" ref="704470700"/>
+								<reference key="NSBackgroundColor" ref="514930709"/>
+								<object class="NSColor" key="NSTextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xNjg0NzgyNjA5IDAuMTY4NDc4MjYwOSAwLjE2ODQ3ODI2MDkAA</bytes>
+								</object>
+							</object>
+						</object>
 					</object>
-					<string key="NSFrame">{{7, 11}, {355, 110}}</string>
+					<string key="NSFrame">{{7, 11}, {385, 157}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="872859683"/>
@@ -732,8 +757,9 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="872859683"/>
-							<reference ref="199010075"/>
 							<reference ref="169595748"/>
+							<reference ref="704470700"/>
+							<reference ref="199010075"/>
 						</object>
 						<reference key="parent" ref="740746720"/>
 					</object>
@@ -784,6 +810,20 @@
 						<reference key="object" ref="117327003"/>
 						<reference key="parent" ref="591572090"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">141</int>
+						<reference key="object" ref="704470700"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="36223379"/>
+						</object>
+						<reference key="parent" ref="300709705"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">142</int>
+						<reference key="object" ref="36223379"/>
+						<reference key="parent" ref="704470700"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -798,6 +838,8 @@
 					<string>129.IBPluginDependency</string>
 					<string>135.IBPluginDependency</string>
 					<string>136.IBPluginDependency</string>
+					<string>141.IBPluginDependency</string>
+					<string>142.IBPluginDependency</string>
 					<string>20.IBPluginDependency</string>
 					<string>21.IBPluginDependency</string>
 					<string>23.IBPluginDependency</string>
@@ -820,6 +862,8 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -861,7 +905,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">138</int>
+			<int key="maxID">142</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
