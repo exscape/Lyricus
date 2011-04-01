@@ -1696,7 +1696,7 @@
 											<string key="NSFrameSize">{230, 168}</string>
 											<reference key="NSSuperview" ref="952129484"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="848929836"/>
+											<reference key="NSNextKeyView" ref="29591630"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="368161160">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -1758,7 +1758,7 @@ ZnJlZV9pY29ucw</bytes>
 									<string key="NSFrame">{{-100, -100}, {15, 89}}</string>
 									<reference key="NSSuperview" ref="671949539"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="313745720"/>
+									<reference key="NSNextKeyView" ref="794054711"/>
 									<bool key="NSEnabled">YES</bool>
 									<reference key="NSTarget" ref="671949539"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1781,13 +1781,13 @@ ZnJlZV9pY29ucw</bytes>
 							<string key="NSFrame">{{20, 60}, {232, 91}}</string>
 							<reference key="NSSuperview" ref="300256411"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="794054711"/>
+							<reference key="NSNextKeyView" ref="848929836"/>
 							<int key="NSsFlags">66</int>
 							<reference key="NSVScroller" ref="848929836"/>
 							<reference key="NSHScroller" ref="794054711"/>
 							<reference key="NSContentView" ref="952129484"/>
 						</object>
-						<object class="NSButton" id="313745720">
+						<object class="NSButton" id="29591630">
 							<reference key="NSNextResponder" ref="300256411"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{39, 12}, {194, 32}}</string>
@@ -1795,12 +1795,12 @@ ZnJlZV9pY29ucw</bytes>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="67949930">
+							<object class="NSButtonCell" key="NSCell" id="248388862">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Display RegexKit license</string>
 								<reference key="NSSupport" ref="815574472"/>
-								<reference key="NSControlView" ref="313745720"/>
+								<reference key="NSControlView" ref="29591630"/>
 								<int key="NSButtonFlags">-2038284033</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -1817,6 +1817,27 @@ ZnJlZV9pY29ucw</bytes>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
+			</object>
+			<object class="NSMenu" id="97540560">
+				<string key="NSTitle"/>
+				<array class="NSMutableArray" key="NSMenuItems">
+					<object class="NSMenuItem" id="647990376">
+						<reference key="NSMenu" ref="97540560"/>
+						<string key="NSTitle">Batch downloader...</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="347872383"/>
+						<reference key="NSMixedImage" ref="1007003020"/>
+					</object>
+					<object class="NSMenuItem" id="949421769">
+						<reference key="NSMenu" ref="97540560"/>
+						<string key="NSTitle">Reverse lyric search...</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="347872383"/>
+						<reference key="NSMixedImage" ref="1007003020"/>
+					</object>
+				</array>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -2505,9 +2526,33 @@ ZnJlZV9pY29ucw</bytes>
 					<object class="IBActionConnection" key="connection">
 						<string key="label">showRegexKitLicense:</string>
 						<reference key="source" ref="932114003"/>
-						<reference key="destination" ref="313745720"/>
+						<reference key="destination" ref="29591630"/>
 					</object>
 					<int key="connectionID">974</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openBatchDownloader:</string>
+						<reference key="source" ref="932114003"/>
+						<reference key="destination" ref="647990376"/>
+					</object>
+					<int key="connectionID">979</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openLyricSearch:</string>
+						<reference key="source" ref="932114003"/>
+						<reference key="destination" ref="949421769"/>
+					</object>
+					<int key="connectionID">980</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">dockMenu</string>
+						<reference key="source" ref="1021"/>
+						<reference key="destination" ref="97540560"/>
+					</object>
+					<int key="connectionID">981</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3196,7 +3241,7 @@ ZnJlZV9pY29ucw</bytes>
 							<reference ref="839657679"/>
 							<reference ref="756281719"/>
 							<reference ref="1038444258"/>
-							<reference ref="313745720"/>
+							<reference ref="29591630"/>
 						</array>
 						<reference key="parent" ref="1068301178"/>
 					</object>
@@ -3478,16 +3523,35 @@ ZnJlZV9pY29ucw</bytes>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">972</int>
-						<reference key="object" ref="313745720"/>
+						<reference key="object" ref="29591630"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="67949930"/>
+							<reference ref="248388862"/>
 						</array>
 						<reference key="parent" ref="300256411"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">973</int>
-						<reference key="object" ref="67949930"/>
-						<reference key="parent" ref="313745720"/>
+						<reference key="object" ref="248388862"/>
+						<reference key="parent" ref="29591630"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">975</int>
+						<reference key="object" ref="97540560"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="647990376"/>
+							<reference ref="949421769"/>
+						</array>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">977</int>
+						<reference key="object" ref="949421769"/>
+						<reference key="parent" ref="97540560"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">976</int>
+						<reference key="object" ref="647990376"/>
+						<reference key="parent" ref="97540560"/>
 					</object>
 				</array>
 			</object>
@@ -3786,12 +3850,15 @@ ZnJlZV9pY29ucw</bytes>
 				<integer value="1" key="969.ImportedFromIB2"/>
 				<string key="972.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="973.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="975.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="976.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="977.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">974</int>
+			<int key="maxID">981</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
