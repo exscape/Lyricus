@@ -1594,20 +1594,20 @@
 								<reference key="NSTextColor" ref="219919970"/>
 							</object>
 						</object>
-						<object class="NSTextField" id="851972496">
+						<object class="NSTextField" id="470829392">
 							<reference key="NSNextResponder" ref="217934024"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 280}, {92, 17}}</string>
+							<string key="NSFrame">{{13, 280}, {92, 17}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="860944783"/>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSTextFieldCell" key="NSCell" id="4729019">
+							<object class="NSTextFieldCell" key="NSCell" id="913043389">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
 								<string key="NSContents">Site priorities:</string>
 								<reference key="NSSupport" ref="815574472"/>
-								<reference key="NSControlView" ref="851972496"/>
+								<reference key="NSControlView" ref="470829392"/>
 								<reference key="NSBackgroundColor" ref="422665243"/>
 								<reference key="NSTextColor" ref="219919970"/>
 							</object>
@@ -1616,7 +1616,7 @@
 					<string key="NSFrame">{{7, 11}, {255, 317}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="851972496"/>
+					<reference key="NSNextKeyView" ref="470829392"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
@@ -3129,7 +3129,6 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="object" ref="217934024"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="860944783"/>
-							<reference ref="851972496"/>
 							<reference ref="672621495"/>
 							<reference ref="748936176"/>
 							<reference ref="891737213"/>
@@ -3141,6 +3140,7 @@ ZnJlZV9pY29ucw</bytes>
 							<reference ref="137600271"/>
 							<reference ref="794863827"/>
 							<reference ref="613198372"/>
+							<reference ref="470829392"/>
 						</array>
 						<reference key="parent" ref="97880315"/>
 					</object>
@@ -3584,16 +3584,16 @@ ZnJlZV9pY29ucw</bytes>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">985</int>
-						<reference key="object" ref="851972496"/>
+						<reference key="object" ref="470829392"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="4729019"/>
+							<reference ref="913043389"/>
 						</array>
 						<reference key="parent" ref="217934024"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">986</int>
-						<reference key="object" ref="4729019"/>
-						<reference key="parent" ref="851972496"/>
+						<reference key="object" ref="913043389"/>
+						<reference key="parent" ref="470829392"/>
 					</object>
 				</array>
 			</object>
@@ -3902,7 +3902,7 @@ ZnJlZV9pY29ucw</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">988</int>
+			<int key="maxID">989</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
