@@ -63,8 +63,8 @@
 		NSRect screenFrame = [[NSScreen mainScreen] frame];
 		if (windowFrame.origin.x + windowFrame.size.width > screenFrame.size.width)
 			windowFrame.origin.x = screenFrame.size.width - windowFrame.size.width;
-		if (windowFrame.origin.y + windowFrame.size.height > screenFrame.size.height)
-			windowFrame.origin.y = screenFrame.size.height - windowFrame.size.height;
+		if (windowFrame.origin.y < 0)
+			windowFrame.origin.y = 0;
 
 		[self setShouldCascadeWindows:NO];
 		// These need to be set in the correct order, or the textLabel will be positioned incorrectly

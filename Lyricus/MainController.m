@@ -85,6 +85,9 @@
 	
 	// Sign up to receive notifications about the download progress (i.e. which site is being tried)
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateStatus:) name:@"UpdateStatusNotification" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didChangeScreenParameters:)
+				name: NSApplicationDidChangeScreenParametersNotification object: nil];
+
 	
 	// Remember the window position
 	[mainWindow setFrameAutosaveName:@"mainWindow"];	
@@ -955,6 +958,19 @@ end_func:
 -(IBAction)lyricSearchUpdateIndex:(id) sender {
     [self openLyricSearch:sender];
     [lyricSearch updateTrackIndex:sender];
+}
+
+-(void)didChangeScreenParameters: (NSNotification *)note {
+	// Make sure the window is still on the screen
+	NSRect screenRect = [[NSScreen mainScreen] visibleFrame];
+	NSRect windowFrame = [mainWindow frame];
+	
+	if (windowFrame.origin.x + windowFrame.size.width > screenRect.size.width)
+		windowFrame.origin.x = screenRect.size.width - windowFrame.size.width;
+	if (screenRect.size.height - windowFrame.origin.y < 0)
+		windowFrame.origin.y = 0;
+	
+	[mainWindow setFrame:windowFrame display:NO animate:NO];
 }
 
 -(IBAction)openBatchDownloader:(id)sender {
