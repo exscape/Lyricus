@@ -63,6 +63,9 @@
 }
 
 -(BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item {
+	if ([self batchDownloaderIsWorking])
+		return NO;
+	
 	return ([item specialKind] != iTunesESpKFolder);
 }
 
@@ -381,6 +384,7 @@
 	int had_lyrics = 0;
 	int lyrics_not_found = 0;
 	int errors_in_a_row = 0; // Used to abort when things appear to be going wrong
+	
 	
 	for (TrackObject *track in tracks) {
 		count++;
