@@ -70,8 +70,6 @@
 		// These need to be set in the correct order, or the textLabel will be positioned incorrectly
 		[self.window setFrame:windowFrame display:NO animate:NO];		
 		[textLabel setFrame:textFrame];
-		//		[textLabel setDrawsBackground:YES];
-		//		[textLabel setBackgroundColor:[NSColor yellowColor]];
 	}
 }
 

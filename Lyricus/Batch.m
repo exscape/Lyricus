@@ -127,10 +127,27 @@
 		[self setBatchDownloaderIsWorking:NO];
 		firstLoad = YES;
 		
+		[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didChangeScreenParameters:)
+													 name: NSApplicationDidChangeScreenParametersNotification object: nil];
+
+		
 		return self;
 	}
 	return nil;
 } 
+
+-(void)didChangeScreenParameters: (NSNotification *)note {
+	// Make sure the window is still on the screen
+	NSRect screenRect = [[NSScreen mainScreen] visibleFrame];
+	NSRect windowFrame = [self.window frame];
+	
+	if (windowFrame.origin.x + windowFrame.size.width > screenRect.size.width)
+		windowFrame.origin.x = screenRect.size.width - windowFrame.size.width;
+	if (screenRect.size.height - windowFrame.origin.y < 0)
+		windowFrame.origin.y = 0;
+	
+	[self.window setFrame:windowFrame display:NO animate:NO];
+}
 
 - (void) doubleClick:(id) sender {
 	if (tracks == nil || [trackView clickedRow] >= [tracks count])
