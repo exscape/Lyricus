@@ -482,15 +482,6 @@
 						<object class="NSMenu" key="NSSubmenu" id="601547808">
 							<string key="NSTitle">View</string>
 							<array class="NSMutableArray" key="NSMenuItems">
-								<object class="NSMenuItem" id="407929408">
-									<reference key="NSMenu" ref="601547808"/>
-									<string key="NSTitle">Customize toolbar...</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="347872383"/>
-									<reference key="NSMixedImage" ref="1007003020"/>
-								</object>
 								<object class="NSMenuItem" id="330238536">
 									<reference key="NSMenu" ref="601547808"/>
 									<string key="NSTitle">Open font panel</string>
@@ -693,7 +684,7 @@
 											<string key="NSFrameSize">{283, 144}</string>
 											<reference key="NSSuperview" ref="892662577"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
+											<reference key="NSNextKeyView" ref="363208009"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="208240367">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -953,7 +944,7 @@
 							<string key="NSFrameSize">{283, 379}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="363208009"/>
+							<reference key="NSNextKeyView" ref="892662577"/>
 							<int key="NSsFlags">528</int>
 							<reference key="NSVScroller" ref="363208009"/>
 							<reference key="NSHScroller" ref="558419868"/>
@@ -1256,7 +1247,6 @@
 							<string key="NSFrame">{{166, 12}, {67, 32}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="391153934">
 								<int key="NSCellFlags">67239424</int>
@@ -1286,7 +1276,7 @@
 											<string key="NSFrameSize">{213, 57}</string>
 											<reference key="NSSuperview" ref="744623873"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="672621495"/>
+											<reference key="NSNextKeyView" ref="279844268"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="656321158">
 												<reference key="NSNextResponder" ref="737090811"/>
@@ -1456,7 +1446,7 @@
 							<string key="NSFrame">{{20, 197}, {215, 75}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="279844268"/>
+							<reference key="NSNextKeyView" ref="744623873"/>
 							<int key="NSsFlags">2</int>
 							<reference key="NSVScroller" ref="279844268"/>
 							<reference key="NSHScroller" ref="551988961"/>
@@ -1696,7 +1686,7 @@
 											<string key="NSFrameSize">{230, 168}</string>
 											<reference key="NSSuperview" ref="952129484"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="29591630"/>
+											<reference key="NSNextKeyView" ref="848929836"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="368161160">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -1781,7 +1771,7 @@ ZnJlZV9pY29ucw</bytes>
 							<string key="NSFrame">{{20, 60}, {232, 91}}</string>
 							<reference key="NSSuperview" ref="300256411"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="848929836"/>
+							<reference key="NSNextKeyView" ref="952129484"/>
 							<int key="NSsFlags">66</int>
 							<reference key="NSVScroller" ref="848929836"/>
 							<reference key="NSHScroller" ref="794054711"/>
@@ -1793,7 +1783,6 @@ ZnJlZV9pY29ucw</bytes>
 							<string key="NSFrame">{{39, 12}, {194, 32}}</string>
 							<reference key="NSSuperview" ref="300256411"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="248388862">
 								<int key="NSCellFlags">67239424</int>
@@ -2201,14 +2190,6 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="destination" ref="932114003"/>
 					</object>
 					<int key="connectionID">577</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">runToolbarCustomizationPalette:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="407929408"/>
-					</object>
-					<int key="connectionID">596</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -3325,15 +3306,9 @@ ZnJlZV9pY29ucw</bytes>
 						<int key="objectID">593</int>
 						<reference key="object" ref="601547808"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="407929408"/>
 							<reference ref="330238536"/>
 						</array>
 						<reference key="parent" ref="374469650"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">595</int>
-						<reference key="object" ref="407929408"/>
-						<reference key="parent" ref="601547808"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">828</int>
@@ -3773,7 +3748,6 @@ ZnJlZV9pY29ucw</bytes>
 				<string key="593.IBEditorWindowLastContentRect">{{262, 266}, {213, 43}}</string>
 				<string key="593.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="593.editorWindowContentRectSynchronizationRect">{{330, 764}, {216, 43}}</string>
-				<string key="595.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="601.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="602.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="603.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3892,7 +3866,6 @@ ZnJlZV9pY29ucw</bytes>
 						<string key="alwaysOnTopClicked:">id</string>
 						<string key="closePreferencesButton:">id</string>
 						<string key="closeSearchWindow:">id</string>
-						<string key="followiTunesCheckboxClicked:">id</string>
 						<string key="getFromiTunesButton:">id</string>
 						<string key="goButton:">id</string>
 						<string key="openBatchDownloader:">id</string>
@@ -3918,10 +3891,6 @@ ZnJlZV9pY29ucw</bytes>
 						</object>
 						<object class="IBActionInfo" key="closeSearchWindow:">
 							<string key="name">closeSearchWindow:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="followiTunesCheckboxClicked:">
-							<string key="name">followiTunesCheckboxClicked:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="getFromiTunesButton:">
