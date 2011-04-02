@@ -63,6 +63,10 @@
 	NSNotification *currentNotification;
 	NSTimer *notificationTimer;
 	BOOL receivedFirstNotification;
+
+	BOOL zoomButtonReturnToUserState;
+	NSRect userStateFrame;
+
 }
 -(BOOL) documentEdited;
 -(void) setDocumentEdited:(BOOL) value;

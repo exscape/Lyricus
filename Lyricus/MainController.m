@@ -73,7 +73,9 @@
 	
 	notificationTimer = nil;
 	currentNotification = nil;
-	
+
+	zoomButtonReturnToUserState = NO; // by default, resize as necessary
+	userStateFrame = NSMakeRect(0, 0, 0, 0);	
 	
 	// Change the lorem ipsum text to something more useful (or at least something less weird)'
 	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
@@ -137,6 +139,17 @@
 }
 
 -(void) zoomButtonClicked:(id)param {
+	if (zoomButtonReturnToUserState) {
+		[mainWindow setFrame:userStateFrame display:NO animate:NO];
+		zoomButtonReturnToUserState = NO;
+		return;
+	}
+	else {
+		zoomButtonReturnToUserState = YES; // for the next time
+		userStateFrame = [mainWindow frame];
+		// continue / fall through
+	}
+	
 	NSString *string = [lyricView string];
 	if (string == nil || [string length] < 5)
 		return;
@@ -534,6 +547,12 @@
 									   size:[[NSUserDefaults standardUserDefaults] floatForKey:@"FontSize"]]];
 
 	[lyricView performSelectorOnMainThread:@selector(setString:) withObject:lyricStr waitUntilDone:YES];
+	
+	// Reset the zoom button, so that it toggles between states only when clicked multiple times
+	// during one song, since the size varies for each track.
+	// Without this, the user has to click twice every time even if they DON'T want to switch back
+	// to the previous state.
+	zoomButtonReturnToUserState = NO;
 
 	displayedArtist = [artist copy];
 	displayedTitle = [title copy];
