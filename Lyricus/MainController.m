@@ -967,7 +967,7 @@ end_func:
 	
 	if (windowFrame.origin.x + windowFrame.size.width > screenRect.size.width)
 		windowFrame.origin.x = screenRect.size.width - windowFrame.size.width;
-	if (screenRect.size.height - windowFrame.origin.y < 0)
+	if (windowFrame.origin.y < 0)
 		windowFrame.origin.y = 0;
 	
 	[mainWindow setFrame:windowFrame display:NO animate:NO];
