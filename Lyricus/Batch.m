@@ -129,8 +129,6 @@
 		
 		[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didChangeScreenParameters:)
 													 name: NSApplicationDidChangeScreenParametersNotification object: nil];
-
-		
 		return self;
 	}
 	return nil;
@@ -168,6 +166,7 @@
 		[self setBatchDownloaderIsWorking:NO];
 		[startButton setTitle:@"Go"];
 		[statusLabel setStringValue:@"Idle"];
+		[startButton setKeyEquivalent:@"\r"];
 		return YES;
 	}
 	else {
@@ -227,6 +226,8 @@
 		welcomeScreen = [[WelcomeScreen alloc] initWithText:kBatchWelcomeScreenText owningWindow:self.window delegate:self];
 		[welcomeScreen showWindow:self];
 	}
+	
+	[startButton setKeyEquivalent:@"\r"];
 }
 
 -(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {
@@ -281,8 +282,8 @@
 }
 
 -(void)showBatchDownloader {	
-	[statusLabel setStringValue:@"Idle"];	
-	[self setBatchDownloaderIsWorking:NO];
+	//	[statusLabel setStringValue:@"Idle"];	
+	//	[self setBatchDownloaderIsWorking:NO];
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 	[self showWindow:self];
     [self.window makeKeyAndOrderFront:self];
@@ -315,11 +316,13 @@
 		[startButton setTitle:@"Go"];
 		[statusLabel setStringValue:@"Idle"];
 		[self setBatchDownloaderIsWorking:NO];
+		[startButton setKeyEquivalent:@"\r"];
 		
 		return;
 	}
 	[startButton setTitle:@"Stop"];
 	[statusLabel setStringValue:@"Working..."];
+	[startButton setKeyEquivalent:@"\033"]; // Escape
 	
 	[lyricController updateSiteList];
 	
@@ -329,6 +332,7 @@
 		[self setBatchDownloaderIsWorking:NO];
 		[startButton setTitle:@"Go"];
 		[statusLabel setStringValue:@"Idle"];
+		[startButton setKeyEquivalent:@"\r"];
 		
 		return;
 	}
@@ -339,6 +343,8 @@
 			[self setBatchDownloaderIsWorking:NO];
 			[statusLabel setStringValue:@"Idle"];
 			[startButton setTitle:@"Go"];
+			[startButton setKeyEquivalent:@"\r"];
+			
 			return;
 		}
 	}
@@ -358,6 +364,8 @@
 		[statusLabel setStringValue:@"Idle"];
 		[startButton setTitle:@"Go"];
 		[self setBatchDownloaderIsWorking:NO];
+		[startButton setKeyEquivalent:@"\r"];
+
 		return;
 	}
 	
@@ -478,6 +486,7 @@ restore_settings:
 	[startButton setTitle:@"Go"];
 	[statusLabel setStringValue:@"Idle"];
 	[self setBatchDownloaderIsWorking:NO];
+	[startButton setKeyEquivalent:@"\r"];
 	
 	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 	
