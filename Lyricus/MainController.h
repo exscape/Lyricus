@@ -82,7 +82,6 @@
 -(IBAction) getFromiTunesButton:(id) sender;
 -(void) updateTextFieldsFromiTunes;
 -(IBAction) closeSearchWindow:(id) sender;			// Close search window
--(IBAction) followiTunesCheckboxClicked:(id) sender;		// Auto-update checkbox clicked
 
 // Misc
 -(void)disableEditMode;

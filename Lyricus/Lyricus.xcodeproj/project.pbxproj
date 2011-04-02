@@ -25,9 +25,6 @@
 		105ED1D9133E326D00A1D988 /* TBLyricSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 105ED1D8133E326D00A1D988 /* TBLyricSite.m */; };
 		107CD7350DAE4833003E0D32 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 107CD7340DAE4833003E0D32 /* icon.icns */; };
 		107D5DCF1340812B00195ABF /* NPReceiptVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 107D5DCE1340812B00195ABF /* NPReceiptVerification.m */; };
-		107D5DD11340819E00195ABF /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD01340819E00195ABF /* libcrypto.dylib */; };
-		107D5DD3134081A500195ABF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD2134081A500195ABF /* IOKit.framework */; };
-		107D5DD5134081AD00195ABF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D5DD4134081AD00195ABF /* Security.framework */; };
 		1093C0481340D4AE00F5BC98 /* iTunes-folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0451340D4AE00F5BC98 /* iTunes-folder.png */; };
 		1093C0491340D4AE00F5BC98 /* iTunes-playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */; };
 		1093C04A1340D4AE00F5BC98 /* iTunes-smart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0471340D4AE00F5BC98 /* iTunes-smart.png */; };
@@ -104,9 +101,6 @@
 		107CD7340DAE4833003E0D32 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		107D5DCD1340812B00195ABF /* NPReceiptVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPReceiptVerification.h; sourceTree = "<group>"; };
 		107D5DCE1340812B00195ABF /* NPReceiptVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPReceiptVerification.m; sourceTree = "<group>"; };
-		107D5DD01340819E00195ABF /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
-		107D5DD2134081A500195ABF /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		107D5DD4134081AD00195ABF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1093C0451340D4AE00F5BC98 /* iTunes-folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-folder.png"; sourceTree = "<group>"; };
 		1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-playlist.png"; sourceTree = "<group>"; };
 		1093C0471340D4AE00F5BC98 /* iTunes-smart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-smart.png"; sourceTree = "<group>"; };
@@ -152,9 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				107D5DD5134081AD00195ABF /* Security.framework in Frameworks */,
-				107D5DD3134081A500195ABF /* IOKit.framework in Frameworks */,
-				107D5DD11340819E00195ABF /* libcrypto.dylib in Frameworks */,
 				10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */,
@@ -194,8 +185,6 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				107D5DD4134081AD00195ABF /* Security.framework */,
-				107D5DD2134081A500195ABF /* IOKit.framework */,
 				10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -306,7 +295,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				107D5DD01340819E00195ABF /* libcrypto.dylib */,
 				10D5093313337A70006C0FC7 /* libicucore.dylib */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,

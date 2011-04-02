@@ -1,4 +1,4 @@
-//
+/*//
 //  NPReceiptVerification.m
 //
 //  Created by Nick Paulson on 1/15/11.
@@ -22,7 +22,7 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //	THE SOFTWARE.
 //
-/*
+
 #import "NPReceiptVerification.h"
 
 #import <IOKit/IOKitLib.h>
@@ -48,7 +48,6 @@
 //These need to be defined for each application and version
 static NSString * const kReceiptBundleVersion = @"1.0";
 static NSString * const kReceiptBundleIdentifier = @"org.exscape.Lyricus";
-
 
 static NSString * const kReceiptBundleIdentiferKey = @"BundleIdentifier";
 static NSString * const kReceiptBundleIdentiferDataKey = @"BundleIdentifierData";
@@ -470,4 +469,5 @@ static NSString * const kReceiptHashKey = @"Hash";
     return info;
 }
 
-@end*/
+@end
+*/
