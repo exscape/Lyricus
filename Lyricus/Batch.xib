@@ -45,7 +45,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 110}, {750, 480}}</string>
 				<int key="NSWTFlags">543686656</int>
-				<string key="NSWindowTitle">Lyricus batch downloader</string>
+				<string key="NSWindowTitle">Lyricus Batch Downloader</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMinSize">{580, 375}</string>
@@ -59,6 +59,7 @@
 							<string key="NSFrame">{{666, 12}, {70, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="427962198">
 								<int key="NSCellFlags">604110336</int>
@@ -278,7 +279,7 @@
 											<string key="NSFrameSize">{560, 391}</string>
 											<reference key="NSSuperview" ref="564580383"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="1012681115"/>
+											<reference key="NSNextKeyView" ref="870752240"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="718668684">
 												<reference key="NSNextResponder" ref="1012681115"/>
@@ -491,7 +492,7 @@
 							<string key="NSFrame">{{189, 71}, {562, 409}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="564580383"/>
+							<reference key="NSNextKeyView" ref="1012681115"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="870752240"/>
 							<reference key="NSHScroller" ref="931006258"/>

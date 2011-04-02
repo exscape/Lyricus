@@ -54,7 +54,7 @@
 		/* Warn if older than one week */
         if (diff > 86400*7 && ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Disable cache warning"]) {
             if (
-                [[NSAlert alertWithMessageText:@"The lyric index is out-of-date." defaultButton:@"Update index now" alternateButton:@"Ignore" otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal]
+                [[NSAlert alertWithMessageText:@"The lyric index is out-of-date." defaultButton:@"Update Index Now" alternateButton:@"Ignore" otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal]
                 == NSAlertDefaultReturn) {
                 [self updateTrackIndex:self];
             }

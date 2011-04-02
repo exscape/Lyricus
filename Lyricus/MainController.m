@@ -311,7 +311,7 @@
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
 	if (batchDownloader != nil && [batchDownloader batchDownloaderIsWorking]) {
 		// The batch downloader is downloading tracks. Ask the user whether we still should quit.
-		if ([[NSAlert alertWithMessageText:@"The batch downloader is currently working. Do you still want to quit?" defaultButton:@"Don't quit" alternateButton:@"Quit" otherButton:nil informativeTextWithFormat:@"Lyrics that have been downloaded until now will be saved."] runModal]
+		if ([[NSAlert alertWithMessageText:@"The batch downloader is currently working. Do you still want to quit?" defaultButton:@"Don't Quit" alternateButton:@"Quit" otherButton:nil informativeTextWithFormat:@"Lyrics that have been downloaded until now will be saved."] runModal]
 			==
 			NSAlertDefaultReturn) {
 			// Don't quit
@@ -330,7 +330,7 @@
 	
 	// There are unsaved changes. Ask the user what to do.
 	
-	switch ([[NSAlert alertWithMessageText:@"Do you want to save lyric edits before exiting?" defaultButton:@"Save" alternateButton:@"Don't save" otherButton:@"Cancel" informativeTextWithFormat:@"If you don't save now, your changes will be lost. You can cancel to review your changes."] runModal]) {
+	switch ([[NSAlert alertWithMessageText:@"Do you want to save lyric edits before exiting?" defaultButton:@"Save" alternateButton:@"Don't Save" otherButton:@"Cancel" informativeTextWithFormat:@"If you don't save now, your changes will be lost. You can cancel to review your changes."] runModal]) {
 			
 		case NSAlertAlternateReturn:
 			// "Don't save"
@@ -344,7 +344,7 @@
 			else {
 				// Save failed
 				if (
-				[[NSAlert alertWithMessageText:@"Unable to save lyrics for an unknown reason." defaultButton:@"Abort shutdown" alternateButton:@"Exit without saving" otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running, then try again. If  you still quit, any changes you have made to the lyric text will be lost."] runModal]
+				[[NSAlert alertWithMessageText:@"Unable to save lyrics for an unknown reason." defaultButton:@"Abort Shutdown" alternateButton:@"Exit Without Saving" otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running, then try again. If  you still quit, any changes you have made to the lyric text will be lost."] runModal]
 				 ==
 					NSAlertAlternateReturn) {
 					// "Exit without saving"
@@ -384,7 +384,7 @@
         return;
 	}
 	
-	if ([[editModeMenuItem title] isEqualToString:@"Leave edit mode"] ) {
+	if ([[editModeMenuItem title] isEqualToString:@"Leave Edit Mode"] ) {
 		// Edit mode is active
 		trackChangedWhileInEditMode = YES;
 		// Don't change the displayed lyrics while editing
@@ -393,7 +393,7 @@
 
 	if ([self documentEdited]) {
 		
-		switch ([[NSAlert alertWithMessageText:@"The lyrics currently displayed have been modified, but not saved. Do you want to save your changes?" defaultButton:@"Save" alternateButton:@"Don't save" otherButton:@"Cancel" informativeTextWithFormat:@"If you don't save, your changes will be lost."] runModal]) {
+		switch ([[NSAlert alertWithMessageText:@"The lyrics currently displayed have been modified, but not saved. Do you want to save your changes?" defaultButton:@"Save" alternateButton:@"Don't Save" otherButton:@"Cancel" informativeTextWithFormat:@"If you don't save, your changes will be lost."] runModal]) {
 				
 			case NSAlertAlternateReturn:
 				// "Don't save"
@@ -409,7 +409,7 @@
 				else {
 					// Save failed
 					if (
-						[[NSAlert alertWithMessageText:@"Unable to save lyrics. Do you want to switch the lyric display anyway? Your changes will be lost." defaultButton:@"Don't switch" alternateButton:@"Switch and discard changes" otherButton:nil informativeTextWithFormat:@"If  you still switch the lyric display, any changes you have made to the lyric will be lost."] runModal]
+						[[NSAlert alertWithMessageText:@"Unable to save lyrics. Do you want to switch the lyric display anyway? Your changes will be lost." defaultButton:@"Don't Switch" alternateButton:@"Switch and Discard Changes" otherButton:nil informativeTextWithFormat:@"If  you still switch the lyric display, any changes you have made to the lyric will be lost."] runModal]
 						==
 						NSAlertAlternateReturn) {
 						// Simply break and let the code below switch to the new track.
@@ -455,7 +455,7 @@
 	[lyricView setFont:[NSFont fontWithName:@"Helvetica" size:13.0]];
 
 	[lyricView setString:@"Loading lyrics, please wait...\n"];
-	[mainWindow setTitle:@"Lyricus - loading..."];
+	[mainWindow setTitle:@"Lyricus – loading..."];
 	
     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", artist, @"artist", nil];
 	NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(runThread:) object:data];
@@ -510,7 +510,7 @@
 	
 	if (lyricStr == nil) {
         if (err == nil) {
-            lyricStr = [NSString stringWithFormat:@"No lyrics found for:\n%@ - %@",
+            lyricStr = [NSString stringWithFormat:@"No lyrics found for:\n%@ – %@",
                         artist, title];
         }
         else { // error
@@ -521,7 +521,7 @@
 	}
 	else if (lyricStr != nil) {
 		// We found some lyrics!
-		NSString *fullTitle = [NSString stringWithFormat:@"%@ - %@", artist, title];
+		NSString *fullTitle = [NSString stringWithFormat:@"%@ – %@", artist, title];
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:fullTitle waitUntilDone:YES];
 		lyricsDisplayed = YES;
 	}
@@ -795,9 +795,9 @@
 #pragma mark Misc.
 
 -(void)disableEditMode {
-	[editModeMenuItem setTitle:@"Enter edit mode"];
+	[editModeMenuItem setTitle:@"Enter Edit Mode"];
 	[lyricView setEditable:NO];
-	[mainWindow setTitle:[NSString stringWithFormat:@"%@ - %@", displayedArtist, displayedTitle, nil]];
+	[mainWindow setTitle:[NSString stringWithFormat:@"%@ – %@", displayedArtist, displayedTitle, nil]];
 	[lyricView setBackgroundColor:(NSColor *)[NSUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] valueForKey:@"BackgroundColor"]]];
 	
 	if (trackChangedWhileInEditMode) {
@@ -810,7 +810,7 @@
 	if (!displayedArtist || !displayedTitle)
 		return;
 	
-	if ([[editModeMenuItem title] isEqualToString:@"Leave edit mode"]) {
+	if ([[editModeMenuItem title] isEqualToString:@"Leave Edit Mode"]) {
 		[self disableEditMode];
 	}
 	else {
@@ -827,12 +827,12 @@
 			[lyricView setString:@""];
 		}
 
-		[editModeMenuItem setTitle:@"Leave edit mode"];
+		[editModeMenuItem setTitle:@"Leave Edit Mode"];
 		[lyricView setEditable:YES];		
 
 		[lyricView setBackgroundColor: (NSColor *)[NSUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"EditBackgroundColor"]]];
 		
-		[mainWindow setTitle:[NSString stringWithFormat:@"EDITING: %@ - %@", displayedArtist, displayedTitle, nil]];		
+		[mainWindow setTitle:[NSString stringWithFormat:@"EDITING: %@ – %@", displayedArtist, displayedTitle, nil]];		
 	}
 }
 
@@ -963,7 +963,7 @@ end_func:
     }
 	
 	while (![helper isiTunesRunning]) {
-		if ([[NSAlert alertWithMessageText:@"The batch downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Check again" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"check again\". If you don't want to open the batch downloader now, click \"abort\"."] runModal]
+		if ([[NSAlert alertWithMessageText:@"The batch downloader needs iTunes open to work, and iTunes doesn't appear to be open." defaultButton:@"Check Again" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"Start iTunes and click \"check again\". If you don't want to open the batch downloader now, click \"abort\"."] runModal]
 			==
 			NSAlertDefaultReturn) {
 			// User clicked retry, so restart the loop and check for iTunes again

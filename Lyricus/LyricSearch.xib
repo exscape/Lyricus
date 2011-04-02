@@ -55,7 +55,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 240}, {381, 484}}</string>
 				<int key="NSWTFlags">544735232</int>
-				<string key="NSWindowTitle">Lyricus lyric search</string>
+				<string key="NSWindowTitle">Lyricus Lyric Search</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<object class="NSView" key="NSWindowView" id="1036285004">
@@ -432,6 +432,7 @@
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
+				<string key="NSFrameAutosaveName">Lyric search</string>
 			</object>
 			<object class="NSWindowTemplate" id="740746720">
 				<int key="NSWindowStyleMask">1</int>
