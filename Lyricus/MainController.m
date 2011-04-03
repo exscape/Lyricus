@@ -25,6 +25,15 @@
 	@"To get started, simply play your music in iTunes.\n" \
 	@"For a general overview of Lyricus, see the Help menu."
 
+
+-(void)windowDidMove:(NSNotification *)note {
+	// Keep track of user changes to the window size, in order to keep the zoom button working as expected
+	if ([note object] == mainWindow) {
+		userStateFrame = [mainWindow frame];
+		zoomButtonReturnToUserState = NO;
+	}
+}
+
 -(void) awakeFromNib {
 	//
 	// Set up the default settings
@@ -75,6 +84,7 @@
 	currentNotification = nil;
 
 	zoomButtonReturnToUserState = NO; // by default, resize as necessary
+	zoomButtonUsedFirstTime = YES;
 	userStateFrame = NSMakeRect(0, 0, 0, 0);	
 	
 	// Change the lorem ipsum text to something more useful (or at least something less weird)'
@@ -159,7 +169,11 @@
 	}
 	else {
 		zoomButtonReturnToUserState = YES; // for the next time
-		userStateFrame = [mainWindow frame];
+		if (zoomButtonUsedFirstTime) {
+			// Only save the user state once per session
+			userStateFrame = [mainWindow frame];
+			zoomButtonUsedFirstTime = NO;
+		}
 		// continue / fall through
 	}
 	

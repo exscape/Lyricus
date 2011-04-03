@@ -65,6 +65,7 @@
 	BOOL receivedFirstNotification;
 
 	BOOL zoomButtonReturnToUserState;
+	BOOL zoomButtonUsedFirstTime;
 	NSRect userStateFrame;
 
 }

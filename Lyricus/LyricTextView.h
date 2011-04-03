@@ -10,8 +10,6 @@
 
 
 @interface LyricTextView : NSTextView {
-@private
-    
 }
 
 @end
