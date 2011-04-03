@@ -25,13 +25,37 @@
 	@"To get started, simply play your music in iTunes.\n" \
 	@"For a general overview of Lyricus, see the Help menu."
 
-
 -(void)windowDidMove:(NSNotification *)note {
 	// Keep track of user changes to the window size, in order to keep the zoom button working as expected
 	if ([note object] == mainWindow) {
 		userStateFrame = [mainWindow frame];
 		zoomButtonReturnToUserState = NO;
 	}
+}
+
+-(IBAction)revertToSaved:(id)sender {
+	if ([[NSAlert alertWithMessageText:@"Do you want to revert the changes to the most recently saved version?" defaultButton:@"Revert" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"Your current changes will be lost."] runModal]
+		== NSAlertDefaultReturn) 
+	{
+		// Revert
+		[revertToSavedMenuItem setEnabled:NO];
+		revertToSavedMenuItemEnabled = NO;
+		
+		[lyricView setString:savedLyricString];
+		[self disableEditMode];
+		[self setDocumentEdited:NO];
+
+		return;
+	}
+	else
+		return;
+}
+
+-(BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+	if (menuItem == revertToSavedMenuItem)
+		return revertToSavedMenuItemEnabled;
+	else
+		return YES;
 }
 
 -(void) awakeFromNib {
@@ -79,6 +103,7 @@
 	manualSearch = NO;
 	documentEdited = NO;
 	receivedFirstNotification = NO;
+	savedLyricString = @"";
 	
 	notificationTimer = nil;
 	currentNotification = nil;
@@ -86,6 +111,7 @@
 	zoomButtonReturnToUserState = NO; // by default, resize as necessary
 	zoomButtonUsedFirstTime = YES;
 	userStateFrame = NSMakeRect(0, 0, 0, 0);	
+	revertToSavedMenuItemEnabled = NO;
 	
 	// Change the lorem ipsum text to something more useful (or at least something less weird)'
 	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
@@ -505,6 +531,11 @@
 	[thread start];
 }
 
+-(void)disableRevertToSavedMenuItem:(id)unused {
+	[revertToSavedMenuItem setEnabled:NO];
+	revertToSavedMenuItemEnabled = NO;
+}
+
 - (void)runThread:(NSDictionary *)data {
 	NSString *title = [data objectForKey:@"title"];
 	NSString *artist = [data objectForKey:@"artist"];
@@ -555,18 +586,22 @@
         if (err == nil) {
             lyricStr = [NSString stringWithFormat:@"No lyrics found for:\n%@ – %@",
                         artist, title];
+			lyricsDisplayed = NO;
+			savedLyricString = @"";
         }
         else { // error
             lyricStr = [NSString stringWithFormat: @"An error occured:\n%@", [err localizedDescription]];
         }
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:@"Lyricus" waitUntilDone:YES];
 		lyricsDisplayed = NO;
+		savedLyricString = @"";
 	}
 	else if (lyricStr != nil) {
 		// We found some lyrics!
 		NSString *fullTitle = [NSString stringWithFormat:@"%@ – %@", artist, title];
 		[self performSelectorOnMainThread:@selector(setTitle:) withObject:fullTitle waitUntilDone:YES];
 		lyricsDisplayed = YES;
+		savedLyricString = [lyricStr copy];
 	}
 	
 	// Display lyrics + set font
@@ -574,6 +609,8 @@
 									   size:[[NSUserDefaults standardUserDefaults] floatForKey:@"FontSize"]]];
 
 	[lyricView performSelectorOnMainThread:@selector(setString:) withObject:lyricStr waitUntilDone:YES];
+	
+	[self performSelectorOnMainThread:@selector(disableRevertToSavedMenuItem:) withObject:nil waitUntilDone:YES];
 	
 	// Reset the zoom button, so that it toggles between states only when clicked multiple times
 	// during one song, since the size varies for each track.
@@ -866,7 +903,7 @@
 		// Enable edit mode
 		
 		if ([helper getTrackForTitle:displayedTitle byArtist:displayedArtist] == nil) {
-			[TBUtil showAlert:@"You're trying to edit the lyrics to a track I can't find in your iTunes library!" withCaption:@"Track not found in iTunes"];
+			[TBUtil showAlert:@"Lyricus cannot edit this track because it can't be located in iTunes." withCaption:@"Track not found in iTunes"];
 			return;
 		}
 		
@@ -918,6 +955,8 @@
 	// It must also be BEFORE end_return below, so that a failure to save doesn't
 	// set documentEdited to NO.
 	[self setDocumentEdited:NO];
+	[self disableRevertToSavedMenuItem:self];
+	savedLyricString = [newLyric copy];
 	
 end_return:
 	lyricsDisplayed = YES; // To make sure edit mode isn't bugged when adding new lyrics to a track
@@ -998,7 +1037,9 @@ end_func:
 }
 
 -(void) textDidChange:(NSNotification *)notification {
-	[self setDocumentEdited: YES];
+	[self setDocumentEdited:YES];
+	[revertToSavedMenuItem setEnabled:YES];
+	revertToSavedMenuItemEnabled = YES;
 }
 
 -(IBAction)lyricSearchUpdateIndex:(id) sender {

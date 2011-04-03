@@ -226,6 +226,33 @@
 			name = "View classes";
 			sourceTree = "<group>";
 		};
+		107B018913488CB000C3EB3A /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				102E8EF31343AFDB001EE08F /* icon_found.png */,
+				102E8EF41343AFDB001EE08F /* icon_notfound.png */,
+				102E8EF51343AFDB001EE08F /* icon_working.png */,
+				101CEE84134222AF00C9A426 /* iTunes-library.png */,
+				101CEE82134221F700C9A426 /* iTunes-DJ.png */,
+				1093C0451340D4AE00F5BC98 /* iTunes-folder.png */,
+				1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */,
+				1093C0471340D4AE00F5BC98 /* iTunes-smart.png */,
+				107CD7340DAE4833003E0D32 /* icon.icns */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		107B018A13488CC800C3EB3A /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				100E13A80F5E803D001E1347 /* MainMenu.xib */,
+				10DB28190DACB3AB00BF57D3 /* Batch.xib */,
+				1041B7C61333B49F003F4429 /* LyricSearch.xib */,
+				10CA223A1344FC6F00E652B6 /* WelcomeScreen.xib */,
+			);
+			name = XIBs;
+			sourceTree = "<group>";
+		};
 		1086B26B0DACAF9E007B2EC1 /* Sites */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,20 +318,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				100E13A80F5E803D001E1347 /* MainMenu.xib */,
-				10DB28190DACB3AB00BF57D3 /* Batch.xib */,
-				1041B7C61333B49F003F4429 /* LyricSearch.xib */,
-				10CA223A1344FC6F00E652B6 /* WelcomeScreen.xib */,
-				102E8EF31343AFDB001EE08F /* icon_found.png */,
-				102E8EF41343AFDB001EE08F /* icon_notfound.png */,
-				102E8EF51343AFDB001EE08F /* icon_working.png */,
-				101CEE84134222AF00C9A426 /* iTunes-library.png */,
-				101CEE82134221F700C9A426 /* iTunes-DJ.png */,
-				1093C0451340D4AE00F5BC98 /* iTunes-folder.png */,
-				1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */,
-				1093C0471340D4AE00F5BC98 /* iTunes-smart.png */,
+				107B018A13488CC800C3EB3A /* XIBs */,
+				107B018913488CB000C3EB3A /* Icons */,
 				10CB744C133F68CA00D9FB98 /* help */,
-				107CD7340DAE4833003E0D32 /* icon.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				107D5DCD1340812B00195ABF /* NPReceiptVerification.h */,
 				107D5DCE1340812B00195ABF /* NPReceiptVerification.m */,

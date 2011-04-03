@@ -20,8 +20,8 @@
 	IBOutlet NSTextView *lyricView;
 	IBOutlet NSProgressIndicator *spinner;
 	IBOutlet NSButton *followiTunesCheckbox;
-	IBOutlet id spinnerView;
 	IBOutlet NSMenuItem *editModeMenuItem;
+	IBOutlet NSMenuItem *revertToSavedMenuItem;
 	
 	// Search window
 	IBOutlet NSWindow *searchWindow;
@@ -66,6 +66,10 @@
 
 	BOOL zoomButtonReturnToUserState;
 	BOOL zoomButtonUsedFirstTime;
+	
+	BOOL revertToSavedMenuItemEnabled;
+	NSString *savedLyricString;
+	
 	NSRect userStateFrame;
 
 }

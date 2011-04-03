@@ -197,6 +197,43 @@
 						<object class="NSMenu" key="NSSubmenu" id="720053764">
 							<string key="NSTitle">File</string>
 							<array class="NSMutableArray" key="NSMenuItems">
+								<object class="NSMenuItem" id="905788593">
+									<reference key="NSMenu" ref="720053764"/>
+									<string key="NSTitle">Save Lyrics</string>
+									<string key="NSKeyEquiv">s</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="347872383"/>
+									<reference key="NSMixedImage" ref="1007003020"/>
+								</object>
+								<object class="NSMenuItem" id="243649418">
+									<reference key="NSMenu" ref="720053764"/>
+									<string key="NSTitle">Save Displayed Lyrics to Playing Track</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="347872383"/>
+									<reference key="NSMixedImage" ref="1007003020"/>
+								</object>
+								<object class="NSMenuItem" id="592181174">
+									<reference key="NSMenu" ref="720053764"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<string key="NSTitle">Revert to Saved</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="347872383"/>
+									<reference key="NSMixedImage" ref="1007003020"/>
+								</object>
+								<object class="NSMenuItem" id="249034922">
+									<reference key="NSMenu" ref="720053764"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="347872383"/>
+									<reference key="NSMixedImage" ref="1007003020"/>
+								</object>
 								<object class="NSMenuItem" id="294629803">
 									<reference key="NSMenu" ref="720053764"/>
 									<string key="NSTitle">Page Setup...</string>
@@ -446,23 +483,6 @@
 									<string key="NSTitle">Enter Edit Mode</string>
 									<string key="NSKeyEquiv">e</string>
 									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="347872383"/>
-									<reference key="NSMixedImage" ref="1007003020"/>
-								</object>
-								<object class="NSMenuItem" id="569920556">
-									<reference key="NSMenu" ref="789758025"/>
-									<string key="NSTitle">Save Lyrics</string>
-									<string key="NSKeyEquiv">s</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="347872383"/>
-									<reference key="NSMixedImage" ref="1007003020"/>
-								</object>
-								<object class="NSMenuItem" id="100208925">
-									<reference key="NSMenu" ref="789758025"/>
-									<string key="NSTitle">Save Displayed Lyrics to Playing Track</string>
-									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="347872383"/>
 									<reference key="NSMixedImage" ref="1007003020"/>
@@ -2256,14 +2276,6 @@ ZnJlZV9pY29ucw</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">saveLyrics:</string>
-						<reference key="source" ref="932114003"/>
-						<reference key="destination" ref="569920556"/>
-					</object>
-					<int key="connectionID">864</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">undo:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="778837868"/>
@@ -2357,14 +2369,6 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="destination" ref="270902937"/>
 					</object>
 					<int key="connectionID">885</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">saveDisplayedLyricsToCurrentlyPlayingTrack:</string>
-						<reference key="source" ref="932114003"/>
-						<reference key="destination" ref="100208925"/>
-					</object>
-					<int key="connectionID">916</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2582,6 +2586,38 @@ ZnJlZV9pY29ucw</bytes>
 					</object>
 					<int key="connectionID">984</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">saveLyrics:</string>
+						<reference key="source" ref="932114003"/>
+						<reference key="destination" ref="905788593"/>
+					</object>
+					<int key="connectionID">992</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">saveDisplayedLyricsToCurrentlyPlayingTrack:</string>
+						<reference key="source" ref="932114003"/>
+						<reference key="destination" ref="243649418"/>
+					</object>
+					<int key="connectionID">993</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">revertToSaved:</string>
+						<reference key="source" ref="932114003"/>
+						<reference key="destination" ref="592181174"/>
+					</object>
+					<int key="connectionID">997</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">revertToSavedMenuItem</string>
+						<reference key="source" ref="932114003"/>
+						<reference key="destination" ref="592181174"/>
+					</object>
+					<int key="connectionID">998</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -2671,6 +2707,10 @@ ZnJlZV9pY29ucw</bytes>
 						<array class="NSMutableArray" key="children">
 							<reference ref="49223823"/>
 							<reference ref="294629803"/>
+							<reference ref="905788593"/>
+							<reference ref="243649418"/>
+							<reference ref="249034922"/>
+							<reference ref="592181174"/>
 						</array>
 						<reference key="parent" ref="379814623"/>
 					</object>
@@ -2699,12 +2739,10 @@ ZnJlZV9pY29ucw</bytes>
 							<reference ref="676164635"/>
 							<reference ref="507821607"/>
 							<reference ref="749049998"/>
-							<reference ref="569920556"/>
 							<reference ref="778837868"/>
 							<reference ref="309850744"/>
 							<reference ref="990792616"/>
 							<reference ref="75513490"/>
-							<reference ref="100208925"/>
 						</array>
 						<reference key="parent" ref="952259628"/>
 					</object>
@@ -3353,11 +3391,6 @@ ZnJlZV9pY29ucw</bytes>
 						<reference key="parent" ref="789758025"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">863</int>
-						<reference key="object" ref="569920556"/>
-						<reference key="parent" ref="789758025"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">867</int>
 						<reference key="object" ref="778837868"/>
 						<reference key="parent" ref="789758025"/>
@@ -3455,11 +3488,6 @@ ZnJlZV9pY29ucw</bytes>
 					<object class="IBObjectRecord">
 						<int key="objectID">913</int>
 						<reference key="object" ref="75513490"/>
-						<reference key="parent" ref="789758025"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">914</int>
-						<reference key="object" ref="100208925"/>
 						<reference key="parent" ref="789758025"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -3594,6 +3622,26 @@ ZnJlZV9pY29ucw</bytes>
 						<int key="objectID">986</int>
 						<reference key="object" ref="913043389"/>
 						<reference key="parent" ref="470829392"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">990</int>
+						<reference key="object" ref="905788593"/>
+						<reference key="parent" ref="720053764"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">991</int>
+						<reference key="object" ref="243649418"/>
+						<reference key="parent" ref="720053764"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">994</int>
+						<reference key="object" ref="249034922"/>
+						<reference key="parent" ref="720053764"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">995</int>
+						<reference key="object" ref="592181174"/>
+						<reference key="parent" ref="720053764"/>
 					</object>
 				</array>
 			</object>
@@ -3818,15 +3866,6 @@ ZnJlZV9pY29ucw</bytes>
 					</object>
 				</object>
 				<string key="858.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<object class="NSMutableDictionary" key="863.IBAttributePlaceholdersKey">
-					<string key="NS.key.0">ToolTip</string>
-					<object class="IBToolTipAttribute" key="NS.object.0">
-						<string key="name">ToolTip</string>
-						<reference key="object" ref="569920556"/>
-						<string key="toolTip">Writes the current lyrics to iTunes</string>
-					</object>
-				</object>
-				<string key="863.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="867.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="867.ImportedFromIB2"/>
 				<string key="868.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3849,15 +3888,6 @@ ZnJlZV9pY29ucw</bytes>
 				<string key="912.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="913.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="913.ImportedFromIB2"/>
-				<object class="NSMutableDictionary" key="914.IBAttributePlaceholdersKey">
-					<string key="NS.key.0">ToolTip</string>
-					<object class="IBToolTipAttribute" key="NS.object.0">
-						<string key="name">ToolTip</string>
-						<reference key="object" ref="100208925"/>
-						<string key="toolTip">Writes the current lyrics to iTunes</string>
-					</object>
-				</object>
-				<string key="914.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<dictionary class="NSMutableDictionary" key="919.IBAttributePlaceholdersKey"/>
 				<string key="919.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3898,12 +3928,41 @@ ZnJlZV9pY29ucw</bytes>
 				<string key="982.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="985.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="986.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSMutableDictionary" key="990.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">ToolTip</string>
+					<object class="IBToolTipAttribute" key="NS.object.0">
+						<string key="name">ToolTip</string>
+						<reference key="object" ref="905788593"/>
+						<string key="toolTip">Writes the current lyrics to iTunes</string>
+					</object>
+				</object>
+				<string key="990.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSMutableDictionary" key="991.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">ToolTip</string>
+					<object class="IBToolTipAttribute" key="NS.object.0">
+						<string key="name">ToolTip</string>
+						<reference key="object" ref="243649418"/>
+						<string key="toolTip">Writes the current lyrics to iTunes</string>
+					</object>
+				</object>
+				<string key="991.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="994.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<integer value="1" key="994.ImportedFromIB2"/>
+				<object class="NSMutableDictionary" key="995.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">ToolTip</string>
+					<object class="IBToolTipAttribute" key="NS.object.0">
+						<string key="name">ToolTip</string>
+						<reference key="object" ref="592181174"/>
+						<string key="toolTip">Writes the current lyrics to iTunes</string>
+					</object>
+				</object>
+				<string key="995.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">989</int>
+			<int key="maxID">998</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4015,9 +4074,9 @@ ZnJlZV9pY29ucw</bytes>
 						<string key="lyricView">NSTextView</string>
 						<string key="mainWindow">NSWindow</string>
 						<string key="preferencesWindow">NSWindow</string>
+						<string key="revertToSavedMenuItem">NSMenuItem</string>
 						<string key="searchWindow">NSWindow</string>
 						<string key="spinner">NSProgressIndicator</string>
-						<string key="spinnerView">id</string>
 						<string key="table">NSTableView</string>
 						<string key="titleField">NSTextField</string>
 					</dictionary>
@@ -4070,6 +4129,10 @@ ZnJlZV9pY29ucw</bytes>
 							<string key="name">preferencesWindow</string>
 							<string key="candidateClassName">NSWindow</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="revertToSavedMenuItem">
+							<string key="name">revertToSavedMenuItem</string>
+							<string key="candidateClassName">NSMenuItem</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="searchWindow">
 							<string key="name">searchWindow</string>
 							<string key="candidateClassName">NSWindow</string>
@@ -4077,10 +4140,6 @@ ZnJlZV9pY29ucw</bytes>
 						<object class="IBToOneOutletInfo" key="spinner">
 							<string key="name">spinner</string>
 							<string key="candidateClassName">NSProgressIndicator</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="spinnerView">
-							<string key="name">spinnerView</string>
-							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="table">
 							<string key="name">table</string>
