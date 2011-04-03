@@ -231,6 +231,21 @@
 	}
 	
 	[startButton setKeyEquivalent:@"\r"];
+	
+	[trackView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
+}
+
+-(BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
+	// Since only a single row can be selected, and there is
+	// little reason to change that in the future, only copy one row.
+	TrackObject *track = [tracks objectAtIndex:[rowIndexes firstIndex]];
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[track artist], @"artist", [track name], @"name", nil];
+	
+	NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
+	[pboard declareTypes:[NSArray arrayWithObject:kLyricusTrackDragType] owner:self];
+	[pboard setData:data forType:kLyricusTrackDragType];
+	
+	return YES;
 }
 
 -(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {

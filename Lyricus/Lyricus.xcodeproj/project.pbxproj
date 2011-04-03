@@ -21,6 +21,7 @@
 		102E8EF81343AFDB001EE08F /* icon_working.png in Resources */ = {isa = PBXBuildFile; fileRef = 102E8EF51343AFDB001EE08F /* icon_working.png */; };
 		1041B7C71333B49F003F4429 /* LyricSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1041B7C61333B49F003F4429 /* LyricSearch.xib */; };
 		1041B7CA1333B4CA003F4429 /* LyricSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1041B7C91333B4CA003F4429 /* LyricSearchController.m */; };
+		104975401347ADBA00BB4A03 /* LyricTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1049753F1347ADBA00BB4A03 /* LyricTextView.m */; };
 		105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A37930DA6AFA0007DEFF5 /* SitePriorities.m */; };
 		105ED1D9133E326D00A1D988 /* TBLyricSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 105ED1D8133E326D00A1D988 /* TBLyricSite.m */; };
 		107CD7350DAE4833003E0D32 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 107CD7340DAE4833003E0D32 /* icon.icns */; };
@@ -93,6 +94,8 @@
 		1041B7C61333B49F003F4429 /* LyricSearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LyricSearch.xib; sourceTree = "<group>"; };
 		1041B7C81333B4CA003F4429 /* LyricSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricSearchController.h; sourceTree = "<group>"; };
 		1041B7C91333B4CA003F4429 /* LyricSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LyricSearchController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		1049753E1347ADB900BB4A03 /* LyricTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricTextView.h; sourceTree = "<group>"; };
+		1049753F1347ADBA00BB4A03 /* LyricTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricTextView.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		105A37920DA6AFA0007DEFF5 /* SitePriorities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitePriorities.h; sourceTree = "<group>"; };
 		105A37930DA6AFA0007DEFF5 /* SitePriorities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitePriorities.m; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 				1095320F0DA12EEB001706FF /* TBUtil.m */,
 				10AEFB150D9FEDCA0088ECDC /* MainController.h */,
 				10AEFB160D9FEDCA0088ECDC /* MainController.m */,
+				1049753E1347ADB900BB4A03 /* LyricTextView.h */,
+				1049753F1347ADBA00BB4A03 /* LyricTextView.m */,
 				105A37920DA6AFA0007DEFF5 /* SitePriorities.h */,
 				105A37930DA6AFA0007DEFF5 /* SitePriorities.m */,
 			);
@@ -401,6 +406,7 @@
 				101CEE811342176900C9A426 /* PlaylistObject.m in Sources */,
 				101CEE901342634500C9A426 /* TrackObject.m in Sources */,
 				10CA22391344F38000E652B6 /* WelcomeScreen.m in Sources */,
+				104975401347ADBA00BB4A03 /* LyricTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

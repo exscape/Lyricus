@@ -119,10 +119,23 @@
 	[self updateTextFieldsFromiTunes];
 	[self fetchAndDisplayLyrics:NO];
 	
+	[lyricView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
+	
 	// Update the site list
 	// Is this really needed? [LyricController init] does this already.
 	[lyricController updateSiteList];
 	// NO CODE goes after this!
+}
+
+-(BOOL)dragReceivedWithTrack:(NSDictionary *)track {
+	NSString *artist = [track objectForKey:@"artist"];
+	NSString *name = [track objectForKey:@"name"];
+	
+	[artistField setStringValue: artist];
+	[titleField setStringValue: name];
+	[self fetchAndDisplayLyrics:YES];
+
+	return YES;
 }
 
 -(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {

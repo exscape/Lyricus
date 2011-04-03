@@ -21,6 +21,8 @@
 #define LyricusLyricParseError 2
 #define LyricusHTTPError 3
 
+#define kLyricusTrackDragType @"LyricusTrackDragType"
+
 // #define NSLog(x) NULL
 
 #endif
