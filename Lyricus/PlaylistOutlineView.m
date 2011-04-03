@@ -38,8 +38,7 @@
 			[del outlineViewSelectionDidChange:[NSNotification notificationWithName:@"NSOutlineViewSelectionDidChangeNotification" object:self userInfo:nil]];
 		}
 	}
-	
-	
+
 	[super mouseDown:theEvent];
 }
 

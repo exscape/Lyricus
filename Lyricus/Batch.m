@@ -176,7 +176,7 @@
 		// Yes, abort:
 		[thread cancel];
 		[self setBatchDownloaderIsWorking:NO];
-		[startButton setTitle:@"Go"];
+		[startButton setTitle:@"Start"];
 		[statusLabel setStringValue:@"Idle"];
 		[startButton setKeyEquivalent:@"\r"];
 		return YES;
@@ -361,7 +361,7 @@
 	// The thread is already running; abort
 	if ([thread isExecuting]) {
 		[thread cancel];
-		[startButton setTitle:@"Go"];
+		[startButton setTitle:@"Start"];
 		[statusLabel setStringValue:@"Idle"];
 		[self setBatchDownloaderIsWorking:NO];
 		[startButton setKeyEquivalent:@"\r"];
@@ -384,7 +384,7 @@
 		// Appears to happen only when iTunes is not running, or when the selected playlist has been deleted
 		[[NSAlert alertWithMessageText:@"The batch downloader cannot start because no tracks were found." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running and that there are tracks in the chosen playlist."] runModal];
 		[self setBatchDownloaderIsWorking:NO];
-		[startButton setTitle:@"Go"];
+		[startButton setTitle:@"Start"];
 		[statusLabel setStringValue:@"Idle"];
 		[startButton setKeyEquivalent:@"\r"];
 		
@@ -396,7 +396,7 @@
 			== NSAlertAlternateReturn) {
 			[self setBatchDownloaderIsWorking:NO];
 			[statusLabel setStringValue:@"Idle"];
-			[startButton setTitle:@"Go"];
+			[startButton setTitle:@"Start"];
 			[startButton setKeyEquivalent:@"\r"];
 			
 			return;
@@ -416,7 +416,7 @@
 		[[NSAlert alertWithMessageText:@"The batch downloader cannot start because the selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
 		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
 		[statusLabel setStringValue:@"Idle"];
-		[startButton setTitle:@"Go"];
+		[startButton setTitle:@"Start"];
 		[self setBatchDownloaderIsWorking:NO];
 		[startButton setKeyEquivalent:@"\r"];
 
@@ -538,7 +538,7 @@
 	 runModal];
 	
 restore_settings:
-	[startButton setTitle:@"Go"];
+	[startButton setTitle:@"Start"];
 	[statusLabel setStringValue:@"Idle"];
 	[self setBatchDownloaderIsWorking:NO];
 	[startButton setKeyEquivalent:@"\r"];
