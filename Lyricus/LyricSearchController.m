@@ -80,7 +80,47 @@
 	
 	[trackTableView setTarget:self];
 	[trackTableView setDoubleAction:@selector(doubleClick:)];
+	
+	// Dragging source
+	[trackTableView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
+	
+	// Dragging destination
+	[lyricTextView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
+
 }
+
+// LyricTextView delegate method
+-(BOOL)dragReceivedWithTrack:(NSDictionary *)track {
+	NSString *artist = [track objectForKey:@"artist"];
+	NSString *name = [track objectForKey:@"name"];
+	
+	iTunesTrack *matchedTrack = [helper getTrackForTitle:name byArtist:artist];
+	if (matchedTrack != nil) {
+		@try {
+			NSString *lyrics = [helper getLyricsForTrack:matchedTrack];
+			[lyricTextView setString:lyrics];
+		}
+		@catch (NSException *e) { return NO; }
+	}
+	else
+		return NO;
+		
+	return YES;
+}
+
+
+-(BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
+	// Since only a single row can be selected, and there is
+	// little reason to change that in the future, only copy one row.
+	NSDictionary *dict = [matches objectAtIndex:[rowIndexes firstIndex]];
+	
+	NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
+	[pboard declareTypes:[NSArray arrayWithObject:kLyricusTrackDragType] owner:self];
+	[pboard setData:data forType:kLyricusTrackDragType];
+	
+	return YES;
+}
+
 
 -(void) userDidCloseWelcomeScreenWithDontShowAgain:(BOOL)state {
 	if (state == YES) {
@@ -99,7 +139,11 @@
 	[track playOnce:NO];
 }
 
-- (void)trackSelected:(NSNotification *)note { 
+- (void)trackSelected:(NSNotification *)note { 	
+	// This is needed to prevent selection in the bulk downloader from affecting us!
+	if ([note object] != trackTableView)
+		return;
+	
     NSInteger index = [trackTableView selectedRow];
     if (index >= [matches count]) {
         return;
