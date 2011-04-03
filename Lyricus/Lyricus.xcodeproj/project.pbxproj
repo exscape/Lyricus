@@ -161,16 +161,14 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				107B01871348879800C3EB3A /* Model classes */,
+				107B0188134887C400C3EB3A /* View classes */,
 				1041B7C81333B4CA003F4429 /* LyricSearchController.h */,
 				1041B7C91333B4CA003F4429 /* LyricSearchController.m */,
 				1027289D0DB2A81900E644E1 /* iTunesHelper.h */,
 				1027289E0DB2A81900E644E1 /* iTunesHelper.m */,
 				10DB27F00DACB28500BF57D3 /* Batch.h */,
 				10DB27F10DACB28500BF57D3 /* Batch.m */,
-				10CA22371344F38000E652B6 /* WelcomeScreen.h */,
-				10CA22381344F38000E652B6 /* WelcomeScreen.m */,
-				101CEE8E1342634500C9A426 /* TrackObject.h */,
-				101CEE8F1342634500C9A426 /* TrackObject.m */,
 				1086B26C0DACAFBC007B2EC1 /* Categories */,
 				1086B26B0DACAF9E007B2EC1 /* Sites */,
 				10E207190DABE7CB00F85A9F /* LyricFetcher.h */,
@@ -179,8 +177,6 @@
 				1095320F0DA12EEB001706FF /* TBUtil.m */,
 				10AEFB150D9FEDCA0088ECDC /* MainController.h */,
 				10AEFB160D9FEDCA0088ECDC /* MainController.m */,
-				1049753E1347ADB900BB4A03 /* LyricTextView.h */,
-				1049753F1347ADBA00BB4A03 /* LyricTextView.m */,
 				105A37920DA6AFA0007DEFF5 /* SitePriorities.h */,
 				105A37930DA6AFA0007DEFF5 /* SitePriorities.m */,
 			);
@@ -204,6 +200,30 @@
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		107B01871348879800C3EB3A /* Model classes */ = {
+			isa = PBXGroup;
+			children = (
+				101CEE7E1342176900C9A426 /* PlaylistObject.h */,
+				101CEE7F1342176900C9A426 /* PlaylistObject.m */,
+				101CEE8E1342634500C9A426 /* TrackObject.h */,
+				101CEE8F1342634500C9A426 /* TrackObject.m */,
+			);
+			name = "Model classes";
+			sourceTree = "<group>";
+		};
+		107B0188134887C400C3EB3A /* View classes */ = {
+			isa = PBXGroup;
+			children = (
+				101CEE7C1342176900C9A426 /* ImageAndTextCell.h */,
+				101CEE7D1342176900C9A426 /* ImageAndTextCell.m */,
+				10CA22371344F38000E652B6 /* WelcomeScreen.h */,
+				10CA22381344F38000E652B6 /* WelcomeScreen.m */,
+				1049753E1347ADB900BB4A03 /* LyricTextView.h */,
+				1049753F1347ADBA00BB4A03 /* LyricTextView.m */,
+			);
+			name = "View classes";
 			sourceTree = "<group>";
 		};
 		1086B26B0DACAF9E007B2EC1 /* Sites */ = {
@@ -247,10 +267,6 @@
 		29B97314FDCFA39411CA2CEA /* Lyricreader */ = {
 			isa = PBXGroup;
 			children = (
-				101CEE7C1342176900C9A426 /* ImageAndTextCell.h */,
-				101CEE7D1342176900C9A426 /* ImageAndTextCell.m */,
-				101CEE7E1342176900C9A426 /* PlaylistObject.h */,
-				101CEE7F1342176900C9A426 /* PlaylistObject.m */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
