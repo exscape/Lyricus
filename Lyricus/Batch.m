@@ -92,10 +92,6 @@
 			else {
 				// This a playlist, smart or regular
 				if ([item smart]) {
-					
-					//
-					// FIXME
-					//
 					image = [NSImage imageNamed:@"iTunes-smart.png"];
 				}
 				else
