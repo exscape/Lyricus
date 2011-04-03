@@ -254,7 +254,6 @@
 	}
 }
 
-
 -(void) showWindow:(id)sender {
 	if (firstLoad == NO) {
 		[self repopulatePlaylistView];

@@ -4,7 +4,6 @@
 // This software is distributed under the terms of the MIT license. For details, see license.txt.
 //
 
-
 #import "LyricSearchController.h"
 #import "NSProgressIndicator+ThreadSafeUpdating.h"
 
@@ -86,7 +85,6 @@
 	
 	// Dragging destination
 	[lyricTextView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
-
 }
 
 // LyricTextView delegate method
@@ -96,11 +94,18 @@
 	
 	iTunesTrack *matchedTrack = [helper getTrackForTitle:name byArtist:artist];
 	if (matchedTrack != nil) {
+		NSString *lyrics = nil;
 		@try {
-			NSString *lyrics = [helper getLyricsForTrack:matchedTrack];
+			 lyrics = [helper getLyricsForTrack:matchedTrack];
 			[lyricTextView setString:lyrics];
 		}
 		@catch (NSException *e) { return NO; }
+		
+		// Clear the display and show the track in the results box
+		[searchTextField setStringValue:@""];
+		[matches removeAllObjects];
+		[matches addObject:[NSDictionary dictionaryWithObjectsAndKeys:artist, @"artist", name, @"name", lyrics, @"lyrics", nil]];
+		[trackTableView reloadData];
 	}
 	else
 		return NO;
@@ -140,7 +145,7 @@
 }
 
 - (void)trackSelected:(NSNotification *)note { 	
-	// This is needed to prevent selection in the bulk downloader from affecting us!
+	// This is needed to prevent selection in the batch downloader from affecting us!
 	if ([note object] != trackTableView)
 		return;
 	
@@ -155,12 +160,15 @@
     [lyricTextView setString:lyrics];
 
     // Highlight and select the search string
-    NSRange range = [lyrics rangeOfString:[searchTextField stringValue] options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
-    [lyricTextView scrollRangeToVisible:range];
-	[self.window makeFirstResponder:lyricTextView];
-	[lyricTextView setSelectedRange:range];
-    [lyricTextView showFindIndicatorForRange:range];
-
+	NSString *searchString = [searchTextField stringValue];
+	if (searchString && ![searchString isEqualToString:@""]) {
+		// We need this check to make sure that we don't set the track programatically, then try to fetch the search terms
+		NSRange range = [lyrics rangeOfString:[searchTextField stringValue] options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
+		[lyricTextView scrollRangeToVisible:range];
+		[self.window makeFirstResponder:lyricTextView];
+		[lyricTextView setSelectedRange:range];
+		[lyricTextView showFindIndicatorForRange:range];
+	}
 }
 
 - (void)controlTextDidChange:(NSNotification *)nd {
