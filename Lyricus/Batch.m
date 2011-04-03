@@ -247,6 +247,10 @@
 	[trackView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
 }
 
+-(void)windowDidBecomeMain:(NSNotification *)notification {
+	[self loadTracks];
+}
+
 -(BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
 	// Since only a single row can be selected, and there is
 	// little reason to change that in the future, only copy one row.
@@ -407,7 +411,7 @@
 }
 -(void)workerThread:(id)unused {
 	int count = 0;
-	
+		
 	if ([tracks count] == 0) {
 		[[NSAlert alertWithMessageText:@"The batch downloader cannot start because the selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
 		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
@@ -432,8 +436,7 @@
 	int lyrics_not_found = 0;
 	int errors_in_a_row = 0; // Used to abort when things appear to be going wrong
 	
-	
-	for (TrackObject *track in tracks) {
+	for (TrackObject *track in [tracks copy]) {
 		count++;
 		[statusLabel setStringValue:[NSString stringWithFormat:@"Processing... %d/%u", count, numberOfTracks]];
 		
@@ -451,22 +454,24 @@
 			continue;
 		
 		NSString *lyrics = nil;
-		@try { 
-			if (![[track track] get] || ![[[track track] get] exists])
+		iTunesTrack *realTrack;
+		@try {
+			realTrack = [[track track] get];
+			if (![realTrack exists]) {
+				// Can happen if the user deletes the item from iTunes
 				continue;
+			}
 			
-			lyrics = [[track track] lyrics];
+			lyrics = [realTrack lyrics];
 		} 
 		@catch (NSException *e) { continue; }
 		
-		@try {
-			
 			// Set mixed state when we start working
 			[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
 			 [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:NSMixedState], @"state", track, @"track", nil]
 								waitUntilDone:YES];
-			
-			if ([[[track track] lyrics] length] > 8) { 
+		@try {
+			if ([[realTrack lyrics] length] > 8) { 
 				
 				had_lyrics++;
 				// DON'T update errors_in_a_row since we don't know if searching would have worked or not
@@ -484,7 +489,7 @@
 		lyrics = [lyricController fetchLyricsForTrack:[track name] byArtist:[track artist] error:&err];
 		if (lyrics) {
 			@try { // Scripting bridge seems to be a bit unstable
-				[[track track] setLyrics:lyrics];
+				[realTrack setLyrics:lyrics];
 			} 
 			@catch (NSException *e) { continue; }
 			
