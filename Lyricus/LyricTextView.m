@@ -49,9 +49,13 @@
 -(BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
 	NSData *data = [[sender draggingPasteboard] dataForType:kLyricusTrackDragType];
 	NSDictionary *track = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+	
+	// This feels really dirty, but using [self delegate] gives a warning despite the protocol.
+	// I'm not sure why.
+	id <LyricusDragging, NSTextViewDelegate> del = (id)[self delegate];
 
-	if ([[self delegate] respondsToSelector:@selector(dragReceivedWithTrack:)]) {
-		return ([[self delegate] dragReceivedWithTrack:track]);
+	if ([del respondsToSelector:@selector(dragReceivedWithTrack:)]) {
+		return ([del dragReceivedWithTrack:track]);
 	}
 		
 	return NO;

@@ -12,14 +12,14 @@
 #import "LyricFetcher.h"
 #import "Batch.h"
 #import "LyricSearchController.h"
+#import "LyricTextView.h"
 
 
-@interface MainController : NSObject <NSWindowDelegate, NSTextViewDelegate, NSApplicationDelegate> {
+@interface MainController : NSObject <NSWindowDelegate, NSTextViewDelegate, NSApplicationDelegate, LyricusDragging> {
 	// Main window
 	IBOutlet NSWindow *mainWindow;
 	IBOutlet NSTextView *lyricView;
 	IBOutlet NSProgressIndicator *spinner;
-	IBOutlet NSButton *followiTunesCheckbox;
 	IBOutlet NSMenuItem *editModeMenuItem;
 	IBOutlet NSMenuItem *revertToSavedMenuItem;
 	
@@ -104,6 +104,8 @@
 -(IBAction)openSongMeaningsPage:(id)sender;
 -(void)openSongmeaningsThread:(NSArray *)data;
 -(IBAction)openLyricSearch:(id)sender;
+
+-(BOOL)dragReceivedWithTrack:(NSDictionary *)track;
 
 @property (retain) NSNotification *currentNotification;
 @property (retain) NSTimer *notificationTimer;

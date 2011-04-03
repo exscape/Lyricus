@@ -12,6 +12,6 @@
 
 @end
 
-@interface NSObject (LyricusDragging)
+@protocol LyricusDragging
 -(BOOL)dragReceivedWithTrack:(NSDictionary *)track;
 @end

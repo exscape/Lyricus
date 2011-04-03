@@ -25,5 +25,4 @@
 @property (readonly) BOOL smart;
 @property (readonly) iTunesESpK specialKind;
 
-
 @end
