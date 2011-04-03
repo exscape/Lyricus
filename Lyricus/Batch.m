@@ -279,6 +279,9 @@
 }
 
 -(void) loadTracks {
+	if ([self batchDownloaderIsWorking])
+		return;
+	
 	[tracks removeAllObjects];
 	
 	PlaylistObject *playlist = [playlistView itemAtRow:[playlistView selectedRow]];
