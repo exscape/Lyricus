@@ -288,6 +288,9 @@
 		for (iTunesTrack *track in tmpTracks) {
 			// Damnit, TrackObject was *designed* to *not* do this.
 			// However, [iTunes selection] simply won't return us an SBElementArray, yet this works.
+			// It would appear that [iTunes selection] returns an SBObject with nothing more than a description, until
+			// "get" is called, and the new result is an NSCFArray - that doesn't
+			// have the capability of arrayByApplyingSelector:.
 			[tracks addObject:
 			 [[TrackObject alloc] initWithTrack: track Artist:[track artist] Name: [track name]]
 			 ];
@@ -296,14 +299,13 @@
 	else {
 		SBElementArray *tmpTracks = [[playlist playlist] tracks]; // no [get]
 	
-	
-	NSArray *tmpArtists = [tmpTracks arrayByApplyingSelector:@selector(artist)];
-	NSArray *tmpNames = [tmpTracks arrayByApplyingSelector:@selector(name)];
-	for (int i=0; i < [tmpArtists count]; i++) {
-		[tracks addObject:
-		 [[TrackObject alloc] initWithTrack: [tmpTracks objectAtIndex: i] Artist:[tmpArtists objectAtIndex: i] Name: [tmpNames objectAtIndex: i]]
-		 ];
-	}
+		NSArray *tmpArtists = [tmpTracks arrayByApplyingSelector:@selector(artist)];
+		NSArray *tmpNames = [tmpTracks arrayByApplyingSelector:@selector(name)];
+		for (int i=0; i < [tmpArtists count]; i++) {
+			[tracks addObject:
+			 [[TrackObject alloc] initWithTrack: [tmpTracks objectAtIndex: i] Artist:[tmpArtists objectAtIndex: i] Name: [tmpNames objectAtIndex: i]]
+			 ];
+		}
 	}
 	
 	[trackView reloadData];
@@ -369,6 +371,12 @@
 	[startButton setTitle:@"Stop"];
 	[statusLabel setStringValue:@"Working..."];
 	[startButton setKeyEquivalent:@"\033"]; // Escape
+	
+	if ([[[playlistView itemAtRow:[playlistView selectedRow]] name] isEqualToString:@"iTunes Selection"]) {
+		// Reload tracks, in case the selection changed.
+		// In the case of regular playlists, don't reload for performance reasons.
+		[self loadTracks];
+	}
 	
 	[lyricController updateSiteList];
 	
