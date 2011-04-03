@@ -41,7 +41,6 @@
 		return 0;
 	
 	if (item == nil) {
-		// Return the number of root objects
 		return [[playlists filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"isRootItem = TRUE"]] count];
 	}
 	else {
@@ -78,20 +77,30 @@
 	NSImage *image;
     if ([[tableColumn identifier] isEqualToString: @"PlaylistName"]) 
 	{
-		iTunesESpK kind = [item specialKind];
-		if (kind == iTunesESpKFolder)
-			image = [NSImage imageNamed:@"iTunes-folder.png"];
-		else if (kind == iTunesESpKPartyShuffle)
-			image = [NSImage imageNamed:@"iTunes-DJ.png"];
-		else if (kind == iTunesESpKLibrary)
-			image = [NSImage imageNamed:@"iTunes-library.png"];
+		if ([[item name] isEqualToString:@"iTunes Selection"]) {
+			// Special case
+			image = [NSImage imageNamed:@"iTunes-selection.png"];
+		}
 		else {
-			// This a playlist, smart or regular
-			if ([item smart]) {
-				image = [NSImage imageNamed:@"iTunes-smart.png"];
+			iTunesESpK kind = [item specialKind];
+			if (kind == iTunesESpKFolder)
+				image = [NSImage imageNamed:@"iTunes-folder.png"];
+			else if (kind == iTunesESpKPartyShuffle)
+				image = [NSImage imageNamed:@"iTunes-DJ.png"];
+			else if (kind == iTunesESpKLibrary)
+				image = [NSImage imageNamed:@"iTunes-library.png"];
+			else {
+				// This a playlist, smart or regular
+				if ([item smart]) {
+					
+					//
+					// FIXME
+					//
+					image = [NSImage imageNamed:@"iTunes-smart.png"];
+				}
+				else
+					image = [NSImage imageNamed:@"iTunes-playlist.png"];
 			}
-			else
-				image = [NSImage imageNamed:@"iTunes-playlist.png"];
 		}
 		[(ImageAndTextCell*)cell setImage:image];
 	}
@@ -180,9 +189,17 @@
 
 -(void)repopulatePlaylistView {	
 	[playlists removeAllObjects];
+	
+	int i=0;
 	for (iTunesPlaylist* currentPlaylist in [helper getAllPlaylistsAndFolders]) {
+		i++;
 		PlaylistObject *o = [[PlaylistObject alloc] initWithPlaylist: currentPlaylist];
 		
+		if (i == 2) {
+			// Squeeze in the "iTunes Selection" playlist here
+			[playlists addObject:[[PlaylistObject alloc] initWithName:@"iTunes Selection"]];
+		}
+				
 		// Calling "get" here is crucial - if we don't, the value will NEVER be nil!
 		if ([[currentPlaylist parent] get] != nil) {
 			// Note that since playlists are returned in order,
@@ -201,7 +218,6 @@
 }
 
 -(void) windowDidLoad {
-	
 	NSTableColumn *tableColumn = nil;
 	ImageAndTextCell *imageAndTextCell = nil;
 	
@@ -267,13 +283,27 @@
 	
 	PlaylistObject *playlist = [playlistView itemAtRow:[playlistView selectedRow]];
 	
-	SBElementArray *tmpTracks = [[playlist playlist] tracks]; // no [get]
+	if ([[playlist name] isEqualToString:@"iTunes Selection"]) {
+		NSArray *tmpTracks = [helper getSelectedTracks];		
+		for (iTunesTrack *track in tmpTracks) {
+			// Damnit, TrackObject was *designed* to *not* do this.
+			// However, [iTunes selection] simply won't return us an SBElementArray, yet this works.
+			[tracks addObject:
+			 [[TrackObject alloc] initWithTrack: track Artist:[track artist] Name: [track name]]
+			 ];
+		}
+	}
+	else {
+		SBElementArray *tmpTracks = [[playlist playlist] tracks]; // no [get]
+	
+	
 	NSArray *tmpArtists = [tmpTracks arrayByApplyingSelector:@selector(artist)];
 	NSArray *tmpNames = [tmpTracks arrayByApplyingSelector:@selector(name)];
 	for (int i=0; i < [tmpArtists count]; i++) {
 		[tracks addObject:
 		 [[TrackObject alloc] initWithTrack: [tmpTracks objectAtIndex: i] Artist:[tmpArtists objectAtIndex: i] Name: [tmpNames objectAtIndex: i]]
 		 ];
+	}
 	}
 	
 	[trackView reloadData];
@@ -320,7 +350,6 @@
 
 #pragma mark -
 #pragma mark Misc
-
 
 -(IBAction)goButtonClicked:(id)sender {
 	//

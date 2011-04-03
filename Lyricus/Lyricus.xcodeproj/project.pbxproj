@@ -26,6 +26,7 @@
 		105ED1D9133E326D00A1D988 /* TBLyricSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 105ED1D8133E326D00A1D988 /* TBLyricSite.m */; };
 		107CD7350DAE4833003E0D32 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 107CD7340DAE4833003E0D32 /* icon.icns */; };
 		107D5DCF1340812B00195ABF /* NPReceiptVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 107D5DCE1340812B00195ABF /* NPReceiptVerification.m */; };
+		108095AD1348C16000309279 /* iTunes-selection.png in Resources */ = {isa = PBXBuildFile; fileRef = 108095AC1348C16000309279 /* iTunes-selection.png */; };
 		1093C0481340D4AE00F5BC98 /* iTunes-folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0451340D4AE00F5BC98 /* iTunes-folder.png */; };
 		1093C0491340D4AE00F5BC98 /* iTunes-playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */; };
 		1093C04A1340D4AE00F5BC98 /* iTunes-smart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1093C0471340D4AE00F5BC98 /* iTunes-smart.png */; };
@@ -104,6 +105,7 @@
 		107CD7340DAE4833003E0D32 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		107D5DCD1340812B00195ABF /* NPReceiptVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPReceiptVerification.h; sourceTree = "<group>"; };
 		107D5DCE1340812B00195ABF /* NPReceiptVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPReceiptVerification.m; sourceTree = "<group>"; };
+		108095AC1348C16000309279 /* iTunes-selection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-selection.png"; sourceTree = "<group>"; };
 		1093C0451340D4AE00F5BC98 /* iTunes-folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-folder.png"; sourceTree = "<group>"; };
 		1093C0461340D4AE00F5BC98 /* iTunes-playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-playlist.png"; sourceTree = "<group>"; };
 		1093C0471340D4AE00F5BC98 /* iTunes-smart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-smart.png"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		107B018913488CB000C3EB3A /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				108095AC1348C16000309279 /* iTunes-selection.png */,
 				102E8EF31343AFDB001EE08F /* icon_found.png */,
 				102E8EF41343AFDB001EE08F /* icon_notfound.png */,
 				102E8EF51343AFDB001EE08F /* icon_working.png */,
@@ -406,6 +409,7 @@
 				102E8EF71343AFDB001EE08F /* icon_notfound.png in Resources */,
 				102E8EF81343AFDB001EE08F /* icon_working.png in Resources */,
 				10CA223B1344FC6F00E652B6 /* WelcomeScreen.xib in Resources */,
+				108095AD1348C16000309279 /* iTunes-selection.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

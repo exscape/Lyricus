@@ -36,8 +36,25 @@
 	return self;
 }
 
+- (id)initWithName:(NSString *)inName {
+	// Used for the iTunes Selection item. Ugly? Yes.
+	self = [super init];
+	if (self) {
+		playlist = nil;
+		children = [[NSMutableArray alloc] init];
+		name = inName;
+		specialKind = 0;
+		smart = NO;
+	}
+	
+	return self;
+}
+
 -(BOOL) isRootItem {
-	return ([[playlist parent] get] == nil);
+	if (playlist != nil)
+		return ([[playlist parent] get] == nil);
+	else
+		return YES;
 }
 
 -(void) addChild:(PlaylistObject *)pl {
