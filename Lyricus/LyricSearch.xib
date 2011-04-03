@@ -369,6 +369,7 @@
 								<int key="NSCellFlags2">268436544</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="102061716"/>
+								<string key="NSPlaceholderString">Type lyric here...</string>
 								<reference key="NSControlView" ref="591572090"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<int key="NSTextBezelStyle">1</int>
