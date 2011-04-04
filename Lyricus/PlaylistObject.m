@@ -14,6 +14,7 @@
 @synthesize smart;
 @synthesize specialKind;
 @synthesize expanded;
+@synthesize rootItem;
 
 - (id)init {
 	return nil;
@@ -33,6 +34,11 @@
 		else
 			smart = NO;
 		
+		if ([[pl parent] get] != nil)
+			rootItem = NO;
+		else
+			rootItem = YES;
+		
 		expanded = NO;
 	}
 	
@@ -48,6 +54,7 @@
 		name = inName;
 		specialKind = 0;
 		smart = NO;
+		rootItem = YES;
 		
 		expanded = NO;
 	}
@@ -56,10 +63,7 @@
 }
 
 -(BOOL) isRootItem {
-	if (playlist != nil)
-		return ([[playlist parent] get] == nil);
-	else
-		return YES;
+	return rootItem;
 }
 
 -(void) addChild:(PlaylistObject *)pl {

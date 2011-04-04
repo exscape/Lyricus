@@ -16,6 +16,8 @@
 	iTunesESpK specialKind;
 	
 	BOOL expanded;
+	
+	BOOL rootItem;
     
 }
 - (id)initWithPlaylist:(iTunesPlaylist *)pl;
@@ -27,5 +29,7 @@
 @property (readonly) BOOL smart;
 @property (readonly) iTunesESpK specialKind;
 @property BOOL expanded;
+@property (readonly) BOOL rootItem;
 
 @end
+
