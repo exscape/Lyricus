@@ -3,7 +3,7 @@
 // Copyright (c) 2008-2011, Thomas Backman <serenity@exscape.org>
 // This software is distributed under the terms of the MIT license. For details, see license.txt.
 //
-// Git test #2
+
 #import <Cocoa/Cocoa.h>
 #import "iTunesHelper.h"
 #import "WelcomeScreen.h"
