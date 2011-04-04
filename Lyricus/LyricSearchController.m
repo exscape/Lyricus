@@ -257,7 +257,6 @@
 		// We need this check to make sure that we don't set the track programatically, then try to fetch the search terms
 		NSRange range = [lyrics rangeOfString:[searchTextField stringValue] options:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch];
 		[lyricTextView scrollRangeToVisible:range];
-		[self.window makeFirstResponder:lyricTextView];
 		[lyricTextView setSelectedRange:range];
 		[lyricTextView showFindIndicatorForRange:range];
 	}
