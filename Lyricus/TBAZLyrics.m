@@ -83,8 +83,8 @@
 	@"<a href=\"(http://www.azlyrics.com/\\w/[^.]*\\.html)\" rel=\"external\"><b>.*? lyrics</b>";
 	// CASE SENSITIVE, as "BAND lyrics" is the right link ("BAND LYRICS - <song name>" is not.)
 	
-	NSString *trackURL = [html stringByMatching:regex capture:1L];	
-	return trackURL;	
+	NSString *artistURL = [html stringByMatching:regex capture:1L];	
+	return artistURL;	
 }
 
 -(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)inURL error:(NSError **)error {

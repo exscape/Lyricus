@@ -324,7 +324,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 	NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
     
 	@try {        
-		NSArray *tracks = [helper getTracksForLibraryPlaylist];
+		NSArray *tracks = [[helper getTracksForLibraryPlaylist] copy];
 
 		// Set up the progress indicator
 		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetMaxValue:) withObject:[NSNumber numberWithInt:[tracks count]] waitUntilDone:YES];
@@ -332,6 +332,9 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex 
 		[indexProgressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 		
 		for (iTunesTrack *t in tracks) {
+			if (![helper isiTunesRunning])
+				[[helper iTunesReference] activate];
+
 			[tmpArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:[t artist], @"artist", [t name], @"name", [t lyrics], @"lyrics", nil]];
 			
 			[indexProgressIndicator performSelectorOnMainThread:@selector(thrIncrementBy:) withObject:[NSNumber numberWithDouble:1.0] waitUntilDone:YES];
