@@ -7,6 +7,7 @@
 //
 
 #import "PlaylistOutlineView.h"
+#import "PlaylistObject.h"
 
 
 @implementation PlaylistOutlineView
@@ -40,6 +41,17 @@
 	}
 
 	[super mouseDown:theEvent];
+}
+
+- (void)reloadData;
+{
+	[super reloadData];
+	NSInteger i;
+	for( i = 0; i < [self numberOfRows]; i++ ) {
+		PlaylistObject *item = [self itemAtRow:i];
+		if( [item expanded])
+			[self expandItem:item];
+	}
 }
 
 - (void)dealloc

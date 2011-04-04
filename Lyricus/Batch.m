@@ -121,6 +121,14 @@
 	return nil;
 }
 
+-(void)outlineViewItemDidExpand:(NSNotification *)notification {
+	[[[notification userInfo] valueForKey:@"NSObject"] setExpanded:YES];
+}
+
+-(void)outlineViewItemDidCollapse:(NSNotification *)notification {
+	[[[notification userInfo] valueForKey:@"NSObject"] setExpanded:NO];
+}	
+
 #pragma mark -
 #pragma Misc.
 
@@ -184,12 +192,29 @@
 }
 
 -(void)repopulatePlaylistView {	
+	NSMutableDictionary *prevExpandedItems = [[NSMutableDictionary alloc] init];
+	
+	if (playlists != nil && [playlists count] > 0) {
+		for (PlaylistObject *pl in playlists) {
+			[prevExpandedItems setObject:[NSNumber numberWithBool:[pl expanded]] forKey:[pl name]];
+		}
+	}
+	
 	[playlists removeAllObjects];
+
+	int prevSelectedRow = [playlistView selectedRow];
+	if (prevSelectedRow <= 0)
+		prevSelectedRow = 0;
 	
 	int i=0;
 	for (iTunesPlaylist* currentPlaylist in [helper getAllPlaylistsAndFolders]) {
 		i++;
 		PlaylistObject *o = [[PlaylistObject alloc] initWithPlaylist: currentPlaylist];
+		if ([prevExpandedItems count] > 0) {
+			NSNumber *expandedBool = [prevExpandedItems objectForKey:[o name]];
+			if (expandedBool && [expandedBool boolValue])
+				[o setExpanded:[expandedBool boolValue]];
+		}
 		
 		if (i == 2) {
 			// Squeeze in the "iTunes Selection" playlist here
@@ -211,6 +236,7 @@
 	}
 	
 	[playlistView reloadData];
+	[playlistView selectRowIndexes:[NSIndexSet indexSetWithIndex:prevSelectedRow] byExtendingSelection:NO];
 }
 
 -(void) windowDidLoad {
@@ -223,6 +249,7 @@
 	[tableColumn setDataCell:imageAndTextCell];
 	
 	[playlistView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleSourceList];
+	
 	helper = [iTunesHelper sharediTunesHelper];
 
 	[self repopulatePlaylistView];
@@ -255,6 +282,7 @@
 }
 
 -(void)windowDidBecomeMain:(NSNotification *)notification {
+	[self repopulatePlaylistView];
 	[self loadTracks];
 }
 
@@ -319,6 +347,11 @@
 	}
 	
 	[trackView reloadData];
+	
+	if ([tracks count] > 0)
+		[startButton setEnabled:YES];
+	else
+		[startButton setEnabled:NO];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
@@ -380,21 +413,20 @@
 	[statusLabel setStringValue:@"Working..."];
 	[startButton setKeyEquivalent:@"\033"]; // Escape
 	
-	if ([[[playlistView itemAtRow:[playlistView selectedRow]] name] isEqualToString:@"iTunes Selection"]) {
-		// Reload tracks, in case the selection changed.
-		// In the case of regular playlists, don't reload for performance reasons.
-		[self loadTracks];
-	}
+	// Reload tracks, in case the playlist/selection changed.
+	[self loadTracks];
 	
 	[lyricController updateSiteList];
 	
 	if (tracks == nil || [tracks count] == 0) {
 		// Appears to happen only when iTunes is not running, or when the selected playlist has been deleted
-		[[NSAlert alertWithMessageText:@"The batch downloader cannot start because no tracks were found." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running and that there are tracks in the chosen playlist."] runModal];
+		//		[[NSAlert alertWithMessageText:@"The batch downloader cannot start because no tracks were found." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Make sure that iTunes is running and that there are tracks in the chosen playlist."] runModal];
 		[self setBatchDownloaderIsWorking:NO];
+		[self repopulatePlaylistView];
 		[startButton setTitle:@"Start"];
 		[statusLabel setStringValue:@"Idle"];
 		[startButton setKeyEquivalent:@"\r"];
+		[startButton setEnabled:NO];
 		
 		return;
 	}

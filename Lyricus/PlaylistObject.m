@@ -13,6 +13,7 @@
 @synthesize name;
 @synthesize smart;
 @synthesize specialKind;
+@synthesize expanded;
 
 - (id)init {
 	return nil;
@@ -31,6 +32,8 @@
 		}
 		else
 			smart = NO;
+		
+		expanded = NO;
 	}
 	
 	return self;
@@ -45,6 +48,8 @@
 		name = inName;
 		specialKind = 0;
 		smart = NO;
+		
+		expanded = NO;
 	}
 	
 	return self;

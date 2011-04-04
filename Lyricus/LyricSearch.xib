@@ -58,6 +58,7 @@
 				<string key="NSWindowTitle">Lyricus Lyric Search</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMinSize">{300, 300}</string>
 				<object class="NSView" key="NSWindowView" id="1036285004">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -432,6 +433,7 @@
 					<reference key="NSNextKeyView" ref="591572090"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
+				<string key="NSMinSize">{300, 322}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
 				<string key="NSFrameAutosaveName">Lyric search</string>
 			</object>

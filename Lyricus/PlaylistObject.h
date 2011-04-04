@@ -14,6 +14,8 @@
 	NSString *name;
 	BOOL smart;
 	iTunesESpK specialKind;
+	
+	BOOL expanded;
     
 }
 - (id)initWithPlaylist:(iTunesPlaylist *)pl;
@@ -24,5 +26,6 @@
 @property (retain, readonly) NSString *name;
 @property (readonly) BOOL smart;
 @property (readonly) iTunesESpK specialKind;
+@property BOOL expanded;
 
 @end
