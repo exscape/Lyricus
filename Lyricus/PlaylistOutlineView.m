@@ -42,21 +42,20 @@
 
 	[super mouseDown:theEvent];
 }
-/*
+
 - (void)reloadData;
 {
 	[super reloadData];
-	NSInteger i;
-	NSLog(@"%d rows", [self numberOfRows]);
-	for( i = 0; i < [self numberOfRows]; i++ ) {
+
+	for (NSInteger i = 0; i < [self numberOfRows]; i++ ) {
 		PlaylistObject *item = [self itemAtRow:i];
 		if (item == nil)
 			NSLog(@"nil item!");
-		if( [item expanded])
+		if ([item expanded])
 			[self expandItem:item];
 	}
 }
-*/
+
 - (void)dealloc
 {
     [super dealloc];
