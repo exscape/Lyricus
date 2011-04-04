@@ -50,6 +50,8 @@
 		10E2071B0DABE7CB00F85A9F /* LyricFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2071A0DABE7CB00F85A9F /* LyricFetcher.m */; };
 		10E207700DABED8400F85A9F /* NSTextView+AppendString.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */; };
 		10E495A80DA545B50000E68B /* NSString+ExscapeEdits.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */; };
+		10EA8C83134A0E5500158BBE /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EA8C82134A0E5500158BBE /* About.xib */; };
+		10EA8C87134A0ED200158BBE /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EA8C86134A0ED200158BBE /* AboutController.m */; };
 		10F56A450DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F56A440DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -147,6 +149,9 @@
 		10E2076F0DABED8400F85A9F /* NSTextView+AppendString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+AppendString.m"; sourceTree = "<group>"; };
 		10E495A60DA545B50000E68B /* NSString+ExscapeEdits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ExscapeEdits.h"; sourceTree = "<group>"; };
 		10E495A70DA545B50000E68B /* NSString+ExscapeEdits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ExscapeEdits.m"; sourceTree = "<group>"; };
+		10EA8C82134A0E5500158BBE /* About.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
+		10EA8C85134A0ED200158BBE /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		10EA8C86134A0ED200158BBE /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		10F56A430DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProgressIndicator+ThreadSafeUpdating.h"; sourceTree = "<group>"; };
 		10F56A440DB0C27C00559654 /* NSProgressIndicator+ThreadSafeUpdating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProgressIndicator+ThreadSafeUpdating.m"; sourceTree = "<group>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -194,6 +199,8 @@
 				1095320F0DA12EEB001706FF /* TBUtil.m */,
 				10AEFB150D9FEDCA0088ECDC /* MainController.h */,
 				10AEFB160D9FEDCA0088ECDC /* MainController.m */,
+				10EA8C85134A0ED200158BBE /* AboutController.h */,
+				10EA8C86134A0ED200158BBE /* AboutController.m */,
 				105A37920DA6AFA0007DEFF5 /* SitePriorities.h */,
 				105A37930DA6AFA0007DEFF5 /* SitePriorities.m */,
 			);
@@ -268,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				100E13A80F5E803D001E1347 /* MainMenu.xib */,
+				10EA8C82134A0E5500158BBE /* About.xib */,
 				10DB28190DACB3AB00BF57D3 /* Batch.xib */,
 				1041B7C61333B49F003F4429 /* LyricSearch.xib */,
 				10CA223A1344FC6F00E652B6 /* WelcomeScreen.xib */,
@@ -432,6 +440,7 @@
 				102E8EF81343AFDB001EE08F /* icon_working.png in Resources */,
 				10CA223B1344FC6F00E652B6 /* WelcomeScreen.xib in Resources */,
 				108095AD1348C16000309279 /* iTunes-selection.png in Resources */,
+				10EA8C83134A0E5500158BBE /* About.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +476,7 @@
 				104975401347ADBA00BB4A03 /* LyricTextView.m in Sources */,
 				1080960E1348D90700309279 /* PlaylistOutlineView.m in Sources */,
 				100C33D61349D90500F40464 /* PrioritySplitViewDelegate.m in Sources */,
+				10EA8C87134A0ED200158BBE /* AboutController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 #import "Batch.h"
 #import "LyricSearchController.h"
 #import "LyricTextView.h"
+#import "AboutController.h"
 
 
 @interface MainController : NSObject <NSWindowDelegate, NSTextViewDelegate, NSApplicationDelegate, LyricusDragging> {
@@ -34,11 +35,7 @@
 	IBOutlet NSButton *alwaysOnTop;
 	IBOutlet NSTableView *table;
 	
-	// About window
-	IBOutlet NSWindow *aboutWindow;
-	IBOutlet NSImageView *iconView;
-	IBOutlet NSTextField *aboutVersion;
-	IBOutlet NSTextView *aboutTextView;
+		AboutController *aboutController;
 
 	//
 	// Instance variables
