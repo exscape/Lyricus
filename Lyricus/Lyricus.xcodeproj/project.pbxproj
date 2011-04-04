@@ -35,6 +35,9 @@
 		109532100DA12EEB001706FF /* TBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1095320F0DA12EEB001706FF /* TBUtil.m */; };
 		1095326A0DA1325E001706FF /* TBSongmeanings.m in Sources */ = {isa = PBXBuildFile; fileRef = 109532690DA1325E001706FF /* TBSongmeanings.m */; };
 		109B44C813360BF100CD4A43 /* TBAZLyrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 109B44C713360BF000CD4A43 /* TBAZLyrics.m */; };
+		10A173E21349018300ED05C3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A173E11349018300ED05C3 /* libcrypto.dylib */; };
+		10A173E41349018A00ED05C3 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A173E31349018A00ED05C3 /* IOKit.framework */; };
+		10A173E61349018E00ED05C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A173E51349018E00ED05C3 /* Security.framework */; };
 		10AEFB170D9FEDCA0088ECDC /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AEFB160D9FEDCA0088ECDC /* MainController.m */; };
 		10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */; };
 		10CA22391344F38000E652B6 /* WelcomeScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA22381344F38000E652B6 /* WelcomeScreen.m */; };
@@ -120,6 +123,9 @@
 		109532690DA1325E001706FF /* TBSongmeanings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TBSongmeanings.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		109B44C613360BF000CD4A43 /* TBAZLyrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TBAZLyrics.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		109B44C713360BF000CD4A43 /* TBAZLyrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TBAZLyrics.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		10A173E11349018300ED05C3 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		10A173E31349018A00ED05C3 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		10A173E51349018E00ED05C3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		10AEFB150D9FEDCA0088ECDC /* MainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MainController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		10AEFB160D9FEDCA0088ECDC /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MainController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
@@ -154,6 +160,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10A173E61349018E00ED05C3 /* Security.framework in Frameworks */,
+				10A173E41349018A00ED05C3 /* IOKit.framework in Frameworks */,
+				10A173E21349018300ED05C3 /* libcrypto.dylib in Frameworks */,
 				10D5093413337A70006C0FC7 /* libicucore.dylib in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				10AEFC4B0DA008A90088ECDC /* ScriptingBridge.framework in Frameworks */,
@@ -302,6 +311,9 @@
 		29B97314FDCFA39411CA2CEA /* Lyricreader */ = {
 			isa = PBXGroup;
 			children = (
+				10A173E51349018E00ED05C3 /* Security.framework */,
+				10A173E31349018A00ED05C3 /* IOKit.framework */,
+				10A173E11349018300ED05C3 /* libcrypto.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,

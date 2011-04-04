@@ -1,4 +1,5 @@
-/*//
+/*
+//
 //  NPReceiptVerification.m
 //
 //  Created by Nick Paulson on 1/15/11.
@@ -32,7 +33,7 @@
 #import <Security/CSCommon.h>
 #import <Security/SecStaticCode.h>
 #import <Security/SecRequirement.h>
-
+ 
 #include <openssl/pkcs7.h>
 #include <openssl/objects.h>
 #include <openssl/sha.h>

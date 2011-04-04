@@ -1,4 +1,4 @@
-/*//
+//
 //  NSReceiptVerification.h
 //  Lyricus
 //
@@ -15,4 +15,3 @@
 }
 
 @end
-*/

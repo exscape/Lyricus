@@ -334,8 +334,6 @@
 }
 
 -(void)showBatchDownloader {	
-	//	[statusLabel setStringValue:@"Idle"];	
-	//	[self setBatchDownloaderIsWorking:NO];
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 	[self showWindow:self];
     [self.window makeKeyAndOrderFront:self];
