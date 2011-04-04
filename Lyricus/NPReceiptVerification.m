@@ -1,10 +1,9 @@
-/*
- // Moved git test
- //
 //  NPReceiptVerification.m
 //
 //  Created by Nick Paulson on 1/15/11.
 //	Copyright (c) 2011 Nick Paulson
+//  Modified April 4, 2001, by Thomas Backman
+//  (to make sure the code output is unique, even if the differences are small)
 //
 //	Permission is hereby granted, free of charge, to any person obtaining a copy
 //	of this software and associated documentation files (the "Software"), to deal
@@ -48,7 +47,7 @@
 @end
 
 //These need to be defined for each application and version
-static NSString * const kReceiptBundleVersion = @"1.01";
+static NSString * const kReceiptBundleVersion = @"1.0";
 static NSString * const kReceiptBundleIdentifier = @"org.exscape.Lyricus";
 
 static NSString * const kReceiptBundleIdentiferKey = @"BundleIdentifier";
@@ -92,11 +91,11 @@ static NSString * const kReceiptHashKey = @"Hash";
 							  thec, thep, theSpace, thee, thea, theo, thel, theh, then, ther];
 	anchorString = [anchorString stringByAppendingString:@" generic"];
 	
-    OSStatus status = SecStaticCodeCreateWithPath((CFURLRef)[NSURL fileURLWithPath:appPath], kSecCSDefaultFlags, &staticCode);
-    status = SecRequirementCreateWithString((CFStringRef)anchorString, kSecCSDefaultFlags, &req);
-    status = SecStaticCodeCheckValidity(staticCode, kSecCSDefaultFlags, req);
+    SecStaticCodeCreateWithPath((CFURLRef)[NSURL fileURLWithPath:appPath], kSecCSDefaultFlags, &staticCode);
+	SecRequirementCreateWithString((CFStringRef)anchorString, kSecCSDefaultFlags, &req);
 	
-	if(status != noErr) {
+	if(SecStaticCodeCheckValidity(staticCode, kSecCSDefaultFlags, req) 
+	   != noErr) {
 		exit(173);
 		pool = (NSAutoreleasePool *)1;
 	}
@@ -472,4 +471,3 @@ static NSString * const kReceiptHashKey = @"Hash";
 }
 
 @end
-*/
