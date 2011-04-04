@@ -20,25 +20,25 @@
 }
 
 -(void)awakeFromNib {
-[iconView setImage:[NSApp applicationIconImage]];
-NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-[aboutVersion setStringValue:[@"v" stringByAppendingString:version]];
-
-/* Center the version text */
-[aboutVersion sizeToFit];
-NSRect superFrame = [[aboutVersion superview] frame];
-NSRect versionFrame = [aboutVersion frame];
-versionFrame.origin.x = (superFrame.size.width - versionFrame.size.width) / 2;
-[aboutVersion setFrame:versionFrame];
-
-[aboutTextView setString:
- @"Everything Lyricus:\n"
- @"  Thomas Backman <serenity@exscape.org>\n"
- @"  http://lyricus.exscape.org\n"
- @"\n"
- @"Thanks to:\n"
- @"John Engelhart\n"
- @"  http://regexkit.sourceforge.net"];
+	[iconView setImage:[NSApp applicationIconImage]];
+	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+	[aboutVersion setStringValue:[@"v" stringByAppendingString:version]];
+	
+	/* Center the version text */
+	[aboutVersion sizeToFit];
+	NSRect superFrame = [[aboutVersion superview] frame];
+	NSRect versionFrame = [aboutVersion frame];
+	versionFrame.origin.x = (superFrame.size.width - versionFrame.size.width) / 2;
+	[aboutVersion setFrame:versionFrame];
+	
+	[aboutTextView setString:
+	 @"Everything Lyricus:\n"
+	 @"  Thomas Backman <serenity@exscape.org>\n"
+	 @"  http://lyricus.exscape.org\n"
+	 @"\n"
+	 @"Thanks to:\n"
+	 @"John Engelhart\n"
+	 @"  http://regexkit.sourceforge.net"];
 }
 
 -(IBAction)showRegexKitLicense:(id)sender {
