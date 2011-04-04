@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100C33D61349D90500F40464 /* PrioritySplitViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 100C33D51349D90500F40464 /* PrioritySplitViewDelegate.m */; };
 		100E13AA0F5E803D001E1347 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 100E13A80F5E803D001E1347 /* MainMenu.xib */; };
 		101A926E0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 101A926D0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m */; };
 		101BC6EA133293A20055D720 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 101BC6E9133293A20055D720 /* RegexKitLite.m */; };
@@ -78,6 +79,8 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		100C33D41349D90500F40464 /* PrioritySplitViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrioritySplitViewDelegate.h; sourceTree = "<group>"; };
+		100C33D51349D90500F40464 /* PrioritySplitViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrioritySplitViewDelegate.m; sourceTree = "<group>"; };
 		100E13A90F5E803D001E1347 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		101A926C0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+ExscapeFontFix.h"; sourceTree = "<group>"; };
 		101A926D0DAD3CFD0073BA85 /* NSTextView+ExscapeFontFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+ExscapeFontFix.m"; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 		107B0188134887C400C3EB3A /* View classes */ = {
 			isa = PBXGroup;
 			children = (
+				100C33D41349D90500F40464 /* PrioritySplitViewDelegate.h */,
+				100C33D51349D90500F40464 /* PrioritySplitViewDelegate.m */,
 				101CEE7C1342176900C9A426 /* ImageAndTextCell.h */,
 				1080960C1348D90600309279 /* PlaylistOutlineView.h */,
 				1080960D1348D90700309279 /* PlaylistOutlineView.m */,
@@ -461,6 +466,7 @@
 				10CA22391344F38000E652B6 /* WelcomeScreen.m in Sources */,
 				104975401347ADBA00BB4A03 /* LyricTextView.m in Sources */,
 				1080960E1348D90700309279 /* PlaylistOutlineView.m in Sources */,
+				100C33D61349D90500F40464 /* PrioritySplitViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

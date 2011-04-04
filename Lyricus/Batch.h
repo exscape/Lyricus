@@ -8,6 +8,7 @@
 #import "LyricFetcher.h"
 #import "iTunesHelper.h"
 #import "WelcomeScreen.h"
+#import "PrioritySplitViewDelegate.h"
 
 @interface Batch : NSWindowController <NSWindowDelegate, NSOutlineViewDelegate, NSOutlineViewDataSource, NSTableViewDelegate, NSTableViewDataSource> {
 	NSMutableArray *playlists;
@@ -29,6 +30,9 @@
 	BOOL firstLoad;
 	
 	WelcomeScreen *welcomeScreen;
+	
+	PrioritySplitViewDelegate *splitViewDelegate;
+	IBOutlet NSSplitView *splitView;
 }
 
 -(IBAction) goButtonClicked:(id)sender;

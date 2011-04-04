@@ -245,6 +245,13 @@
 	[startButton setKeyEquivalent:@"\r"];
 	
 	[trackView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
+	
+	splitViewDelegate = [[PrioritySplitViewDelegate alloc] init];
+	[splitView setDelegate:splitViewDelegate];
+	[splitViewDelegate setPriority:1 forViewAtIndex:0];
+	[splitViewDelegate setPriority:0 forViewAtIndex:1];
+	[splitViewDelegate setMinimumLength:125 forViewAtIndex:0];
+	[splitViewDelegate setMinimumLength:200 forViewAtIndex:1];
 }
 
 -(void)windowDidBecomeMain:(NSNotification *)notification {
