@@ -13,7 +13,7 @@
 #define kReverseWelcomeText @"This window allows you to search for words in a song text, and find a list of songs that contain them.\n\n" \
 	@"There are three parts to this window.\n" \
 	@"The top field is the search field, where you enter lyrics to search for. Results appear as you type.\n" \
-	@"The middle control is the results list; song titles that match the lyric in the above field will show up here.\n" \
+	@"The middle field is the results list; song titles that match the lyric in the above field will show up here.\n" \
 	@"The large text area displays the entire lyrics to the song selected in the above list, and automatically highlights your search terms."
 
 - (id)initWithWindow:(NSWindow *)inWindow {
