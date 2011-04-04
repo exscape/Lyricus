@@ -210,6 +210,10 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10A173E51349018E00ED05C3 /* Security.framework */,
+				10A173E31349018A00ED05C3 /* IOKit.framework */,
+				10A173E11349018300ED05C3 /* libcrypto.dylib */,
+				10D5093313337A70006C0FC7 /* libicucore.dylib */,
 				10AEFC4A0DA008A90088ECDC /* ScriptingBridge.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -324,9 +328,6 @@
 		29B97314FDCFA39411CA2CEA /* Lyricreader */ = {
 			isa = PBXGroup;
 			children = (
-				10A173E51349018E00ED05C3 /* Security.framework */,
-				10A173E31349018A00ED05C3 /* IOKit.framework */,
-				10A173E11349018300ED05C3 /* libcrypto.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -365,7 +366,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				10D5093313337A70006C0FC7 /* libicucore.dylib */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -535,6 +535,7 @@
 				GCC_PREFIX_HEADER = Lyricus_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				"OTHER_CFLAGS[arch=*]" = "-DRKL_BLOCKS=0";
 				PRODUCT_NAME = Lyricus;
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -560,6 +561,7 @@
 				GCC_PREFIX_HEADER = Lyricus_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				"OTHER_CFLAGS[arch=*]" = "-DRKL_BLOCKS=0";
 				PRODUCT_NAME = Lyricus;
 				RUN_CLANG_STATIC_ANALYZER = YES;

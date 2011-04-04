@@ -16,10 +16,9 @@
 	iTunesESpK specialKind;
 	
 	BOOL expanded;
-	
 	BOOL rootItem;
-    
 }
+
 - (id)initWithPlaylist:(iTunesPlaylist *)pl;
 -(void) addChild:(PlaylistObject *)pl;
 
