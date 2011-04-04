@@ -65,7 +65,7 @@
 	if ([self batchDownloaderIsWorking])
 		return NO;
 	
-	return ([item specialKind] != iTunesESpKFolder);
+	return YES;
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
@@ -283,7 +283,7 @@
 
 -(void)windowDidBecomeMain:(NSNotification *)notification {
 	[self repopulatePlaylistView];
-	[self loadTracks];
+	[self loadTracks];	
 }
 
 -(BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
@@ -386,9 +386,9 @@
 	NSInteger state = [[data objectForKey:@"state"] integerValue];
 	TrackObject *track = [data objectForKey:@"track"];
 	
-	[track setState:state];
-	[trackView setNeedsDisplayInRect:[trackView rectOfRow:[tracks indexOfObject:track]]];
-	[trackView scrollRowToVisible:[tracks indexOfObject:track]];
+		[track setState:state];
+		[trackView setNeedsDisplayInRect:[trackView rectOfRow:[tracks indexOfObject:track]]];
+		[trackView scrollRowToVisible:[tracks indexOfObject:track]];
 }
 
 #pragma mark -
@@ -447,18 +447,18 @@
 	
 	thread = [[NSThread alloc] initWithTarget:self selector:@selector(workerThread:) object:nil];
 	[thread start];
-	
 }
+
 -(void)workerThread:(id)unused {
 	int count = 0;
 		
 	if ([tracks count] == 0) {
 		[[NSAlert alertWithMessageText:@"The batch downloader cannot start because the selected playlist is empty." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:
 		  @"If you are using the \"[Selected tracks]\" playlist, make sure the tracks are selected in iTunes."] runModal];
-		[statusLabel setStringValue:@"Idle"];
-		[startButton setTitle:@"Start"];
+		[statusLabel performSelectorOnMainThread:@selector(setStringValue:) withObject:@"Idle" waitUntilDone:YES];
+		[startButton performSelectorOnMainThread:@selector(setTitle:) withObject:@"Start" waitUntilDone:YES];
+		[startButton performSelectorOnMainThread:@selector(setKeyEquivalent:) withObject:@"\r" waitUntilDone:YES];
 		[self setBatchDownloaderIsWorking:NO];
-		[startButton setKeyEquivalent:@"\r"];
 
 		return;
 	}
@@ -476,7 +476,16 @@
 	int lyrics_not_found = 0;
 	int errors_in_a_row = 0; // Used to abort when things appear to be going wrong
 	
+	//	NSDate *prev = nil;
 	for (TrackObject *track in [tracks copy]) {
+/*
+		if (prev) {
+			NSLog(@"%.1f ms", [[NSDate date] timeIntervalSinceDate:prev]);
+		}
+		else
+			prev = [NSDate date];
+ */
+		
 		count++;
 		[statusLabel setStringValue:[NSString stringWithFormat:@"Processing... %d/%u", count, numberOfTracks]];
 		
@@ -490,8 +499,9 @@
 		// Skip all tracks that have already been processed since loading
 		// Note that progress is NOT saved, which is probably closer to a feature than a bug.
 		// (How would the user reset and re-allow a track to be re-downloaded?)
-		if ([track processed])
+		if ([track processed]) {
 			continue;
+		}
 		
 		NSString *lyrics = nil;
 		iTunesTrack *realTrack;
@@ -504,7 +514,10 @@
 			
 			lyrics = [realTrack lyrics];
 		} 
-		@catch (NSException *e) { continue; }
+		@catch (NSException *e) { 
+			NSLog(@"%@", [e reason]); 
+			continue; 
+		}
 		
 			// Set mixed state when we start working
 			[self performSelectorOnMainThread:@selector(setCheckMarkForTrack:) withObject:
@@ -523,7 +536,10 @@
 				
 				continue;
 			}
-		} @catch (NSException *e) { continue; }
+		} 
+		@catch (NSException *e) { 
+			continue; 
+		}
 		
 		NSError *err = nil; // Ignored
 		lyrics = [lyricController fetchLyricsForTrack:[track name] byArtist:[track artist] error:&err];
@@ -531,7 +547,9 @@
 			@try { // Scripting bridge seems to be a bit unstable
 				[realTrack setLyrics:lyrics];
 			} 
-			@catch (NSException *e) { continue; }
+			@catch (NSException *e) { 
+				continue; 
+			}
 			
 			set_lyrics++;
 			errors_in_a_row = 0;
@@ -570,7 +588,8 @@
 		
 	}
 	
-	[self showBatchDownloader];
+	[self performSelectorOnMainThread:@selector(showBatchDownloader) withObject:nil waitUntilDone:YES];
+	
 	[[NSAlert alertWithMessageText:@"Batch download complete" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Finished downloading lyrics for %d tracks.\n\nStatistics:\n"
 	  @"Downloaded lyrics for %d tracks\n"
 	  @"%d tracks already had lyrics set\n"
@@ -579,10 +598,10 @@
 	 runModal];
 	
 restore_settings:
-	[startButton setTitle:@"Start"];
-	[statusLabel setStringValue:@"Idle"];
+	[startButton performSelectorOnMainThread:@selector(setTitle:) withObject:@"Start" waitUntilDone:YES];
+	[statusLabel performSelectorOnMainThread:@selector(setStringValue:) withObject:@"Idle" waitUntilDone:YES];
+	[startButton performSelectorOnMainThread:@selector(setKeyEquivalent:) withObject:@"\r" waitUntilDone:YES];
 	[self setBatchDownloaderIsWorking:NO];
-	[startButton setKeyEquivalent:@"\r"];
 	
 	[progressIndicator performSelectorOnMainThread:@selector(thrSetCurrentValue:) withObject:[NSNumber numberWithInt:0] waitUntilDone:YES];
 	

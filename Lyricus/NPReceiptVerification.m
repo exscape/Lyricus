@@ -136,7 +136,7 @@ static NSString * const kReceiptHashKey = @"Hash";
 		pool = (NSAutoreleasePool *)1;
 	}
 	
-	[pool release];
+	[pool drain];
 }
 
 + (NSData *)appleRootCertificateData {

@@ -34,7 +34,7 @@
 	NSPoint locationinView = [self convertPoint:[theEvent locationInWindow] fromView:[[self window] contentView]];
 	
 	if (NSPointInRect(locationinView, rowRect)) {
-		id /*<NSOutlineViewDelegate>*/ del = [self delegate];
+		id del = [self delegate];
 		if ([del respondsToSelector:@selector(outlineViewSelectionDidChange:)]) {
 			[del outlineViewSelectionDidChange:[NSNotification notificationWithName:@"NSOutlineViewSelectionDidChangeNotification" object:self userInfo:nil]];
 		}
@@ -42,18 +42,21 @@
 
 	[super mouseDown:theEvent];
 }
-
+/*
 - (void)reloadData;
 {
 	[super reloadData];
 	NSInteger i;
+	NSLog(@"%d rows", [self numberOfRows]);
 	for( i = 0; i < [self numberOfRows]; i++ ) {
 		PlaylistObject *item = [self itemAtRow:i];
+		if (item == nil)
+			NSLog(@"nil item!");
 		if( [item expanded])
 			[self expandItem:item];
 	}
 }
-
+*/
 - (void)dealloc
 {
     [super dealloc];
