@@ -27,10 +27,10 @@
 		
 		[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didChangeScreenParameters:)
 													 name: NSApplicationDidChangeScreenParametersNotification object: nil];
-
     }
     return self;
 }
+
 
 -(void)didChangeScreenParameters: (NSNotification *)note {
 	// Make sure the window is still on the screen
@@ -47,6 +47,11 @@
 
 -(void) windowDidLoad {
     [super windowDidLoad];
+	
+	NSButton *zoomButton = [self.window standardWindowButton: NSWindowZoomButton];
+	[zoomButton setEnabled: YES];
+	[zoomButton setTarget: self];
+	[zoomButton setAction: @selector(zoomButtonClicked:)];
 
 	if (! [[NSUserDefaults standardUserDefaults] boolForKey:@"Hide reverse lyric search welcome screen"]) {
 		welcomeScreen = [[WelcomeScreen alloc] initWithText:kReverseWelcomeText owningWindow:self.window delegate:self];
@@ -85,6 +90,10 @@
 	
 	// Dragging destination
 	[lyricTextView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
+}
+
+-(void) zoomButtonClicked:(id)sender {
+#warning FIXME
 }
 
 // LyricTextView delegate method
