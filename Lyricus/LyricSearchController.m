@@ -90,10 +90,89 @@
 	
 	// Dragging destination
 	[lyricTextView registerForDraggedTypes:[NSArray arrayWithObject:kLyricusTrackDragType]];
+	
+	userStateFrame = NSMakeRect(0, 0, 0, 0);
+	zoomButtonReturnToUserState = NO;
+	zoomButtonUsedFirstTime = YES;
 }
 
--(void) zoomButtonClicked:(id)sender {
-#warning FIXME
+
+-(void)windowDidMove:(NSNotification *)note {
+	// Keep track of user changes to the window size, in order to keep the zoom button working as expected
+	if ([note object] == self.window) {
+		userStateFrame = [self.window frame];
+		zoomButtonReturnToUserState = NO;
+	}
+}
+
+-(void) zoomButtonClicked:(id)param {
+	if (zoomButtonReturnToUserState) {
+		[self.window setFrame:userStateFrame display:NO animate:NO];
+		zoomButtonReturnToUserState = NO;
+		return;
+	}
+	else {
+		zoomButtonReturnToUserState = YES; // for the next time
+		if (zoomButtonUsedFirstTime) {
+			// Only save the user state once per session
+			userStateFrame = [self.window frame];
+			zoomButtonUsedFirstTime = NO;
+		}
+		// continue / fall through
+	}
+	
+	NSString *string = [lyricTextView string];
+	if (string == nil || [string length] < 5)
+		return;
+	
+	NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject: [lyricTextView font] forKey: NSFontAttributeName];
+	
+	// Step 1: calculate the widest line in the text
+	
+	NSArray *lines = [string componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\r\n"]];
+	
+	int width = 0;
+	for (NSString *line in lines) {
+		NSSize size = [line sizeWithAttributes:stringAttributes];
+		
+		// This is REALLY ugly, but is needed...
+		size.width *= 1.1;
+		size.width += 10;
+		
+		if (size.width > width) {
+			width = size.width;
+		}
+	}
+	
+	// Step 2: calculate the *height* needed to display the text with a width constrained just enough
+	// for the widest line to fit
+	NSSize constraints = NSMakeSize(width, MAXFLOAT);
+	CGFloat height = [string boundingRectWithSize:constraints options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingDisableScreenFontSubstitution attributes:stringAttributes].size.height + 10;
+	
+	// Force a minimum size
+	if (width < 320)
+		width = 320;
+	if (height < 350)
+		height = 350;
+	
+	NSRect rect = [self.window frame];
+	
+	// Don't resize the window so that the resize strip (bottom right) is outside the screen
+	CGFloat screenWidth = [[NSScreen mainScreen] frame].size.width;
+	if (width > screenWidth)
+		width = screenWidth;
+	
+	// If the window would be displayed partly outside the screen (too much to the right), fix that
+	if (width + rect.origin.x >= screenWidth) {
+		rect.origin.x = screenWidth - width;
+	}
+	
+	// Take the other elements into account
+	width += 20 + 20; // left + right
+	height += 20 + 122; // bottom + top
+	
+	// Resize the window
+	[self.window setFrame: NSMakeRect(rect.origin.x, rect.origin.y, width, height) display:NO animate:YES];	
 }
 
 // LyricTextView delegate method
@@ -115,6 +194,8 @@
 		[matches removeAllObjects];
 		[matches addObject:[NSDictionary dictionaryWithObjectsAndKeys:artist, @"artist", name, @"name", lyrics, @"lyrics", nil]];
 		[trackTableView reloadData];
+		
+		zoomButtonReturnToUserState = NO;
 	}
 	else
 		return NO;
@@ -167,6 +248,8 @@
     
     NSString *lyrics = [track objectForKey:@"lyrics"];
     [lyricTextView setString:lyrics];
+	
+	zoomButtonReturnToUserState = NO;
 
     // Highlight and select the search string
 	NSString *searchString = [searchTextField stringValue];

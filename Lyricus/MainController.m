@@ -111,6 +111,7 @@
 	zoomButtonReturnToUserState = NO; // by default, resize as necessary
 	zoomButtonUsedFirstTime = YES;
 	userStateFrame = NSMakeRect(0, 0, 0, 0);	
+	
 	revertToSavedMenuItemEnabled = NO;
 	
 	// Change the lorem ipsum text to something more useful (or at least something less weird)'

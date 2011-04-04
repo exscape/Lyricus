@@ -21,6 +21,10 @@
     NSMutableArray *matches;
 	
 	WelcomeScreen *welcomeScreen;
+	
+	NSRect userStateFrame;
+	BOOL zoomButtonReturnToUserState;
+	BOOL zoomButtonUsedFirstTime;
 }
 
 -(void) showLyricSearch:(id) sender;

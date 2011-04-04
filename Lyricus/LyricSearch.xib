@@ -444,7 +444,7 @@
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<object class="NSView" key="NSWindowView" id="300709705">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -522,7 +522,6 @@
 						</object>
 					</object>
 					<string key="NSFrame">{{7, 11}, {385, 157}}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="872859683"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -670,9 +669,9 @@
 						<reference key="object" ref="1036285004"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="591572090"/>
 							<reference ref="145175523"/>
 							<reference ref="646588990"/>
+							<reference ref="591572090"/>
 						</object>
 						<reference key="parent" ref="111659245"/>
 					</object>
