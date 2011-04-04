@@ -9,18 +9,7 @@
 #import "PlaylistOutlineView.h"
 #import "PlaylistObject.h"
 
-
 @implementation PlaylistOutlineView
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
 
 -(void)mouseDown:(NSEvent *)theEvent {
 	// Check if the clicked row is the selected row; if so,
