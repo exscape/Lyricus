@@ -158,6 +158,13 @@
         }
         return nil;
     }
+	
+	// Check for "We are not authorized to display these lyrics"... Ugh.
+	// I honestly can't see who gets hurt by allowing people to read song lyrics, but hey... I don't make 
+	// these decisions.
+	
+	if ([html containsString:@"We are not authorized to display these lyrics."])
+		return nil;
     
 	NSString *regex = 
 	@"<!-- end ringtones -->([\\s\\S]*?)<!--ringtones and media links -->";

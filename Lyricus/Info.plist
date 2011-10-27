@@ -28,13 +28,19 @@
 	<string>1.0</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.music</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.6.6</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © Thomas Backman, 2011 - serenity@exscape.org</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>10.6.6</string>
+	<key>SUEnableSystemProfiling</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>http://lyricus.exscape.org/appcast2.php</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
 </dict>
 </plist>

@@ -75,6 +75,14 @@
 									<reference key="NSOnImage" ref="347872383"/>
 									<reference key="NSMixedImage" ref="1007003020"/>
 								</object>
+								<object class="NSMenuItem" id="55070199">
+									<reference key="NSMenu" ref="110575045"/>
+									<string key="NSTitle">Check for Updates...</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="347872383"/>
+									<reference key="NSMixedImage" ref="1007003020"/>
+								</object>
 								<object class="NSMenuItem" id="304266470">
 									<reference key="NSMenu" ref="110575045"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -1258,6 +1266,7 @@
 							<string key="NSFrame">{{166, 12}, {75, 32}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="391153934">
 								<int key="NSCellFlags">67239424</int>
@@ -1287,7 +1296,7 @@
 											<string key="NSFrameSize">{213, 57}</string>
 											<reference key="NSSuperview" ref="744623873"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="279844268"/>
+											<reference key="NSNextKeyView" ref="672621495"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="656321158">
 												<reference key="NSNextResponder" ref="737090811"/>
@@ -1457,7 +1466,7 @@
 							<string key="NSFrame">{{20, 197}, {215, 75}}</string>
 							<reference key="NSSuperview" ref="217934024"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="744623873"/>
+							<reference key="NSNextKeyView" ref="279844268"/>
 							<int key="NSsFlags">2</int>
 							<reference key="NSVScroller" ref="279844268"/>
 							<reference key="NSHScroller" ref="551988961"/>
@@ -1655,6 +1664,9 @@
 						<reference key="NSMixedImage" ref="1007003020"/>
 					</object>
 				</array>
+			</object>
+			<object class="NSCustomObject" id="423754231">
+				<string key="NSClassName">SUUpdater</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -2347,6 +2359,14 @@
 					</object>
 					<int key="connectionID">998</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">checkForUpdates:</string>
+						<reference key="source" ref="423754231"/>
+						<reference key="destination" ref="55070199"/>
+					</object>
+					<int key="connectionID">1002</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -2562,6 +2582,7 @@
 							<reference ref="1046388886"/>
 							<reference ref="1056857174"/>
 							<reference ref="342932134"/>
+							<reference ref="55070199"/>
 						</array>
 						<reference key="parent" ref="694149608"/>
 					</object>
@@ -3275,10 +3296,22 @@
 						<reference key="object" ref="592181174"/>
 						<reference key="parent" ref="720053764"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">999</int>
+						<reference key="object" ref="423754231"/>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1000</int>
+						<reference key="object" ref="55070199"/>
+						<reference key="parent" ref="110575045"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="1000.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<integer value="1" key="1000.ImportedFromIB2"/>
 				<string key="103.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="103.ImportedFromIB2"/>
 				<string key="106.IBEditorWindowLastContentRect">{{433, 286}, {154, 23}}</string>
@@ -3570,12 +3603,13 @@
 					</object>
 				</object>
 				<string key="995.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="999.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">998</int>
+			<int key="maxID">1002</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3675,14 +3709,10 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="aboutTextView">NSTextView</string>
-						<string key="aboutVersion">NSTextField</string>
-						<string key="aboutWindow">NSWindow</string>
 						<string key="alwaysOnTop">NSButton</string>
 						<string key="artistField">NSTextField</string>
 						<string key="editModeMenuItem">NSMenuItem</string>
 						<string key="goButton">NSButton</string>
-						<string key="iconView">NSImageView</string>
 						<string key="lyricView">NSTextView</string>
 						<string key="mainWindow">NSWindow</string>
 						<string key="preferencesWindow">NSWindow</string>
@@ -3693,18 +3723,6 @@
 						<string key="titleField">NSTextField</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="aboutTextView">
-							<string key="name">aboutTextView</string>
-							<string key="candidateClassName">NSTextView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="aboutVersion">
-							<string key="name">aboutVersion</string>
-							<string key="candidateClassName">NSTextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="aboutWindow">
-							<string key="name">aboutWindow</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="alwaysOnTop">
 							<string key="name">alwaysOnTop</string>
 							<string key="candidateClassName">NSButton</string>
@@ -3720,10 +3738,6 @@
 						<object class="IBToOneOutletInfo" key="goButton">
 							<string key="name">goButton</string>
 							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="iconView">
-							<string key="name">iconView</string>
-							<string key="candidateClassName">NSImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="lyricView">
 							<string key="name">lyricView</string>
@@ -3802,6 +3816,36 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NSDocument.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SUUpdater</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">checkForUpdates:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">checkForUpdates:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">checkForUpdates:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">delegate</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">delegate</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">delegate</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SUUpdater.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
