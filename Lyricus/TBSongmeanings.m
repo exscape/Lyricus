@@ -163,12 +163,15 @@
 	// I honestly can't see who gets hurt by allowing people to read song lyrics, but hey... I don't make 
 	// these decisions.
 	
-	if ([html containsString:@"We are not authorized to display these lyrics."])
+	if ([html containsString:@"are not authorized to display these lyrics."])
 		return nil;
     
 	NSString *regex = 
-	@"<!-- end ringtones -->([\\s\\S]*?)<!--ringtones and media links -->";
-    NSMutableString *lyrics = [[html stringByMatching:regex capture:1L] mutableCopy];
+	//	@"<!-- end ringtones -->([\\s\\S]*?)<!--ringtones and media links -->";
+	//@"<div id=\"songText2\" style=\"font-size: 11px;\"class=\"protected\">\\s*\r\n(?:<script type=\"text/javascript\">[\\s\\S]+?</script>)?([\\s\\S]*?)(?:<br/>---<br/>\"[\\s\\S]+\" as written|\\s*<!--ringtones and media links -->)";
+	@"<div id=\"songText2\" style=\"font-size: 11px;\"class=\"protected\">\\s*([\\s\\S]*?)(?:<br/>---<br/>\"[\\s\\S]+\" as written|\\s*<!--ringtones and media links -->)";
+	
+	NSMutableString *lyrics = [[html stringByMatching:regex capture:1L] mutableCopy];
 
     if (lyrics == nil) {
         NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
@@ -178,7 +181,12 @@
         }
         return nil;
     }
+	
+	// Due to a bug(?) in RegexKitLite (?: doesn't appear to work properly, as it still matches...? It works as I intend in RegexBuddy), I couldn't get the JavaScript stub that shows up for SOME lyrics to not match properly, so we need to remove it here...
+	
+	[lyrics replaceOccurrencesOfRegex:@"<script[\\s\\S]+</script>" withString:@""];
 
+	// Clean up HTML tags, especially <br />
     [lyrics replaceOccurrencesOfRegex:@"<[^>]*>" withString:@""];
     return [lyrics stringByTrimmingWhitespace];
 }
