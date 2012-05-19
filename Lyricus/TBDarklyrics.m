@@ -80,7 +80,7 @@
 	// Looks through an artist page (i.e. "http://www.darklyrics.com/d/darktranquillity.html") for the track link
 	//
     NSError *err = nil;
-	NSString *html = [TBUtil getHTMLFromURL:artistURL error:&err];
+	NSString *html = [TBUtil getHTMLFromURLUsingUTF8:artistURL error:&err];
 	if (html == nil) {
         if (err != nil) {
             NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
@@ -93,7 +93,7 @@
     }
     
 	NSString *regex = 
-	@"<a href=\"../([^#]*?)\\#\\d+\">([^<]*?)</a><br />";
+	@"<a href=\"../([^#]*?)\\#\\d+\">([^<]*?)</a><br[^>]*>";
 	
     NSArray *matchArray = [html arrayOfDictionariesByMatchingRegex:regex withKeysAndCaptures:@"url", 1, @"title", 2, nil];
     for (NSDictionary *match in matchArray) {
@@ -119,7 +119,7 @@
 		source = [albumCache objectForKey:url];
 	}
 	else {
-		source = [TBUtil getHTMLFromURL:[NSURL URLWithString:url] error:&err];
+		source = [TBUtil getHTMLFromURLUsingUTF8:[NSURL URLWithString:url] error:&err];
 		if (source)
 			[albumCache setObject:source forKey:url];
 	}

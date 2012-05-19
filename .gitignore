@@ -6,6 +6,8 @@
 *~.nib/
 build/*
 
+*.pem
+
 *.xcodeproj/project.xcworkspace/*
 */*.xcodeproj/project.xcworkspace/*
 

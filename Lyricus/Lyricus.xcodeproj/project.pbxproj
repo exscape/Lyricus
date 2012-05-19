@@ -23,11 +23,11 @@
 		1041B7C71333B49F003F4429 /* LyricSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1041B7C61333B49F003F4429 /* LyricSearch.xib */; };
 		1041B7CA1333B4CA003F4429 /* LyricSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1041B7C91333B4CA003F4429 /* LyricSearchController.m */; };
 		104975401347ADBA00BB4A03 /* LyricTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1049753F1347ADBA00BB4A03 /* LyricTextView.m */; };
+		1050BE291567989500122DC9 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1050BE281567989500122DC9 /* dsa_pub.pem */; };
 		105A37940DA6AFA0007DEFF5 /* SitePriorities.m in Sources */ = {isa = PBXBuildFile; fileRef = 105A37930DA6AFA0007DEFF5 /* SitePriorities.m */; };
 		105ED1D9133E326D00A1D988 /* TBLyricSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 105ED1D8133E326D00A1D988 /* TBLyricSite.m */; };
 		1067D171134F2009006F59B6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1067D170134F2009006F59B6 /* Sparkle.framework */; };
 		1067D174134F217E006F59B6 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1067D173134F217E006F59B6 /* Sparkle.framework */; };
-		1067D176134F232B006F59B6 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 1067D175134F232B006F59B6 /* dsa_pub.pem */; };
 		107CD7350DAE4833003E0D32 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 107CD7340DAE4833003E0D32 /* icon.icns */; };
 		108095AD1348C16000309279 /* iTunes-selection.png in Resources */ = {isa = PBXBuildFile; fileRef = 108095AC1348C16000309279 /* iTunes-selection.png */; };
 		1080960E1348D90700309279 /* PlaylistOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1080960D1348D90700309279 /* PlaylistOutlineView.m */; };
@@ -97,6 +97,7 @@
 		1041B7C91333B4CA003F4429 /* LyricSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LyricSearchController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1049753E1347ADB900BB4A03 /* LyricTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricTextView.h; sourceTree = "<group>"; };
 		1049753F1347ADBA00BB4A03 /* LyricTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LyricTextView.m; sourceTree = "<group>"; };
+		1050BE281567989500122DC9 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		105A37920DA6AFA0007DEFF5 /* SitePriorities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitePriorities.h; sourceTree = "<group>"; };
 		105A37930DA6AFA0007DEFF5 /* SitePriorities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitePriorities.m; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		105ED1D8133E326D00A1D988 /* TBLyricSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLyricSite.m; sourceTree = "<group>"; };
 		1067D170134F2009006F59B6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		1067D173134F217E006F59B6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		1067D175134F232B006F59B6 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		107CD7340DAE4833003E0D32 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		108095AC1348C16000309279 /* iTunes-selection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes-selection.png"; sourceTree = "<group>"; };
 		1080960C1348D90600309279 /* PlaylistOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistOutlineView.h; sourceTree = "<group>"; };
@@ -345,7 +345,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1067D175134F232B006F59B6 /* dsa_pub.pem */,
+				1050BE281567989500122DC9 /* dsa_pub.pem */,
 				107B018A13488CC800C3EB3A /* XIBs */,
 				107B018913488CB000C3EB3A /* Icons */,
 				10CB744C133F68CA00D9FB98 /* help */,
@@ -433,7 +433,7 @@
 				10CA223B1344FC6F00E652B6 /* WelcomeScreen.xib in Resources */,
 				108095AD1348C16000309279 /* iTunes-selection.png in Resources */,
 				10EA8C83134A0E5500158BBE /* About.xib in Resources */,
-				1067D176134F232B006F59B6 /* dsa_pub.pem in Resources */,
+				1050BE291567989500122DC9 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +514,7 @@
 		10F664C60DA7A94100D3881C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Thomas Backman";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -543,7 +543,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Thomas Backman";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (

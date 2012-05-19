@@ -32,6 +32,10 @@
 	return [self getHTMLFromURL:url withCharset:NSISOLatin1StringEncoding error:error];
 }
 
++(NSString *)getHTMLFromURLUsingUTF8:(NSURL *)url error:(NSError **)error {
+	return [self getHTMLFromURL:url withCharset:NSUTF8StringEncoding error:error];
+}
+
 +(NSString *)getHTMLFromURL:(NSURL *)url withCharset:(NSStringEncoding)theEncoding error:(NSError **)error {
 	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:10.0];
 	NSHTTPURLResponse *response = nil;
@@ -56,7 +60,8 @@
 	if (data == nil)
 		return nil;
 	
-	return [[NSString alloc] initWithData:data encoding:theEncoding];
+	NSString *ret = [[NSString alloc] initWithData:data encoding:theEncoding];
+	return ret;
 }
 
 @end
