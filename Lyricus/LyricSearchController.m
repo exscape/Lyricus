@@ -9,7 +9,6 @@
 
 @implementation LyricSearchController
 
-//#define kReverseWelcomeText @"text text text text text text text text snart text end"
 #define kReverseWelcomeText @"This window allows you to search for words in a song text, and find a list of songs that contain them.\n\n" \
 	@"There are three parts to this window.\n" \
 	@"The top field is the search field, where you enter lyrics to search for. Results appear as you type.\n" \
@@ -73,11 +72,11 @@
         int diff = (currentTimestamp - indexTimestamp);
         
 		/* Warn if older than one week */
-        if (diff > 86400*7 && ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Disable cache warning"]) {
-            if (
-                [[NSAlert alertWithMessageText:@"The lyric index is out-of-date." defaultButton:@"Update Index Now" alternateButton:@"Ignore" otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal]
-                == NSAlertDefaultReturn) {
+        if (diff > 86400*7 && ! [[NSUserDefaults standardUserDefaults] boolForKey:@"Disable cache warning"] && !tempIgnoreCheckIndex) {
+			NSInteger ret = [[NSAlert alertWithMessageText:@"The lyric index is out-of-date." defaultButton:@"Update Index Now" alternateButton:@"Ignore" otherButton:nil informativeTextWithFormat:@"Your lyric index is more than one week old. If you have added, removed or changed tracks or lyrics since then, the results will be out-of date. Please update your index."] runModal];
+            if (ret == NSAlertDefaultReturn) {
                 [self updateTrackIndex:self];
+				tempIgnoreCheckIndex = NO;
             }
         }
     }

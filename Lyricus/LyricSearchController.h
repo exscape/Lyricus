@@ -8,6 +8,8 @@
 #import "iTunesHelper.h"
 #import "WelcomeScreen.h"
 
+extern BOOL tempIgnoreCheckIndex;
+
 @interface LyricSearchController : NSWindowController {
     IBOutlet NSTextField *searchTextField;
     IBOutlet NSTableView *trackTableView;

@@ -14,6 +14,11 @@
 #warning DISABLE_CACHE ENABLED
 #endif
 
+// Used as a hack: when the "update reverse search index" menu item is pressed, we should NOT
+// check run the index age-check on windowDidLoad, or it'll ask whether to update the old index or not... it should
+// simply start updating, no questions asked.
+BOOL tempIgnoreCheckIndex = NO;
+
 #pragma mark -
 #pragma mark Init stuff
 
@@ -1011,6 +1016,7 @@ end_func:
 }
 
 -(IBAction)lyricSearchUpdateIndex:(id) sender {
+	tempIgnoreCheckIndex = YES;
     [self openLyricSearch:sender];
     [lyricSearch updateTrackIndex:sender];
 }
