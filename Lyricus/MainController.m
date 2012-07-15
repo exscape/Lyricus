@@ -527,7 +527,7 @@ BOOL tempIgnoreCheckIndex = NO;
     // First, lets check if iTunes has an entry for this track already
 	iTunesTrack *currentTrack = [helper getTrackForTitle:title byArtist:artist];
 	NSString *iTunesLyrics = [helper getLyricsForTrack:currentTrack];
-#ifndef DISABLE_CACHE
+#if DISABLE_CACHE != 1
 	if (iTunesLyrics != nil && [iTunesLyrics length] > 5) {
 		lyricStr = iTunesLyrics;
 	}
