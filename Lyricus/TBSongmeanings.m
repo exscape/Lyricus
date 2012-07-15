@@ -12,6 +12,9 @@
 -(TBSongmeanings *) init {
     self = [super init];
     if (self) {
+		// Used to temporarily cache artist name -> URL mappings, until program exit only.
+		// Can save time and bandwidth especially for the batch downloader.
+		artistURLCache = [[NSMutableDictionary alloc] init];
 		return self;
 	}
 	return nil;
@@ -70,6 +73,17 @@
 	if (inArtist == nil | [inArtist length] < 1)
 		return nil;
 	
+	if ([artistURLCache objectForKey:inArtist]) {
+		// This URL is in the cache!
+		if ([[artistURLCache objectForKey:inArtist] isEqualToString:@"NONE"]) {
+			// ... unfortunately, it's in the cache because we found nothing the last time.
+			// No point in searching again this soon, so...
+			return nil;
+		}
+		
+		return [artistURLCache objectForKey:inArtist];
+	}
+	
 	NSString *artist = [inArtist stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 	artist = [artist stringByAddingPercentEscapesUsingEncoding:NSISOLatin1StringEncoding];
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:@"http://www.songmeanings.net/query/?query=%@&type=artists", artist]];
@@ -89,8 +103,10 @@
         return nil;
 	}
 
-	if ([html containsString:@"Your query turned up no results."])
+	if ([html containsString:@"Your query turned up no results."]) {
+		[artistURLCache setValue:@"NONE" forKey:inArtist];
 		return nil;
+	}
 	
 	NSString *regex = nil; /* See below */
 	
@@ -113,9 +129,12 @@
 	NSArray *matchArray = [html arrayOfDictionariesByMatchingRegex:regex options:RKLCaseless range:NSMakeRange(0UL,[html length]) error:NULL withKeysAndCaptures:@"id", 1, nil];
 	
 	for (NSDictionary *match in matchArray) {
-		return [NSString stringWithFormat:@"http://www.songmeanings.net/artist/view/songs/%@/", [match objectForKey:@"id"]];
+		NSString *urlString = [NSString stringWithFormat:@"http://www.songmeanings.net/artist/view/songs/%@/", [match objectForKey:@"id"]];
+		[artistURLCache setValue:urlString forKey:inArtist];
+		return urlString;
 	}
 	
+	[artistURLCache setValue:@"NONE" forKey:inArtist];
 	return nil;
 }
 

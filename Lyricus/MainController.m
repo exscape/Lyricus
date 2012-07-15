@@ -9,8 +9,8 @@
 
 @implementation MainController
 
-//#define DISABLE_CACHE 1
-#ifdef DISABLE_CACHE
+#define DISABLE_CACHE 0
+#if DISABLE_CACHE == 1
 #warning DISABLE_CACHE ENABLED
 #endif
 
@@ -543,7 +543,7 @@ BOOL tempIgnoreCheckIndex = NO;
 			if ([[currentTrack artist] isEqualToString:artist] && [[currentTrack name] isEqualToString:title]) {
 				// The above line is to make sure we don't save into the wrong track, in case the currently displayed track isn't the one playing
 				
-				// This needs to be done when the track isn't playing. Otherwise, there will be a (very) noticable pause in the playback when iTunes writes the data to disk.
+				// This needs to be done when the track isn't playing. Otherwise, there will be a (very) noticeable pause in the playback when iTunes writes the data to disk.
 				NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
 									  currentTrack, @"currentTrack",
 									  [NSString stringWithString:lyricStr], @"lyric",

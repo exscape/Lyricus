@@ -154,7 +154,7 @@
 	// If we've checked all titles, something is wrong, since darklyrics provides a list of the lyrics supported to be at this URL. This is likely because the regular expression doesn't match due to site updates.
 
     NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-    [errorDetail setValue:@"Unable to parse lyrics. Please report this to the developer at serenity@exscape.org!" forKey:NSLocalizedDescriptionKey];
+    [errorDetail setValue:@"Unable to parse lyrics at darklyrics. Please report this to the developer at serenity@exscape.org!" forKey:NSLocalizedDescriptionKey];
     if (error != nil) {
         *error = [NSError errorWithDomain:@"org.exscape.Lyricus" code:LyricusLyricParseError userInfo:errorDetail];
     }

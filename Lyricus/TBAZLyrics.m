@@ -62,29 +62,28 @@
 #pragma mark Internal/private
 
 -(NSString *)getURLForArtist:(NSString *) inArtist error:(NSError **)error {
-	NSString *artist = [inArtist stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-	artist = [artist stringByAddingPercentEscapesUsingEncoding:NSISOLatin1StringEncoding];
-	NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://search.azlyrics.com/search.php?q=%@", artist]];
+	NSString *artist = [inArtist copy];
+	// First, make the artist name lowercase and remove all non-chars
+	artist = [[[artist lowercaseString] stringByStrippingNonCharacters]
+			  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	
+	if (artist == nil || [artist length] < 1)
+		return nil;
 
-	NSError *err = nil;
-	NSString *html = [TBUtil getHTMLFromURLUsingUTF8:url error:&err];
-	if (html == nil) {
-        if (err != nil) {
-            NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-            [errorDetail setValue:@"Unable to download lyrics. This could be a problem with your internet connection or the site(s) used." forKey:NSLocalizedDescriptionKey];
-            if (error != nil) {
-                *error = [NSError errorWithDomain:@"org.exscape.Lyricus" code:LyricusHTMLFetchError userInfo:errorDetail];
-            }
-        }
-        return nil;
-    }
+	if ([[artist substringWithRange:NSMakeRange(0, 3)] isEqualToString:@"the"] && [inArtist characterAtIndex:3] == ' ') {
+		// OK, ugly... but it was the easy way around the case-sensitivity problem.
+		// If the name begins with "the" (as a word, not just the three letters as PART of a word), remove that.
+		artist = [artist substringFromIndex:3];
+	}
 	
-	NSString *regex =
-	@"<a href=\"(http://www.azlyrics.com/\\w/[^.]*\\.html)\" rel=\"external\"><b>.*? lyrics</b>";
-	// CASE SENSITIVE, as "BAND lyrics" is the right link ("BAND LYRICS - <song name>" is not.)
+	// Then, create the URL and return it.
 	
-	NSString *artistURL = [html stringByMatching:regex capture:1L];	
-	return artistURL;	
+	if (isdigit([artist characterAtIndex:0])) {
+		// If the artist name begins with a number (i.e 2pac), the URL format is different:
+		return [NSString stringWithFormat:@"http://www.azlyrics.com/19/%@.html", artist];	
+	}
+	else
+		return [NSString stringWithFormat:@"http://www.azlyrics.com/%c/%@.html", [artist characterAtIndex:0], artist];
 }
 
 -(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSString *)inURL error:(NSError **)error {

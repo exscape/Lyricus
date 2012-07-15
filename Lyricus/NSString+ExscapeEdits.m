@@ -59,7 +59,7 @@
 -(NSString *)stringByStrippingNonCharacters {
 	// Remove all noncharacters (usually all except a-z 0-9 _)
 	NSString *str = [NSString stringWithString:self];
-    [str stringByReplacingOccurrencesOfRegex:@"\\W" withString:@""];
+    str = [str stringByReplacingOccurrencesOfRegex:@"\\W" withString:@""];
 	return [str stringByReplacingOccurrencesOfRegex:@"[\\t ]" withString:@""];;
 }
 

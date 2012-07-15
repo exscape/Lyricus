@@ -8,6 +8,7 @@
 #import "TBLyricSite.h"
 
 @interface TBSongmeanings : TBLyricSite {
+	NSMutableDictionary *artistURLCache;
 }
 
 //
