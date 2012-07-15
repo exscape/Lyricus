@@ -61,7 +61,7 @@
 #pragma mark -
 #pragma mark Internal/private
 
--(NSString *)getURLForArtist:(NSString *) artist /* cannot fail, so no &error */ {
+-(NSURL *)getURLForArtist:(NSString *) artist /* cannot fail, so no &error */ {
 	// Easy enough, all URLs seem to be in the form "http://www.darklyrics.com/t/theartistnamegoeshere.html"
 	
 	// First, make the artist name lowercase and remove all non-chars
@@ -72,7 +72,14 @@
 		return nil;
 	
 	// Then, create the URL and return it.
-	return [NSURL URLWithString:[NSString stringWithFormat:@"http://www.darklyrics.com/%c/%@.html", [artist characterAtIndex:0], artist]];
+	
+	if (isdigit([artist characterAtIndex:0])) {
+		// These use a different format: all digits are under /19/.
+		return [NSURL URLWithString:[NSString stringWithFormat:@"http://www.darklyrics.com/19/%@.html", artist]];
+	}
+	else {
+		return [NSURL URLWithString:[NSString stringWithFormat:@"http://www.darklyrics.com/%c/%@.html", [artist characterAtIndex:0], artist]];
+	}
 }
 
 -(NSString *)getLyricURLForTrack:(NSString *)title fromArtistURL:(NSURL *)artistURL error:(NSError **)error {

@@ -31,14 +31,19 @@
 	versionFrame.origin.x = (superFrame.size.width - versionFrame.size.width) / 2;
 	[aboutVersion setFrame:versionFrame];
 	
+	[aboutTextView setFont:[NSFont fontWithName:@"Helvetica" size:13.0]];
 	[aboutTextView setString:
 	 @"Everything Lyricus:\n"
-	 @"  Thomas Backman <serenity@exscape.org>\n"
-	 @"  http://lyricus.exscape.org\n"
+	 @" Thomas Backman\n"
+	 @" serenity@exscape.org\n"
+	 @" http://lyricus.exscape.org\n"
 	 @"\n"
 	 @"Thanks to:\n"
 	 @"John Engelhart\n"
-	 @"  http://regexkit.sourceforge.net"];
+	 @" http://regexkit.sourceforge.net\n"
+	 @"\n"
+	 @"Andy Matuschak and Sparkle contributors\n"
+	 @" http://sparkle.andymatuschak.org"];
 }
 
 -(IBAction)showRegexKitLicense:(id)sender {

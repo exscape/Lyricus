@@ -195,7 +195,7 @@
 	// I honestly can't see who gets hurt by allowing people to read song lyrics, but hey... I don't make 
 	// these decisions.
 	
-	if ([html containsString:@"are not authorized to display these lyrics."])
+	if ([html containsString:@"we are not authorized to display these lyrics"])
 		return nil;
     
 	NSString *regex = 
