@@ -20,6 +20,7 @@
 }
 
 - (id)initWithPlaylist:(iTunesPlaylist *)pl;
+- (id)initWithName:(NSString *)inName;
 -(void) addChild:(PlaylistObject *)pl;
 
 @property (retain, readonly) iTunesPlaylist *playlist;
