@@ -317,6 +317,8 @@
 	if ([self batchDownloaderIsWorking])
 		return;
 	
+	NSMutableArray *oldTracks = [tracks mutableCopy];
+	
 	[tracks removeAllObjects];
 	
 	PlaylistObject *playlist = [playlistView itemAtRow:[playlistView selectedRow]];
@@ -345,6 +347,27 @@
 			 ];
 		}
 	}
+	
+	// Restore the checkmarks if the tracks haven't changed; since the list is reloaded
+	// on window enter and on start, pausing (with stop / start) wouldn't save progress
+	// without this.
+	if ([tracks count] == [oldTracks count]) {
+		for (int i = 0; i < [tracks count]; i++) {
+			// The arrays would be considered equal if the tracks are the same; we do NOT want to look at the
+			// checkmark status, since that should differ
+			if (! ([[[tracks objectAtIndex:i] artist] isEqualToString:[[oldTracks objectAtIndex:i] artist]]
+				&& [[[tracks objectAtIndex:i] name] isEqualToString:[[oldTracks objectAtIndex:i] name]]))
+			{
+				// These two arrays are NOT equal - at least one track (the one that returned false above) has changed
+				goto notequal; // just below
+			}
+		}
+		
+		// If we get here, the two arrays ARE equal.
+		tracks = oldTracks;
+	}
+	
+notequal:
 	
 	[trackView reloadData];
 	
@@ -396,7 +419,7 @@
 
 -(IBAction)goButtonClicked:(id)sender {
 	//
-	// The user clicked "go"
+	// The user clicked "Start" (or "Stop")
 	//
 	
 	// The thread is already running; abort
@@ -431,8 +454,20 @@
 		return;
 	}
 	
-	if ([tracks count] >= 150) {
-		if ([[NSAlert alertWithMessageText:[NSString stringWithFormat:@"There are %d tracks to process. Do you want to continue?", [tracks count]] defaultButton:@"Continue" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"This action may take some time."] runModal] 
+	NSUInteger tracks_done = 0;
+	// Go through the list of tracks backwards, and find the bottom-most processed track.
+	// That way, we can calculate how many tracks are left to process.
+	// This will be 0 unless the user has clicked "stop" and then "start" again.
+	for (int i = [tracks count] - 1; i >= 0; i--) {
+		if ([[tracks objectAtIndex:i] processed]) {
+			// We found the bottom-most track!
+			tracks_done = i + 1;
+			break;
+		}
+	}
+	
+	if ([tracks count] - tracks_done >= 150) {
+		if ([[NSAlert alertWithMessageText:[NSString stringWithFormat:@"There are %d tracks to process. Do you want to continue?", [tracks count] - tracks_done] defaultButton:@"Continue" alternateButton:@"Abort" otherButton:nil informativeTextWithFormat:@"This action may take some time."] runModal] 
 			== NSAlertAlternateReturn) {
 			[self setBatchDownloaderIsWorking:NO];
 			[statusLabel setStringValue:@"Idle"];
