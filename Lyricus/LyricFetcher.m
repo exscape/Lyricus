@@ -52,8 +52,9 @@ static LyricFetcher *sharedLyricFetcher = nil;
 
 -(NSString *)fetchLyricsForTrack:(NSString *)theTrack byArtist:(NSString *)theArtist error:(NSError **)error {
 	
-	if (theTrack && [theTrack containsString:@"(live" ignoringCaseAndDiacritics:YES]) {
+	if (theTrack && ([theTrack containsString:@"(live" ignoringCaseAndDiacritics:YES] || [theTrack containsString:@"(demo" ignoringCaseAndDiacritics:YES])) {
         theTrack = [theTrack stringByReplacingOccurrencesOfRegex:@"(?i)(.*?)\\s*\\(live.*" withString:@"$1"];
+		theTrack = [theTrack stringByReplacingOccurrencesOfRegex:@"(?i)(.*?)\\s*\\(demo.*" withString:@"$1"];
 	}
 	
 	// This should never happen, as there are checks to prevent from saving an empty list. Still...

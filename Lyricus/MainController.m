@@ -986,8 +986,10 @@ end_return:
 	
 	NSString *myTitle = displayedTitle;
 	
-	if ([displayedTitle containsString:@"(live" ignoringCaseAndDiacritics:YES]) {
+	if ([displayedTitle containsString:@"(live" ignoringCaseAndDiacritics:YES] || [displayedTitle containsString:@"(live" ignoringCaseAndDiacritics:YES]) {
 		myTitle = [NSString stringWithString:[displayedTitle stringByReplacingOccurrencesOfRegex:@"(?i)(.*?)\\s*\\(live.*" withString:@"$1"]];
+		myTitle = [NSString stringWithString:[myTitle stringByReplacingOccurrencesOfRegex:@"(?i)(.*?)\\s*\\(demo.*" withString:@"$1"]];
+
 	}
 	
 	NSString *lyricURL = [songmeanings getLyricURLForTrack:myTitle fromArtistURL:artistURL error:&err];
