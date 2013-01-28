@@ -70,7 +70,7 @@
 	if (artist == nil || [artist length] < 1)
 		return nil;
 
-	if ([[artist substringWithRange:NSMakeRange(0, 3)] isEqualToString:@"the"] && [inArtist characterAtIndex:3] == ' ') {
+	if ([artist length] >= 3 && [[artist substringWithRange:NSMakeRange(0, 3)] isEqualToString:@"the"] && [inArtist characterAtIndex:3] == ' ') {
 		// OK, ugly... but it was the easy way around the case-sensitivity problem.
 		// If the name begins with "the" (as a word, not just the three letters as PART of a word), remove that.
 		artist = [artist substringFromIndex:3];
