@@ -202,8 +202,9 @@
 	//	@"<!-- end ringtones -->([\\s\\S]*?)<!--ringtones and media links -->";
 	//@"<div id=\"songText2\" style=\"font-size: 11px;\"class=\"protected\">\\s*\r\n(?:<script type=\"text/javascript\">[\\s\\S]+?</script>)?([\\s\\S]*?)(?:<br/>---<br/>\"[\\s\\S]+\" as written|\\s*<!--ringtones and media links -->)";
 	//@"<div id=\"songText2\" style=\"font-size: 11px;\"class=\"protected\">\\s*([\\s\\S]*?)(?:<br/>---<br/>\"[\\s\\S]+\" as written|\\s*<!--ringtones and media links -->)";
-	@"<div id=\"lyricsblock.{0,3}\">(.*?)</div>"; // At last, an update that makes life *easier*!
-	
+	//	@"<div id=\"lyricsblock.{0,3}\">(.*?)</div>"; // At last, an update that makes life *easier*!
+	@"<div id=\"textblock\"[^>]*>(.*?)</div>";
+
 	NSMutableString *lyrics =[[html stringByMatching:regex options:RKLDotAll inRange:NSMakeRange(0L, [html length]) capture:1L error:NULL] mutableCopy];
 
     if (lyrics == nil) {
